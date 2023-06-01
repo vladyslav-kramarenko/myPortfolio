@@ -191,3 +191,12 @@
         })
     });
 })()
+
+$(document).ready(function () {
+    $(".responsibilities-header").click(function () {
+        $(this).siblings(".responsibilities-list").slideToggle();
+    });
+    $(".achievements-header").click(function () {
+        $(this).siblings(".achievements-list").slideToggle();
+    });
+});

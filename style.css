@@ -379,10 +379,15 @@ section {
 .resume .resume-item h5 {
   font-size: 16px;
   background: #e4edf9;
+  border-radius: 5px;
   padding: 5px 15px;
   display: inline-block;
   font-weight: 600;
   margin-bottom: 10px;
+}
+
+.resume .resume-item h5.clickable:hover {
+  background: var(--decor_color);
 }
 
 .resume .resume-item ul {
@@ -600,4 +605,29 @@ section {
     width: auto;
     padding-right: 20px;
   }
+}
+
+.achievements-list {
+  display: none;
+}
+
+.achievements-header {
+  cursor: pointer;
+}
+
+.responsibilities-list {
+  display: none;
+}
+
+.responsibilities-header {
+  cursor: pointer;
+}
+
+.clickable{
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contacts{
+  font-size: 20px;
 }
