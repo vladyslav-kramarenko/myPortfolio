@@ -1,12 +1,15 @@
-<!--<mat-sidenav-container class="sidenav-container">-->
-<!--  <mat-sidenav #sidenav class="sidenav" mode="over">-->
-    <app-header></app-header>
-<!--  </mat-sidenav>-->
-<!--  <mat-sidenav-content>-->
-<!--    <button mat-button (click)="toggleSidenav()" class="toggle-button">-->
-<!--      <i class="bx bx-menu"></i>-->
-<!--    </button>-->
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #sidenav class="sidenav" mode="over" [opened]="false">
+    <app-sidebar></app-sidebar>
+  </mat-sidenav>
+  <mat-sidenav-content>
+
+    <button (click)="toggleSidenav()" class="toggle-button">
+      <i class="bx bx-menu menu"></i>
+    </button>
+
     <app-main-title></app-main-title>
+
     <main id="main">
       <app-summary></app-summary>
       <app-skills></app-skills>
@@ -15,6 +18,8 @@
       <app-contacts></app-contacts>
       <app-portfolio></app-portfolio>
     </main>
+
     <app-footer></app-footer>
-<!--  </mat-sidenav-content>-->
-<!--</mat-sidenav-container>-->
+
+  </mat-sidenav-content>
+</mat-sidenav-container>

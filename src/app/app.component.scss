@@ -1,3 +1,40 @@
-#main {
-  margin-left: 300px;
+.sidenav {
+  width: 300px;
+  background-color: #333;
+  color: #fff;
 }
+.mat-sidenav-container {
+  height: 100vh;
+  display: flex;
+  z-index: 4;
+}
+
+.mat-drawer {
+  z-index: 2;
+}
+.toggle-button {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  z-index: 3;
+  font-size: 20px;
+  background-color: #111;
+  color: white;
+  border-radius: 50%;
+  border: none;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: box-shadow 0.3s ease, transform 0.1s ease;
+}
+
+.toggle-button:hover {
+  box-shadow: 0 0 15px 0 #ff9800;
+}
+
+.toggle-button:active {
+  transform: scale(0.9); /* Shrinks the button when active (clicked) */
+}
+
