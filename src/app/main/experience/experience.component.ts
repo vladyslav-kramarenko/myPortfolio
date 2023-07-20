@@ -17,13 +17,13 @@ import {animate, group, state, style, transition, trigger} from "@angular/animat
       })),
       transition('open => closed', [
         group([
-          animate('1.5s', style({'max-height': '0px'})),
-          animate('0.5s', style({'opacity': '0'}))
+          animate('0.5s', style({'max-height': '0px'})),
+          animate('0.3s', style({'opacity': '0'}))
         ])
       ]),
       transition('closed => open', [
         group([
-          animate('1.5s', style({'max-height': '1000px'})),
+          animate('0.2s', style({'max-height': '1000px'})),
           animate('0.5s', style({'opacity': '1'}))
         ])
       ]),
@@ -32,8 +32,13 @@ import {animate, group, state, style, transition, trigger} from "@angular/animat
 
 })
 export class ExperienceComponent {
+
+  constructor() {
+    this.expandedState = [];
+  }
+
   logoFolder: string = 'assets/img/logo/';
-  expandedIndex = 0;
+  expandedState: boolean[];
 
   experiences = [
     {
@@ -128,11 +133,12 @@ export class ExperienceComponent {
     }
   ];
 
-  // toggleCollapse(index: number) {
-  //   this.expandedIndex = this.expandedIndex === index ? -1 : index;
-  // }
+  ngOnInit() {
+    // initialize the expandedState array based on the length of experiences
+    this.expandedState = new Array(this.experiences.length).fill(false);
+  }
 
   toggleCollapse(index: number) {
-      this.expandedIndex = index;
+    this.expandedState[index] = !this.expandedState[index];
   }
 }

@@ -1,0 +1,18 @@
+<div class="col-lg-12 skills" data-aos="fade-up" data-aos-delay="100">
+  <div class="container">
+<!--    <h3 class="resume-title">Main Skills</h3>-->
+<!--    <div *ngFor="let skill of mainSkills">-->
+<!--      <h5>{{ skill }}</h5>-->
+<!--    </div>-->
+
+    <h3 class="resume-title">Skills</h3>
+    <div class="resume-item" *ngFor="let skillGroup of skills">
+      <h4 (click)="toggleCollapsed(skillGroup)">{{ skillGroup.category }}</h4>
+      <div *ngIf="!skillGroup.collapsed">
+        <div *ngFor="let skill of skillGroup.skills">
+          <h5>{{ skill }}</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

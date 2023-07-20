@@ -1,0 +1,21 @@
+@import "../../../styles/variables";
+@import "../../../styles/experience-title";
+
+
+.resume-company-info {
+  display: inline-block;
+}
+
+.company-logo {
+  margin: 5px 10px 10px -5px;
+}
+
+.resume-company-name {
+  padding-top: 4px;
+  margin: 0;
+  font-size: 26px;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-family: "Poppins", sans-serif;
+  color: #050d18;
+}
