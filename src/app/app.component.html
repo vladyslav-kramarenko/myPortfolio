@@ -4,19 +4,12 @@
   </mat-sidenav>
   <mat-sidenav-content>
 
-    <button (click)="toggleSidenav()" class="toggle-button">
+    <button (click)="sidenav.toggle()" class="toggle-button">
       <i class="bx bx-menu menu"></i>
     </button>
 
-    <app-main-title></app-main-title>
-
     <main id="main">
-      <app-summary></app-summary>
-      <app-skills></app-skills>
-      <app-experience></app-experience>
-      <app-education></app-education>
-      <app-contacts></app-contacts>
-      <app-portfolio></app-portfolio>
+      <router-outlet></router-outlet>
     </main>
 
     <app-footer></app-footer>

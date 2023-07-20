@@ -1,5 +1,6 @@
 import {Component, ViewChild} from '@angular/core';
 import {MatSidenav} from "@angular/material/sidenav";
+import {SidebarService} from "./shared/sidebar.service";
 
 @Component({
   selector: 'app-root',
@@ -7,10 +8,16 @@ import {MatSidenav} from "@angular/material/sidenav";
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  @ViewChild('sidenav') sidenav!: MatSidenav;
   title = 'portfolio-website';
+  @ViewChild('sidenav') sidenav!: MatSidenav;
 
-  toggleSidenav() {
-    this.sidenav.toggle();
+  constructor(private sidebarService: SidebarService) {}
+
+  ngOnInit() {
+    this.sidebarService.sidenavState$.subscribe(state => {
+      if (state) {
+        this.sidenav.close();
+      }
+    });
   }
 }
