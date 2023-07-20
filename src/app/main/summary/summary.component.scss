@@ -1,11 +1,6 @@
 @import "../../../styles/variables";
 
-.section-title {
-  padding-top: 30px;
-  padding-bottom: 30px;
-}
-
-.section-title h2 {
+h2 {
   font-size: 32px;
   font-weight: bold;
   margin-bottom: 20px;
@@ -14,7 +9,7 @@
   color: $second_color;
 }
 
-.section-title h2::after {
+h2::after {
   content: "";
   position: absolute;
   display: block;
@@ -25,6 +20,6 @@
   left: 0;
 }
 
-.section-title p {
+p {
   margin-bottom: 0;
 }
