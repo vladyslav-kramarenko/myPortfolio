@@ -1,0 +1,24 @@
+<section id="courses" class="resume">
+  <div class="container">
+    <div class="col-lg-12 courses" data-aos="fade-up">
+      <h3 class="resume-title">Courses</h3>
+
+      <div *ngFor="let course of courses" class="resume-item clickable" (click)="toggleCollapse(course)">
+        <h4 class="course-title">
+          {{ course.title }}
+          <i class="bx expand-icon" [ngClass]="{'bx-chevron-up-circle': course.expanded, 'bx-chevron-down-circle': !course.expanded}" aria-hidden="true"></i>
+        </h4>
+        <div *ngIf="course.expanded" [@openClose]="course.expanded ? 'open' : 'closed'">
+          <ul>
+            <li *ngFor="let detail of course.details">
+              <span *ngIf="detail.link; else detailText">
+                <a [href]="detail.link">{{ detail.description }}</a>
+              </span>
+              <ng-template #detailText>{{ detail.description }}</ng-template>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
