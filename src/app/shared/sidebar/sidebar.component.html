@@ -1,10 +1,10 @@
 <header id="sidebar">
   <div class="d-flex flex-column">
     <div class="profile">
-      <img src="assets/img/profile-photo.webp" alt="My_photo" class="img-fluid rounded-circle">
+      <img src="../../../assets/img/profile-photo.webp" alt="My_photo" class="img-fluid rounded-circle">
 
       <h1 class="text-light">
-        <a href="index.html">Vladyslav Kramarenko</a>
+        <a href="../../../index.html">Vladyslav Kramarenko</a>
       </h1>
 
       <div class="social-links mt-3 text-center">
@@ -29,37 +29,49 @@
     <nav id="navbar" class="desktop-menu navbar">
       <ul>
         <li>
-          <a routerLink="/home" routerLinkActive="active" class="nav-link">
+          <a [routerLink]="['/home']" [fragment]="'main-title'" queryParamsHandling="preserve" routerLinkActive="active" class="nav-link" (click)="closeSidenav()">
             <i class="bx bx-home"></i>
             <span>Home</span>
           </a>
         </li>
         <li>
-          <a routerLink="/summary" routerLinkActive="active" class="nav-link">
+          <a [routerLink]="['/home']" [fragment]="'summary'" queryParamsHandling="preserve" routerLinkActive="active" class="nav-link" (click)="closeSidenav()">
             <i class="bx bxs-bookmark"></i>
             <span>Summary</span>
           </a>
         </li>
         <li>
-          <a routerLink="/experience" routerLinkActive="active" class="nav-link">
+          <a [routerLink]="['/home']" [fragment]="'experience'" queryParamsHandling="preserve" routerLinkActive="active" class="nav-link" (click)="closeSidenav()">
             <i class="bx bxs-file"></i>
             <span>Experience</span>
           </a>
         </li>
         <li>
-          <a routerLink="/education" routerLinkActive="active" class="nav-link">
+          <a [routerLink]="['/home']" [fragment]="'education'" routerLinkActive="active" class="nav-link" (click)="closeSidenav()">
             <i class="bx bxs-book"></i>
             <span>Education</span>
           </a>
         </li>
         <li>
-          <a routerLink="/contacts" routerLinkActive="active" class="nav-link">
+          <a [routerLink]="['/home']" [fragment]="'publications'" queryParamsHandling="preserve" routerLinkActive="active" class="nav-link" (click)="closeSidenav()">
+            <i class="bx bxs-news"></i>
+            <span>Publications</span>
+          </a>
+        </li>
+        <li>
+          <a [routerLink]="['/home']" [fragment]="'courses'" queryParamsHandling="preserve" routerLinkActive="active" class="nav-link" (click)="closeSidenav()">
+            <i class="bx bxs-label"></i>
+            <span>Courses</span>
+          </a>
+        </li>
+        <li>
+          <a [routerLink]="['/home']" [fragment]="'contacts'" queryParamsHandling="preserve" routerLinkActive="active" class="nav-link" (click)="closeSidenav()">
             <i class="bx bx-phone"></i>
             <span>Contacts</span>
           </a>
         </li>
         <li>
-          <a routerLink="/portfolio" routerLinkActive="active" class="nav-link">
+          <a [routerLink]="['/home']" [fragment]="'portfolio'" queryParamsHandling="preserve" routerLinkActive="active" class="nav-link" (click)="closeSidenav()">
             <i class="bx bx-paint"></i>
             <span>Portfolio</span>
           </a>
