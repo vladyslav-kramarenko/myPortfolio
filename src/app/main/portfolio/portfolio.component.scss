@@ -1,5 +1,13 @@
 @import "../../../styles/variables";
 
+.resume-title {
+  font-size: 26px;
+  font-weight: 700;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: #050d18;
+}
+
 .portfolio .portfolio-item {
   margin-bottom: 30px;
 }
@@ -105,4 +113,12 @@
 
 .portfolio-details .portfolio-description p {
   padding: 0;
+}
+
+.portfolio-item-title{
+  padding-top: 5px;
+}
+
+.portfolio-item{
+  text-align: center;
 }
