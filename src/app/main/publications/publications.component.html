@@ -1,0 +1,15 @@
+<section id="education" class="resume">
+  <div class="container" data-aos="fade-up">
+    <div class="col-lg-12 courses">
+      <h3 class="resume-title">Publications</h3>
+      <div class="resume-item" *ngFor="let publication of publications">
+        <h4>{{ publication.title }}</h4>
+        <ul>
+          <li>
+            <a [href]="publication.link">{{ publication.description }}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
