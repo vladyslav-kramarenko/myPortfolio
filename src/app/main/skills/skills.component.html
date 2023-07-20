@@ -1,18 +1,20 @@
 <div class="col-lg-12 skills" data-aos="fade-up" data-aos-delay="100">
   <div class="container">
-<!--    <h3 class="resume-title">Main Skills</h3>-->
-<!--    <div *ngFor="let skill of mainSkills">-->
-<!--      <h5>{{ skill }}</h5>-->
-<!--    </div>-->
-
     <h3 class="resume-title">Skills</h3>
-    <div class="resume-item" *ngFor="let skillGroup of skills">
-      <h4 (click)="toggleCollapsed(skillGroup)">{{ skillGroup.category }}</h4>
-      <div *ngIf="!skillGroup.collapsed">
-        <div *ngFor="let skill of skillGroup.skills">
-          <h5>{{ skill }}</h5>
-        </div>
-      </div>
+    <div *ngFor="let skillGroup of skills; let i = index"
+         class="resume-item clickable"
+         (click)="toggleCollapse(i)"
+         [ngClass]="{'bg-light': expandedState[i]}">
+      <h4 class="skill-category">
+        {{ skillGroup.category }}
+        <i class="bx expand-icon"
+           [ngClass]="{'bx-chevron-up-circle':expandedState[i], 'bx-chevron-down-circle': !expandedState[i]}"
+           aria-hidden="true">
+        </i>
+      </h4>
+      <ul class="skill-list" [@openClose]="expandedState[i] ? 'open' : 'closed'">
+        <li *ngFor="let skill of skillGroup.skills">{{ skill }}</li>
+      </ul>
     </div>
   </div>
 </div>

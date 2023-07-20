@@ -1,0 +1,60 @@
+[
+  {
+    "category": "Programming skills",
+    "skills": [
+      "Java",
+      "Python",
+      "JavaScript",
+      "TypeScript",
+      "Angular",
+      "SQL",
+      "XML",
+      "YAML",
+      "HTML",
+      "CSS"
+    ]
+  },
+  {
+    "category": "Frameworks/Tools",
+    "skills": [
+      "Bootstrap",
+      "Git",
+      "Spring Boot",
+      "Spring Security",
+      "Spring MVC",
+      "Hibernate/JPA",
+      "Mockito",
+      "Swagger",
+      "Maven",
+      "Gradle",
+      "JUnit",
+      "SonarQube"
+    ]
+  },
+  {
+    "category": "Methodologies",
+    "skills": [
+      "Agile",
+      "Scrum",
+      "Kanban",
+      "Lean",
+      "TDD",
+      "Waterfall",
+      "TOC"
+    ]
+  },
+  {
+    "category": "Soft skills",
+    "skills": [
+      "Curiosity",
+      "Goal-oriented",
+      "Stress tolerance",
+      "Problem-solving",
+      "Leadership",
+      "Organization",
+      "Customer-centric",
+      "Adaptability",
+      "Flexibility"
+    ]
+  }
+]
