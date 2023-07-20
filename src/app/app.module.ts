@@ -1,40 +1,27 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
-import { MainTitleComponent } from './main-title/main-title.component';
-import { SummaryComponent } from './summary/summary.component';
-import { SkillsComponent } from './skills/skills.component';
-import { ExperienceComponent } from './experience/experience.component';
-import { EducationComponent } from './education/education.component';
-import { ContactsComponent } from './contacts/contacts.component';
-import { PortfolioComponent } from './portfolio/portfolio.component';
-import { FooterComponent } from './footer/footer.component';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import { MatSidenavModule } from '@angular/material/sidenav';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MainModule} from "./main/main.module";
+import {SharedModule} from "./shared/shared.module";
 
 @NgModule({
   declarations: [
-    AppComponent,
-    SidebarComponent,
-    MainTitleComponent,
-    SummaryComponent,
-    SkillsComponent,
-    ExperienceComponent,
-    EducationComponent,
-    ContactsComponent,
-    PortfolioComponent,
-    FooterComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatSidenavModule,
+    MainModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
