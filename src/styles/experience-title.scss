@@ -1,0 +1,135 @@
+@import "variables";
+
+.resume-title {
+  font-size: 26px;
+  font-weight: 700;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: #050d18;
+}
+
+.resume-dates {
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: uppercase;
+  margin-left: 10px;
+}
+
+.resume-item {
+  padding: 0 0 10px 20px;
+  margin-top: -2px;
+  border-left: 2px solid $second_color;
+  position: relative;
+}
+
+.resume-item ul {
+  margin: 0;
+}
+
+.resume-item h4 {
+  line-height: 18px;
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-family: "Poppins", sans-serif;
+  color: #050d18;
+  margin-bottom: 10px;
+
+  &:hover {
+    //background-color: $decor_color;
+    transition: all 0.3s ease;
+  }
+}
+
+.resume-item h5 {
+  font-size: 16px;
+  background: #e4edf9;
+  border-radius: 5px;
+  padding: 5px 15px;
+  display: inline-block;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.resume-item h5.clickable:hover {
+  background: $decor_color;
+}
+
+.resume-item ul {
+  padding-left: 20px;
+}
+
+.resume-item ul li {
+  padding-bottom: 10px;
+}
+
+.resume-item:last-child {
+  padding-bottom: 0;
+}
+
+.resume-item::before {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 50px;
+  left: -9px;
+  top: 0;
+  background: #fff;
+  border: 2px solid $decor_color;
+}
+
+
+
+//
+//
+//.resume-company-info {
+//  display: inline-block;
+//}
+//
+//.company-logo {
+//  margin: 5px 10px 10px -5px;
+//}
+//
+//.resume-company-name {
+//  padding-top: 4px;
+//  margin: 0;
+//  font-size: 26px;
+//  font-weight: 600;
+//  text-transform: uppercase;
+//  font-family: "Poppins", sans-serif;
+//  color: #050d18;
+//}
+
+.achievements-list {
+  animation: roll-down 0.5s ease-in;
+}
+
+@keyframes roll-down {
+  0% {
+    max-height: 0;
+    opacity: 0;
+  }
+  100% {
+    max-height: 500px;
+    opacity: 1;
+  }
+}
+
+.expand-icon {
+  font-size: 1.5rem;
+  transition: all 0.2s ease-in-out;
+  vertical-align: middle;
+  display: inline-flex;
+  align-items: center;
+
+  &:hover {
+    color: $decor_color;
+  }
+}
+
+.clickable {
+  cursor: pointer;
+  border-radius: 0;
+  transition: background-color 0.3s ease;
+}
