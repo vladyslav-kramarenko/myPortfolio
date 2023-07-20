@@ -1,0 +1,34 @@
+[
+  {
+    "degree": "PhD of Computer Science",
+    "degreeLink": "",
+    "university": "O.M. Beketov National University of Urban Economy in Kharkiv",
+    "location": "Kharkiv, Ukraine",
+    "dates": "October 2020 - Current",
+    "description": []
+  },
+  {
+    "degree": "Master of Project Management",
+    "degreeLink": {
+      "url": "img/certificates/masters_diploma.jpg",
+      "title": "Master's diploma"
+    },
+    "university": "National Technical University 'Kharkiv Polytechnic Institute'",
+    "location": "Kharkiv, Ukraine",
+    "dates": "September 2013 - June 2015",
+    "description": [
+      "Implemented a Java-based forecasting software for modeling and predicting scientific and technological development in Ukraine\"s industry, using simulation models and inter-sectoral interactions."
+    ]
+  },
+  {
+    "degree": "Bachelor of Computer Science",
+    "degreeLink": {
+      "url": "img/certificates/bachelor_diploma.pdf",
+      "title": "Bachelor's diploma"
+    },
+    "university": "National Technical University 'Kharkiv Polytechnic Institute'",
+    "location": "Kharkiv, Ukraine",
+    "dates": "September 2009 - June 2013",
+    "description": []
+  }
+]
