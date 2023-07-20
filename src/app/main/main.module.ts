@@ -10,6 +10,9 @@ import {PortfolioComponent} from "./portfolio/portfolio.component";
 import {MainComponent} from './main.component';
 import { CoursesComponent } from './courses/courses.component';
 import { PublicationsComponent } from './publications/publications.component';
+import {RouterLink} from "@angular/router";
+import {LightboxModule} from "ngx-lightbox";
+import {HttpClientModule} from "@angular/common/http";
 
 
 @NgModule({
@@ -26,7 +29,10 @@ import { PublicationsComponent } from './publications/publications.component';
     PublicationsComponent,
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterLink,
+    LightboxModule,
+    HttpClientModule,
   ],
   exports: [
     MainComponent,

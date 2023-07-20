@@ -1,0 +1,156 @@
+[
+  {
+    "id": "moviesApi",
+    "filter": "api",
+    "links": [
+      {
+        "url": "https://github.com/vladyslav-kramarenko/moviesApi",
+        "title": "Api with CRUD operations for movie database"
+      }
+    ],
+    "description":"",
+    "img": "portfolio/moviesApi.webp",
+    "alt": "Movies API",
+    "tags": []
+  },
+  {
+    "id": "Gift-Certificates-system",
+    "filter": "api",
+    "links": [
+      {
+        "url": "https://github.com/vladyslav-kramarenko/GiftCertificatesSystem",
+        "title": "Gift Certificates System API"
+      }
+    ],
+    "description":"",
+    "img": "portfolio/GiftCertificatesSystemApi.webp",
+    "alt": "Gift Certificates System API",
+    "tags": []
+  },
+  {
+    "id": "Just-Cat-Package",
+    "filter": "design",
+    "links": [
+      {
+        "url": "justCatPackage.html",
+        "title": "Just Cat Package Design"
+      }
+    ],
+    "description":"",
+    "img": "portfolio/preview/Just_cat_3-min.webp",
+    "alt": "JustCat Package",
+    "tags": []
+  },
+  {
+    "id": "Just-Cat-Logo",
+    "filter": "design",
+    "links": [
+      {
+        "url": "https://justcat.com.ua/",
+        "title": "Just Cat Logo"
+      }
+    ],
+    "description":"",
+    "img": "logo/JustCatLogo.webp",
+    "alt": "JustCat Logo",
+    "tags": []
+  },
+  {
+    "id": "scratching-post",
+    "filter": "draw",
+    "links": [
+      {
+        "url": "portfolio/scratching_post.skp",
+        "title": "Scratching Post"
+      }
+    ],
+    "description":"",
+    "img": "portfolio/preview/scratching_post-min.webp",
+    "alt": "Scratching Post",
+    "tags": []
+  },
+  {
+    "id": "roller-for-granulator",
+    "filter": "draw",
+    "links": [
+      {
+        "url": "portfolio/roller_for_granulator_400.skp",
+        "title": "Rollers for pellet granulator"
+      }
+    ],
+    "description":"",
+    "img": "portfolio/preview/roller_for_granulator_400-min.webp",
+    "alt": "Rollers for pellet granulator",
+    "tags": []
+  },
+  {
+    "id": "Tic-Tac-Toe-figma",
+    "filter": "design",
+    "links": [
+      {
+        "url": "https://www.figma.com/file/B1GrymQ9gnxy9pNkSYOQHu/Tic-Tac-Toe?node-id=0%3A1",
+        "title": "Tic-Tac-Toe design with Figma"
+      }
+    ],
+    "description":"",
+    "img": "portfolio/preview/tic-tac-toe_web_design.webp",
+    "alt": "Tic-Tac-Toe",
+    "tags": []
+  },
+  {
+    "id": "tax-service",
+    "filter": "web",
+    "links": [
+      {
+        "url": "tax_service.html",
+        "title": "Tax Service"
+      }
+    ],
+    "description":"",
+    "img": "portfolio/tax_service/tax_service_reports.webp",
+    "alt": "Tax Service",
+    "tags": []
+  },
+  {
+    "id": "lagrange",
+    "filter": "web",
+    "links": [
+      {
+        "url": "http://lagrange.kramarenko.info/",
+        "title": "Online function interpolation using Lagrange method"
+      }
+    ],
+    "description":"",
+    "img": "portfolio/lagrange.webp",
+    "alt": "Lagrange",
+    "tags": []
+  },
+  {
+    "id": "tic-tac-toe",
+    "filter": "web",
+    "links": [
+      {
+        "url": "http://tic-tac-toe.kramarenko.info/",
+        "title": "Tic-Tac-Toe"
+      }
+    ],
+    "description":"",
+    "img": "portfolio/tic-tac-toe_web.webp",
+    "alt": "Tic-Tac-Toe",
+    "tags": []
+  },
+  {
+    "id": "cmvi",
+    "filter": "app",
+    "links": [
+      {
+        "url": "https://github.com/vladyslav-kramarenko/CMVI",
+        "title": "App for solving mathematical problems by numerical methods"
+      }
+    ],
+    "description":"",
+    "img": "portfolio/cmvi.webp",
+    "alt": "java app",
+    "tags": []
+  }
+]
