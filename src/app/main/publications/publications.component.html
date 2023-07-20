@@ -3,10 +3,10 @@
     <div class="col-lg-12 courses">
       <h3 class="resume-title">Publications</h3>
       <div class="resume-item" *ngFor="let publication of publications">
-        <h4>{{ publication.title }}</h4>
+        <h4>{{ publication.journal }}</h4>
         <ul>
           <li>
-            <a [href]="publication.link">{{ publication.description }}</a>
+            <a [href]="publication.link.url">{{ publication.link.title }}</a>
           </li>
         </ul>
       </div>
