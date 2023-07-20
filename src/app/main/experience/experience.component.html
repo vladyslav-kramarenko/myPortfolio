@@ -16,13 +16,13 @@
         </h4>
         <div class="resume-company-wrapper d-flex">
           <span class="resume-company-info">
-            <a [href]="exp.link">
-              <img [src]="logoFolder + exp.image" [alt]="exp.imageAlt" height="60" class="company-logo">
+            <a [href]="exp.link.url">
+              <img [src]="logoFolder + exp.image.url" [alt]="exp.image.alt" height="60" class="company-logo">
             </a>
           </span>
           <div class="ml-2">
             <h4 class="resume-company-name">
-              <a [href]="exp.link">{{ exp.company }}</a>
+              <a [href]="exp.link.url">{{ exp.company }}</a>
             </h4>
             <h5>{{ exp.location }}</h5>
           </div>
