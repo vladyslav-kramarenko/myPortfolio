@@ -33,7 +33,6 @@ import {HttpClient} from "@angular/common/http";
   ]
 })
 export class SkillsComponent {
-  mainSkills: string[] = ['Java', 'Spring Boot', 'Hibernate/JPA', 'SQL', 'RESTful API'];
   skills: SkillGroup[] = [];
   expandedState: boolean[];
 

@@ -1,7 +1,6 @@
 @import "../../styles/variables";
 
 .container,
-.d-flex.align-items-center.justify-content-center.vh-100,
 .portfolio-container.mt-5.mx-3 {
   display: block;
 }
@@ -95,11 +94,6 @@
 @media screen and (max-width: 991px) {
   .portfolio-item {
     flex-direction: column-reverse;
-  }
-
-  .vh-100 {
-    min-height: 100vh;
-    height: auto;
   }
 
   .portfolio-container {
