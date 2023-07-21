@@ -7,10 +7,13 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MainModule} from "./main/main.module";
 import {SharedModule} from "./shared/shared.module";
+import {PortfolioItemComponent} from './portfolio-item/portfolio-item.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PortfolioItemComponent
   ],
   imports: [
     BrowserModule,
@@ -18,7 +21,8 @@ import {SharedModule} from "./shared/shared.module";
     BrowserAnimationsModule,
     MatSidenavModule,
     MainModule,
-    SharedModule
+    SharedModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,52 @@
+<div class="d-flex align-items-center justify-content-center">
+  <div *ngIf="portfolioItem" class="portfolio-container mt-5 mx-3">
+
+    <div class="row align-items-start portfolio-item">
+
+      <!-- Image Column -->
+      <div class="col-lg-6 col-md-6 main-image-container d-flex justify-content-center">
+        <img [src]="folder+currentImage?.url" [alt]="currentImage?.alt"
+             class="img-fluid mb-3 portfolio-main-img">
+      </div>
+      <!-- Description Column -->
+      <div class="col-lg-6 col-md-6 ">
+        <h2 class="portfolio-title">{{portfolioItem.title}}</h2>
+
+        <div class="portfolio-description">
+          <H4>Description:</H4>
+          <p>{{portfolioItem.description}}</p>
+        </div>
+
+        <div class="portfolio-links">
+          <H5>Links:</H5>
+          <ul>
+            <li *ngFor="let link of portfolioItem.links">
+              <a [href]="link.url" target="_blank" rel="noopener noreferrer">{{link.title}}</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="portfolio-tags">
+          <H4>Tags:</H4>
+          <ul>
+            <li *ngFor="let tag of portfolioItem.tags" class="portfolio-tag">
+              {{tag}}
+            </li>
+          </ul>
+        </div>
+      </div>
+
+
+    </div>
+
+    <div class="row portfolio-gallery mt-5">
+      <div class="col-6 col-md-3" *ngFor="let image of portfolioItem.images; let i = index">
+        <img [src]="folder + image.url" [alt]="image.alt"
+             class="img-fluid portfolio-gallery-img"
+             (click)="setCurrentImage(image)"
+             [ngClass]="{'current-thumbnail': currentImage === image}">
+      </div>
+    </div>
+
+  </div>
+</div>
