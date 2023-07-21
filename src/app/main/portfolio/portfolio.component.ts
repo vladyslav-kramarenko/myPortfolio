@@ -9,7 +9,7 @@ import {PortfolioItem} from '../../shared/models/IPortfolioItem';
 })
 export class PortfolioComponent {
   activeFilter = '*';
-  folder = '../../../assets/img/';
+  folder = '../../../assets/';
 
   filters = [
     {name: 'All', filter: '*'},

@@ -1,7 +1,7 @@
 <section id="portfolio" class="portfolio section-bg">
   <div class="container">
     <div>
-      <h3  class="resume-title">Portfolio</h3>
+      <h3 class="resume-title">Portfolio</h3>
     </div>
 
     <div class="row">
@@ -23,7 +23,7 @@
           <div class="portfolio-wrapper">
             <div *ngFor="let link of item.links">
               <a [routerLink]="['/portfolio', item.id]" title="{{ link.title }}">
-                <img [src]="folder+item.img" class="img-thumbnail" [alt]="item.alt">
+                <img [src]="folder+item.mainImg.url" class="img-thumbnail" [alt]="item.mainImg.alt">
               </a>
               <p class="portfolio-item-title">{{ link.title }}</p>
             </div>
@@ -31,7 +31,6 @@
         </div>
       </ng-container>
     </div>
-
 
 
   </div>

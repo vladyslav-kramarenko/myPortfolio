@@ -8,9 +8,13 @@
         "title": "Api with CRUD operations for movie database"
       }
     ],
-    "description":"",
-    "img": "portfolio/moviesApi.webp",
-    "alt": "Movies API",
+    "description": "",
+    "mainImg": {
+      "url": "img/portfolio/moviesApi.webp",
+      "alt": "Movies API Screenshot"
+    },
+    "images": [],
+    "title": "Movies API",
     "tags": []
   },
   {
@@ -22,9 +26,13 @@
         "title": "Gift Certificates System API"
       }
     ],
-    "description":"",
-    "img": "portfolio/GiftCertificatesSystemApi.webp",
-    "alt": "Gift Certificates System API",
+    "description": "",
+    "mainImg": {
+      "url": "img/portfolio/GiftCertificatesSystemApi.webp",
+      "alt": "Gift Certificate Api Screenshot"
+    },
+    "images": [],
+    "title": "Gift Certificates System API",
     "tags": []
   },
   {
@@ -32,14 +40,30 @@
     "filter": "design",
     "links": [
       {
-        "url": "justCatPackage.html",
-        "title": "Just Cat Package Design"
+        "url": "https://justcat.com.ua/",
+        "title": "Just Cat Website"
       }
     ],
-    "description":"",
-    "img": "portfolio/preview/Just_cat_3-min.webp",
-    "alt": "JustCat Package",
-    "tags": []
+    "description": "",
+    "mainImg": {
+      "url": "img/portfolio/preview/Just_cat_3-min.webp",
+      "alt": "Just Cat 3kg package"
+    },
+    "images": [
+      {
+        "url": "img/portfolio/just_cat/Just_cat_3.png",
+        "alt": "Just Cat 3kg package"
+      },
+      {
+        "url": "img/portfolio/just_cat/Just_cat_5.png",
+        "alt": "Just Cat 5kg package"
+      }
+    ],
+    "title": "JustCat Package",
+    "tags": [
+      "Photoshop",
+      "Design"
+    ]
   },
   {
     "id": "Just-Cat-Logo",
@@ -47,12 +71,16 @@
     "links": [
       {
         "url": "https://justcat.com.ua/",
-        "title": "Just Cat Logo"
+        "title": "Just Cat Website"
       }
     ],
-    "description":"",
-    "img": "logo/JustCatLogo.webp",
-    "alt": "JustCat Logo",
+    "description": "",
+    "mainImg": {
+      "url": "img/logo/JustCatLogo.webp",
+      "alt": "Just Cat Logo"
+    },
+    "images": [],
+    "title": "JustCat Logo",
     "tags": []
   },
   {
@@ -64,9 +92,13 @@
         "title": "Scratching Post"
       }
     ],
-    "description":"",
-    "img": "portfolio/preview/scratching_post-min.webp",
-    "alt": "Scratching Post",
+    "description": "",
+    "mainImg": {
+      "url": "img/portfolio/preview/scratching_post-min.webp",
+      "alt": "Scratching post image"
+    },
+    "images": [],
+    "title": "Scratching Post",
     "tags": []
   },
   {
@@ -78,9 +110,13 @@
         "title": "Rollers for pellet granulator"
       }
     ],
-    "description":"",
-    "img": "portfolio/preview/roller_for_granulator_400-min.webp",
-    "alt": "Rollers for pellet granulator",
+    "description": "",
+    "mainImg": {
+      "url": "img/portfolio/preview/roller_for_granulator_400-min.webp",
+      "alt": "roller for granulator drawing screenshot"
+    },
+    "images": [],
+    "title": "Rollers for pellet granulator",
     "tags": []
   },
   {
@@ -92,9 +128,13 @@
         "title": "Tic-Tac-Toe design with Figma"
       }
     ],
-    "description":"",
-    "img": "portfolio/preview/tic-tac-toe_web_design.webp",
-    "alt": "Tic-Tac-Toe",
+    "description": "",
+    "mainImg": {
+      "url": "img/portfolio/preview/tic-tac-toe_web_design.webp",
+      "alt": "tic-tac-toe figma screenshot"
+    },
+    "images": [],
+    "title": "Tic-Tac-Toe",
     "tags": []
   },
   {
@@ -106,9 +146,13 @@
         "title": "Tax Service"
       }
     ],
-    "description":"",
-    "img": "portfolio/tax_service/tax_service_reports.webp",
-    "alt": "Tax Service",
+    "description": "",
+    "mainImg": {
+      "url": "img/portfolio/tax_service/tax_service_reports.webp",
+      "alt": "tax service reports page"
+    },
+    "images": [],
+    "title": "Tax Service",
     "tags": []
   },
   {
@@ -120,9 +164,13 @@
         "title": "Online function interpolation using Lagrange method"
       }
     ],
-    "description":"",
-    "img": "portfolio/lagrange.webp",
-    "alt": "Lagrange",
+    "description": "",
+    "mainImg": {
+      "url": "img/portfolio/lagrange.webp",
+      "alt": "Lagrange website screenshot"
+    },
+    "images": [],
+    "title": "Lagrange",
     "tags": []
   },
   {
@@ -134,9 +182,13 @@
         "title": "Tic-Tac-Toe"
       }
     ],
-    "description":"",
-    "img": "portfolio/tic-tac-toe_web.webp",
-    "alt": "Tic-Tac-Toe",
+    "description": "",
+    "mainImg": {
+      "url": "img/portfolio/tic-tac-toe_web.webp",
+      "alt": "tic-tac-toe website screenshot"
+    },
+    "images": [],
+    "title": "Tic-Tac-Toe",
     "tags": []
   },
   {
@@ -148,9 +200,13 @@
         "title": "App for solving mathematical problems by numerical methods"
       }
     ],
-    "description":"",
-    "img": "portfolio/cmvi.webp",
-    "alt": "java app",
+    "description": "",
+    "mainImg": {
+      "url": "img/portfolio/cmvi.webp",
+      "alt": "CMVI app screenshot"
+    },
+    "images": [],
+    "title": "java app",
     "tags": []
   }
 ]
