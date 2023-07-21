@@ -4,7 +4,7 @@ import {MainComponent} from "./main/main.component";
 import {PortfolioItemComponent} from "./portfolio-item/portfolio-item.component";
 
 const routes: Routes = [
-  {path: '', redirectTo: 'home', pathMatch: 'full'},
+  {path: '', component: MainComponent},
   {path: 'home', component: MainComponent},
   {path: 'portfolio/:id', component: PortfolioItemComponent},
 ];
