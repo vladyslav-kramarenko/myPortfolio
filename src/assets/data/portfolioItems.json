@@ -5,20 +5,69 @@
     "links": [
       {
         "url": "https://github.com/vladyslav-kramarenko/moviesApi",
-        "title": "Api with CRUD operations for movie database"
+        "title": "Link to Github project"
       }
     ],
-    "description": "",
+    "description": "Api with CRUD operations for movie database",
     "mainImg": {
       "url": "img/portfolio/moviesApi.webp",
       "alt": "Movies API Screenshot"
     },
-    "images": [],
+    "images": [
+      {
+        "url": "img/portfolio/moviesApi.webp",
+        "alt": "Movies API Screenshot"
+      }
+    ],
     "title": "Movies API",
-    "tags": []
+    "tags": [
+      "Java",
+      "SQL",
+      "Spring Boot"
+    ]
   },
   {
     "id": "Gift-Certificates-system",
+    "filter": "api",
+    "links": [
+      {
+        "url": "http://joycard.kramarenko.info/",
+        "title": "Link to Gift Certificates System Test Website - Joy Card"
+      },
+      {
+        "url": "https://github.com/vladyslav-kramarenko/GiftCertificateSystemAngular",
+        "title": "Link to Github project"
+      }
+    ],
+    "description": "Frontend part of a final project of External Java Lab Course in EPAM System",
+    "mainImg": {
+      "url": "img/portfolio/GiftCertificatesSystemApi.webp",
+      "alt": "Gift Certificate Api Screenshot"
+    },
+    "images": [
+      {
+        "url": "img/portfolio/joycard/joycard-cart.png",
+        "alt": "cart page screenshot"
+      },
+      {
+        "url": "img/portfolio/joycard/joycard-search.png",
+        "alt": "search page screenshot"
+      },
+      {
+        "url": "img/portfolio/joycard/joycard-certificate.png",
+        "alt": "certificate page screenshot"
+      }
+    ],
+    "title": "Gift Certificates System fronted with Angular",
+    "tags": [
+      "Angular",
+      "TypeScript",
+      "Bootstrap",
+      "SCSS"
+    ]
+  },
+  {
+    "id": "Gift-Certificates-system-api",
     "filter": "api",
     "links": [
       {
@@ -31,9 +80,20 @@
       "url": "img/portfolio/GiftCertificatesSystemApi.webp",
       "alt": "Gift Certificate Api Screenshot"
     },
-    "images": [],
+    "images": [
+      {
+        "url": "img/portfolio/GiftCertificatesSystemApi.webp",
+        "alt": "Gift Certificate Api Screenshot"
+      }
+    ],
     "title": "Gift Certificates System API",
-    "tags": []
+    "tags": [
+      "Java",
+      "Spring Boot",
+      "Spring Security",
+      "Hibernate",
+      "MySQL"
+    ]
   },
   {
     "id": "Just-Cat-Package",
@@ -44,7 +104,7 @@
         "title": "Just Cat Website"
       }
     ],
-    "description": "",
+    "description": "Creating a design for new type of packages that will attract new customers and shows out product inside - as it's strong side, for my company Just Cat",
     "mainImg": {
       "url": "img/portfolio/preview/Just_cat_3-min.webp",
       "alt": "Just Cat 3kg package"
@@ -55,11 +115,19 @@
         "alt": "Just Cat 3kg package"
       },
       {
+        "url": "img/portfolio/just_cat/Just_cat_3_full.png",
+        "alt": "Just Cat 5kg package"
+      },
+      {
         "url": "img/portfolio/just_cat/Just_cat_5.png",
+        "alt": "Just Cat 5kg package"
+      },
+      {
+        "url": "img/portfolio/just_cat/Just_cat_5_full.png",
         "alt": "Just Cat 5kg package"
       }
     ],
-    "title": "JustCat Package",
+    "title": "JustCat Package Design",
     "tags": [
       "Photoshop",
       "Design"
@@ -74,50 +142,72 @@
         "title": "Just Cat Website"
       }
     ],
-    "description": "",
+    "description": "Design of a new logo ofr pet branch of my pellet manufacture",
     "mainImg": {
       "url": "img/logo/JustCatLogo.webp",
       "alt": "Just Cat Logo"
     },
-    "images": [],
-    "title": "JustCat Logo",
-    "tags": []
+    "images": [
+      {
+        "url": "img/logo/JustCatLogo.webp",
+        "alt": "Just Cat Logo"
+      }
+    ],
+    "title": "JustCat Logo Design",
+    "tags": [
+      "Photoshop",
+      "Design"
+    ]
   },
   {
     "id": "scratching-post",
     "filter": "draw",
     "links": [
       {
-        "url": "portfolio/scratching_post.skp",
-        "title": "Scratching Post"
+        "url": "assets/img/portfolio/scratching_post.skp",
+        "title": "Download Link to Sketch Up drawing"
       }
     ],
-    "description": "",
+    "description": "Training in drawing - creating a model of scratching post ofr out flat",
     "mainImg": {
       "url": "img/portfolio/preview/scratching_post-min.webp",
       "alt": "Scratching post image"
     },
-    "images": [],
+    "images": [
+      {
+        "url": "img/portfolio/scratching_post.webp",
+        "alt": "Scratching post image"
+      }
+    ],
     "title": "Scratching Post",
-    "tags": []
+    "tags": [
+      "Sketch Up"
+    ]
   },
   {
     "id": "roller-for-granulator",
     "filter": "draw",
     "links": [
       {
-        "url": "portfolio/roller_for_granulator_400.skp",
-        "title": "Rollers for pellet granulator"
+        "url": "assets/img/portfolio/roller_for_granulator_400.skp",
+        "title": "Download Link to Sketch Up drawing"
       }
     ],
-    "description": "",
+    "description": "Created an improved model of rollers for my pellet granulator",
     "mainImg": {
       "url": "img/portfolio/preview/roller_for_granulator_400-min.webp",
       "alt": "roller for granulator drawing screenshot"
     },
-    "images": [],
+    "images": [
+      {
+        "url": "img/portfolio/roller_for_granulator_400.png",
+        "alt": "roller for granulator drawing screenshot"
+      }
+    ],
     "title": "Rollers for pellet granulator",
-    "tags": []
+    "tags": [
+      "Sketch Up"
+    ]
   },
   {
     "id": "Tic-Tac-Toe-figma",
@@ -125,17 +215,24 @@
     "links": [
       {
         "url": "https://www.figma.com/file/B1GrymQ9gnxy9pNkSYOQHu/Tic-Tac-Toe?node-id=0%3A1",
-        "title": "Tic-Tac-Toe design with Figma"
+        "title": "Link to Tic-Tac-Toe design in Figma"
       }
     ],
-    "description": "",
+    "description": "EPAM design training - created copy of tic-tac-tor design from the screenshot",
     "mainImg": {
       "url": "img/portfolio/preview/tic-tac-toe_web_design.webp",
       "alt": "tic-tac-toe figma screenshot"
     },
-    "images": [],
+    "images": [
+      {
+        "url": "img/portfolio/preview/tic-tac-toe_web_design.webp",
+        "alt": "tic-tac-toe figma screenshot"
+      }
+    ],
     "title": "Tic-Tac-Toe",
-    "tags": []
+    "tags": [
+      "Figma"
+    ]
   },
   {
     "id": "tax-service",
@@ -146,14 +243,26 @@
         "title": "Tax Service"
       }
     ],
-    "description": "",
+    "description": "Final project of EPAM Java Spring-Summer 2022 training",
     "mainImg": {
       "url": "img/portfolio/tax_service/tax_service_reports.webp",
       "alt": "tax service reports page"
     },
-    "images": [],
+    "images": [
+      {
+        "url": "img/portfolio/tax_service/tax_service_reports.webp",
+        "alt": "tax service reports page"
+      }
+    ],
     "title": "Tax Service",
-    "tags": []
+    "tags": [
+      "Java",
+      "MySQL",
+      "Servlets",
+      "JavaScript",
+      "HTML",
+      "CSS"
+    ]
   },
   {
     "id": "lagrange",
@@ -161,17 +270,26 @@
     "links": [
       {
         "url": "http://lagrange.kramarenko.info/",
-        "title": "Online function interpolation using Lagrange method"
+        "title": "Link to Lagrange interpolation website"
       }
     ],
-    "description": "",
+    "description": "Online function interpolation using Lagrange method",
     "mainImg": {
       "url": "img/portfolio/lagrange.webp",
       "alt": "Lagrange website screenshot"
     },
-    "images": [],
+    "images": [
+      {
+        "url": "img/portfolio/lagrange.webp",
+        "alt": "Lagrange website screenshot"
+      }
+    ],
     "title": "Lagrange",
-    "tags": []
+    "tags": [
+      "JavaScript",
+      "HTML",
+      "CSS"
+    ]
   },
   {
     "id": "tic-tac-toe",
@@ -182,14 +300,21 @@
         "title": "Tic-Tac-Toe"
       }
     ],
-    "description": "",
+    "description": "EPAM training - creating a simple copy of tic-tac-toe project",
     "mainImg": {
       "url": "img/portfolio/tic-tac-toe_web.webp",
       "alt": "tic-tac-toe website screenshot"
     },
-    "images": [],
+    "images": [
+      {
+        "url": "img/portfolio/tic-tac-toe_web.webp",
+        "alt": "tic-tac-toe website screenshot"
+      }
+    ],
     "title": "Tic-Tac-Toe",
-    "tags": []
+    "tags": [
+      "TypeScript"
+    ]
   },
   {
     "id": "cmvi",
@@ -197,16 +322,24 @@
     "links": [
       {
         "url": "https://github.com/vladyslav-kramarenko/CMVI",
-        "title": "App for solving mathematical problems by numerical methods"
+        "title": "Link to GitHub project"
       }
     ],
-    "description": "",
+    "description": "Application for solving mathematical problems by numerical methods",
     "mainImg": {
       "url": "img/portfolio/cmvi.webp",
       "alt": "CMVI app screenshot"
     },
-    "images": [],
+    "images": [
+      {
+        "url": "img/portfolio/cmvi.webp",
+        "alt": "CMVI app screenshot"
+      }
+    ],
     "title": "java app",
-    "tags": []
+    "tags": [
+      "Java",
+      "Swing"
+    ]
   }
 ]
