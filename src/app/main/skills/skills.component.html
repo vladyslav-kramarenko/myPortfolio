@@ -2,10 +2,9 @@
   <div class="container">
     <h3 class="resume-title">Skills</h3>
     <div *ngFor="let skillGroup of skills; let i = index"
-         class="resume-item clickable"
-         (click)="toggleCollapse(i)"
+         class="resume-item"
          [ngClass]="{'bg-light': expandedState[i]}">
-      <h4 class="skill-category">
+      <h4 class="skill-category clickable" (click)="toggleCollapse(i)">
         {{ skillGroup.category }}
         <i class="bx expand-icon"
            [ngClass]="{'bx-chevron-up-circle':expandedState[i], 'bx-chevron-down-circle': !expandedState[i]}"

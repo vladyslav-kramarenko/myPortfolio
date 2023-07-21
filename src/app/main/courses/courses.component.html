@@ -3,8 +3,8 @@
     <div class="col-lg-12 courses" data-aos="fade-up">
       <h3 class="resume-title">Courses</h3>
 
-      <div *ngFor="let course of courses" class="resume-item clickable" (click)="toggleCollapse(course)">
-        <h4 class="course-title">
+      <div *ngFor="let course of courses" class="resume-item">
+        <h4 class="course-title clickable" (click)="toggleCollapse(course)">
           {{ course.title }}
           <i class="bx expand-icon" [ngClass]="{'bx-chevron-up-circle': course.expanded, 'bx-chevron-down-circle': !course.expanded}" aria-hidden="true"></i>
         </h4>
@@ -12,7 +12,7 @@
           <ul>
             <li *ngFor="let detail of course.links">
               <span *ngIf="detail.url; else detailText">
-                <a [href]="detail.url">{{ detail.title }}</a>
+                <a [href]="detail.url" target="blank">{{ detail.title }}</a>
               </span>
               <ng-template #detailText>{{ detail.title }}</ng-template>
             </li>

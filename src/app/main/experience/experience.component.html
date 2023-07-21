@@ -3,10 +3,10 @@
     <div class="col-lg-12 experience" data-aos="fade-up" data-aos-delay="100">
       <h3 class="resume-title">Professional Experience</h3>
       <div *ngFor="let exp of experiences; let i = index"
-           class="resume-item clickable"
-           (click)="toggleCollapse(i)"
+           class="resume-item"
            [ngClass]="{'bg-light': expandedState[i]}">
-        <h4 class="role-and-dates">
+        <h4 class="role-and-dates clickable"
+            (click)="toggleCollapse(i)">
           {{ exp.role }}
           <span class="resume-dates">({{ exp.dates[0] }} - {{ exp.dates[1] }})</span>
           <i class="bx expand-icon"
@@ -16,13 +16,13 @@
         </h4>
         <div class="resume-company-wrapper d-flex">
           <span class="resume-company-info">
-            <a [href]="exp.link.url">
+            <a [href]="exp.link.url" target="blank">
               <img [src]="logoFolder + exp.image.url" [alt]="exp.image.alt" height="60" class="company-logo">
             </a>
           </span>
           <div class="ml-2">
             <h4 class="resume-company-name">
-              <a [href]="exp.link.url">{{ exp.company }}</a>
+              <a [href]="exp.link.url" target="blank">{{ exp.company }}</a>
             </h4>
             <h5>{{ exp.location }}</h5>
           </div>
