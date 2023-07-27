@@ -18,7 +18,7 @@
         </div>
 
         <div class="portfolio-links">
-          <H5>Links:</H5>
+          <H4>Links:</H4>
           <ul>
             <li *ngFor="let link of portfolioItem.links">
               <a [href]="link.url" target="_blank" rel="noopener noreferrer">{{link.title}}</a>
@@ -27,7 +27,7 @@
         </div>
 
         <div class="portfolio-tags">
-          <H4>Tags:</H4>
+          <H4>Skills:</H4>
           <ul>
             <li *ngFor="let tag of portfolioItem.tags" class="portfolio-tag">
               {{tag}}
