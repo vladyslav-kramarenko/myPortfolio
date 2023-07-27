@@ -1,5 +1,45 @@
 [
   {
+    "id": "Gift-Certificates-system",
+    "filter": "web",
+    "links": [
+      {
+        "url": "http://joycard.kramarenko.info/",
+        "title": "Link to Gift Certificates System Test Website - Joy Card"
+      },
+      {
+        "url": "https://github.com/vladyslav-kramarenko/GiftCertificateSystemAngular",
+        "title": "Link to Github project"
+      }
+    ],
+    "description": "Frontend part of a final project of External Java Lab Course in EPAM System",
+    "mainImg": {
+      "url": "img/portfolio/joycard/joycard-search.png",
+      "alt": "Gift Certificate Api Screenshot"
+    },
+    "images": [
+      {
+        "url": "img/portfolio/joycard/joycard-cart.png",
+        "alt": "cart page screenshot"
+      },
+      {
+        "url": "img/portfolio/joycard/joycard-search.png",
+        "alt": "search page screenshot"
+      },
+      {
+        "url": "img/portfolio/joycard/joycard-certificate.png",
+        "alt": "certificate page screenshot"
+      }
+    ],
+    "title": "Gift Certificates System fronted with Angular",
+    "tags": [
+      "Angular",
+      "TypeScript",
+      "Bootstrap",
+      "SCSS"
+    ]
+  },
+  {
     "id": "moviesApi",
     "filter": "api",
     "links": [
@@ -24,46 +64,6 @@
       "Java",
       "SQL",
       "Spring Boot"
-    ]
-  },
-  {
-    "id": "Gift-Certificates-system",
-    "filter": "api",
-    "links": [
-      {
-        "url": "http://joycard.kramarenko.info/",
-        "title": "Link to Gift Certificates System Test Website - Joy Card"
-      },
-      {
-        "url": "https://github.com/vladyslav-kramarenko/GiftCertificateSystemAngular",
-        "title": "Link to Github project"
-      }
-    ],
-    "description": "Frontend part of a final project of External Java Lab Course in EPAM System",
-    "mainImg": {
-      "url": "img/portfolio/GiftCertificatesSystemApi.webp",
-      "alt": "Gift Certificate Api Screenshot"
-    },
-    "images": [
-      {
-        "url": "img/portfolio/joycard/joycard-cart.png",
-        "alt": "cart page screenshot"
-      },
-      {
-        "url": "img/portfolio/joycard/joycard-search.png",
-        "alt": "search page screenshot"
-      },
-      {
-        "url": "img/portfolio/joycard/joycard-certificate.png",
-        "alt": "certificate page screenshot"
-      }
-    ],
-    "title": "Gift Certificates System fronted with Angular",
-    "tags": [
-      "Angular",
-      "TypeScript",
-      "Bootstrap",
-      "SCSS"
     ]
   },
   {
