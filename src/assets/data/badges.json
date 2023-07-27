@@ -1,0 +1,22 @@
+[
+  {
+    "image": {
+      "url": "wes.png",
+      "alt": "WES badge"
+    },
+    "link": {
+      "url": "https://www.credly.com/badges/38ef85f8-22a0-4a4b-bd96-aa37696cf01c/public_url",
+      "title": "WES"
+    }
+  },
+  {
+    "image": {
+      "url": "aws_cloud_quest.png",
+      "alt": "AWS Cloud Quest Badge"
+    },
+    "link": {
+      "url": "https://www.credly.com/badges/40c7c3b1-c7e5-407d-b433-6bc60dc13f6a/public_url",
+      "title": "AWS Cloud Quest"
+    }
+  }
+]

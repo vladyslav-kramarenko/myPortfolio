@@ -1,27 +1,5 @@
 [
   {
-    "role": "External Java Lab Intern",
-    "company": "EPAM SOFTWARE",
-    "link": {
-      "url": "https://www.epam.com/",
-      "title": ""
-    },
-    "image": {
-      "url": "epam_logo.webp",
-      "alt": "EPAM_logo"
-    },
-    "location": "Ukraine, remote",
-    "dates": [
-      "February 2023",
-      "Present"
-    ],
-    "description": [
-      "Gained hands-on experience in Spring Boot, Spring Security, and Spring MVC frameworks.",
-      "Developed a solid understanding of working with SQL and NoSQL databases and utilizing JPA/Hibernate for data management. Implemented RESTful APIs and utilized services like Auth0 for secure authentication.",
-      "Gained proficiency in working with AWS services (S3, EC2, Lambda, RDS, DynamoDB) to optimize the scalability, reliability, and performance of web applications."
-    ]
-  },
-  {
     "role": "Head of IT Department",
     "company": "ZHYTLOBUD-2 ALC",
     "link": {
@@ -43,6 +21,28 @@
       "Formed a subdivision for the creation of IT infrastructure at construction sites.",
       "Automated document flow for the transport department by integrating the 1C accounting system with concrete node software, GPS vehicle monitoring, and car weights, improving operational efficiency, data accuracy and reducing the data entry period from a month to 1 day.",
       "Integrated the G-Plus CRM System across two countries and company websites, centralizing data management, and incorporating telephony systems, demonstrating proficiency in large-scale system integration."
+    ]
+  },
+  {
+    "role": "External Java Lab Intern",
+    "company": "EPAM SOFTWARE",
+    "link": {
+      "url": "https://www.epam.com/",
+      "title": ""
+    },
+    "image": {
+      "url": "epam_logo.webp",
+      "alt": "EPAM_logo"
+    },
+    "location": "Ukraine, remote",
+    "dates": [
+      "February 2023",
+      "July 2023"
+    ],
+    "description": [
+      "Gained hands-on experience in Spring Boot, Spring Security, and Spring MVC frameworks.",
+      "Developed a solid understanding of working with SQL and NoSQL databases and utilizing JPA/Hibernate for data management. Implemented RESTful APIs and utilized services like Auth0 for secure authentication.",
+      "Gained proficiency in working with AWS services (S3, EC2, Lambda, RDS, DynamoDB) to optimize the scalability, reliability, and performance of web applications."
     ]
   },
   {
