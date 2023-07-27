@@ -80,11 +80,6 @@
     transform: scale(1.2);
     box-shadow: 0 0 20px $decor_color;
   }
-
-  &:active{
-    box-shadow: 0 0 20px $decor_color;
-    transform: scale(0.9);
-  }
 }
 
 .current-thumbnail {
