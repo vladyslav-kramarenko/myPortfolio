@@ -1,25 +1,10 @@
-<div class="section-title summary">
+<div class="section-title summary" *ngIf="summary">
   <div class="container">
     <h2>Summary</h2>
-    <p>
-      Java Developer with over 8 years of versatile software development, IT leadership and business
-      management experience.
-      <br>
-      Proven ability to manage complex projects, with a solid track record of successfully implementing
-      accounting systems, streamlining operational processes, and leading web development initiatives.
-      <br>
-      Adept in several programming languages, including Java, Python, and JavaScript, with hands-on
-      knowledge of frameworks such as Spring Boot, Spring Security, and Hibernate, and experienced
-      utilizing SQL and NoSQL databases, RESTful APIs, and AWS cloud services.
-      <br>
-      Demonstrates strong team management and executive communication skills, complemented by a commitment
-      to market analysis, process enhancement, and customer satisfaction.
-      <br>
-      Known for being an agile, detail-oriented, and innovative professional with a passion for continuous
-      learning and skill enhancement.
-      <br>
-      Seeking a challenging Java Developer role to leverage technical skills and leadership abilities to
-      drive improvement and innovation.
-    </p>
+    <span>
+      <p *ngFor="let paragraph of summary.paragraphs; let isLast=last">
+        {{ paragraph }}<br *ngIf="!isLast">
+      </p>
+    </span>
   </div>
 </div>
