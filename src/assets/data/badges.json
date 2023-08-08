@@ -1,12 +1,42 @@
 [
   {
     "image": {
+      "url": "aws-certified-cloud-practitioner.png",
+      "alt": "AWS Certified Cloud Practitioner Badge"
+    },
+    "link": {
+      "url": "https://www.credly.com/badges/8483cee2-0501-4f8b-88a6-2fbb414b46f0/public_url",
+      "title": "AWS Certified Cloud Practitioner"
+    }
+  },
+  {
+    "image": {
       "url": "aws-knowledge-architecting.png",
       "alt": "AWS Architecting Badge"
     },
     "link": {
       "url": "https://www.credly.com/badges/54aea50d-ab65-47f1-b785-adbd61717c7a/public_url",
       "title": "AWS Knowledge: Architecting"
+    }
+  },
+  {
+    "image": {
+      "url": "aws-knowledge-serverless.png",
+      "alt": "AWS Serverless Badge"
+    },
+    "link": {
+      "url": "https://www.credly.com/badges/79ffdfb8-5797-4249-8ceb-e6c2960a263a/public_url",
+      "title": "AWS Knowledge: Serverless"
+    }
+  },
+  {
+    "image": {
+      "url": "aws-knowledge-file-storage.png",
+      "alt": "AWS File Storage Badge"
+    },
+    "link": {
+      "url": "https://www.credly.com/badges/67ed149e-2e51-4c30-8696-b8936c7498f8/public_url",
+      "title": "AWS Knowledge: File Storage"
     }
   },
   {

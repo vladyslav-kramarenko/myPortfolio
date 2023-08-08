@@ -21,9 +21,22 @@
     "title": "AWS",
     "expanded": false,
     "links": [
+
+      {
+        "url": "https://www.credly.com/badges/8483cee2-0501-4f8b-88a6-2fbb414b46f0/public_url",
+        "title": "AWS Certified Cloud Practitioner (August 2023)"
+      },
       {
         "url": "https://www.credly.com/badges/54aea50d-ab65-47f1-b785-adbd61717c7a/public_url",
         "title": "AWS Knowledge: Architecting (August 2023)"
+      },
+      {
+        "url": "https://www.credly.com/badges/79ffdfb8-5797-4249-8ceb-e6c2960a263a/public_url",
+        "title": "AWS Knowledge: Serverless (August 2023)"
+      },
+      {
+        "url": "https://www.credly.com/badges/67ed149e-2e51-4c30-8696-b8936c7498f8/public_url",
+        "title": "AWS Knowledge: File Storage (August 2023)"
       },
       {
         "url": "https://www.credly.com/badges/bbb98d12-6b25-4a5e-a315-6f5ffd3a29a3/public_url",
