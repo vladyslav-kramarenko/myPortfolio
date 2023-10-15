@@ -13,7 +13,32 @@
   gap: 15px;
 }
 
-.badge {
+.badges-container{
   padding-bottom: 30px;
+}
+
+.badge {
+  padding-top: 15px;
+  padding-bottom: 15px;
   flex: 0 0 auto;
 }
+
+.scroll-container::-webkit-scrollbar {
+  height: 10px;
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+  background-color: $decor_color;
+  border-radius: 6px;
+}
+
+.scroll-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.resume-item h4{
+  border-radius: 6px;
+  padding-left: 5px;
+  padding-top: 2px;
+}
+

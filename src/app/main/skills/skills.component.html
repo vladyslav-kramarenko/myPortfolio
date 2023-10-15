@@ -3,13 +3,17 @@
   <div class="container">
     <h3 class="resume-title">Skills</h3>
 
-    <div class="scroll-container">
+    <div class="badges-container">
+      <div class="scroll-container">
     <span *ngFor="let badge of badges; let i = index"
           class="badge">
       <a [href]="badge.link.url" target="blank">
-        <img class="clickable" height="102" [src]="badgeFolder + badge.image.url" [alt]="badge.image.alt">
+        <img class="clickable rounded" height="153"
+             [src]="badgeFolder + badge.image.url"
+             [alt]="badge.image.alt">
       </a>
     </span>
+      </div>
     </div>
 
     <div *ngFor="let skillGroup of skills; let i = index"
@@ -18,7 +22,10 @@
       <h4 class="skill-category clickable" (click)="toggleCollapse(i)">
         {{ skillGroup.category }}
         <i class="bx expand-icon"
-           [ngClass]="{'bx-chevron-up-circle':expandedState[i], 'bx-chevron-down-circle': !expandedState[i]}"
+           [ngClass]="{
+           'bx-chevron-up-circle':expandedState[i],
+           'bx-chevron-down-circle': !expandedState[i]
+           }"
            aria-hidden="true">
         </i>
       </h4>
