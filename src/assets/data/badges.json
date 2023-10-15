@@ -31,6 +31,26 @@
   },
   {
     "image": {
+      "url": "aws-knowledge-data-protection-disaster-recovery.png",
+      "alt": "AWS Data Protection Disaster Recovery Badge"
+    },
+    "link": {
+      "url": "https://www.credly.com/badges/3b9d2c8e-c5e7-4767-aa8c-07f677c6ebb3/public_url",
+      "title": "AWS Knowledge: File Storage"
+    }
+  },
+  {
+    "image": {
+      "url": "aws-knowledge-data-migration.png",
+      "alt": "AWS Data Migration Badge"
+    },
+    "link": {
+      "url": "https://www.credly.com/badges/91bf6e9a-1c8c-4860-b30c-0dcc76e3a415/public_url",
+      "title": "AWS Knowledge: File Storage"
+    }
+  },
+  {
+    "image": {
       "url": "aws-knowledge-file-storage.png",
       "alt": "AWS File Storage Badge"
     },
