@@ -11,6 +11,16 @@
   },
   {
     "image": {
+      "url": "aws-knowledge-storage-technologist.png",
+      "alt": "AWS Storage Technologist Badge"
+    },
+    "link": {
+      "url": "https://www.credly.com/badges/0e83ed2f-e3d2-420e-bd99-df4b72c08769/public_url",
+      "title": "AWS Knowledge: Storage Technologist"
+    }
+  },
+  {
+    "image": {
       "url": "aws-knowledge-architecting.png",
       "alt": "AWS Architecting Badge"
     },

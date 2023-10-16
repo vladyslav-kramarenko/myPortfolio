@@ -21,7 +21,18 @@
     "title": "AWS",
     "expanded": false,
     "links": [
-
+      {
+        "url": "https://www.credly.com/badges/3b9d2c8e-c5e7-4767-aa8c-07f677c6ebb3/public_url",
+        "title": "AWS Knowledge: Data Protection Disaster Recovery (October 2023)"
+      },
+      {
+        "url": "https://www.credly.com/badges/91bf6e9a-1c8c-4860-b30c-0dcc76e3a415/public_url",
+        "title": "AWS Knowledge: Data Migration (October 2023)"
+      },
+      {
+        "url": "https://www.credly.com/badges/b2674e30-af54-4b38-b1db-fe1d3bec8434/public_url",
+        "title": "AWS Knowledge: Block Storage (October 2023)"
+      },
       {
         "url": "https://www.credly.com/badges/8483cee2-0501-4f8b-88a6-2fbb414b46f0/public_url",
         "title": "AWS Certified Cloud Practitioner (August 2023)"
