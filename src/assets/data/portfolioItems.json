@@ -1,5 +1,33 @@
 [
   {
+    "id": "prolisok",
+    "filter": "web",
+    "links": [
+      {
+        "url": "https://www.prolisok.zhilstroj-2.ua/",
+        "title": "residential complex - PROLISOK"
+      }
+    ],
+    "description": "Landing for Zhytlobud-2 PROLISOK resedential complex with CRM integration",
+    "mainImg": {
+      "url": "img/portfolio/prolisok/prolisok-min.webp",
+      "alt": "residential complex - PROLISOK"
+    },
+    "images": [
+      {
+        "url": "img/portfolio/prolisok/prolisok.webp",
+        "alt": "residential complex - PROLISOK"
+      }
+    ],
+    "title": "Residential Complex - PROLISOK",
+    "tags": [
+      "JavaScript",
+      "Bootstrap",
+      "PHPMailer",
+      "CSS"
+    ]
+  },
+  {
     "id": "Gift-Certificates-system",
     "filter": "web",
     "links": [
@@ -14,20 +42,20 @@
     ],
     "description": "Frontend part of a final project of External Java Lab Course in EPAM System",
     "mainImg": {
-      "url": "img/portfolio/joycard/joycard-search.png",
+      "url": "img/portfolio/joycard/joycard-search.webp",
       "alt": "Gift Certificate Api Screenshot"
     },
     "images": [
       {
-        "url": "img/portfolio/joycard/joycard-cart.png",
+        "url": "img/portfolio/joycard/joycard-cart.webp",
         "alt": "cart page screenshot"
       },
       {
-        "url": "img/portfolio/joycard/joycard-search.png",
+        "url": "img/portfolio/joycard/joycard-search.webp",
         "alt": "search page screenshot"
       },
       {
-        "url": "img/portfolio/joycard/joycard-certificate.png",
+        "url": "img/portfolio/joycard/joycard-certificate.webp",
         "alt": "certificate page screenshot"
       }
     ],
