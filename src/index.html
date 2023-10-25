@@ -7,34 +7,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="assets/img/icon/favicon.png">
   <link rel="apple-touch-icon" href="assets/img/icon/apple-touch-icon.png">
-
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-R991NWN37F"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-R991NWN37F');
-  </script>
-
   <meta name="description"
         content="Versatile Java Developer with extensive experience in Spring Boot, Hibernate, SQL, AWS services, and IT project management. Explore successful software projects, leadership roles, and technical skills on this professional portfolio website.">
   <meta name="keywords"
         content="Kramarenko Vladyslav, Java Developer, Software Engineer, Spring Boot, Hibernate, JPA, SQL, NoSQL, AWS Services, RESTful APIs, IT Project Management, Agile Methodologies, Web Development, Application Development, IT Leadership, Docker, Kubernetes, Git, MySQL, Jira, Postman, TypeScript, JavaScript, HTML, CSS, Bootstrap, Microservices, Mockito, Maven, Gradle, EPAM Systems, ZHYTLOBUD-2 ALC, ECOFUELTRADE LLC, Project Management, National Technical University Kharkiv Polytechnic Institute, Resume, Portfolio">
 
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700|Raleway:400,500,600,700|Poppins:400,500,600,700"
-        rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700|Raleway:400,500,600,700|Poppins:400,500,600,700"
+    rel="stylesheet">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
 </head>
 <body>
+<app-root></app-root>
+
+<script>
+  <!-- Defer loading Google Tag Manager (gtag.js) -->
+  function loadGtag() {
+    var script = document.createElement('script');
+    script.src = "https://www.googletagmanager.com/gtag/js?id=G-R991NWN37F";
+    script.async = true;
+    document.head.appendChild(script);
+  }
+
+  if (window.addEventListener) {
+    window.addEventListener('load', loadGtag, false);
+  } else if (window.attachEvent) {
+    window.attachEvent('onload', loadGtag);
+  }
+</script>
+
 <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WHHTSXV7"
-                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<noscript>
+  <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WHHTSXV7"
+          height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
 <!-- End Google Tag Manager (noscript) -->
-  <app-root></app-root>
 </body>
 </html>
