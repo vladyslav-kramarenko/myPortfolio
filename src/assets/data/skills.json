@@ -2,60 +2,99 @@
   {
     "category": "Programming skills",
     "skills": [
-      "Java",
-      "Python",
-      "JavaScript",
-      "TypeScript",
-      "Angular",
-      "SQL",
-      "JSON",
-      "XML",
-      "YAML",
-      "HTML",
-      "CSS"
+      {"name": "Java", "icon": {"name": "Java", "logo": "oracle", "logoColor": "007396", "labelColor": "ffffff"}},
+      {"name": "Python", "icon": {"name": "Python", "logo": "python", "logoColor": "3776AB", "labelColor": "ffffff"}},
+      {"name": "JavaScript", "icon": {"name": "JavaScript", "logo": "javascript", "logoColor": "F7DF1E", "labelColor": "ffffff"}},
+      {"name": "TypeScript", "icon": {"name": "TypeScript", "logo": "typescript", "logoColor": "3178C6", "labelColor": "ffffff"}},
+      {"name": "Angular", "icon": {"name": "Angular", "logo": "angular", "logoColor": "DD0031", "labelColor": "ffffff"}},
+      {"name": "JSON", "icon": {"name": "JSON", "logo": "json", "logoColor": "000000", "labelColor": "ffffff"}},
+      {"name": "XML", "icon": {"name": "XML", "logo": "xml", "logoColor": "00599C", "labelColor": "ffffff"}},
+      {"name": "YAML", "icon": {"name": "YAML", "logo": "yaml", "logoColor": "000000", "labelColor": "ffffff"}},
+      {"name": "HTML", "icon": {"name": "HTML", "logo": "html5", "logoColor": "E34F26", "labelColor": "ffffff"}},
+      {"name": "CSS", "icon": {"name": "CSS", "logo": "css3", "logoColor": "1572B6", "labelColor": "ffffff"}},
+      {"name": "SASS", "icon": {"name": "SASS", "logo": "sass", "logoColor": "CC6699", "labelColor": "ffffff"}},
+      {"name": "SQL", "icon": {"name": "SQL", "logo": "mysql", "logoColor": "4479A1", "labelColor": "ffffff"}}
     ]
   },
   {
     "category": "Frameworks/Tools",
     "skills": [
-      "Bootstrap",
-      "Git",
-      "Spring Boot",
-      "Spring Security",
-      "Spring MVC",
-      "Hibernate/JPA",
-      "Mockito",
-      "Swagger",
-      "Maven",
-      "Gradle",
-      "JUnit",
-      "SonarQube"
+      {"name": "Bootstrap", "icon": {"name": "Bootstrap", "logo": "bootstrap", "logoColor": "563D7C", "labelColor": "ffffff"}},
+      {"name": "Spring Boot | Security | MVC", "icon": {"name": "Spring Boot | Security | MVC", "logo": "spring", "logoColor": "6DB33F", "labelColor": "ffffff"}},
+      {"name": "Hibernate/JPA", "icon": {"name": "Hibernate/JPA", "logo": "hibernate", "logoColor": "59666C", "labelColor": "ffffff"}},
+      {"name": "Mockito", "icon": {"name": "Mockito", "logo": "mockito", "logoColor": "DA3832", "labelColor": "ffffff"}},
+      {"name": "Swagger", "icon": {"name": "Swagger", "logo": "swagger", "logoColor": "85EA2D", "labelColor": "ffffff"}},
+      {"name": "Maven", "icon": {"name": "Maven", "logo": "apache-maven", "logoColor": "C71A36", "labelColor": "ffffff"}},
+      {"name": "Gradle", "icon": {"name": "Gradle", "logo": "gradle", "logoColor": "02303A", "labelColor": "ffffff"}},
+      {"name": "JUnit", "icon": {"name": "JUnit", "logo": "junit5", "logoColor": "25A162", "labelColor": "ffffff"}},
+      {"name": "Jest", "icon": {"name": "Jest", "logo": "jest", "logoColor": "C21325", "labelColor": "ffffff"}},
+      {"name": "SonarQube", "icon": {"name": "SonarQube", "logo": "sonarqube", "logoColor": "4E9BCD", "labelColor": "ffffff"}}
     ]
   },
   {
-    "category": "Methodologies",
+    "category": "IDEs/Editors",
     "skills": [
-      "Agile",
-      "Scrum",
-      "Kanban",
-      "Lean",
-      "TDD",
-      "Waterfall",
-      "TOC"
+      {"name": "Idea", "icon": {"name": "Idea", "logo": "intellijidea", "logoColor": "0000A0", "labelColor": "ffffff"}},
+      {"name": "Webstorm", "icon": {"name": "Webstorm", "logo": "webstorm", "logoColor": "00CDD7", "labelColor": "ffffff"}},
+      {"name": "Pycharm", "icon": {"name": "Pycharm", "logo": "pycharm", "logoColor": "21A366", "labelColor": "ffffff"}},
+      {"name": "Visual Studio Code", "icon": {"name": "Visual Studio Code", "logo": "visualstudiocode", "logoColor": "007ACC", "labelColor": "ffffff"}},
+      {"name": "Eclipse", "icon": {"name": "Eclipse", "logo": "eclipse", "logoColor": "2C2255", "labelColor": "ffffff"}}
     ]
   },
   {
-    "category": "Soft skills",
+    "category": "Databases",
     "skills": [
-      "Curiosity",
-      "Goal-oriented",
-      "Stress tolerance",
-      "Problem-solving",
-      "Leadership",
-      "Organization",
-      "Customer-centric",
-      "Adaptability",
-      "Flexibility"
+      {"name": "MySQL", "icon": {"name": "MySQL", "logo": "mysql", "logoColor": "4479A1", "labelColor": "ffffff"}},
+      {"name": "PostgreSQL", "icon": {"name": "PostgresSQL", "logo": "postgresql", "logoColor": "336791", "labelColor": "ffffff"}},
+      {"name": "DynamoDB", "icon": {"name": "DynamoDB", "logo": "amazondynamodb", "logoColor": "4053D6", "labelColor": "ffffff"}}
     ]
+  },
+  {
+    "category": "Office Programs",
+    "skills": [
+      {"name": "Excel", "icon": {"name": "MS Excel", "logo": "microsoftexcel", "logoColor": "217346", "labelColor": "ffffff"}},
+      {"name": "Word", "icon": {"name": "MS Word", "logo": "microsoftword", "logoColor": "2B579A", "labelColor": "ffffff"}},
+      {"name": "Power Point", "icon": {"name": "MS Power Point", "logo": "microsoftpowerpoint", "logoColor": "B7472A", "labelColor": "ffffff"}},
+      {"name": "Visio", "icon": {"name": "MS Visio", "logo": "microsoftvisio", "logoColor": "3955A3", "labelColor": "ffffff"}},
+      {"name": "Project", "icon": {"name": "MS Project", "logo": "microsoftproject", "logoColor": "F25022", "labelColor": "ffffff"}},
+      {"name": "Photoshop", "icon": {"name": "Photoshop", "logo": "adobephotoshop", "logoColor": "31A8FF", "labelColor": "ffffff"}}
+    ]
+  },
+  {
+    "category": "Software",
+    "skills": [
+      {"name": "Figma", "icon": {"name": "Figma", "logo": "figma", "logoColor": "F24E1E", "labelColor": "ffffff"}},
+      {"name": "SketchUp", "icon": {"name": "SketchUp", "logo": "sketchup", "logoColor": "005F9E", "labelColor": "ffffff"}},
+      {"name": "Jira", "icon": {"name": "Jira", "logo": "jira", "logoColor": "0052CC", "labelColor": "ffffff"}},
+      {"name": "Trello", "icon": {"name": "Trello", "logo": "trello", "logoColor": "0079BF", "labelColor": "ffffff"}},
+      {"name": "Postman", "icon": {"name": "Postman", "logo": "postman", "logoColor": "FF6C37", "labelColor": "ffffff"}},
+      {"name": "Docker", "icon": {"name": "Docker", "logo": "docker", "logoColor": "2496ED", "labelColor": "ffffff"}},
+      {"name": "Jenkins", "icon": {"name": "Jenkins", "logo": "jenkins", "logoColor": "D24939", "labelColor": "ffffff"}},
+      {"name": "Git", "icon": {"name": "Git", "logo": "git", "logoColor": "F05032", "labelColor": "ffffff"}},
+      {"name": "Tomcat", "icon": {"name": "Tomcat", "logo": "apachetomcat", "logoColor": "000000", "labelColor": "F8DC75"}}
+    ]
+  },
+  {
+    "category": "Amazon Web Services",
+    "skills": [
+      {"name": "EC2", "icon": {"name": "EC2", "logo": "amazonec2", "logoColor": "FF9900", "labelColor": "ffffff"}},
+      {"name": "S3", "icon": {"name": "S3", "logo": "amazons3", "logoColor": "569A31", "labelColor": "ffffff"}},
+      {"name": "EBS", "icon": {"name": "EBS", "logo": "amazonaws", "logoColor": "232F3E", "labelColor": "ffffff"}},
+      {"name": "Lambda", "icon": {"name": "Lambda", "logo": "awslambda", "logoColor": "FF9900", "labelColor": "ffffff"}},
+      {"name": "IAM", "icon": {"name": "IAM", "logo": "amazoniam", "logoColor": "232F3E", "labelColor": "ffffff"}},
+      {"name": "DynamoDB", "icon": {"name": "ADynamoDB", "logo": "amazondynamodb", "logoColor": "4053D6", "labelColor": "ffffff"}},
+      {"name": "RDS", "icon": {"name": "RDS", "logo": "amazonrds", "logoColor": "232F3E", "labelColor": "ffffff"}},
+      {"name": "APIGateway", "icon": {"name": "API Gateway", "logo": "amazonapigateway", "logoColor": "FF9900", "labelColor": "ffffff"}},
+      {"name": "SQS", "icon": {"name": "SQS", "logo": "amazonsqs", "logoColor": "FF9900", "labelColor": "ffffff"}}
+    ]
+
+  },
+
+  {
+    "category": "Google Cloud Platform",
+    "skills": [
+      {"name": "Big Query", "icon": {"name": "BigQuery", "logo": "googlecloud", "logoColor": "4285F4", "labelColor": "ffffff"}}
+    ]
+
   }
 ]

@@ -10,6 +10,20 @@
 .skill-category{
   padding-left: 4px;
   padding-top: 2px;
-  user-select: none;
 }
 
+.skills-matrix {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.skill-item {
+  margin: 8px;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+
+.skill-name {
+  white-space: nowrap;
+}

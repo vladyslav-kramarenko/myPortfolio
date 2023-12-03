@@ -1,5 +1,4 @@
 import {Component} from '@angular/core';
-import {animate, group, state, style, transition, trigger} from "@angular/animations";
 import {SkillGroup} from "../../shared/models/ISkillGroup";
 import {HttpClient} from "@angular/common/http";
 
@@ -7,30 +6,6 @@ import {HttpClient} from "@angular/common/http";
   selector: 'app-skills',
   templateUrl: './skills.component.html',
   styleUrls: ['./skills.component.scss'],
-  animations: [
-    trigger('openClose', [
-      state('open', style({
-        'max-height': '1000px',
-        'opacity': '1'
-      })),
-      state('closed', style({
-        'max-height': '0px',
-        'opacity': '0'
-      })),
-      transition('open => closed', [
-        group([
-          animate('0.5s', style({'max-height': '0px'})),
-          animate('0.3s', style({'opacity': '0'}))
-        ])
-      ]),
-      transition('closed => open', [
-        group([
-          animate('0.2s', style({'max-height': '1000px'})),
-          animate('0.5s', style({'opacity': '1'}))
-        ])
-      ]),
-    ]),
-  ]
 })
 export class SkillsComponent {
   skills: SkillGroup[] = [];
@@ -50,4 +25,14 @@ export class SkillsComponent {
     });
     this.expandedState = new Array(this.skills.length).fill(false);
   }
+
+  getIconUrl(icon: { name: string; logo: string; logoColor: string; labelColor: string } | undefined): string {
+    if (icon) {
+      return `https://img.shields.io/badge/-${icon.name}-${icon.logoColor}?style=flat&logo=${icon.logo}&logoColor=${icon.logoColor}&labelColor=${icon.labelColor}`;
+    } else {
+      return ''; // or return a default URL
+    }
+  }
 }
+
+
