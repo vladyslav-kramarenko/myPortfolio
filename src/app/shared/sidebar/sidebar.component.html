@@ -48,6 +48,13 @@
           </a>
         </li>
         <li>
+          <a [routerLink]="['/home']" [fragment]="'badges'" queryParamsHandling="preserve" routerLinkActive="active"
+             class="nav-link" (click)="closeSidenav()">
+            <i class="bx bxs-file"></i>
+            <span>Achievements</span>
+          </a>
+        </li>
+        <li>
           <a [routerLink]="['/home']" [fragment]="'skills'" queryParamsHandling="preserve" routerLinkActive="active"
              class="nav-link" (click)="closeSidenav()">
             <i class="bx bxs-file"></i>
