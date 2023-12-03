@@ -1,6 +1,16 @@
 [
   {
     "image": {
+      "url": "aws-certified-solutions-architect-associate.png",
+      "alt": "AWS Certified Solutions Architect – Associate Badge"
+    },
+    "link": {
+      "url": "https://www.credly.com/badges/a580dc34-75db-4813-b293-f644c5d47e82/public_url",
+      "title": "AWS Certified Solutions Architect – Associate"
+    }
+  },
+  {
+    "image": {
       "url": "aws-certified-cloud-practitioner.png",
       "alt": "AWS Certified Cloud Practitioner Badge"
     },
