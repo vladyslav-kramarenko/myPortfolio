@@ -1,10 +1,12 @@
-<div class="section-title summary" *ngIf="summary">
-  <div class="container">
-    <h2>Summary</h2>
-    <span>
+<section id="summary">
+  <div class="section-title summary" *ngIf="summary">
+    <div class="container">
+      <h2>Summary</h2>
+      <span>
       <p *ngFor="let paragraph of summary.paragraphs; let isLast=last">
         {{ paragraph }}<br *ngIf="!isLast">
       </p>
     </span>
+    </div>
   </div>
-</div>
+</section>
