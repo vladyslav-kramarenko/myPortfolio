@@ -2,24 +2,10 @@
 
   <div class="container">
     <h3 class="resume-title">Skills</h3>
-
-    <div class="badges-container">
-      <div class="scroll-container">
-    <span *ngFor="let badge of badges; let i = index"
-          class="badge">
-      <a [href]="badge.link.url" target="blank">
-        <img class="clickable rounded" height="153"
-             [src]="badgeFolder + badge.image.url"
-             [alt]="badge.image.alt">
-      </a>
-    </span>
-      </div>
-    </div>
-
     <div *ngFor="let skillGroup of skills; let i = index"
          class="resume-item"
          [ngClass]="{'bg-light': expandedState[i]}">
-      <h4 class="skill-category clickable" (click)="toggleCollapse(i)">
+      <h4 class="skill-category clickable rounded" (click)="toggleCollapse(i)">
         {{ skillGroup.category }}
         <i class="bx expand-icon"
            [ngClass]="{

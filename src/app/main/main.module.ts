@@ -13,6 +13,7 @@ import {PublicationsComponent} from './publications/publications.component';
 import {RouterLink} from "@angular/router";
 import {LightboxModule} from "ngx-lightbox";
 import {HttpClientModule} from "@angular/common/http";
+import { BadgesComponent } from './badges/badges.component';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import {HttpClientModule} from "@angular/common/http";
     MainComponent,
     CoursesComponent,
     PublicationsComponent,
+    BadgesComponent,
   ],
   imports: [
     CommonModule,
