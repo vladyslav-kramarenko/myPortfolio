@@ -5,6 +5,11 @@
     "links": [
       {
         "url": "",
+        "title": "Developing on AWS (October 2023)"
+      },
+
+      {
+        "url": "",
         "title": "EPAM AWS Cloud Practitioner Essentials (February 2023 - March 2023)"
       },
       {
@@ -22,16 +27,41 @@
     "expanded": false,
     "links": [
       {
+        "url": "https://www.credly.com/badges/a580dc34-75db-4813-b293-f644c5d47e82/public_url",
+        "title": "AWS Certified Solutions Architect – Associate (November 2023)"
+      },
+      {
+        "url": "https://coursera.org/share/ad357957433c5cba4b7712c9f8330a42",
+        "title": "AWS Cloud Solutions Architect by Amazon Web Services on Coursera (November 2023)"
+      },
+      {
+        "url": "https://coursera.org/share/a4e77b37b2754e16f1b2ae04c6bfd474",
+        "title": "Architecting Solutions on AWS (October 2023)"
+      },
+      {
+        "url": "assets/img/certificates/TechU_Vladyslav_Kramarenko.pdf",
+        "title": "Highly Available Web Applications Digital TechU Course (October 2023)"
+      },
+
+      {
+        "url": "https://coursera.org/share/6026461fef79bb9f34b9b34a9208db38",
+        "title": "AWS Cloud Technical Essentials (October 2023)"
+      },
+      {
+        "url": "https://coursera.org/share/0d6cf8a84883c9bcf3c2a1d761188601",
+        "title": "Exam Prep: AWS Certified Solutions Architect - Associate (October 2023)"
+      },
+      {
+        "url": "https://www.credly.com/badges/b2674e30-af54-4b38-b1db-fe1d3bec8434/public_url",
+        "title": "AWS Knowledge: Block Storage (October 2023)"
+      },
+      {
         "url": "https://www.credly.com/badges/3b9d2c8e-c5e7-4767-aa8c-07f677c6ebb3/public_url",
         "title": "AWS Knowledge: Data Protection Disaster Recovery (October 2023)"
       },
       {
         "url": "https://www.credly.com/badges/91bf6e9a-1c8c-4860-b30c-0dcc76e3a415/public_url",
         "title": "AWS Knowledge: Data Migration (October 2023)"
-      },
-      {
-        "url": "https://www.credly.com/badges/b2674e30-af54-4b38-b1db-fe1d3bec8434/public_url",
-        "title": "AWS Knowledge: Block Storage (October 2023)"
       },
       {
         "url": "https://www.credly.com/badges/8483cee2-0501-4f8b-88a6-2fbb414b46f0/public_url",
@@ -64,6 +94,16 @@
       {
         "url": "assets/img/certificates/AWS_Cloud_Practitioner_Essentials.pdf",
         "title": "AWS Cloud Practitioner Essentials (February 2023)"
+      }
+    ]
+  },
+  {
+    "title": "Google",
+    "expanded": false,
+    "links": [
+      {
+        "url": "https://www.coursera.org/account/accomplishments/specialization/certificate/LQVY7Y3N28M8",
+        "title": "From Data to Insights with Google Cloud by Google Cloud on Coursera (December 2022)"
       }
     ]
   },
