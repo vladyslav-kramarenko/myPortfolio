@@ -9,11 +9,13 @@ import {MainModule} from "./main/main.module";
 import {SharedModule} from "./shared/shared.module";
 import {PortfolioItemComponent} from './portfolio-item/portfolio-item.component';
 import {HttpClientModule} from "@angular/common/http";
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PortfolioItemComponent
+    PortfolioItemComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
