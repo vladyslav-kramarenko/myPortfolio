@@ -11,6 +11,16 @@
   },
   {
     "image": {
+      "url": "aws-certified-developer-associate.png",
+      "alt": "AWS Certified Developer - Associate Badge"
+    },
+    "link": {
+      "url": "https://www.credly.com/badges/c717886f-e53d-4353-9b1a-69f98a97cc44/public_url",
+      "title": "AWS Certified Developer – Associate"
+    }
+  },
+  {
+    "image": {
       "url": "aws-certified-cloud-practitioner.png",
       "alt": "AWS Certified Cloud Practitioner Badge"
     },
