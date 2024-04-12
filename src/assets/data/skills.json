@@ -7,6 +7,7 @@
       {"name": "JavaScript", "icon": {"name": "JavaScript", "logo": "javascript", "logoColor": "F7DF1E", "labelColor": "ffffff"}},
       {"name": "TypeScript", "icon": {"name": "TypeScript", "logo": "typescript", "logoColor": "3178C6", "labelColor": "ffffff"}},
       {"name": "Angular", "icon": {"name": "Angular", "logo": "angular", "logoColor": "DD0031", "labelColor": "ffffff"}},
+      {"name": "React", "icon": {"name": "React", "logo": "react", "logoColor": "3178C6", "labelColor": "ffffff"}},
       {"name": "JSON", "icon": {"name": "JSON", "logo": "json", "logoColor": "000000", "labelColor": "ffffff"}},
       {"name": "XML", "icon": {"name": "XML", "logo": "xml", "logoColor": "00599C", "labelColor": "ffffff"}},
       {"name": "YAML", "icon": {"name": "YAML", "logo": "yaml", "logoColor": "000000", "labelColor": "ffffff"}},
@@ -37,6 +38,7 @@
       {"name": "Idea", "icon": {"name": "Idea", "logo": "intellijidea", "logoColor": "0000A0", "labelColor": "ffffff"}},
       {"name": "Webstorm", "icon": {"name": "Webstorm", "logo": "webstorm", "logoColor": "00CDD7", "labelColor": "ffffff"}},
       {"name": "Pycharm", "icon": {"name": "Pycharm", "logo": "pycharm", "logoColor": "21A366", "labelColor": "ffffff"}},
+      {"name": "Phpstorm", "icon": {"name": "Phpstorm", "logo": "Phpstorm", "logoColor": "0000A0", "labelColor": "ffffff"}},
       {"name": "Visual Studio Code", "icon": {"name": "Visual Studio Code", "logo": "visualstudiocode", "logoColor": "007ACC", "labelColor": "ffffff"}},
       {"name": "Eclipse", "icon": {"name": "Eclipse", "logo": "eclipse", "logoColor": "2C2255", "labelColor": "ffffff"}}
     ]

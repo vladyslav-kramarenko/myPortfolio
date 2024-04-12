@@ -1,7 +1,28 @@
 [
   {
+    "role": "IT Solution Architect",
+    "company": "Teus-Group",
+    "link": {
+      "url": "https://teus-group.com/",
+      "title": "Teus-Group"
+    },
+    "image": {
+      "url": "teus_min.webp",
+      "alt": "Teus-Group_logo"
+    },
+    "location": "Antalya, Turley (Remote)",
+    "dates": [
+      "February 2024",
+      "Present"
+    ],
+    "description": [
+      "Enhanced operational efficiency by configuring key systems: UniTalk IP telephony, Asana, HubSpot CRM, and Google Workspace.",
+      "Ensured system reliability and content accuracy through technical support and web content management."
+    ]
+  },
+  {
     "role": "Head of IT Department",
-    "company": "ZHYTLOBUD-2 ALC",
+    "company": "ZHYTLOBUD-2",
     "link": {
       "url": "https://www.zhilstroj-2.ua/",
       "title": "ZHYTLOBUD-2"
@@ -10,7 +31,7 @@
       "url": "jb2.webp",
       "alt": "JB2_logo"
     },
-    "location": "Kharkiv, Ukraine",
+    "location": "Kharkiv, Ukraine (Remote)",
     "dates": [
       "December 2020",
       "Present"
@@ -24,6 +45,27 @@
     ]
   },
   {
+    "role": "Web Developer",
+    "company": "ECOFUEL PLUS",
+    "link": {
+      "url": "https://ecofuel.plus/",
+      "title": "ecofuel plus"
+    },
+    "image": {
+      "url": "ecofuel+_logo_small.webp",
+      "alt": "ecofuel-plus_logo"
+    },
+    "location": "Lutsk, Ukraine (Remote)",
+    "dates": [
+      "March 2024",
+      "April 2024"
+    ],
+    "description": [
+      "Created an ECOFUEL PLUS's digital footprint (Google Maps, LinkedIn, and Facebook)",
+      "Created an ECOFUEL PLUS's SPA Website (react + typescrypt)."
+    ]
+  },
+  {
     "role": "External Java Lab Intern",
     "company": "EPAM SOFTWARE",
     "link": {
@@ -34,7 +76,7 @@
       "url": "epam_logo.webp",
       "alt": "EPAM_logo"
     },
-    "location": "Ukraine, remote",
+    "location": "Ukraine (Remote)",
     "dates": [
       "February 2023",
       "July 2023"
@@ -47,7 +89,7 @@
   },
   {
     "role": "Project Manager",
-    "company": "ZHYTLOBUD-2 ALC",
+    "company": "ZHYTLOBUD-2",
     "link": {
       "url": "https://www.zhilstroj-2.ua/",
       "title": "ZHYTLOBUD-2"
@@ -82,8 +124,8 @@
     },
     "location": "Kharkiv, Ukraine",
     "dates": [
-      "August 2017",
-      "December 2022"
+      "September 2017",
+      "November 2018"
     ],
     "description": [
       "Achieved sustainable turnover growth by focusing on cost control, process improvement, and market analysis.",
@@ -96,7 +138,7 @@
   },
   {
     "role": "CEO / Co-Founder",
-    "company": "ECOFUE LTRADE LLC",
+    "company": "ECOFUEL TRADE",
     "link": {
       "url": "https://youcontrol.com.ua/en/catalog/company_details/39853672/",
       "title": "ECOFUEL TRADE"

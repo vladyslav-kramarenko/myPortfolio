@@ -1,6 +1,15 @@
 [
   {
     "image": {
+      "url": "meta-front-end-developer-certificate.png",
+      "alt": "Meta Front End Developer Badge"
+    },
+    "link": {
+      "url": "https://www.credly.com/badges/0f272845-deaa-42ed-83ba-97c607ba1103/public_url",
+      "title": "Meta Front End Developer"}
+  },
+  {
+    "image": {
       "url": "aws-certified-solutions-architect-associate.png",
       "alt": "AWS Certified Solutions Architect – Associate Badge"
     },
