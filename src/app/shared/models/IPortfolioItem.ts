@@ -3,7 +3,7 @@ import {Image} from "./IImage";
 
 export interface PortfolioItem {
   id: string;
-  filter: string;
+  filter: string
   links: Link[];
   description: string;
   mainImg: Image;

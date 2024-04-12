@@ -13,11 +13,11 @@ export class PortfolioComponent {
 
   filters = [
     {name: 'All', filter: '*'},
-    {name: 'API', filter: 'api'},
-    {name: 'Web-site', filter: 'web'},
-    {name: 'Application', filter: 'app'},
-    {name: 'Design', filter: 'design'},
-    {name: 'Drawing', filter: 'draw'},
+    {name: 'Front-End', filter: 'Front-End'},
+    {name: 'Back-End', filter: 'Back-End'},
+    {name: 'API', filter: 'API'},
+    {name: 'Application', filter: 'Application'},
+    {name: 'Design', filter: 'Design'},
   ];
 
   constructor(private http: HttpClient) {
@@ -32,6 +32,16 @@ export class PortfolioComponent {
   ngOnInit() {
     this.http.get<{ [key: string]: PortfolioItem }>('assets/data/portfolioItems.json').subscribe(data => {
       this.portfolioItems = Object.values(data);
+      // this.populateFilters();
     });
+  }
+
+  /**
+   * Generate filters from the available tags in portfolio items
+   */
+  populateFilters() {
+    const allTags = new Set<string>();
+    this.portfolioItems.forEach(item => item.tags.forEach(tag => allTags.add(tag)));
+    this.filters = [{name: 'All', filter: '*'}, ...Array.from(allTags).map(tag => ({name: tag, filter: tag}))];
   }
 }

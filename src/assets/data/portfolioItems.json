@@ -1,7 +1,140 @@
 [
   {
+    "id": "ecofuel-plus",
+    "links": [
+      {
+        "url": "https://ecofuel.plus/",
+        "title": "Website for Ecofuel Plus"
+      },
+      {
+        "url": "https://github.com/vladyslav-kramarenko/ecofuelplus",
+        "title": "Project on Github"
+      }
+    ],
+    "description": "SPA Website for Ukranian company Ecofuel Plus. Created with React & TypeScript.",
+    "mainImg": {
+      "url": "img/portfolio/ecofuel_plus/ecofuel_pc_white-min.png",
+      "alt": "Ecofuel Plus Website - Services"
+    },
+    "images": [
+      {
+        "url": "img/portfolio/ecofuel_plus/ecofuel_pc_white-min.png",
+        "alt": "Ecofuel Plus Website - Services"
+      },
+      {
+        "url": "img/portfolio/ecofuel_plus/ecofuel_mobile_black_1-min.png",
+        "alt": "Ecofuel Plus Website - Mobile Certificates Dark"
+      },
+      {
+        "url": "img/portfolio/ecofuel_plus/ecofuel_mobile_black-min.png",
+        "alt": "Ecofuel Plus Website - Mobile Home Dark"
+      },
+      {
+        "url": "img/portfolio/ecofuel_plus/ecofuel_mobile_white-min.png",
+        "alt": "Ecofuel Plus Website - Mobile Home Light"
+      },
+      {
+        "url": "img/portfolio/ecofuel_plus/ecofuel_pc_black-min.png",
+        "alt": "Ecofuel Plus Website - Pc Home Dark"
+      }
+    ],
+    "title": "QUIZ for Desire Residential Complex",
+    "tags": [
+      "Front-End",
+      "React",
+      "TypeScript",
+      "CSS"
+    ]
+  },
+  {
+    "id": "desire-quiz",
+    "links": [
+      {
+        "url": "https://quiz.desire-antalya.com/",
+        "title": "QUIZ for Desire Residential Complex"
+      },
+      {
+        "url": "https://github.com/vladyslav-kramarenko/desire_quiz",
+        "title": "Project on Github"
+      }
+    ],
+    "description": "The Quiz for Desire Antalya residential complex is designed to engage potential clients. It's a part of our advertising strategy to capture genuine leads. The quiz filters out bots through interactive questions, ensuring quality leads are directed to our CRM system for efficient follow-up.",
+    "mainImg": {
+      "url": "img/portfolio/desire/desire-mobile-min.png",
+      "alt": "QUIZ for Desire Residential Complex"
+    },
+    "images": [
+      {
+        "url": "img/portfolio/desire/desire-mobile-min.png",
+        "alt": "QUIZ for Desire Residential Complex"
+      },
+      {
+        "url": "img/portfolio/desire/desire-mobile-question-min.png",
+        "alt": "QUIZ for Desire Residential Complex"
+      },
+      {
+        "url": "img/portfolio/desire/desire-pc-min.png",
+        "alt": "QUIZ for Desire Residential Complex"
+      },
+      {
+        "url": "img/portfolio/desire/desire-pc-question-min.png",
+        "alt": "QUIZ for Desire Residential Complex"
+      }
+    ],
+    "title": "QUIZ for Desire Residential Complex",
+    "tags": [
+      "Front-End",
+      "React",
+      "JavaScript",
+      "CSS"
+    ]
+  },
+  {
+    "id": "portfolio_website",
+    "links": [
+      {
+        "url": "https://kramarenko.info/",
+        "title": "My Portfolio Website"
+      },
+      {
+        "url": "https://github.com/vladyslav-kramarenko/myPortfolio",
+        "title": "Project on Github"
+      }
+    ],
+    "description": "This Portfolio Website, created as a part of my learning Angular & Typescript.",
+    "mainImg": {
+      "url": "img/portfolio/portfolio_website/portfolio_mobile.png",
+      "alt": "Portfolio mobile"
+    },
+    "images": [
+      {
+        "url": "img/portfolio/portfolio_website/portfolio_mobile.png",
+        "alt": "Portfolio mobile"
+      },
+      {
+        "url": "img/portfolio/portfolio_website/portfolio_pc_exp.png",
+        "alt": "Portfolio pc experience section"
+      },
+      {
+        "url": "img/portfolio/portfolio_website/portfolio_pc.png",
+        "alt": "Portfolio pc"
+      },
+      {
+        "url": "img/portfolio/portfolio_website/portfolio_movile_exp.png",
+        "alt": "Portfolio mobile experience section"
+      }
+    ],
+    "title": "My Portfolio Website",
+    "tags": [
+      "Front-End",
+      "Angular",
+      "TypeScript",
+      "JSON",
+      "SCSS"
+    ]
+  },
+  {
     "id": "prolisok",
-    "filter": "web",
     "links": [
       {
         "url": "https://www.prolisok.zhilstroj-2.ua/",
@@ -25,6 +158,7 @@
     ],
     "title": "Residential Complex - PROLISOK",
     "tags": [
+      "Front-End",
       "JavaScript",
       "Bootstrap",
       "PHPMailer",
@@ -33,18 +167,17 @@
   },
   {
     "id": "Gift-Certificates-system",
-    "filter": "web",
     "links": [
       {
-        "url": "http://joycard.kramarenko.info/",
-        "title": "Link to Gift Certificates System Test Website - Joy Card"
+        "url": "https://github.com/vladyslav-kramarenko/GiftCertificateSystemAngular",
+        "title": "Link to Front-End part on Github"
       },
       {
-        "url": "https://github.com/vladyslav-kramarenko/GiftCertificateSystemAngular",
-        "title": "Link to Github project"
+        "url": "https://github.com/vladyslav-kramarenko/GiftCertificatesSystem",
+        "title": "Link to Back-End part on Github"
       }
     ],
-    "description": "Frontend part of a final project of External Java Lab Course in EPAM System",
+    "description": "Final project of External Java Lab Course in EPAM System. It combines a web interface in Angular and Java API for Gift Certificates System MySQL Database",
     "mainImg": {
       "url": "img/portfolio/joycard/joycard-search.webp",
       "alt": "Gift Certificate Api Screenshot"
@@ -61,19 +194,30 @@
       {
         "url": "img/portfolio/joycard/joycard-certificate.webp",
         "alt": "certificate page screenshot"
+      },
+      {
+        "url": "img/portfolio/GiftCertificatesSystemApi.webp",
+        "alt": "Gift Certificate Api Screenshot"
       }
     ],
-    "title": "Gift Certificates System fronted with Angular",
+    "title": "Gift Certificates System",
     "tags": [
+      "Front-End",
       "Angular",
       "TypeScript",
       "Bootstrap",
-      "SCSS"
+      "SCSS",
+      "Back-End",
+      "API",
+      "Java",
+      "Spring Boot",
+      "Spring Security",
+      "Hibernate",
+      "MySQL"
     ]
   },
   {
     "id": "moviesApi",
-    "filter": "api",
     "links": [
       {
         "url": "https://github.com/vladyslav-kramarenko/moviesApi",
@@ -93,55 +237,31 @@
     ],
     "title": "Movies API",
     "tags": [
+      "Back-End",
+      "API",
       "Java",
       "SQL",
       "Spring Boot"
     ]
   },
   {
-    "id": "Gift-Certificates-system-api",
-    "filter": "api",
-    "links": [
-      {
-        "url": "https://github.com/vladyslav-kramarenko/GiftCertificatesSystem",
-        "title": "Gift Certificates System API"
-      }
-    ],
-    "description": "",
-    "mainImg": {
-      "url": "img/portfolio/GiftCertificatesSystemApi.webp",
-      "alt": "Gift Certificate Api Screenshot"
-    },
-    "images": [
-      {
-        "url": "img/portfolio/GiftCertificatesSystemApi.webp",
-        "alt": "Gift Certificate Api Screenshot"
-      }
-    ],
-    "title": "Gift Certificates System API",
-    "tags": [
-      "Java",
-      "Spring Boot",
-      "Spring Security",
-      "Hibernate",
-      "MySQL"
-    ]
-  },
-  {
-    "id": "Just-Cat-Package",
-    "filter": "design",
+    "id": "Just-Cat",
     "links": [
       {
         "url": "https://justcat.com.ua/",
         "title": "Just Cat Website"
       }
     ],
-    "description": "Creating a design for new type of packages that will attract new customers and shows out product inside - as it's strong side, for my company Just Cat",
+    "description": "Design for a pet branch of my pellet manufacture",
     "mainImg": {
-      "url": "img/portfolio/preview/Just_cat_3-min.webp",
-      "alt": "Just Cat 3kg package"
+      "url": "img/logo/JustCatLogo.webp",
+      "alt": "Just Cat Logo Design"
     },
     "images": [
+      {
+        "url": "img/logo/JustCatLogo.webp",
+        "alt": "Just Cat Logo"
+      },
       {
         "url": "img/portfolio/just_cat/Just_cat_3.png",
         "alt": "Just Cat 3kg package"
@@ -159,48 +279,21 @@
         "alt": "Just Cat 5kg package"
       }
     ],
-    "title": "JustCat Package Design",
+    "title": "JustCat Design",
     "tags": [
-      "Photoshop",
-      "Design"
-    ]
-  },
-  {
-    "id": "Just-Cat-Logo",
-    "filter": "design",
-    "links": [
-      {
-        "url": "https://justcat.com.ua/",
-        "title": "Just Cat Website"
-      }
-    ],
-    "description": "Design of a new logo ofr pet branch of my pellet manufacture",
-    "mainImg": {
-      "url": "img/logo/JustCatLogo.webp",
-      "alt": "Just Cat Logo"
-    },
-    "images": [
-      {
-        "url": "img/logo/JustCatLogo.webp",
-        "alt": "Just Cat Logo"
-      }
-    ],
-    "title": "JustCat Logo Design",
-    "tags": [
-      "Photoshop",
-      "Design"
+      "Design",
+      "Photoshop"
     ]
   },
   {
     "id": "scratching-post",
-    "filter": "draw",
     "links": [
       {
         "url": "assets/img/portfolio/scratching_post.skp",
         "title": "Download Link to Sketch Up drawing"
       }
     ],
-    "description": "Training in drawing - creating a model of scratching post ofr out flat",
+    "description": "Training in drawing - creating a model of scratching post for our flat",
     "mainImg": {
       "url": "img/portfolio/preview/scratching_post-min.webp",
       "alt": "Scratching post image"
@@ -213,12 +306,12 @@
     ],
     "title": "Scratching Post",
     "tags": [
+      "Design",
       "Sketch Up"
     ]
   },
   {
     "id": "roller-for-granulator",
-    "filter": "draw",
     "links": [
       {
         "url": "assets/img/portfolio/roller_for_granulator_400.skp",
@@ -238,37 +331,12 @@
     ],
     "title": "Rollers for pellet granulator",
     "tags": [
+      "Design",
       "Sketch Up"
     ]
   },
   {
-    "id": "Tic-Tac-Toe-figma",
-    "filter": "design",
-    "links": [
-      {
-        "url": "https://www.figma.com/file/B1GrymQ9gnxy9pNkSYOQHu/Tic-Tac-Toe?node-id=0%3A1",
-        "title": "Link to Tic-Tac-Toe design in Figma"
-      }
-    ],
-    "description": "EPAM design training - created copy of tic-tac-tor design from the screenshot",
-    "mainImg": {
-      "url": "img/portfolio/preview/tic-tac-toe_web_design.webp",
-      "alt": "tic-tac-toe figma screenshot"
-    },
-    "images": [
-      {
-        "url": "img/portfolio/preview/tic-tac-toe_web_design.webp",
-        "alt": "tic-tac-toe figma screenshot"
-      }
-    ],
-    "title": "Tic-Tac-Toe",
-    "tags": [
-      "Figma"
-    ]
-  },
-  {
     "id": "tax-service",
-    "filter": "web",
     "links": [
       {
         "url": "tax_service.html",
@@ -288,20 +356,21 @@
     ],
     "title": "Tax Service",
     "tags": [
+      "Back-End",
       "Java",
       "MySQL",
       "Servlets",
+      "Front-End",
       "JavaScript",
       "HTML",
       "CSS"
     ]
   },
   {
-    "id": "lagrange",
-    "filter": "web",
+    "id": "lagrange Interpolation",
     "links": [
       {
-        "url": "http://lagrange.kramarenko.info/",
+        "url": "https://lagrange.kramarenko.info/",
         "title": "Link to Lagrange interpolation website"
       }
     ],
@@ -316,8 +385,9 @@
         "alt": "Lagrange website screenshot"
       }
     ],
-    "title": "Lagrange",
+    "title": "Lagrange Interpolation",
     "tags": [
+      "Front-End",
       "JavaScript",
       "HTML",
       "CSS"
@@ -325,14 +395,21 @@
   },
   {
     "id": "tic-tac-toe",
-    "filter": "web",
     "links": [
       {
         "url": "http://tic-tac-toe.kramarenko.info/",
-        "title": "Tic-Tac-Toe"
+        "title": "Tic-Tac-Toe Website"
+      },
+      {
+        "url": "https://github.com/vladyslav-kramarenko/tic-tac-toe_small_front_only_version/",
+        "title": "Project on Github"
+      },
+      {
+        "url": "https://www.figma.com/file/B1GrymQ9gnxy9pNkSYOQHu/Tic-Tac-Toe?node-id=0%3A1",
+        "title": "Project design in Figma"
       }
     ],
-    "description": "EPAM training - creating a simple copy of tic-tac-toe project",
+    "description": "EPAM training - creating a copy of tic-tac-toe project",
     "mainImg": {
       "url": "img/portfolio/tic-tac-toe_web.webp",
       "alt": "tic-tac-toe website screenshot"
@@ -341,16 +418,25 @@
       {
         "url": "img/portfolio/tic-tac-toe_web.webp",
         "alt": "tic-tac-toe website screenshot"
+      },
+      {
+        "url": "img/portfolio/preview/tic-tac-toe_web_design.webp",
+        "alt": "tic-tac-toe figma screenshot"
       }
     ],
     "title": "Tic-Tac-Toe",
     "tags": [
-      "TypeScript"
+      "Front-End",
+      "TypeScript",
+      "JavaScript",
+      "HTML",
+      "CSS",
+      "Design",
+      "Figma"
     ]
   },
   {
     "id": "cmvi",
-    "filter": "app",
     "links": [
       {
         "url": "https://github.com/vladyslav-kramarenko/CMVI",
@@ -368,8 +454,9 @@
         "alt": "CMVI app screenshot"
       }
     ],
-    "title": "java app",
+    "title": "App for solving mathematical problems",
     "tags": [
+      "Application",
       "Java",
       "Swing"
     ]

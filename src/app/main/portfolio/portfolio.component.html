@@ -19,7 +19,7 @@
     <div class="portfolio-container">
       <ng-container *ngFor="let item of portfolioItems">
         <div class="portfolio-item"
-             *ngIf="activeFilter === '*' || activeFilter === item.filter">
+             *ngIf="activeFilter === '*' || item.tags.includes(activeFilter)">
           <div class="portfolio-wrapper">
               <a [routerLink]="['/portfolio', item.id]" title="{{ item.title }}">
                 <img [src]="folder+item.mainImg.url" class="img-thumbnail" [alt]="item.mainImg.alt">
