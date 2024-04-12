@@ -24,6 +24,7 @@
     "@types/typed.js": "^2.0.9",
     "bootstrap": "^5.3.0",
     "boxicons": "^2.1.4",
+    "ngx-lightbox": "^3.0.0",
     "rxjs": "~7.8.0",
     "swiper": "^10.0.4",
     "tslib": "^2.3.0",
