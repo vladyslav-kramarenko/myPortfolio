@@ -10,12 +10,15 @@ import {SharedModule} from "./shared/shared.module";
 import {PortfolioItemComponent} from './portfolio-item/portfolio-item.component';
 import {HttpClientModule} from "@angular/common/http";
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ImageModalComponent } from './shared/image-modal/image-modal.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
     AppComponent,
     PortfolioItemComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ImageModalComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +27,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     MatSidenavModule,
     MainModule,
     SharedModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

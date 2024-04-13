@@ -1,0 +1,6 @@
+<div class="modal-backdrop" (click)="onBackdropClick()">
+  <div class="modal-content" (click)="onContentClick()">
+    <img [src]="folder+data.image.url" alt="{{data.image.alt}}" class="portfolio-image">
+    <button class="modal-close-btn" (click)="close()">&#10005;</button>
+  </div>
+</div>

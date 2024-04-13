@@ -4,6 +4,8 @@ import {HttpClient} from "@angular/common/http";
 import {PortfolioItem} from "../shared/models/IPortfolioItem";
 import {Image} from '../shared/models/IImage';
 import Swiper from "swiper";
+import {MatDialog} from "@angular/material/dialog";
+import {ImageModalComponent} from "../shared/image-modal/image-modal.component";
 
 
 @Component({
@@ -21,7 +23,13 @@ export class PortfolioItemComponent implements AfterViewInit,OnInit  {
   constructor(
     private http: HttpClient,
     private route: ActivatedRoute,
-  ) {
+    private dialog: MatDialog
+  ) { }
+
+  openImageModal(image: Image): void {
+    this.dialog.open(ImageModalComponent, {
+      data: { image: image }
+    });
   }
 
   ngAfterViewInit() {
@@ -43,9 +51,5 @@ export class PortfolioItemComponent implements AfterViewInit,OnInit  {
           this.currentImage = this.portfolioItem.images[0];
         }
       });
-  }
-
-  setCurrentImage(image: Image): void {
-    this.currentImage = image;
   }
 }
