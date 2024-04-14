@@ -11,7 +11,7 @@
         "title": "Project on Github"
       }
     ],
-    "description": "SPA Website for Ukranian company Ecofuel Plus. Created with React & TypeScript.",
+    "description": "Single Page Website for Ukranian Pellets Manufacture Ecofuel Plus. Created with React & TypeScript.",
     "mainImg": {
       "url": "img/portfolio/ecofuel_plus/ecofuel_pc_white-min.png",
       "alt": "Ecofuel Plus Website - Services"
@@ -38,7 +38,7 @@
         "alt": "Ecofuel Plus Website - Pc Home Dark"
       }
     ],
-    "title": "QUIZ for Desire Residential Complex",
+    "title": "Ecofuel Plus Website",
     "tags": [
       "Front-End",
       "React",
