@@ -1,6 +1,6 @@
 [
   {
-    "role": "IT Solution Architect",
+    "role": "IT Coordinator",
     "company": "Teus-Group",
     "link": {
       "url": "https://teus-group.com/",
@@ -16,12 +16,12 @@
       "Present"
     ],
     "description": [
-      "Enhanced operational efficiency by configuring key systems: UniTalk IP telephony, Asana, HubSpot CRM, and Google Workspace.",
+      "Enhanced operational efficiency by configuring key systems: UniTalk IP telephony, Asana, HubSpot CRM, QuickBooks, and Google Workspace.",
       "Ensured system reliability and content accuracy through technical support and web content management."
     ]
   },
   {
-    "role": "Head of IT Department",
+    "role": "IT Coordinator",
     "company": "ZHYTLOBUD-2",
     "link": {
       "url": "https://www.zhilstroj-2.ua/",
@@ -33,11 +33,12 @@
     },
     "location": "Kharkiv, Ukraine (Remote)",
     "dates": [
-      "December 2020",
+      "November 2018",
       "Present"
     ],
     "description": [
       "Managed a diverse team of six IT professionals and various contractors, overseeing the development and management of various websites using PHP, WordPress, and JavaScript across a city-wide organization",
+      "Ensured the implementation of the 1C accounting system at a full-cycle construction company with more than 1000 employees.",
       "Implemented an access control system with face recognition and the ability to detect absenteeism",
       "Formed a subdivision for the creation of IT infrastructure at construction sites.",
       "Automated document flow for the transport department by integrating the 1C accounting system with concrete node software, GPS vehicle monitoring, and car weights, improving operational efficiency, data accuracy and reducing the data entry period from a month to 1 day.",
@@ -85,30 +86,6 @@
       "Gained hands-on experience in Spring Boot, Spring Security, and Spring MVC frameworks.",
       "Developed a solid understanding of working with SQL and NoSQL databases and utilizing JPA/Hibernate for data management. Implemented RESTful APIs and utilized services like Auth0 for secure authentication.",
       "Gained proficiency in working with AWS services (S3, EC2, Lambda, RDS, DynamoDB) to optimize the scalability, reliability, and performance of web applications."
-    ]
-  },
-  {
-    "role": "Project Manager",
-    "company": "ZHYTLOBUD-2",
-    "link": {
-      "url": "https://www.zhilstroj-2.ua/",
-      "title": "ZHYTLOBUD-2"
-    },
-    "image": {
-      "url": "jb2.webp",
-      "alt": "JB2_logo"
-    },
-    "location": "Kharkiv, Ukraine",
-    "dates": [
-      "November 2018",
-      "December 2020"
-    ],
-    "description": [
-      "Ensured the implementation of the 1C accounting system at a full-cycle construction company with more than 1000 employees.",
-      "Led meetings between the company's departments and contractors. Gathered requirements.",
-      "Conducted training sessions and provided ongoing support to employees to ensure the successful adoption of the new system",
-      "Transformed lead generation by spearheading Android and iOS catalog app development with interactive apartment designs, effectively expanding the company\"s reach to web-based leads in addition to phone and office-based leads.",
-      "Created Java program for daily mixer route planning, streamlining processes and boosting department efficiency"
     ]
   },
   {
