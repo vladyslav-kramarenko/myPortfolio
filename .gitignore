@@ -39,3 +39,15 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# personal documents — do not expose in public repo
+/resume/
+*.docx
+*.pdf
+
+# internal planning and review docs
+/recommendations/
+em_review_v2.md
+
+# OS artifacts
+Thumbs.db
