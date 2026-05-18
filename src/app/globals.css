@@ -1,0 +1,180 @@
+/* ── Animatable CSS custom properties ───────────────────────────────────── */
+@property --accent-primary    { syntax: '<color>'; inherits: true; initial-value: #00e5ff; }
+@property --accent-secondary  { syntax: '<color>'; inherits: true; initial-value: #0077ff; }
+@property --accent-glow       { syntax: '<color>'; inherits: true; initial-value: rgba(0, 229, 255, 0.2); }
+@property --glow-color-faint  { syntax: '<color>'; inherits: true; initial-value: rgba(0, 229, 255, 0.06); }
+@property --accent-glow-pulse { syntax: '<color>'; inherits: true; initial-value: rgba(0, 229, 255, 0.4); }
+@property --bg-primary        { syntax: '<color>'; inherits: true; initial-value: #050505; }
+@property --glass-bg          { syntax: '<color>'; inherits: true; initial-value: rgba(17, 17, 17, 0.7); }
+@property --border-color      { syntax: '<color>'; inherits: true; initial-value: rgba(255, 255, 255, 0.1); }
+
+:root {
+  /* ── Dark mode (default) ── */
+  --bg-primary: #050505;
+  --bg-secondary: #111111;
+  --bg-tertiary: #1a1a1a;
+
+  --text-primary: #f8f9fa;
+  --text-secondary: #a0aab2;
+  --text-muted: #6c757d;
+
+  /* Accents — default: rainy Vancouver (electric cyan) */
+  --accent-primary: #00e5ff;
+  --accent-secondary: #0077ff;
+  --accent-glow: rgba(0, 229, 255, 0.2);
+  --glow-color-faint: rgba(0, 229, 255, 0.06);
+  --accent-glow-pulse: rgba(0, 229, 255, 0.4);
+
+  --border-color: rgba(255, 255, 255, 0.1);
+  --glass-bg: rgba(17, 17, 17, 0.7);
+
+  --font-sans: var(--font-inter), sans-serif;
+  --font-mono: var(--font-roboto-mono), monospace;
+}
+
+/* ── Light mode ─────────────────────────────────────────────────────────── */
+html[data-theme="light"] {
+  color-scheme: light;
+
+  /* Warm off-white base — less clinical than pure white */
+  --bg-primary: #f5f3ef;
+  --bg-secondary: #ece9e3;
+  --bg-tertiary: #e0ddd6;
+
+  /* High-contrast ink tones */
+  --text-primary: #0f0e0c;
+  --text-secondary: #3d3a35;
+  --text-muted: #6e6860;
+
+  /* Accent — rich teal, readable on warm bg */
+  --accent-primary: #0882a8;
+  --accent-secondary: #0d6e8e;
+  --accent-glow: rgba(8, 130, 168, 0.18);
+  --glow-color-faint: rgba(8, 130, 168, 0.08);
+  --accent-glow-pulse: rgba(8, 130, 168, 0.38);
+
+  /* Warm borders — parchment feel, not cold gray */
+  --border-color: rgba(60, 50, 30, 0.12);
+  --glass-bg: rgba(255, 252, 245, 0.82);
+}
+
+/* ── Weather themes — dark ──────────────────────────────────────────────── */
+html[data-weather="cloudy"] {
+  --accent-primary: #60a5fa; --accent-secondary: #3b82f6;
+  --accent-glow: rgba(96, 165, 250, 0.2); --glow-color-faint: rgba(96, 165, 250, 0.06);
+  --accent-glow-pulse: rgba(96, 165, 250, 0.4);
+}
+html[data-weather="foggy"] {
+  --accent-primary: #94a3b8; --accent-secondary: #64748b;
+  --accent-glow: rgba(148, 163, 184, 0.15); --glow-color-faint: rgba(148, 163, 184, 0.04);
+  --accent-glow-pulse: rgba(148, 163, 184, 0.35);
+}
+html[data-weather="sunny"] {
+  --accent-primary: #f0c040; --accent-secondary: #d97706;
+  --accent-glow: rgba(240, 192, 64, 0.2); --glow-color-faint: rgba(240, 192, 64, 0.07);
+  --accent-glow-pulse: rgba(240, 192, 64, 0.4);
+}
+html[data-weather="snowy"] {
+  --accent-primary: #bae6fd; --accent-secondary: #7dd3fc;
+  --accent-glow: rgba(186, 230, 253, 0.2); --glow-color-faint: rgba(186, 230, 253, 0.06);
+  --accent-glow-pulse: rgba(186, 230, 253, 0.4);
+}
+
+/* ── Weather themes — light (rich, saturated; contrast ≥ 4.5:1 on #f5f3ef) ── */
+html[data-theme="light"][data-weather="cloudy"] {
+  --accent-primary: #1a56c4; --accent-secondary: #1442a0;
+  --accent-glow: rgba(26, 86, 196, 0.16); --glow-color-faint: rgba(26, 86, 196, 0.07);
+  --accent-glow-pulse: rgba(26, 86, 196, 0.32);
+}
+html[data-theme="light"][data-weather="foggy"] {
+  --accent-primary: #4a5568; --accent-secondary: #2d3748;
+  --accent-glow: rgba(74, 85, 104, 0.16); --glow-color-faint: rgba(74, 85, 104, 0.06);
+  --accent-glow-pulse: rgba(74, 85, 104, 0.28);
+}
+html[data-theme="light"][data-weather="sunny"] {
+  --accent-primary: #a8550a; --accent-secondary: #87420a;
+  --accent-glow: rgba(168, 85, 10, 0.17); --glow-color-faint: rgba(168, 85, 10, 0.07);
+  --accent-glow-pulse: rgba(168, 85, 10, 0.32);
+}
+html[data-theme="light"][data-weather="snowy"] {
+  --accent-primary: #0272a8; --accent-secondary: #025c8a;
+  --accent-glow: rgba(2, 114, 168, 0.16); --glow-color-faint: rgba(2, 114, 168, 0.07);
+  --accent-glow-pulse: rgba(2, 114, 168, 0.32);
+}
+
+html {
+  height: 100%;
+  color-scheme: dark;
+  scroll-behavior: smooth;
+  background: var(--bg-primary);
+  transition:
+    --accent-primary 0.5s ease,
+    --accent-secondary 0.5s ease,
+    --accent-glow 0.5s ease,
+    --glow-color-faint 0.5s ease,
+    --accent-glow-pulse 0.5s ease,
+    --bg-primary 0.35s ease,
+    --glass-bg 0.35s ease,
+    --border-color 0.35s ease;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+/* Global focus-visible for keyboard accessibility */
+*:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Ensure correct cursors globally */
+a, button, [role="button"] {
+  cursor: pointer;
+}
+
+body {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  color: var(--text-primary);
+  background: var(--bg-primary);
+  font-family: var(--font-sans);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--accent-primary);
+}
+
+/* Typography base */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* Utilities */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+}

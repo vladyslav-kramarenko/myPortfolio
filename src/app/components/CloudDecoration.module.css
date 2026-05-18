@@ -1,0 +1,363 @@
+/* ── Container — spans both grid columns ── */
+.container {
+  grid-column: 1 / -1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 88px;
+  padding-top: 4px;
+  overflow: visible;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   MAIN CLOUD — digital wireframe style
+   DOM order = paint order: each circle renders ON TOP of its left neighbour,
+   so its bg masks the neighbour's right border → clean concave junction.
+   Order: base pill → far-left bump → left shoulder → centre peak → right shoulder
+────────────────────────────────────────────────────────────────────────── */
+.cloud {
+  position: relative;
+  width: 186px;
+  height: 68px;
+  flex-shrink: 0;
+  z-index: 1;
+  filter: drop-shadow(0 0 8px var(--accent-primary));
+  animation: float 6s ease-in-out infinite alternate;
+}
+
+@keyframes float {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-8px); }
+}
+
+/* All cloud shapes: bg masks internal borders; border draws the glow line */
+.cloudBase,
+.cloudBump,
+.cloudShouL,
+.cloudPeak,
+.cloudShouR {
+  position: absolute;
+  background: var(--bg-primary);
+  border: 1.5px solid var(--accent-primary);
+}
+
+/* 1 — Flat pill base */
+.cloudBase {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 26px;
+  border-radius: 999px;
+}
+
+/* 2 — Far-left small bump */
+.cloudBump {
+  width: 38px;
+  height: 34px;
+  border-radius: 50%;
+  bottom: 10px;
+  left: 4px;
+}
+
+.cloudBump::after {
+  content: '';
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--accent-primary);
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 0 5px var(--accent-primary);
+}
+
+/* 3 — Left shoulder */
+.cloudShouL {
+  width: 54px;
+  height: 50px;
+  border-radius: 50%;
+  bottom: 9px;
+  left: 22px;
+}
+
+/* 4 — Centre peak — tallest, most prominent */
+.cloudPeak {
+  width: 70px;
+  height: 66px;
+  border-radius: 50%;
+  bottom: 20px;
+  left: 54px;
+}
+
+.cloudPeak::after {
+  content: '';
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent-primary);
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 0 8px var(--accent-primary), 0 0 18px var(--accent-glow);
+  animation: nodePulse 3s ease-in-out infinite;
+}
+
+@keyframes nodePulse {
+  0%, 100% { opacity: 0.7; box-shadow: 0 0 6px var(--accent-primary); }
+  50%       { opacity: 1;   box-shadow: 0 0 14px var(--accent-primary), 0 0 24px var(--accent-glow); }
+}
+
+/* 5 — Right shoulder — renders last so it sits on top of the peak's right side */
+.cloudShouR {
+  width: 52px;
+  height: 48px;
+  border-radius: 50%;
+  bottom: 9px;
+  left: 112px;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   WEATHER ZONE
+────────────────────────────────────────────────────────────────────────── */
+.weatherZone {
+  position: relative;
+  width: 158px;
+  height: 34px;
+  overflow: hidden;
+}
+
+/* ── Rain — crisp pixel lines ── */
+.raindrop {
+  position: absolute;
+  top: 2px;
+  width: 1px;
+  height: 10px;
+  background: var(--accent-primary);
+  opacity: 0;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  0%   { transform: translateY(-8px); opacity: 0; }
+  10%  { opacity: 0.7; }
+  90%  { opacity: 0.5; }
+  100% { transform: translateY(38px); opacity: 0; }
+}
+
+/* ── Snow — diamond pixels ── */
+.snowflake {
+  position: absolute;
+  top: 0;
+  width: 4px;
+  height: 4px;
+  background: var(--accent-primary);
+  border-radius: 1px;
+  transform: rotate(45deg);
+  opacity: 0;
+  animation: drift ease-in-out infinite;
+}
+
+@keyframes drift {
+  0%   { transform: rotate(45deg) translateY(-6px) translateX(0);   opacity: 0; }
+  15%  { opacity: 0.75; }
+  50%  { transform: rotate(45deg) translateY(14px) translateX(4px); }
+  85%  { opacity: 0.5; }
+  100% { transform: rotate(45deg) translateY(38px) translateX(-3px); opacity: 0; }
+}
+
+/* ── Fog — drifting scan lines ── */
+.fogStreak {
+  position: absolute;
+  top: 8px;
+  left: -24px;
+  right: -24px;
+  height: 1.5px;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    var(--accent-primary) 20%,
+    var(--accent-primary) 80%,
+    transparent 100%
+  );
+  opacity: 0.5;
+  animation: fogDrift 9s ease-in-out infinite alternate;
+}
+
+.fogStreak2 {
+  top: 20px;
+  height: 1px;
+  opacity: 0.3;
+  animation-delay: -4.5s;
+  animation-duration: 12s;
+}
+
+@keyframes fogDrift {
+  from { transform: translateX(-14px); }
+  to   { transform: translateX(14px); }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   SUN SCENE — behind the main cloud (cloudy) OR dominant (sunny)
+────────────────────────────────────────────────────────────────────────── */
+.sunScene {
+  position: absolute;
+  top: 4px;
+  right: calc(50% - 79px - 8px);
+  width: 72px;
+  height: 72px;
+  z-index: 0;
+}
+
+/* Sunny: sun becomes the centrepiece — larger, centred, above everything */
+.sunSceneSunny {
+  top: -12px;
+  left: 50%;
+  right: auto;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 120px;
+  z-index: 2;
+}
+
+/* Rotating ray fan */
+.sunRays {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,   var(--accent-glow) 10deg,  transparent 20deg,
+    transparent 45deg,  var(--accent-glow) 55deg,  transparent 65deg,
+    transparent 90deg,  var(--accent-glow) 100deg, transparent 110deg,
+    transparent 135deg, var(--accent-glow) 145deg, transparent 155deg,
+    transparent 180deg, var(--accent-glow) 190deg, transparent 200deg,
+    transparent 225deg, var(--accent-glow) 235deg, transparent 245deg,
+    transparent 270deg, var(--accent-glow) 280deg, transparent 290deg,
+    transparent 315deg, var(--accent-glow) 325deg, transparent 335deg,
+    transparent 360deg
+  );
+  animation: rayRotate 28s linear infinite;
+}
+
+/* Solid orb at centre */
+.sun {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 1.5px solid var(--accent-primary);
+  background: var(--bg-primary);
+  box-shadow: 0 0 14px var(--accent-primary), 0 0 30px var(--accent-glow);
+  animation: sunPulse 4s ease-in-out infinite;
+}
+
+/* Inner dot */
+.sun::after {
+  content: '';
+  position: absolute;
+  inset: 5px;
+  border-radius: 50%;
+  background: var(--accent-primary);
+  opacity: 0.6;
+}
+
+@keyframes sunPulse {
+  0%, 100% { box-shadow: 0 0 12px var(--accent-primary), 0 0 24px var(--accent-glow); }
+  50%       { box-shadow: 0 0 22px var(--accent-primary), 0 0 44px var(--accent-glow); }
+}
+
+@keyframes rayRotate {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   ECHO CLOUD — offset behind main, cloudy only
+────────────────────────────────────────────────────────────────────────── */
+.cloudEcho {
+  position: absolute;
+  top: 22px;
+  right: calc(50% - 79px - 28px);
+  width: 108px;
+  height: 38px;
+  z-index: 0;
+  opacity: 0.32;
+  filter: drop-shadow(0 0 5px var(--accent-primary));
+  animation: float 7s ease-in-out 1.2s infinite alternate;
+}
+
+.cloudEcho::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 22px;
+  background: var(--bg-primary);
+  border: 1.5px solid var(--accent-primary);
+  border-radius: 999px;
+}
+
+.cloudEcho::after {
+  content: '';
+  position: absolute;
+  width: 44px;
+  height: 40px;
+  background: var(--bg-primary);
+  border: 1.5px solid var(--accent-primary);
+  border-radius: 50%;
+  bottom: 8px;
+  left: 18px;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   GHOST CLOUD — sunny only; a small cloud drifting away as skies clear
+────────────────────────────────────────────────────────────────────────── */
+.cloudEchoSunny {
+  position: absolute;
+  top: 40px;
+  right: calc(50% - 79px - 50px);
+  width: 80px;
+  height: 28px;
+  z-index: 1;
+  opacity: 0.14;
+  filter: drop-shadow(0 0 4px var(--accent-primary));
+  animation: float 11s ease-in-out 3s infinite alternate;
+}
+
+.cloudEchoSunny::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 16px;
+  background: var(--bg-primary);
+  border: 1.5px solid var(--accent-primary);
+  border-radius: 999px;
+}
+
+.cloudEchoSunny::after {
+  content: '';
+  position: absolute;
+  width: 32px;
+  height: 30px;
+  background: var(--bg-primary);
+  border: 1.5px solid var(--accent-primary);
+  border-radius: 50%;
+  bottom: 6px;
+  left: 14px;
+}
+
+/* Larger sun orb for sunny scene */
+.sunSceneSunny .sun {
+  width: 38px;
+  height: 38px;
+  box-shadow: 0 0 20px var(--accent-primary), 0 0 50px var(--accent-glow), 0 0 80px var(--accent-glow);
+}

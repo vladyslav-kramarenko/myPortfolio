@@ -1,0 +1,63 @@
+.canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0;
+  animation: appear 1.2s ease 0.5s forwards;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0;
+  animation: appear 1.5s ease 0.5s forwards;
+}
+
+@keyframes appear {
+  to { opacity: 1; }
+}
+
+/* ── Fog ──────────────────────────────────────────────────── */
+.foggy {
+  background:
+    radial-gradient(ellipse 120% 40% at 20% 40%, rgba(148, 163, 184, 0.07) 0%, transparent 70%),
+    radial-gradient(ellipse 100% 30% at 80% 65%, rgba(148, 163, 184, 0.05) 0%, transparent 70%),
+    radial-gradient(ellipse 80%  25% at 50% 80%, rgba(148, 163, 184, 0.04) 0%, transparent 70%);
+  animation: appear 1.5s ease 0.5s forwards, fogDrift 18s ease-in-out 2s infinite alternate;
+}
+
+@keyframes fogDrift {
+  from { transform: translateX(-6%) scaleX(1);   opacity: 0.7; }
+  to   { transform: translateX( 6%) scaleX(1.05); opacity: 1;   }
+}
+
+/* ── Sunny ────────────────────────────────────────────────── */
+.sunny {
+  background: conic-gradient(
+    from 250deg at 60% -5%,
+    transparent        0deg,
+    rgba(240,192,64,0.05)  8deg,
+    transparent        16deg,
+    rgba(240,192,64,0.03)  24deg,
+    transparent        32deg,
+    rgba(240,192,64,0.04)  40deg,
+    transparent        48deg,
+    rgba(240,192,64,0.02)  56deg,
+    transparent        64deg,
+    rgba(240,192,64,0.04)  72deg,
+    transparent        80deg,
+    rgba(240,192,64,0.03)  88deg,
+    transparent        180deg
+  );
+  animation: appear 2s ease 0.5s forwards, rayRotate 90s linear 2s infinite;
+}
+
+@keyframes rayRotate {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}

@@ -1,0 +1,468 @@
+.main {
+  width: 100%;
+  min-height: 100vh;
+  padding: 7rem 2rem 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.backgroundGlow {
+  position: absolute;
+  top: -10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70vw;
+  height: 70vh;
+  background: radial-gradient(ellipse, var(--glow-color-faint) 0%, transparent 65%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ── Scroll Reveal ── */
+.fadeSection {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fadeSection.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Hero ── */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  min-height: 82vh;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  padding: 3rem 3.5rem;
+  border: 1px solid color-mix(in srgb, var(--accent-primary) 14%, transparent);
+  background: color-mix(in srgb, var(--bg-secondary) 55%, transparent);
+  backdrop-filter: blur(6px);
+}
+
+.hero.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.heroLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.heroRight {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.greeting {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--accent-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+.name {
+  font-size: clamp(3rem, 5.5vw, 5rem);
+  line-height: 1.05;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  background: linear-gradient(135deg, var(--text-primary) 40%, var(--accent-primary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.tagline {
+  font-size: 1.1rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  max-width: 480px;
+}
+
+.voiceParagraph {
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: var(--text-muted);
+  max-width: 440px;
+  padding-left: 0.85rem;
+  border-left: 2px solid var(--accent-primary);
+  font-style: italic;
+}
+
+.heroActions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.primaryButton {
+  padding: 0.8rem 1.6rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  display: inline-block;
+  background: var(--accent-primary);
+  color: #000;
+  border: 1px solid var(--accent-primary);
+  box-shadow: 0 0 12px var(--accent-glow);
+}
+
+.primaryButton:hover {
+  background: transparent;
+  color: var(--accent-primary);
+  animation: none;
+  box-shadow: 0 0 20px var(--accent-glow);
+}
+
+.secondaryButton {
+  padding: 0.8rem 1.6rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  display: inline-block;
+  background: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.secondaryButton:hover {
+  background: rgba(128,128,128,0.08);
+  border-color: var(--text-secondary);
+  color: var(--text-primary);
+}
+
+.aiCta {
+  display: inline-flex;
+  align-items: center;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  font-family: var(--font-sans);
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.2s ease;
+  text-decoration: underline;
+  text-decoration-color: var(--accent-glow);
+  text-underline-offset: 3px;
+}
+
+.aiCta:hover {
+  color: var(--accent-primary);
+  text-decoration-color: var(--accent-primary);
+}
+
+.heroBadges {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.4rem 0.85rem;
+  background: var(--glow-color-faint);
+  color: var(--text-secondary);
+  border-radius: 999px;
+  font-size: 0.8rem;
+  border: 1px solid color-mix(in srgb, var(--accent-primary) 18%, transparent);
+}
+
+.weatherBadge {
+  background: var(--accent-glow);
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+  opacity: 0;
+  animation: fadeIn 0.6s ease 0.3s forwards;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+.raincoverWrapper {
+  position: relative;
+  cursor: help;
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--accent-primary);
+}
+
+.raincoverTip {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--bg-primary);
+  color: var(--accent-primary);
+  border: 1px solid var(--accent-primary);
+  border-radius: 6px;
+  padding: 0.3rem 0.65rem;
+  font-size: 0.72rem;
+  font-family: var(--font-sans);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 10;
+}
+
+.raincoverTip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: var(--accent-primary);
+}
+
+.raincoverWrapper:hover .raincoverTip {
+  opacity: 1;
+}
+
+/* ── Weather row — sits below cloud decoration, above stats ── */
+.weatherRow {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  opacity: 0;
+  animation: fadeIn 0.6s ease 0.5s forwards;
+  margin-top: -0.25rem;
+}
+
+.weatherEmoji {
+  font-size: 0.9rem;
+}
+
+.weatherTemp {
+  font-weight: 600;
+  color: var(--accent-primary);
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+}
+
+.weatherSep {
+  opacity: 0.4;
+}
+
+.weatherLabel {
+  color: var(--text-muted);
+}
+
+/* ── Stats Grid ── */
+.statCard {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-top: 2px solid var(--accent-primary);
+  border-radius: 16px;
+  padding: 1.75rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  cursor: default;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.statCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px var(--accent-glow);
+}
+
+.statNum {
+  font-size: 2.75rem;
+  font-weight: 800;
+  color: var(--accent-primary);
+  line-height: 1;
+}
+
+.statLabel {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* Certification showcase card */
+.certCard {
+  grid-column: 1 / -1;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.certCardTitle {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.certRow {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.certBadge {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.certBadge:hover {
+  background: var(--glow-color-faint);
+  border-color: color-mix(in srgb, var(--accent-primary) 28%, transparent);
+}
+
+.certBadgeIcon {
+  display: flex;
+  align-items: center;
+  color: var(--accent-primary);
+  flex-shrink: 0;
+}
+
+.certBadge > span:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.certBadgeName {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.certBadgeSub {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+.certExtIcon {
+  color: var(--text-muted);
+  flex-shrink: 0;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.certBadge:hover .certExtIcon {
+  opacity: 1;
+  color: var(--accent-primary);
+}
+
+/* ── Contact ── */
+.contactSection {
+  margin-top: 6rem;
+  padding: 4rem 3rem;
+  background: var(--glow-color-faint);
+  border: 1px solid color-mix(in srgb, var(--accent-primary) 18%, transparent);
+  border-radius: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.contactTitle {
+  font-size: 2rem;
+  color: var(--text-primary);
+}
+
+.contactText {
+  color: var(--text-secondary);
+  line-height: 1.7;
+  max-width: 480px;
+}
+
+.contactLinks {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    gap: 3rem;
+    padding: 2rem 1.75rem;
+  }
+
+  /* Prevent flex/grid items from expanding beyond available width */
+  .heroLeft, .heroRight {
+    min-width: 0;
+  }
+
+  .heroRight {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .main { padding: 6rem 1rem 2rem; }
+  .hero { padding: 1.5rem 1rem; gap: 2rem; }
+  .heroLeft { gap: 1rem; }
+  .heroRight { grid-template-columns: 1fr 1fr; }
+
+  /* Prevent max-width from inflating intrinsic sizing */
+  .tagline { max-width: 100%; }
+  .voiceParagraph { max-width: 100%; }
+
+  /* Compact stat cards for narrow screens */
+  .statCard { padding: 1.25rem 1rem; }
+  .statNum { font-size: 2.25rem; }
+
+  /* Stack action buttons full-width */
+  .heroActions {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .primaryButton, .secondaryButton {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
