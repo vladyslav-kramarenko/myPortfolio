@@ -40,4 +40,26 @@ export const schools: School[] = [
       { label: 'IT Marathon (2022)', url: 'https://certificates.epam.com/certificates/ffbe8999-875d-48f6-b8cc-6b62e4575c25' },
     ],
   },
+  {
+    institution: 'Coursera · LinkedIn Learning · Stepik',
+    location: 'Online',
+    degrees: [
+      {
+        title: 'From Data to Insights with Google Cloud',
+        field: 'BigQuery, Looker, Data Studio — 4-course specialization',
+        period: 'Dec 2022',
+        distinction: 'Physical award from Google',
+      },
+      {
+        title: 'Java, Python & Software Design',
+        field: 'Functional programming, design patterns, OOP, REST APIs, Kubernetes',
+        period: '2022 – 2023',
+        distinction: null,
+      },
+    ],
+    note: 'The Google Cloud specialization directly underpins the BigQuery and Looker Studio pipelines built at Ideal Siding and TEUS. The Java and Python courses complemented EPAM program work during the same relocation period.',
+    certLinks: [
+      { label: 'Google Cloud: From Data to Insights', url: 'https://coursera.org/share/1f3f2d8ac23bc492e2bd38fe4893a97b' },
+    ],
+  },
 ];
