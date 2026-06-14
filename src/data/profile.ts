@@ -7,7 +7,7 @@ export const profile = {
   github: 'github.com/vladyslav-kramarenko',
   linkedin: 'linkedin.com/in/vladyslav-kramarenko',
   summary:
-    'Cloud & Automation Engineer with 8+ years spanning IT leadership, systems engineering, and business operations. ' +
+    'IT Systems & Automation Engineer with 8+ years spanning IT leadership, systems engineering, and business operations. ' +
     'Specializes in eliminating manual workflows through scripting, ETL pipelines, and cloud-native integrations. ' +
     'AWS Certified (Developer & Solutions Architect). Canadian Permanent Resident, open to full-time roles in BC.',
   certifications: [
@@ -23,6 +23,6 @@ export const profile = {
     'Data & Pipelines': 'BigQuery, Looker Studio, CRM → ETL → BI pipelines',
     'No-code / Integrations': 'Make (Integromat), Pabbly Connect, Zapier, Airtable',
     'Web & Frameworks': 'React, Next.js, Angular, WordPress, Spring Boot',
-    'Tools': 'Git, Jenkins, Postman, Linux CLI, Docker, Jira',
+    'Tools': 'Git, Jenkins, Postman, Linux CLI, Jira',
   },
 };
