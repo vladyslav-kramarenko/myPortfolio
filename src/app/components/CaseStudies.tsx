@@ -20,7 +20,7 @@ const otherCases = [
     tags: ['Microsoft Entra ID', 'Apple Business Manager', 'MDM', 'Conditional Access'],
   },
   {
-    title: 'AI-Assisted Email Intelligence',
+    title: 'AI-Powered Email Data Extraction',
     company: 'Ideal Siding',
     description:
       'Built a workflow using the OpenAI API to extract structured fields from non-standardized vendor and partner emails — inferring amounts, dates, locations, and categories from free-text. Eliminated manual data entry and feeds the parsed data directly into CRM and reporting pipelines. Also built an internal RAG proof-of-concept to validate technical feasibility for company knowledge retrieval — the working prototype gave management the confidence to commit to a commercial solution rather than build blind.',
