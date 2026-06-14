@@ -41,7 +41,7 @@ export const experiences: Experience[] = [
     roles: [
       {
         role: 'Systems & Automation Engineer',
-        period: 'May 2023 – Sep 2025',
+        period: 'May 2023 – Sep 2025 (part-time Apr–Sep 2025)',
         location: 'Remote',
         bullets: [
           'Sole engineer supporting CRM, hosting, backups, and internal tools for an international real estate developer with resort projects across Turkey and Bali.',
@@ -72,14 +72,14 @@ export const experiences: Experience[] = [
           'Deployed a face-recognition access control system with automated absenteeism detection.',
           'Modernized network infrastructure: migrated user data from local machines to a centralized server with backup.',
           'Replaced two external vendors (access control installer + 1C integrator) with dedicated in-house hires at the same cost — gaining immediate on-site repair capability, centralised control across all buildings, and the capacity to build the company\'s first on-premises server room.',
-          'Developed custom 1C accounting add-ons and maintained company websites (PHP, WordPress, JavaScript).',
+          'Developed custom 1C (dominant ERP in Eastern Europe — comparable to SAP) accounting add-ons and maintained company websites (PHP, WordPress, JavaScript).',
         ],
       },
       {
         role: 'ERP Project Manager',
         period: 'Nov 2018 – Dec 2020',
         bullets: [
-          'Led end-to-end implementation of the 1C ERP system across a 1000+ employee construction company — gathered requirements, trained staff, and drove adoption.',
+          'Led end-to-end implementation of the 1C ERP system (dominant ERP in Eastern Europe — comparable to SAP) across a 1000+ employee construction company — gathered requirements, trained staff, and drove adoption.',
           'Automated transport department document flow — reduced a month-long data entry cycle to a single day by integrating 1C with truck GPS trackers, vehicle weight scales, and concrete production software, giving operations a unified view of every delivery.',
           'Managed delivery of three Android & iOS apartment catalogue apps through an external dev team — company overview and two project-specific apps with 2D floor-plan views for in-office sales use.',
           'Built a Java tool for daily concrete mixer route planning, improving logistics efficiency.',
@@ -88,34 +88,18 @@ export const experiences: Experience[] = [
     ],
   },
   {
-    company: 'Just Cat',
-    url: 'https://justcat.com.ua',
-    logo: '/logos/justcat.webp',
-    roles: [
-      {
-        role: 'Founder',
-        period: 'Sep 2017 – Nov 2018',
-        location: 'Ukraine',
-        bullets: [
-          'Founded a pellet manufacturing business producing up to 100 tonnes/month.',
-          'Expanded into retail by introducing small-format consumer packaging (3–5 kg) alongside bulk industrial supply — accessing higher-margin channels with the same product.',
-          'Managed production, supplier relationships, and regional sales logistics end-to-end.',
-        ],
-      },
-    ],
-  },
-  {
-    company: 'Ecofuel Trade',
+    company: 'Ecofuel Trade · Just Cat',
     url: null,
     logo: '/logos/ecofueltrade.webp',
+    location: 'Ukraine',
     roles: [
       {
         role: 'Founder & Operations Manager',
-        period: 'Sep 2015 – Sep 2017',
+        period: 'Sep 2015 – Nov 2018',
         location: 'Ukraine',
         bullets: [
-          'Founded a solid fuel (briquettes/pellets) manufacturing company and scaled it to a team of 6–20 across production, logistics, and procurement.',
-          'Managed end-to-end operations: supplier sourcing, production scheduling, inventory control, and regional distribution.',
+          'Founded and operated two consecutive solid fuel manufacturing businesses (briquettes/pellets) — grew the first to a team of 6–20, then launched a second focused on retail packaging (3–5 kg) to access higher-margin channels.',
+          'Managed full operations: production scheduling, supplier sourcing, inventory control, and regional distribution.',
         ],
       },
     ],
