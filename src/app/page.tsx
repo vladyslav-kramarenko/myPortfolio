@@ -11,6 +11,47 @@ import WeatherBackground from './components/WeatherBackground';
 import { useWeather } from './hooks/useWeather';
 import styles from './page.module.css';
 
+const TYPEWRITER_PHRASES = [
+  'I automate what teams repeat manually',
+  'Zero-touch MDM across 100+ locations',
+  'Turning hours of reports into live dashboards',
+  '3× AWS Certified · 8 yrs building systems',
+  'Open to full-time roles in BC, Canada',
+];
+
+const SKILLS = ['AWS', 'Python', 'Node.js', 'BigQuery', 'Looker Studio', 'React', 'Next.js', 'Google Workspace', 'Apple MDM', 'Make', 'Airtable', 'SQL', 'Linux', 'Entra ID', 'Git'];
+
+const AWS_CERTS = [
+  { name: 'Solutions Architect – Associate', id: 'SAA-C03' },
+  { name: 'Developer – Associate', id: 'DVA-C02' },
+  { name: 'Cloud Practitioner', id: 'CLF-C02' },
+];
+
+// Typewriter hook
+function useTypewriter(phrases: string[], speed = 55, pause = 2200) {
+  const [charIdx, setCharIdx] = useState(0);
+  const [phraseIdx, setPhraseIdx] = useState(0);
+  const [deleting, setDeleting] = useState(false);
+
+  useEffect(() => {
+    const phrase = phrases[phraseIdx];
+    let t: ReturnType<typeof setTimeout>;
+    if (!deleting && charIdx < phrase.length) {
+      t = setTimeout(() => setCharIdx(c => c + 1), speed);
+    } else if (!deleting) {
+      t = setTimeout(() => setDeleting(true), pause);
+    } else if (deleting && charIdx > 0) {
+      t = setTimeout(() => setCharIdx(c => c - 1), speed / 2);
+    } else {
+      setDeleting(false);
+      setPhraseIdx(p => (p + 1) % phrases.length);
+    }
+    return () => clearTimeout(t);
+  }, [charIdx, deleting, phraseIdx, phrases, speed, pause]);
+
+  return phrases[phraseIdx].slice(0, charIdx);
+}
+
 // Count-up hook for animated stats
 function useCountUp(target: number, duration = 1500, start = false) {
   const [count, setCount] = useState(0);
@@ -50,6 +91,7 @@ export default function Home() {
   const yearsCount = useCountUp(8, 1200, statsVisible);
   const locationsCount = useCountUp(100, 1500, statsVisible);
   const weather = useWeather();
+  const typewriterText = useTypewriter(TYPEWRITER_PHRASES);
 
   return (
     <main className={styles.main}>
@@ -58,11 +100,12 @@ export default function Home() {
       {/* ── Hero ─────────────────────────────────── */}
       <section id="about" className={`${styles.hero} ${heroVisible ? styles.visible : ''}`} ref={heroRef}>
         <WeatherBackground condition={weather?.condition ?? null} />
+        <div className={styles.heroAurora} aria-hidden="true" />
         <div className={styles.heroLeft}>
-          <p className={styles.greeting}>IT Systems & Automation Engineer</p>
+          <p className={styles.greeting}>IT Systems &amp; Automation Engineer</p>
           <h1 className={styles.name}>Vladyslav<br />Kramarenko</h1>
-          <p className={styles.tagline}>
-            I eliminate manual overhead through automation — zero-touch device provisioning across 100+ franchise locations, AI-powered data extraction, and hourly-refreshed dashboards that replaced hours of weekly reporting.
+          <p className={styles.typewriterLine} aria-live="polite">
+            {typewriterText}<span className={styles.cursor} aria-hidden="true" />
           </p>
           <p className={styles.voiceParagraph}>
             I work on the systems no one sees but everyone depends on. When I notice a team repeating manual work, I find a way to fix it — turning a pain point into something practical and maintainable.
@@ -86,7 +129,6 @@ export default function Home() {
               </svg>
               Canadian Permanent Resident
             </span>
-            <span className={styles.badge}>Open to Roles in BC</span>
           </div>
         </div>
 
@@ -116,7 +158,25 @@ export default function Home() {
             <span className={styles.statNum}>{locationsCount}+</span>
             <span className={styles.statLabel}>Locations Automated</span>
           </div>
-
+          <div className={`${styles.statCard} ${styles.awsCertCard}`}>
+            <span className={styles.awsCertTitle}>AWS Certified</span>
+            {AWS_CERTS.map(cert => (
+              <span key={cert.id} className={styles.awsCertItem}>
+                <svg className={styles.awsCertCheck} width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                <span className={styles.awsCertName}>{cert.name}</span>
+                <span className={styles.awsCertId}>{cert.id}</span>
+              </span>
+            ))}
+          </div>
+          <div className={styles.skillTicker} aria-hidden="true">
+            <div className={styles.skillTickerTrack}>
+              {[...SKILLS, ...SKILLS].map((skill, i) => (
+                <span key={i} className={styles.skillChip}>{skill}</span>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
@@ -145,7 +205,7 @@ export default function Home() {
       <section id="contact" className={styles.contactSection}>
         <h2 className={styles.contactTitle}>Let's Work Together</h2>
         <p className={styles.contactText}>
-          Open to IT automation and cloud engineering roles in BC, Canada.<br/>
+          Open to IT systems and automation roles in BC, Canada.<br/>
           Reach out on LinkedIn, by email, or call <a href="tel:+12369929229" style={{color:'var(--accent-primary)'}}>+1 236 992 9229</a>.
         </p>
         <div className={styles.contactLinks}>
