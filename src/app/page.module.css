@@ -55,6 +55,35 @@
   transform: translateY(0);
 }
 
+/* ── Aurora — weather-reactive glow behind the name ── */
+.heroAurora {
+  position: absolute;
+  top: -25%;
+  left: -10%;
+  width: 75%;
+  height: 110%;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0;
+  filter: blur(60px);
+  background:
+    radial-gradient(40% 45% at 30% 35%, var(--accent-glow-pulse) 0%, transparent 70%),
+    radial-gradient(35% 40% at 60% 55%, var(--accent-glow) 0%, transparent 72%),
+    radial-gradient(30% 35% at 20% 70%, color-mix(in srgb, var(--accent-secondary) 35%, transparent) 0%, transparent 75%);
+  animation:
+    auroraIn 1.6s ease 0.4s forwards,
+    auroraDrift 16s ease-in-out 2s infinite alternate;
+}
+
+@keyframes auroraIn {
+  to { opacity: 0.85; }
+}
+
+@keyframes auroraDrift {
+  from { transform: translate(0, 0) scale(1); }
+  to   { transform: translate(7%, 4%) scale(1.12); }
+}
+
 .heroLeft {
   display: flex;
   flex-direction: column;
@@ -85,17 +114,73 @@
   line-height: 1.05;
   font-weight: 800;
   letter-spacing: -0.03em;
-  background: linear-gradient(135deg, var(--text-primary) 40%, var(--accent-primary) 100%);
+  position: relative;
+  z-index: 1;
+  /* 200%-wide two-tone gradient; resting window (pos 0%) reads text → accent
+     like the original, while the sheen sweep settles into it on load. */
+  background: linear-gradient(110deg, var(--text-primary) 0%, var(--accent-primary) 50%, var(--text-primary) 100%);
+  background-size: 200% 100%;
+  background-position: 0% 0;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  animation:
+    nameReveal 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) 0.25s both,
+    nameSheen 2.2s ease 0.7s 1 both;
 }
 
-.tagline {
-  font-size: 1.1rem;
-  line-height: 1.65;
+@keyframes nameReveal {
+  from { opacity: 0; filter: blur(14px); transform: translateY(14px); }
+  to   { opacity: 1; filter: blur(0);    transform: translateY(0); }
+}
+
+@keyframes nameSheen {
+  from { background-position: 100% 0; }
+  to   { background-position: 0% 0; }
+}
+
+/* Honor reduced-motion: keep the look, drop the movement. */
+@media (prefers-reduced-motion: reduce) {
+  .heroAurora {
+    animation: none;
+    opacity: 0.85;
+  }
+  .name {
+    animation: none;
+    background-position: 0% 0;
+    opacity: 1;
+    filter: none;
+    transform: none;
+  }
+}
+
+/* ── Typewriter line ── */
+.typewriterLine {
+  font-size: 1.08rem;
+  line-height: 1.6;
   color: var(--text-secondary);
   max-width: 480px;
+  min-height: 1.75rem;
+}
+
+.cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1.05em;
+  background: var(--accent-primary);
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  border-radius: 1px;
+  animation: cursorBlink 0.85s step-end infinite;
+}
+
+@keyframes cursorBlink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cursor { animation: none; opacity: 1; }
 }
 
 .voiceParagraph {
@@ -312,6 +397,85 @@
   color: var(--text-muted);
   text-transform: uppercase;
   letter-spacing: 0.06em;
+}
+
+/* ── AWS cert card — spans full right-column width ── */
+.awsCertCard {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.awsCertTitle {
+  font-size: 0.7rem;
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 0.1rem;
+}
+
+.awsCertItem {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 0.82rem;
+  line-height: 1.3;
+}
+
+.awsCertCheck {
+  color: var(--accent-primary);
+  flex-shrink: 0;
+}
+
+.awsCertName {
+  color: var(--text-secondary);
+  flex: 1;
+}
+
+.awsCertId {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+/* ── Skills ticker ── */
+.skillTicker {
+  grid-column: 1 / -1;
+  overflow: hidden;
+  padding: 0.6rem 0;
+  border-top: 1px solid var(--border-color);
+  mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
+}
+
+.skillTickerTrack {
+  display: flex;
+  gap: 0.65rem;
+  width: max-content;
+  animation: tickerScroll 26s linear infinite;
+}
+
+.skillTickerTrack:hover {
+  animation-play-state: paused;
+}
+
+@keyframes tickerScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.skillChip {
+  display: inline-block;
+  padding: 0.25rem 0.7rem;
+  background: var(--glow-color-faint);
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  color: var(--text-secondary);
+  white-space: nowrap;
 }
 
 /* Certification showcase card */
