@@ -24,32 +24,32 @@ interface Particle { x: number; y: number; speed: number; opacity: number; lengt
 function makeCloud(w: number, h: number, startX?: number): Cloud {
   return {
     x: startX ?? Math.random() * w * 1.6 - w * 0.3,
-    y: h * 0.04 + Math.random() * h * 0.48,
-    bw: 22 + Math.random() * 28,   // 22–50px — subtle atmospheric wisps
-    speedX: -(0.06 + Math.random() * 0.14),
-    opacity: 0.055 + Math.random() * 0.075,
+    y: h * 0.04 + Math.random() * h * 0.50,
+    bw: 40 + Math.random() * 55,   // 40–95px — fuller, clearly-visible cloudbanks
+    speedX: -(0.08 + Math.random() * 0.16),
+    opacity: 0.11 + Math.random() * 0.13,
   };
 }
 
 const CLOUD_COUNTS: Partial<Record<WeatherCondition | 'null', number>> = {
-  sunny: 4, cloudy: 14, rainy: 10, foggy: 8, snowy: 9,
+  sunny: 5, cloudy: 18, rainy: 13, foggy: 11, snowy: 12,
 };
 
 function initRain(count: number, w: number, h: number): Particle[] {
   return Array.from({ length: count }, () => ({
     x: Math.random() * w, y: Math.random() * h,
-    speed: 9 + Math.random() * 7,
-    length: 14 + Math.random() * 22,
-    opacity: 0.055 + Math.random() * 0.07,
+    speed: 10 + Math.random() * 8,
+    length: 16 + Math.random() * 24,
+    opacity: 0.11 + Math.random() * 0.12,
   }));
 }
 
 function initSnow(count: number, w: number, h: number): Particle[] {
   return Array.from({ length: count }, () => ({
     x: Math.random() * w, y: Math.random() * h,
-    speed: 0.35 + Math.random() * 0.55,
-    radius: 1.5 + Math.random() * 2.5,
-    opacity: 0.35 + Math.random() * 0.45,
+    speed: 0.4 + Math.random() * 0.6,
+    radius: 1.8 + Math.random() * 2.8,
+    opacity: 0.45 + Math.random() * 0.45,
     drift: Math.random() * Math.PI * 2,
   }));
 }
@@ -90,9 +90,12 @@ export default function WeatherBackground({ condition }: Props) {
     const sinA = Math.sin(ANGLE);
     const cosA = Math.cos(ANGLE);
 
-    const rain  = condition === 'rainy'  ? initRain(80,  canvas.width, canvas.height) : [];
-    const snow  = condition === 'snowy'  ? initSnow(50, canvas.width, canvas.height) : [];
+    const rain  = condition === 'rainy'  ? initRain(120, canvas.width, canvas.height) : [];
+    const snow  = condition === 'snowy'  ? initSnow(70, canvas.width, canvas.height) : [];
     let tick = 0;
+
+    // Respect users who prefer reduced motion — render one static frame, no loop.
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     // ── Draw loop ───────────────────────────────────────────
     const draw = () => {
@@ -116,16 +119,16 @@ export default function WeatherBackground({ condition }: Props) {
         if (c.x + c.bw * 2.2 < 0) {
           // Respawn off the right edge
           c.x = canvas.width + c.bw * 1.2;
-          c.y = canvas.height * 0.04 + Math.random() * canvas.height * 0.48;
-          c.bw = 22 + Math.random() * 28;
-          c.opacity = 0.055 + Math.random() * 0.075;
-          c.speedX = -(0.06 + Math.random() * 0.14);
+          c.y = canvas.height * 0.04 + Math.random() * canvas.height * 0.50;
+          c.bw = 40 + Math.random() * 55;
+          c.opacity = 0.11 + Math.random() * 0.13;
+          c.speedX = -(0.08 + Math.random() * 0.16);
         }
       });
 
       // ── 2. Rain ───────────────────────────────────────────
       if (condition === 'rainy') {
-        ctx.lineWidth = 1;
+        ctx.lineWidth = 1.3;
         const rainColor = isLight ? '20, 100, 140' : '200, 230, 255';
         rain.forEach(p => {
           ctx.beginPath();
@@ -161,7 +164,7 @@ export default function WeatherBackground({ condition }: Props) {
         });
       }
 
-      frameRef.current = requestAnimationFrame(draw);
+      if (!reduced) frameRef.current = requestAnimationFrame(draw);
     };
 
     frameRef.current = requestAnimationFrame(draw);
