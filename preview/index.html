@@ -783,23 +783,33 @@
   <script>
     (() => {
 
-      // Featured projects are a view of the employer/independent project records, not separate copies.
-      // To pin or unpin a project, change its data-featured attribute between "true" and "false".
-      // This does not alter the project's employer or expose corporate GitHub repositories.
+      // All project descriptions live in the static HTML under their employer.
+      // To change pinned projects, edit /featured-projects.json — no corporate GitHub access required.
       const featuredRoot = document.getElementById('featuredProjects');
-      const featuredEntries = [...document.querySelectorAll('.role-project[data-featured="true"]')];
       const featuredSection = document.getElementById('projects');
-      for (const sourceCard of featuredEntries) {
-        const card = sourceCard.cloneNode(true);
-        card.classList.remove('role-project');
-        card.classList.add('project-card');
-        const organization = document.createElement('div');
-        organization.className = 'project-type';
-        organization.textContent = sourceCard.dataset.organization || 'Independent';
-        card.prepend(organization);
-        featuredRoot.append(card);
+      const allProjectCards = [...document.querySelectorAll('.role-project[data-project-id]')];
+      const defaultFeatured = allProjectCards.filter(card => card.dataset.featured === 'true').map(card => card.dataset.projectId);
+      function renderFeatured(ids) {
+        featuredRoot.replaceChildren();
+        for (const id of [...new Set(ids)]) {
+          const sourceCard = allProjectCards.find(card => card.dataset.projectId === id);
+          if (!sourceCard) continue;
+          const card = sourceCard.cloneNode(true);
+          card.classList.remove('role-project');
+          card.classList.add('project-card');
+          const organization = document.createElement('div');
+          organization.className = 'project-type';
+          organization.textContent = sourceCard.dataset.organization || 'Independent';
+          card.prepend(organization);
+          featuredRoot.append(card);
+        }
+        featuredSection.hidden = !featuredRoot.childElementCount;
       }
-      if (!featuredEntries.length) featuredSection.hidden = true;
+      renderFeatured(defaultFeatured); // Progressive fallback: static HTML remains fully readable.
+      fetch('/featured-projects.json', {cache: 'no-store'})
+        .then(response => { if (!response.ok) throw new Error('Featured configuration unavailable'); return response.json(); })
+        .then(data => { if (Array.isArray(data.featured)) renderFeatured(data.featured.filter(id => typeof id === 'string')); })
+        .catch(() => {}); // Keep the authored defaults if offline.
 
       const menuWrap = document.getElementById('menuWrap');
       const menuTrigger = document.getElementById('menuTrigger');
