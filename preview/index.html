@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#101719">
   <meta name="robots" content="noindex,nofollow">
-  <title>Hero concept — typewriter motion</title>
+  <title>Vladyslav Kramarenko | Business Systems, Automation & Integrations</title>
+  <meta name="description" content="Vladyslav Kramarenko — Metro Vancouver-based business systems, automation and integrations professional. AWS, GCP, BigQuery, Looker, Entra ID, SSO, SCIM and Apps Script.">
   <style>
     :root{
       --bg:#0f1618;
@@ -284,7 +285,19 @@
     @media (max-width:700px){.physical-keys{width:100%}.paper-rail{height:56%}.stamp{bottom:58px}}
     @media (prefers-reduced-motion: reduce){.paper{transform:translate(0,0)!important}}
 
-    /* V2: recruiter-first hierarchy. The personal identity precedes the interactive artwork. */
+    /* Recruiter-first content: clear role, location, and actual technology keywords. */
+    .location{margin-top:12px;color:#9db7b7;font-size:15px;line-height:1.4;letter-spacing:.01em}
+    @media(max-width:700px){.location{font-size:13px;margin-top:8px}}
+    .paper-top{letter-spacing:.08em}
+    .paper-top time{font-size:9px;letter-spacing:-.01em}
+    .typed-line.l2{font-size:clamp(12px,1.17vw,15px);line-height:1.32;letter-spacing:-.04em;margin-bottom:8px;font-weight:700}
+    .typed-line.l3,.typed-line.l4{font-size:clamp(12px,1.17vw,15px);margin-bottom:8px;letter-spacing:-.04em}
+    .typed-line.l5{font-size:clamp(12px,1.17vw,15px);margin-top:0;letter-spacing:-.04em;color:#223033;font-weight:700}
+    @media(max-width:460px){
+      .paper-top{font-size:8px;letter-spacing:.025em}
+      .paper-top time{font-size:8px}
+      .typed-line.l2,.typed-line.l3,.typed-line.l4,.typed-line.l5{font-size:11px;letter-spacing:-.06em;line-height:1.28;margin-bottom:8px}
+    }
     .meta{max-width:440px;font-size:clamp(15px,1.28vw,18px);line-height:1.58;letter-spacing:-.012em;color:#aebfbe;margin:16px 0 0}
     @media (max-width:980px){
       .hero{min-height:0;grid-template-columns:minmax(0,1fr);align-items:start;gap:0;padding:0 0 24px}
@@ -323,12 +336,9 @@
 <body>
   <div class="wrap">
     <header class="topbar">
-      <div class="brandbox">
+      <div class="brandbox" aria-label="Vladyslav Kramarenko">
         <div class="mark" aria-hidden="true">VK</div>
-        <div class="brandtext">
-          <div class="brandtitle">Make <span>IT</span> Simple</div>
-          
-        </div>
+        
       </div>
       <div class="menu-wrap" id="menuWrap">
         <button class="menu-trigger" type="button" id="menuTrigger" aria-controls="siteMenu" aria-expanded="false" aria-label="Open navigation menu">
@@ -346,10 +356,11 @@
       <div class="copy">
         
         <h1>Vladyslav<br>Kramarenko</h1>
-        <div class="subline">Business Systems &amp; Automation</div>
+        <div class="subline">Business Systems · Automation · Integrations</div>
+        <div class="location">Metro Vancouver, Canada</div>
         
         <div class="actions">
-          <a href="https://github.com/vladyslav-kramarenko" target="_blank" rel="noopener noreferrer" class="btn-primary">Explore my work ↗</a>
+          <a href="https://github.com/vladyslav-kramarenko" target="_blank" rel="noopener noreferrer" class="btn-primary">GitHub projects ↗</a>
         </div>
       </div>
 
@@ -358,20 +369,17 @@
           <div class="paper-rail" aria-hidden="true">
             <div class="paper" id="paper">
               <div class="paper-inner">
-                <div class="paper-top"><span>PORTFOLIO.LOG</span><time datetime="2026-11-22" class="log-date">2026.11.22</time></div>
+                <div class="paper-top"><span>TECHNOLOGIES</span><time datetime="2026-11-22" class="log-date" aria-label="Updated November 22, 2026">UPDATED 2026.11.22</time></div>
                 <div class="paper-rule"></div>
-                <div class="typed-sheet" aria-live="polite" aria-label="Portfolio update log with selected technologies">
+                <div class="typed-sheet" aria-live="polite" aria-label="Selected technical skills">
                   
-                  <span class="typed-line l2" id="line2">SITE UPDATED</span>
-                  <span class="typed-line l3" id="line3">DATA: CRM / BigQuery / Looker</span>
-                  <span class="typed-line l4" id="line4">IAM: SSO / SCIM / MDM</span>
-                  <span class="typed-line l5" id="line5">BUILD: Apps Script / APIs</span>
+                  <span class="typed-line l2" id="line2">AWS / GCP / Cloudflare</span>
+                  <span class="typed-line l3" id="line3">BigQuery / Looker / GA4</span>
+                  <span class="typed-line l4" id="line4">Entra ID / SSO / SCIM</span>
+                  <span class="typed-line l5" id="line5">Apps Script / APIs / MDM</span>
                   <span class="cursor" id="cursor"></span>
                 </div>
-                <div class="stamp">
-                  <span class="stamp-mark">END OF LOG</span>
-                  <span class="stamp-small">PREVIEW / 01</span>
-                </div>
+                
               </div>
             </div>
           </div>
@@ -466,10 +474,10 @@
         document.getElementById('line5')
       ];
       const textLines = [
-        'SITE UPDATED',
-        'DATA: CRM / BigQuery / Looker',
-        'IAM: SSO / SCIM / MDM',
-        'BUILD: Apps Script / APIs'
+        'AWS / GCP / Cloudflare',
+        'BigQuery / Looker / GA4',
+        'Entra ID / SSO / SCIM',
+        'Apps Script / APIs / MDM'
       ];
       const keyEls = new Map([...document.querySelectorAll('.physical-key[data-key]')].map(el => [el.dataset.key, el]));
       function physicalKeysFor(char) {
