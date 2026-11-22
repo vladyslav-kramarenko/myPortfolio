@@ -541,6 +541,46 @@
       .hero .paper-inner{padding:9px 10px}
       .hero .typed-line.l2,.hero .typed-line.l3,.hero .typed-line.l4,.hero .typed-line.l5{font-size:9px;letter-spacing:-.085em;margin-bottom:4px}
     }
+
+    /* Definitive mobile layout: keep the typewriter, keys, lever and paper in a single square stage.
+       Sheet width and height are linked by a fixed paper ratio, never by viewport height. */
+    .section-title-link{color:inherit;text-decoration:none;display:inline-flex;align-items:baseline;gap:12px}
+    .section-title-link span{font-size:.55em;color:var(--teal);transition:transform .2s ease}
+    .section-title-link:hover span,.section-title-link:focus-visible span{transform:translateY(4px)}
+    .section-title-link:hover{color:#f7ffff}
+    @media (max-width:700px){
+      .hero{display:flex;flex-direction:column;min-height:0;padding:0;margin:0;gap:0}
+      .hero .copy{order:0;width:100%;padding:17px 4px 0}
+      .hero .scene-wrap{order:1;width:100%;margin-top:22px;margin-bottom:0}
+      .hero .scene{width:min(100%,420px,clamp(225px,calc(100svh - 290px),420px));
+        height:auto;aspect-ratio:1/1;max-width:100%;margin:0 auto}
+      .hero .machine,.hero .physical-keys,.hero .machine-lever-layer{
+        width:100%;left:0;right:auto}
+      .hero .machine{bottom:0}
+      .hero .paper-rail{width:64%;height:auto;aspect-ratio:8.5/11;top:3%;
+        left:50%;transform:translateX(-50%)}
+      .hero .paper{width:100%;height:100%}
+      .hero .paper-inner{padding:clamp(9px,2.9vw,15px) clamp(10px,3.2vw,16px)}
+      .hero .paper-rule{margin:8px 0 10px}
+      .hero .paper-top,.hero .paper-top time{font-size:clamp(7px,1.9vw,9px)}
+      .hero .typed-line.l2,.hero .typed-line.l3,.hero .typed-line.l4,.hero .typed-line.l5{
+        font-size:clamp(8px,2.65vw,11px);line-height:1.28;letter-spacing:-.06em;margin-bottom:6px}
+      .portfolio-sections{padding-top:0}
+      .featured-section{padding-top:12px}
+      .featured-section .section-heading{margin-bottom:13px}
+      .featured-section .section-heading h2{font-size:clamp(27px,8vw,34px);line-height:1.16}
+      #projects{scroll-margin-top:16px}
+    }
+    @media (max-width:700px) and (max-height:600px){
+      .hero .copy{padding-top:12px}
+      .hero .scene-wrap{margin-top:12px}
+      .hero .scene{width:min(100%,clamp(205px,calc(100svh - 248px),340px))}
+      .hero .paper-inner{padding:8px 10px}
+      .hero .paper-rule{margin:7px 0 8px}
+      .hero .typed-line.l2,.hero .typed-line.l3,.hero .typed-line.l4,.hero .typed-line.l5{
+        font-size:clamp(7.5px,2.5vw,10px);margin-bottom:4px}
+      .featured-section{padding-top:8px}
+    }
   </style>
 </head>
 <body>
@@ -661,16 +701,13 @@
           </div>
         </div>
       </div>
-      <a class="scroll-next" href="#projects" aria-label="Scroll to featured projects">
-        <span>Featured projects</span><span class="scroll-next-arrow" aria-hidden="true">↓</span>
-      </a>
     </section>
 
     <main class="portfolio-sections" id="content">
 
       <section class="content-section featured-section" id="projects" aria-labelledby="projectsTitle">
         <div class="section-heading">
-          <div><h2 id="projectsTitle">Featured projects</h2></div>
+          <div><h2 id="projectsTitle"><a href="#projects" class="section-title-link" aria-label="Show featured projects">Featured projects <span aria-hidden="true">↓</span></a></h2></div>
           <a class="subtle-link" href="#experience">Projects by employer ↓</a>
         </div>
         <div class="project-grid featured-grid" id="featuredProjects"></div>
