@@ -151,9 +151,9 @@
     .typed-sheet{font-family:"Courier New",monospace;color:#273134;position:relative}
     .typed-line{display:block;min-height:1.18em;white-space:pre-wrap;word-break:break-word}
     .typed-line.l1{font-size:12px;letter-spacing:.16em;color:#4e5b59;margin-bottom:14px;text-transform:uppercase}
-    .typed-line.l2{font-size:clamp(24px, 2.8vw, 36px);font-weight:700;line-height:.92;letter-spacing:-.06em;margin-bottom:18px;font-family:Inter, sans-serif;color:#1f2a2d}
+    .typed-line.l2{font-size:clamp(19px, 2.3vw, 27px);font-weight:700;line-height:1.05;letter-spacing:-.055em;margin-bottom:18px;font-family:Inter, sans-serif;color:#1f2a2d}
     .typed-line.l3,.typed-line.l4{font-size:clamp(13px, 1.35vw, 18px);font-weight:700;line-height:1.28;margin-bottom:6px;font-family:Inter, sans-serif;color:#223033}
-    .typed-line.l5{font-size:14px;line-height:1.45;color:#596562;margin-top:8px}
+    .typed-line.l5{font-size:clamp(11px,1.18vw,14px);line-height:1.45;color:#596562;margin-top:8px}
     .cursor{display:inline-block;width:.6ch;border-bottom:2px solid #177d83;transform:translateY(-1px);margin-left:2px;animation:blink 1s step-end infinite}
     @keyframes blink{50%{opacity:0}}
     .stamp{position:absolute;left:26px;right:26px;bottom:22px;padding-top:12px;border-top:1px solid var(--paper-rule);display:flex;justify-content:space-between;align-items:center}
@@ -309,7 +309,7 @@
         <div class="mark" aria-hidden="true">VK</div>
         <div class="brandtext">
           <div class="brandtitle">Make <span>IT</span> Simple</div>
-          <span class="brandsub">VLADYSLAV KRAMARENKO</span>
+          
         </div>
       </div>
       <div class="socials">
@@ -333,19 +333,19 @@
           <div class="paper-rail" aria-hidden="true">
             <div class="paper" id="paper">
               <div class="paper-inner">
-                <div class="paper-top"><span>PROFILE / 01</span><strong>VK</strong></div>
+                <div class="paper-top"><span>FIELD NOTES / 01</span><strong>VK</strong></div>
                 <div class="paper-rule"></div>
-                <div class="typed-sheet" aria-live="polite" aria-label="Typed mini resume">
+                <div class="typed-sheet" aria-live="polite" aria-label="Selected technologies and integrations">
                   
-                  <span class="typed-line l2" id="line2"></span>
-                  <span class="typed-line l3" id="line3"></span>
-                  <span class="typed-line l4" id="line4"></span>
-                  <span class="typed-line l5" id="line5"></span>
+                  <span class="typed-line l2" id="line2">In practice</span>
+                  <span class="typed-line l3" id="line3">CRM / BigQuery / Looker</span>
+                  <span class="typed-line l4" id="line4">SSO / SCIM / MDM</span>
+                  <span class="typed-line l5" id="line5">Apps Script / APIs</span>
                   <span class="cursor" id="cursor"></span>
                 </div>
                 <div class="stamp">
                   <span class="stamp-mark">MAKE IT SIMPLE</span>
-                  <span class="stamp-small">METRO VANCOUVER</span>
+                  <span class="stamp-small">BUILD / ITERATE</span>
                 </div>
               </div>
             </div>
@@ -420,10 +420,10 @@
         document.getElementById('line5')
       ];
       const textLines = [
-        'Vladyslav\nKramarenko',
-        'Business Systems',
-        '& Automation',
-        'Cloud · APIs · Integrations'
+        'In practice',
+        'CRM / BigQuery / Looker',
+        'SSO / SCIM / MDM',
+        'Apps Script / APIs'
       ];
       const keyEls = new Map([...document.querySelectorAll('.physical-key[data-key]')].map(el => [el.dataset.key, el]));
       function physicalKeysFor(char) {
