@@ -490,6 +490,57 @@
       .role-projects{margin-top:17px}
       .independent-projects{margin-top:25px}
     }
+
+    .scroll-next{grid-column:1 / -1;display:flex;align-items:center;justify-content:center;
+      gap:12px;justify-self:center;width:max-content;padding:8px 10px;margin:0 auto;
+      color:#9dcfd0;font-weight:650;font-size:13px;letter-spacing:.02em;text-decoration:none;
+      border-bottom:1px solid rgba(116,221,225,.25);transition:color .2s,border-color .2s}
+    .scroll-next:hover{color:var(--teal);border-color:var(--teal)}
+    .scroll-next-arrow{font-size:20px;line-height:1}
+    .contact-links .contact-primary{background:#75d8dc;border-color:#75d8dc;color:#112327}
+    .contact-links .contact-primary:hover{background:#a0f2f3;color:#102024;text-decoration:none}
+    /* Mobile viewport-fit. Preserve static HTML content and replay on the physical lever. */
+    @media (max-width:700px){
+      .hero{min-height:0;gap:0;padding:0 0 2px}
+      .hero .copy{padding:18px 4px 0}
+      .hero h1{font-size:clamp(38px,10.4vw,54px);line-height:.96}
+      .hero .subline{margin-top:13px;font-size:clamp(15px,4.1vw,18px);line-height:1.24}
+      .hero .location{margin-top:7px;font-size:13px;line-height:1.35}
+      .hero .scene-wrap{margin-top:18px}
+      .hero .scene{width:100%;max-width:420px;height:clamp(286px,calc(100svh - 300px),520px);aspect-ratio:auto}
+      .hero .machine,.hero .physical-keys,.hero .machine-lever-layer{width:82%;left:9%}
+      .hero .machine{right:auto;bottom:0}
+      .hero .paper-rail{top:6%;width:62%;height:56%;left:50%}
+      .hero .paper-inner{padding:15px 16px 18px}
+      .hero .paper-rule{margin:11px 0 13px}
+      .hero .paper-top{font-size:8px;letter-spacing:.015em;gap:6px}
+      .hero .paper-top time{font-size:8px}
+      .hero .typed-line.l2,.hero .typed-line.l3,.hero .typed-line.l4,.hero .typed-line.l5{font-size:11px;line-height:1.26;letter-spacing:-.06em;margin-bottom:8px}
+      .scroll-next{margin:5px auto 2px;padding:6px 9px;font-size:12px}
+      .portfolio-sections{padding-top:4px}
+      .featured-section{padding-top:16px}
+    }
+    @media (max-width:700px) and (max-height:700px){
+      .hero .copy{padding-top:12px}
+      .hero h1{font-size:clamp(34px,10vw,46px)}
+      .hero .subline{margin-top:10px;font-size:clamp(14px,3.9vw,16px)}
+      .hero .scene-wrap{margin-top:14px}
+      .hero .scene{height:clamp(265px,calc(100svh - 288px),390px)}
+      .hero .machine,.hero .physical-keys,.hero .machine-lever-layer{width:66%;left:17%}
+      .hero .paper-rail{top:4.5%;width:67%;height:56%}
+      .hero .paper-inner{padding:10px 12px 12px}
+      .hero .paper-rule{margin:7px 0 9px}
+      .hero .paper-top,.hero .paper-top time{font-size:7.5px}
+      .hero .typed-line.l2,.hero .typed-line.l3,.hero .typed-line.l4,.hero .typed-line.l5{font-size:10px;line-height:1.22;letter-spacing:-.065em;margin-bottom:6px}
+      .scroll-next{margin-top:0}
+    }
+    @media (max-width:700px) and (max-height:590px){
+      .hero .machine,.hero .physical-keys,.hero .machine-lever-layer{width:57%;left:21.5%}
+      .hero .scene{height:clamp(236px,calc(100svh - 283px),295px)}
+      .hero .paper-rail{top:3%;height:59%;width:70%}
+      .hero .paper-inner{padding:9px 10px}
+      .hero .typed-line.l2,.hero .typed-line.l3,.hero .typed-line.l4,.hero .typed-line.l5{font-size:9px;letter-spacing:-.085em;margin-bottom:4px}
+    }
   </style>
 </head>
 <body>
@@ -610,6 +661,9 @@
           </div>
         </div>
       </div>
+      <a class="scroll-next" href="#projects" aria-label="Scroll to featured projects">
+        <span>Featured projects</span><span class="scroll-next-arrow" aria-hidden="true">↓</span>
+      </a>
     </section>
 
     <main class="portfolio-sections" id="content">
@@ -769,11 +823,13 @@
 
       <section class="content-section" id="contact" aria-labelledby="contactTitle">
         <div class="section-heading">
-          <div><h2 id="contactTitle">Contact</h2></div>
+          <div><h2 id="contactTitle">Questions? Let's talk.</h2>
+            <p>Ask about a project, my technical experience, or a potential role.</p>
+          </div>
         </div>
         <div class="contact-links">
+          <a class="contact-primary" href="mailto:kramarenko.vladyslav.92@gmail.com?subject=Question%20about%20your%20portfolio">Email me ↗</a>
           <a href="https://www.linkedin.com/in/vladyslav-kramarenko" target="_blank" rel="noopener noreferrer">Message on LinkedIn ↗</a>
-          <a href="https://github.com/vladyslav-kramarenko" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
           <a href="/Vladyslav-Kramarenko-Resume.pdf" download>Download resume PDF ↓</a>
         </div>
       </section>
