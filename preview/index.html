@@ -61,6 +61,7 @@
       gap:18px;
       border-bottom:1px solid rgba(255,255,255,.09);
     }
+    .topbar{position:relative;z-index:20}
     .brandbox{display:flex;align-items:center;gap:14px;min-width:0}
     .mark{
       width:48px;height:48px;border-radius:14px;display:grid;place-items:center;
@@ -73,15 +74,32 @@
     .brandtitle{font-size:17px;font-weight:780;letter-spacing:-.03em}
     .brandtitle span{color:var(--teal)}
     .brandsub{display:block;margin-top:6px;font-size:11px;color:#8ea09e;letter-spacing:.24em;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
-    .socials{display:flex;align-items:center;gap:14px}
-    .pill{
-      display:inline-flex;align-items:center;justify-content:center;gap:10px;
-      border-radius:999px;padding:12px 18px;min-height:48px;
-      border:1px solid rgba(116,221,225,.28);
-      color:#e8f1f1;font-weight:650;background:rgba(8,19,22,.28);backdrop-filter:blur(8px)
+    .menu-wrap{position:relative;z-index:30;margin-left:auto}
+    .menu-trigger{
+      display:inline-flex;align-items:center;justify-content:center;gap:15px;
+      min-height:48px;min-width:108px;border-radius:999px;padding:12px 17px;
+      border:1px solid rgba(116,221,225,.32);background:rgba(8,19,22,.36);
+      color:#e8f1f1;font-weight:700;cursor:pointer;transition:background .2s,border-color .2s;
+      -webkit-tap-highlight-color:transparent;
     }
-    .pill strong{font-weight:700}
-    .pill span{color:var(--teal)}
+    .menu-trigger:hover,.menu-trigger[aria-expanded="true"]{
+      border-color:rgba(116,221,225,.75);background:rgba(26,56,60,.55);
+    }
+    .hamburger{display:flex;flex-direction:column;gap:4px;width:17px}
+    .hamburger i{width:17px;height:2px;border-radius:2px;background:var(--teal);display:block;transition:transform .2s,opacity .2s}
+    .menu-trigger[aria-expanded="true"] .hamburger i:first-child{transform:translateY(3px) rotate(45deg)}
+    .menu-trigger[aria-expanded="true"] .hamburger i:last-child{transform:translateY(-3px) rotate(-45deg)}
+    .menu-panel{
+      position:absolute;top:calc(100% + 12px);right:0;width:min(300px,calc(100vw - 36px));
+      border:1px solid rgba(116,221,225,.3);border-radius:16px;padding:14px;
+      background:#172427;box-shadow:0 18px 45px rgba(0,0,0,.45);z-index:31;
+    }
+    .menu-panel[hidden]{display:none!important}
+    .menu-kicker{font:600 10px/1.4 ui-monospace,SFMono-Regular,Menlo,monospace;color:#84acae;letter-spacing:.19em;margin:4px 8px 11px}
+    .menu-panel a{display:flex;align-items:center;justify-content:space-between;min-height:48px;padding:11px 12px;
+      border-radius:9px;color:#edf5f3;font-size:15px;font-weight:650}
+    .menu-panel a:hover,.menu-panel a:focus-visible{background:rgba(116,221,225,.1);color:var(--teal)}
+    .menu-panel a span{color:var(--teal);font-size:18px}
 
     .hero{
       min-height:calc(100svh - 90px);
@@ -211,13 +229,13 @@
       .scene{width:min(720px, 100%);margin-inline:auto}
       h1{font-size:clamp(42px, 13vw, 68px)}
       .topbar{height:auto;padding:14px 0;flex-wrap:wrap}
-      .socials{margin-left:auto}
+      .menu-wrap{margin-left:auto}
     }
     @media (max-width: 700px){
       .wrap{width:min(100% - 24px, 1280px)}
       .brandtitle{font-size:15px}
       .brandsub{font-size:10px}
-      .pill{min-height:46px;padding:11px 16px}
+      .menu-trigger{min-height:46px;padding:11px 15px;min-width:102px}
       .hero{gap:18px;padding-top:10px}
       .scene{width:100%;aspect-ratio:auto;height:min(74svh, 730px)}
       .paper-rail{top:5%;width:58%;height:52%}
@@ -283,7 +301,7 @@
       .brandtitle{font-size:14px}
       .brandsub{font-size:8px;letter-spacing:.12em}
       .mark{width:40px;height:40px;font-size:17px}
-      .pill{min-height:39px;padding:8px 12px;font-size:12px}
+      .menu-trigger{min-height:42px;padding:9px 14px;min-width:92px;font-size:13px}
       .hero{padding-top:0;gap:0}
       .copy{padding:25px 6px 0}
       .eyebrow{font-size:9px;letter-spacing:.14em;margin-bottom:16px;gap:9px}
@@ -312,8 +330,15 @@
           
         </div>
       </div>
-      <div class="socials">
-        <a class="pill" href="https://linkedin.com/in/vladyslav-kramarenko" target="_blank" rel="noopener noreferrer"><strong>LinkedIn</strong> <span>↗</span></a>
+      <div class="menu-wrap" id="menuWrap">
+        <button class="menu-trigger" type="button" id="menuTrigger" aria-controls="siteMenu" aria-expanded="false" aria-label="Open navigation menu">
+          <span>Menu</span><span class="hamburger" aria-hidden="true"><i></i><i></i></span>
+        </button>
+        <nav class="menu-panel" id="siteMenu" aria-label="Site navigation" hidden>
+          <div class="menu-kicker">EXPLORE</div>
+          <a href="https://github.com/vladyslav-kramarenko" target="_blank" rel="noopener noreferrer">Projects <span aria-hidden="true">↗</span></a>
+          <a href="https://linkedin.com/in/vladyslav-kramarenko" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+        </nav>
       </div>
     </header>
 
@@ -407,6 +432,28 @@
 
   <script>
     (() => {
+      const menuWrap = document.getElementById('menuWrap');
+      const menuTrigger = document.getElementById('menuTrigger');
+      const menuPanel = document.getElementById('siteMenu');
+      function toggleMenu(open) {
+        menuPanel.hidden = !open;
+        menuTrigger.setAttribute('aria-expanded', String(open));
+        menuTrigger.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+      }
+      menuTrigger.addEventListener('click', () => toggleMenu(menuPanel.hidden));
+      document.addEventListener('click', event => {
+        if (!menuWrap.contains(event.target)) toggleMenu(false);
+      });
+      document.addEventListener('keydown', event => {
+        if (event.key === 'Escape' && !menuPanel.hidden) {
+          toggleMenu(false);
+          menuTrigger.focus();
+        }
+      });
+      menuPanel.addEventListener('click', event => {
+        if (event.target.closest('a')) toggleMenu(false);
+      });
+
       const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       const scene = document.getElementById('scene');
       const paper = document.getElementById('paper');
