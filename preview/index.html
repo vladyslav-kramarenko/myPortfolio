@@ -385,6 +385,28 @@
       .btn-primary,.btn-secondary{min-height:45px;padding:0 17px;font-size:13px}
     }
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+    /* Header-only access to source code, resume and navigation. */
+    .header-actions{display:flex;align-items:center;gap:9px;margin-left:auto}
+    .header-icon{width:44px;height:44px;border:1px solid rgba(116,221,225,.32);border-radius:12px;display:inline-flex;
+      justify-content:center;align-items:center;color:#d7eced;text-decoration:none;background:rgba(8,19,22,.3);
+      transition:color .2s,border-color .2s,background .2s;flex:none}
+    .header-icon:hover,.header-icon:focus-visible{color:var(--teal);border-color:rgba(116,221,225,.72);background:rgba(26,56,60,.5)}
+    .header-actions .menu-wrap{margin-left:0}
+    .header-actions .menu-trigger{min-width:44px;width:44px;min-height:44px;height:44px;padding:0;border-radius:12px;gap:0}
+    @media(max-width:700px){
+      .topbar{flex-wrap:nowrap;gap:12px}
+      .header-actions{gap:7px}
+      .header-icon{width:42px;height:42px}
+      .header-actions .menu-trigger{width:42px;min-width:42px;height:42px;min-height:42px}
+      .hero .copy{padding-bottom:2px}
+    }
+    @media(max-width:380px){
+      .topbar{gap:6px}
+      .header-actions{gap:5px}
+      .header-icon,.header-actions .menu-trigger{width:39px;min-width:39px;height:39px;min-height:39px}
+      .mark{width:38px;height:38px}
+    }
   </style>
 </head>
 <body>
@@ -394,10 +416,17 @@
         <div class="mark" aria-hidden="true">VK</div>
         
       </div>
-      <div class="menu-wrap" id="menuWrap">
-        <button class="menu-trigger" type="button" id="menuTrigger" aria-controls="siteMenu" aria-expanded="false" aria-label="Open navigation menu">
-          <span>Menu</span><span class="hamburger" aria-hidden="true"><i></i><i></i></span>
-        </button>
+      <div class="header-actions">
+        <a class="header-icon" href="https://github.com/vladyslav-kramarenko" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile and projects" title="GitHub">
+          <svg width="21" height="21" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 .75a11.25 11.25 0 0 0-3.558 21.924c.563.105.768-.245.768-.542 0-.268-.01-.978-.015-1.92-3.125.679-3.784-1.507-3.784-1.507-.511-1.299-1.248-1.644-1.248-1.644-1.02-.698.077-.684.077-.684 1.127.08 1.72 1.158 1.72 1.158 1.002 1.717 2.63 1.22 3.271.933.102-.725.392-1.22.713-1.5-2.495-.284-5.117-1.247-5.117-5.556 0-1.227.44-2.23 1.16-3.017-.116-.285-.503-1.428.11-2.976 0 0 .946-.303 3.094 1.153a10.8 10.8 0 0 1 5.63 0c2.147-1.456 3.092-1.153 3.092-1.153.614 1.548.228 2.691.112 2.976.722.788 1.158 1.79 1.158 3.017 0 4.32-2.625 5.27-5.128 5.548.403.35.761 1.039.761 2.092 0 1.51-.014 2.729-.014 3.1 0 .3.203.653.773.541A11.25 11.25 0 0 0 12 .75Z"/></svg>
+        </a>
+        <a class="header-icon" href="/resume.html" aria-label="View resume and save as PDF" title="Resume — print or save PDF">
+          <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3.75h7l4.25 4.25v12.25H7A2.25 2.25 0 0 1 4.75 18V6A2.25 2.25 0 0 1 7 3.75Z"/><path d="M14 3.75V8h4.25M9 12.5h5.5M9 15.5h5.5"/></svg>
+        </a>
+        <div class="menu-wrap" id="menuWrap">
+          <button class="menu-trigger" type="button" id="menuTrigger" aria-controls="siteMenu" aria-expanded="false" aria-label="Open navigation menu">
+            <span class="hamburger" aria-hidden="true"><i></i><i></i></span>
+          </button>
         <nav class="menu-panel" id="siteMenu" aria-label="Site navigation" hidden>
           
           <a href="#projects">Projects <span aria-hidden="true">↓</span></a>
@@ -407,6 +436,7 @@
           <a href="#contact">Contact <span aria-hidden="true">↓</span></a>
           <a href="https://linkedin.com/in/vladyslav-kramarenko" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
         </nav>
+        </div>
       </div>
     </header>
 
@@ -417,10 +447,7 @@
         <div class="subline">Business Systems · Automation · Integrations</div>
         <div class="location">Metro Vancouver, Canada</div>
         
-        <div class="actions">
-          <a href="#projects" class="btn-primary">Projects ↓</a>
-          <a href="/resume.html" class="btn-secondary">Resume ↗</a>
-        </div>
+
       </div>
 
       <div class="scene-wrap">
