@@ -164,14 +164,14 @@
     }
     .paper-inner{position:relative;padding:24px 26px 26px;height:100%}
     .paper-top{display:flex;justify-content:space-between;align-items:center;font-family:"Courier New",monospace;font-size:11px;letter-spacing:.18em;color:#5c6663;text-transform:uppercase}
-    .paper-top strong{font-weight:700;color:#167a80;letter-spacing:.08em}
+    .paper-top strong,.paper-top time{font-weight:700;color:#167a80;letter-spacing:.03em;font-size:10px;white-space:nowrap}
     .paper-rule{height:1px;background:var(--paper-rule);margin:18px 0 22px}
     .typed-sheet{font-family:"Courier New",monospace;color:#273134;position:relative}
     .typed-line{display:block;min-height:1.18em;white-space:pre-wrap;word-break:break-word}
     .typed-line.l1{font-size:12px;letter-spacing:.16em;color:#4e5b59;margin-bottom:14px;text-transform:uppercase}
-    .typed-line.l2{font-size:clamp(19px, 2.3vw, 27px);font-weight:700;line-height:1.05;letter-spacing:-.055em;margin-bottom:18px;font-family:Inter, sans-serif;color:#1f2a2d}
-    .typed-line.l3,.typed-line.l4{font-size:clamp(13px, 1.35vw, 18px);font-weight:700;line-height:1.28;margin-bottom:6px;font-family:Inter, sans-serif;color:#223033}
-    .typed-line.l5{font-size:clamp(11px,1.18vw,14px);line-height:1.45;color:#596562;margin-top:8px}
+    .typed-line.l2{font-size:clamp(17px, 2.1vw, 23px);font-weight:700;line-height:1.1;letter-spacing:-.03em;margin-bottom:18px;font-family:'Courier New',monospace;color:#1f2a2d}
+    .typed-line.l3,.typed-line.l4{font-size:clamp(12px, 1.17vw, 15px);font-weight:700;line-height:1.32;margin-bottom:8px;font-family:'Courier New',monospace;color:#223033;letter-spacing:-.04em}
+    .typed-line.l5{font-size:clamp(11px,1.14vw,14px);line-height:1.45;color:#596562;margin-top:9px;font-family:'Courier New',monospace;letter-spacing:-.04em}
     .cursor{display:inline-block;width:.6ch;border-bottom:2px solid #177d83;transform:translateY(-1px);margin-left:2px;animation:blink 1s step-end infinite}
     @keyframes blink{50%{opacity:0}}
     .stamp{position:absolute;left:26px;right:26px;bottom:22px;padding-top:12px;border-top:1px solid var(--paper-rule);display:flex;justify-content:space-between;align-items:center}
@@ -249,12 +249,13 @@
     @media (max-width: 460px){
       .paper-rail{top:7.2%;width:61.5%;height:48%}
       .paper-inner{padding:18px 18px 20px}
-      .paper-top{font-size:10px}
+      .paper-top{font-size:9px;letter-spacing:.05em}
+      .paper-top time{font-size:9px}
       .paper-rule{margin:14px 0 16px}
       .typed-line.l1{font-size:10px;margin-bottom:10px}
       .typed-line.l2{font-size:16.5px;margin-bottom:12px}
-      .typed-line.l3,.typed-line.l4{font-size:11px;margin-bottom:4px}
-      .typed-line.l5{font-size:10px;margin-top:6px}
+      .typed-line.l3,.typed-line.l4{font-size:11px;margin-bottom:5px;letter-spacing:-.065em}
+      .typed-line.l5{font-size:10px;margin-top:7px;letter-spacing:-.05em}
       .stamp{left:18px;right:18px;bottom:16px;padding-top:8px}
       .stamp-mark{font-size:11px}
       .stamp-small{font-size:8px}
@@ -357,19 +358,19 @@
           <div class="paper-rail" aria-hidden="true">
             <div class="paper" id="paper">
               <div class="paper-inner">
-                <div class="paper-top"><span>FIELD NOTES / 01</span><strong>VK</strong></div>
+                <div class="paper-top"><span>PORTFOLIO.LOG</span><time datetime="2026-11-22" class="log-date">2026.11.22</time></div>
                 <div class="paper-rule"></div>
-                <div class="typed-sheet" aria-live="polite" aria-label="Selected technologies and integrations">
+                <div class="typed-sheet" aria-live="polite" aria-label="Portfolio update log with selected technologies">
                   
-                  <span class="typed-line l2" id="line2">In practice</span>
-                  <span class="typed-line l3" id="line3">CRM / BigQuery / Looker</span>
-                  <span class="typed-line l4" id="line4">SSO / SCIM / MDM</span>
-                  <span class="typed-line l5" id="line5">Apps Script / APIs</span>
+                  <span class="typed-line l2" id="line2">SITE UPDATED</span>
+                  <span class="typed-line l3" id="line3">DATA: CRM / BigQuery / Looker</span>
+                  <span class="typed-line l4" id="line4">IAM: SSO / SCIM / MDM</span>
+                  <span class="typed-line l5" id="line5">BUILD: Apps Script / APIs</span>
                   <span class="cursor" id="cursor"></span>
                 </div>
                 <div class="stamp">
-                  <span class="stamp-mark">MAKE IT SIMPLE</span>
-                  <span class="stamp-small">BUILD / ITERATE</span>
+                  <span class="stamp-mark">END OF LOG</span>
+                  <span class="stamp-small">PREVIEW / 01</span>
                 </div>
               </div>
             </div>
@@ -465,10 +466,10 @@
         document.getElementById('line5')
       ];
       const textLines = [
-        'In practice',
-        'CRM / BigQuery / Looker',
-        'SSO / SCIM / MDM',
-        'Apps Script / APIs'
+        'SITE UPDATED',
+        'DATA: CRM / BigQuery / Looker',
+        'IAM: SSO / SCIM / MDM',
+        'BUILD: Apps Script / APIs'
       ];
       const keyEls = new Map([...document.querySelectorAll('.physical-key[data-key]')].map(el => [el.dataset.key, el]));
       function physicalKeysFor(char) {
