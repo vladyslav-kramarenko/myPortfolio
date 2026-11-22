@@ -1,0 +1,93 @@
+%PDF-1.4
+%ASCII
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 4 0 R /F2 5 0 R >> >> /Contents 6 0 R /Annots [7 0 R 8 0 R 9 0 R] >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+6 0 obj
+<< /Length 4376 >>
+stream
+0.12 0.2 0.22 rg BT /F2 24 Tf 1 0 0 1 44 747 Tm (Vladyslav Kramarenko) Tj ET
+0.06 0.45 0.49 rg 44 775 524 3 re f
+0.06 0.45 0.49 rg BT /F2 10.5 Tf 1 0 0 1 44 723 Tm (Business Systems  |  Automation  |  Integrations) Tj ET
+0.37 0.46 0.47 rg BT /F1 9 Tf 1 0 0 1 44 705 Tm (Metro Vancouver, BC, Canada) Tj ET
+0.06 0.45 0.49 rg BT /F1 9 Tf 1 0 0 1 44 685 Tm (linkedin.com/in/vladyslav-kramarenko) Tj ET
+0.06 0.45 0.49 rg BT /F1 9 Tf 1 0 0 1 328 685 Tm (github.com/vladyslav-kramarenko) Tj ET
+0.06 0.45 0.49 rg BT /F2 9.5 Tf 1 0 0 1 44 656 Tm (PROFESSIONAL FOCUS) Tj ET
+0.82 0.88 0.89 RG 0.7 w 44 647 m 568 647 l S
+0.12 0.2 0.22 rg BT /F1 9 Tf 1 0 0 1 44 631 Tm (IT systems and automation professional across business applications, identity and access,) Tj ET
+0.12 0.2 0.22 rg BT /F1 9 Tf 1 0 0 1 44 618 Tm (cloud operations, data pipelines and API integrations. IT leadership and hands-on delivery.) Tj ET
+0.06 0.45 0.49 rg BT /F2 9.5 Tf 1 0 0 1 44 590 Tm (EXPERIENCE) Tj ET
+0.82 0.88 0.89 RG 0.7 w 44 581 m 568 581 l S
+0.12 0.2 0.22 rg BT /F2 10 Tf 1 0 0 1 44 567 Tm (Ideal Siding  |  IT Systems & Operations Specialist) Tj ET
+0.37 0.46 0.47 rg BT /F1 8 Tf 1 0 0 1 459 567 Tm (Mar 2026 - present) Tj ET
+0.12 0.2 0.22 rg BT /F1 8.9 Tf 1 0 0 1 44 553 Tm (Business systems, onboarding, IAM, automation, APIs and cloud operations.) Tj ET
+0.12 0.2 0.22 rg BT /F2 10 Tf 1 0 0 1 44 526 Tm (Ideal Siding  |  Systems Onboarding & Support Technician) Tj ET
+0.37 0.46 0.47 rg BT /F1 8 Tf 1 0 0 1 454 515 Tm (Apr 2025 - Mar 2026) Tj ET
+0.12 0.2 0.22 rg BT /F1 8.9 Tf 1 0 0 1 44 512 Tm (Identity/endpoint onboarding and reporting integrations.) Tj ET
+0.12 0.2 0.22 rg BT /F2 10 Tf 1 0 0 1 44 487 Tm (TEUS Group  |  Systems & Automation Engineer) Tj ET
+0.37 0.46 0.47 rg BT /F1 8 Tf 1 0 0 1 454 476 Tm (May 2023 - Sep 2025) Tj ET
+0.12 0.2 0.22 rg BT /F1 8.9 Tf 1 0 0 1 44 473 Tm (CRM integrations, Apps Script, IT operations, websites and hosting.) Tj ET
+0.12 0.2 0.22 rg BT /F2 10 Tf 1 0 0 1 44 448 Tm (ZHYTLOBUD-2  |  Head of Information Technology Department) Tj ET
+0.37 0.46 0.47 rg BT /F1 8 Tf 1 0 0 1 450 437 Tm (Dec 2020 - Feb 2022*) Tj ET
+0.12 0.2 0.22 rg BT /F1 8.9 Tf 1 0 0 1 44 434 Tm (IT leadership, team/vendor coordination and business-system integrations.) Tj ET
+0.12 0.2 0.22 rg BT /F2 10 Tf 1 0 0 1 44 409 Tm (ZHYTLOBUD-2  |  Project Manager) Tj ET
+0.37 0.46 0.47 rg BT /F1 8 Tf 1 0 0 1 451 409 Tm (Nov 2018 - Dec 2020) Tj ET
+0.12 0.2 0.22 rg BT /F1 8.9 Tf 1 0 0 1 44 396 Tm (1C implementation support, master data, process requirements and reporting.) Tj ET
+0.06 0.45 0.49 rg BT /F2 9.5 Tf 1 0 0 1 44 372 Tm (TECHNICAL SKILLS) Tj ET
+0.82 0.88 0.89 RG 0.7 w 44 363 m 568 363 l S
+0.12 0.2 0.22 rg BT /F1 8.8 Tf 1 0 0 1 44 348 Tm (Identity: Google Workspace, Entra ID, SSO, SCIM, MDM, Apple Business Manager) Tj ET
+0.12 0.2 0.22 rg BT /F1 8.8 Tf 1 0 0 1 44 334 Tm (Automation: Python, Apps Script, JavaScript, REST APIs, CRM integrations) Tj ET
+0.12 0.2 0.22 rg BT /F1 8.8 Tf 1 0 0 1 44 320 Tm (Cloud & data: AWS, Google Cloud, BigQuery, Looker Studio, DigitalOcean, Cloudflare, SQL) Tj ET
+0.12 0.2 0.22 rg BT /F1 8.8 Tf 1 0 0 1 44 306 Tm (Analytics: Google Analytics 4, Google Tag Manager) Tj ET
+0.06 0.45 0.49 rg BT /F2 9.5 Tf 1 0 0 1 44 277 Tm (PUBLIC TECHNICAL WORK) Tj ET
+0.82 0.88 0.89 RG 0.7 w 44 268 m 568 268 l S
+0.12 0.2 0.22 rg BT /F1 8.9 Tf 1 0 0 1 44 252 Tm (Local RAG Support Bot - Python, LangChain, FAISS, local inference, Telegram.) Tj ET
+0.12 0.2 0.22 rg BT /F1 8.9 Tf 1 0 0 1 44 238 Tm (TEUS Group Website - React, TypeScript, two CRM integrations.) Tj ET
+0.06 0.45 0.49 rg BT /F2 9.5 Tf 1 0 0 1 44 207 Tm (AWS CERTIFICATIONS) Tj ET
+0.82 0.88 0.89 RG 0.7 w 44 198 m 568 198 l S
+0.12 0.2 0.22 rg BT /F1 8.9 Tf 1 0 0 1 44 182 Tm (AWS Certified Developer - Associate; AWS Certified Cloud Practitioner.) Tj ET
+0.37 0.46 0.47 rg BT /F1 8.3 Tf 1 0 0 1 44 168 Tm (Both listed through Dec 15, 2026. Verify on Credly.) Tj ET
+0.06 0.45 0.49 rg BT /F1 8.5 Tf 1 0 0 1 44 153 Tm (credly.com/users/vladyslav_kramarenko/badges/credly) Tj ET
+0.82 0.88 0.89 RG 0.7 w 44 133 m 568 133 l S
+0.37 0.46 0.47 rg BT /F1 7.5 Tf 1 0 0 1 44 116 Tm (* Active Head of IT scope through Feb 2022; residual formal status continued afterward.) Tj ET
+0.37 0.46 0.47 rg BT /F1 7.5 Tf 1 0 0 1 44 103 Tm (Profile snapshot: November 22, 2026. Check current employment and credential status.) Tj ET
+endstream
+endobj
+7 0 obj
+<< /Type /Annot /Subtype /Link /Rect [44 680 290 698] /Border [0 0 0] /A << /S /URI /URI (https://www.linkedin.com/in/vladyslav-kramarenko) >> >>
+endobj
+8 0 obj
+<< /Type /Annot /Subtype /Link /Rect [328 680 565 698] /Border [0 0 0] /A << /S /URI /URI (https://github.com/vladyslav-kramarenko) >> >>
+endobj
+9 0 obj
+<< /Type /Annot /Subtype /Link /Rect [44 149 450 165] /Border [0 0 0] /A << /S /URI /URI (https://www.credly.com/users/vladyslav_kramarenko/badges/credly) >> >>
+endobj
+xref
+0 10
+0000000000 65535 f 
+0000000016 00000 n 
+0000000065 00000 n 
+0000000122 00000 n 
+0000000286 00000 n 
+0000000356 00000 n 
+0000000431 00000 n 
+0000004858 00000 n 
+0000005019 00000 n 
+0000005172 00000 n 
+trailer
+<< /Size 10 /Root 1 0 R >>
+startxref
+5348
+%%EOF
