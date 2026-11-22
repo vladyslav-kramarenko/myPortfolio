@@ -331,6 +331,60 @@
       .copy{padding:23px 4px 0}
       .meta{max-width:330px}
     }
+
+    /* Recruiter-first content. All essential text is present in HTML without JS. */
+    .topbar{z-index:50}
+    .portfolio-sections{position:relative;z-index:2;padding:25px 0 80px}
+    .content-section{padding:64px 0;border-top:1px solid rgba(144,198,199,.16);scroll-margin-top:26px}
+    .section-heading{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:24px}
+    .section-heading h2{font-size:clamp(30px,4vw,44px);line-height:1.12;letter-spacing:-.05em;margin:0 0 8px}
+    .section-heading p{color:#a5bbbb;font-size:15px;margin:0}
+    .subtle-link{color:var(--teal);font-weight:700;font-size:14px;text-decoration:none;white-space:nowrap}
+    .subtle-link:hover,.project-link:hover,.contact-links a:hover{text-decoration:underline;text-underline-offset:4px}
+    .skill-grid,.project-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+    .skill-card,.project-card{background:rgba(20,39,43,.76);border:1px solid rgba(139,194,195,.18);border-radius:13px;padding:23px}
+    .skill-card h3,.project-card h3{font-size:18px;letter-spacing:-.025em;margin:0 0 11px;line-height:1.3}
+    .skill-card p,.project-card p{font-size:15px;line-height:1.65;color:#bbcccb;margin:0}
+    .timeline{border-left:1px solid rgba(116,221,225,.28);margin-left:7px;padding-left:22px}
+    .timeline-item{position:relative;display:grid;grid-template-columns:205px minmax(0,1fr);gap:30px;padding:0 0 34px}
+    .timeline-item:before{content:"";position:absolute;width:11px;height:11px;border-radius:100%;left:-28px;top:4px;background:var(--teal);box-shadow:0 0 0 4px #143034}
+    .timeline-item:last-child{padding-bottom:0}
+    .time-range{font:600 13px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:#91afb2}
+    .time-range span{font-size:11px;color:#839e9f}
+    .time-info h3{font-size:23px;letter-spacing:-.035em;margin:0 0 12px}
+    .time-info p{color:#b3c6c5;font-size:14px;line-height:1.6;margin:10px 0 0;max-width:70ch}
+    .time-info .jobname{color:#e1efed;font-size:15px;font-weight:700;margin:5px 0}
+    .jobname span{font-weight:400;color:#8aa7a7;margin-left:4px}
+    .project-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .project-card{display:flex;flex-direction:column;min-height:255px;gap:0}
+    .project-card h3{font-size:20px;margin:8px 0 11px}
+    .project-type{text-transform:uppercase;font-size:10px;letter-spacing:.14em;line-height:1.5;color:#79cfd1;font-weight:650}
+    .project-link{display:inline-flex;margin-top:auto;padding-top:21px;font-weight:750;color:#75d9dc;text-decoration:none;font-size:14px}
+    .credential-line{font-weight:700;color:#e4f0ee;font-size:16px;margin:0 0 9px}
+    .credential-note{color:#9eb5b4;margin:0;font-size:13px}
+    .contact-links{display:flex;flex-wrap:wrap;gap:12px}
+    .contact-links a{display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(116,221,225,.32);border-radius:999px;min-height:48px;padding:10px 19px;color:#e7f3f0;text-decoration:none;font-weight:700;font-size:14px}
+    @media(max-width:900px){.project-grid{grid-template-columns:1fr 1fr}.timeline-item{grid-template-columns:170px minmax(0,1fr);gap:15px}}
+    @media(max-width:700px){
+      .content-section{padding:42px 0;scroll-margin-top:14px}
+      .portfolio-sections{padding:0 0 40px}
+      .section-heading{align-items:start;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+      .section-heading h2{font-size:30px}
+      .section-heading p{font-size:13px}
+      .skill-grid,.project-grid{grid-template-columns:1fr;gap:10px}
+      .skill-card,.project-card{padding:18px}
+      .project-card{min-height:unset}
+      .timeline-item{display:block;padding-bottom:27px}
+      .time-range{font-size:12px;margin:0 0 7px}
+      .time-info h3{font-size:20px;margin:0 0 6px}
+      .time-info p{font-size:13px}
+      .time-info .jobname{font-size:14px}
+      .contact-links{flex-direction:column}
+      .contact-links a{justify-content:flex-start}
+      .actions{display:flex;gap:10px}
+      .btn-primary,.btn-secondary{min-height:45px;padding:0 17px;font-size:13px}
+    }
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
   </style>
 </head>
 <body>
@@ -345,8 +399,12 @@
           <span>Menu</span><span class="hamburger" aria-hidden="true"><i></i><i></i></span>
         </button>
         <nav class="menu-panel" id="siteMenu" aria-label="Site navigation" hidden>
-          <div class="menu-kicker">EXPLORE</div>
-          <a href="https://github.com/vladyslav-kramarenko" target="_blank" rel="noopener noreferrer">Projects <span aria-hidden="true">↗</span></a>
+          
+          <a href="#projects">Projects <span aria-hidden="true">↓</span></a>
+          <a href="#experience">Experience <span aria-hidden="true">↓</span></a>
+          <a href="#skills">Skills <span aria-hidden="true">↓</span></a>
+          <a href="/resume.html">Resume <span aria-hidden="true">↗</span></a>
+          <a href="#contact">Contact <span aria-hidden="true">↓</span></a>
           <a href="https://linkedin.com/in/vladyslav-kramarenko" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
         </nav>
       </div>
@@ -360,13 +418,14 @@
         <div class="location">Metro Vancouver, Canada</div>
         
         <div class="actions">
-          <a href="https://github.com/vladyslav-kramarenko" target="_blank" rel="noopener noreferrer" class="btn-primary">GitHub projects ↗</a>
+          <a href="#projects" class="btn-primary">Projects ↓</a>
+          <a href="/resume.html" class="btn-secondary">Resume ↗</a>
         </div>
       </div>
 
       <div class="scene-wrap">
         <div class="scene" id="scene">
-          <div class="paper-rail" aria-hidden="true">
+          <div class="paper-rail">
             <div class="paper" id="paper">
               <div class="paper-inner">
                 <div class="paper-top"><span>TECHNOLOGIES</span><time datetime="2026-11-22" class="log-date" aria-label="Updated November 22, 2026">UPDATED 2026.11.22</time></div>
@@ -436,6 +495,113 @@
         </div>
       </div>
     </section>
+
+    <main class="portfolio-sections" id="content">
+      <section class="content-section" id="skills" aria-labelledby="skillsTitle">
+        <div class="section-heading">
+          <div><h2 id="skillsTitle">Technical skills</h2><p>Systems and technologies I've worked with.</p></div>
+          <a class="subtle-link" href="/resume.html">Full profile ↗</a>
+        </div>
+        <div class="skill-grid">
+          <article class="skill-card">
+            <h3>Business systems &amp; identity</h3>
+            <p>Google Workspace · Microsoft Entra ID · SSO · SCIM · MDM · Apple Business Manager · CRM</p>
+          </article>
+          <article class="skill-card">
+            <h3>Automation &amp; integrations</h3>
+            <p>Google Apps Script · Python · JavaScript · REST APIs · Webhooks · Airtable</p>
+          </article>
+          <article class="skill-card">
+            <h3>Cloud &amp; operations</h3>
+            <p>AWS · Google Cloud · DigitalOcean · Cloudflare · DNS · Hosting</p>
+          </article>
+          <article class="skill-card">
+            <h3>Data &amp; analytics</h3>
+            <p>BigQuery · SQL · Looker Studio · Google Analytics 4 · Google Tag Manager</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="content-section" id="experience" aria-labelledby="experienceTitle">
+        <div class="section-heading">
+          <div><h2 id="experienceTitle">Experience</h2><p>Roles, employers and areas of responsibility.</p></div>
+          <a class="subtle-link" href="/resume.html">Resume ↗</a>
+        </div>
+        <div class="timeline">
+          <article class="timeline-item">
+            <div class="time-range"><time datetime="2025-04">Apr 2025</time> – Present</div>
+            <div class="time-info">
+              <h3>Ideal Siding</h3>
+              <p class="jobname">IT Systems &amp; Operations Specialist <span>since Mar 2026</span></p>
+              <p class="jobname">Systems Onboarding &amp; Support Technician <span>Apr 2025 – Mar 2026</span></p>
+              <p>Business systems, access administration, cloud operations, automation and reporting integrations.</p>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <div class="time-range"><time datetime="2023-05">May 2023</time> – <time datetime="2025-09">Sep 2025</time></div>
+            <div class="time-info">
+              <h3>TEUS Group</h3><p class="jobname">Systems &amp; Automation Engineer</p>
+              <p>CRM integrations, Google Apps Script workflows, IT operations and website engineering.</p>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <div class="time-range"><time datetime="2018-11">Nov 2018</time> – <time datetime="2022-02">Feb 2022</time> <span>(active IT work)</span></div>
+            <div class="time-info">
+              <h3>ZHYTLOBUD-2</h3>
+              <p class="jobname">Head of Information Technology Department <span>Dec 2020 – Feb 2022</span></p>
+              <p class="jobname">Project Manager <span>Nov 2018 – Dec 2020</span></p>
+              <p>IT leadership, internal systems, 1C implementation support, infrastructure and vendor coordination.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="content-section" id="projects" aria-labelledby="projectsTitle">
+        <div class="section-heading">
+          <div><h2 id="projectsTitle">Selected work</h2><p>Technical implementations, not just technology keywords.</p></div>
+        </div>
+        <div class="project-grid">
+          <article class="project-card">
+            <div class="project-type">Public source · Python / RAG</div>
+            <h3>Local RAG Support Bot</h3>
+            <p>Document retrieval and local inference using LangChain, FAISS and HuggingFace embeddings, with a Telegram interface.</p>
+            <a href="https://github.com/vladyslav-kramarenko/support-bot-rag" target="_blank" rel="noopener noreferrer" class="project-link">View source ↗</a>
+          </article>
+          <article class="project-card">
+            <div class="project-type">Public source · React / TypeScript</div>
+            <h3>TEUS Group Website</h3>
+            <p>Responsive React application integrating two CRM systems, with visitor location detection and analytics.</p>
+            <a href="https://github.com/vladyslav-kramarenko/teus" target="_blank" rel="noopener noreferrer" class="project-link">View source ↗</a>
+          </article>
+          <article class="project-card">
+            <div class="project-type">Business systems · Data integration</div>
+            <h3>Operational Reporting Pipeline</h3>
+            <p>Reported integration work connecting ServiceMinder data with BigQuery and Looker Studio reporting. Detailed implementation and impact are not publicly documented.</p>
+            <a href="https://www.linkedin.com/in/vladyslav-kramarenko" target="_blank" rel="noopener noreferrer" class="project-link">Ask about this project ↗</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="content-section" id="credentials" aria-labelledby="credentialsTitle">
+        <div class="section-heading">
+          <div><h2 id="credentialsTitle">Credentials</h2></div>
+          <a href="https://www.credly.com/users/vladyslav_kramarenko/badges/credly" target="_blank" rel="noopener noreferrer" class="subtle-link">View Credly badges ↗</a>
+        </div>
+        <p class="credential-line">AWS Certified Developer – Associate · AWS Certified Cloud Practitioner</p>
+        <p class="credential-note">Credential status changes over time. Verify validity on Credly.</p>
+      </section>
+
+      <section class="content-section" id="contact" aria-labelledby="contactTitle">
+        <div class="section-heading">
+          <div><h2 id="contactTitle">Contact</h2><p>Metro Vancouver, Canada</p></div>
+        </div>
+        <div class="contact-links">
+          <a href="https://www.linkedin.com/in/vladyslav-kramarenko" target="_blank" rel="noopener noreferrer">Message on LinkedIn ↗</a>
+          <a href="https://github.com/vladyslav-kramarenko" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+          <a href="/resume.html">View / print resume ↗</a>
+        </div>
+      </section>
+    </main>
   </div>
 
   <script>
