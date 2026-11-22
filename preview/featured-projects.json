@@ -1,5 +1,4 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "description": "Project IDs pinned in the Featured Projects section. Change this list, commit, and Cloudflare redeploys automatically. Only IDs from the public portfolio page are accepted.",
   "featured": [
     "proj-001",
