@@ -185,8 +185,7 @@
       user-select:none;-webkit-user-drag:none;
     }
     .machine-frame{position:absolute;inset:0;z-index:4;pointer-events:none}
-    .machine-frame.strike .machine{animation:tap .09s ease}
-    @keyframes tap{0%{transform:translateY(0)}50%{transform:translateY(1.5px)}100%{transform:translateY(0)}}
+    /* Keep the typewriter housing stationary; only physical keys and paper move. */
 
     .keys{
       position:absolute;left:14.5%;top:60.5%;width:71%;height:27%;z-index:5;pointer-events:none;
@@ -457,7 +456,6 @@
       const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       const scene = document.getElementById('scene');
       const paper = document.getElementById('paper');
-      const machineFrame = document.getElementById('machineFrame');
       const replayBtn = document.getElementById('replay');
       const cursor = document.getElementById('cursor');
       const lines = [
@@ -495,9 +493,6 @@
           key.classList.add('active');
           setTimeout(() => key.classList.remove('active'), 100);
         }
-        machineFrame.classList.remove('strike');
-        void machineFrame.offsetWidth;
-        machineFrame.classList.add('strike');
       }
 
       function reset() {
