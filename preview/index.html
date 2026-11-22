@@ -453,6 +453,17 @@
     .skip-link:focus{top:12px}
     .mark{text-decoration:none}
     .mark:focus-visible{outline:2px solid var(--teal);outline-offset:3px}
+
+    /* Lightweight, public-only activity graphic. Never fetch private repository data. */
+    .activity-figure{margin:0;max-width:900px}
+    .activity-chart-scroll{overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;
+      background:#fff;border:1px solid rgba(142,187,187,.3);border-radius:12px;
+      scrollbar-width:thin;scrollbar-color:#3c7276 transparent}
+    .activity-chart-scroll img{display:block;width:100%;min-width:600px;height:auto;aspect-ratio:744/262}
+    .activity-chart-scroll a{display:block}
+    .activity-chart-scroll:focus-visible{outline:2px solid var(--teal);outline-offset:4px}
+    .activity-figure figcaption{margin-top:9px;font-size:12px;color:#9eb5b4}
+    .activity-figure figcaption a{color:var(--teal)}
   </style>
 </head>
 <body>
@@ -477,6 +488,7 @@
         <nav class="menu-panel" id="siteMenu" aria-label="Site navigation" hidden>
           
           <a href="#projects">Projects <span aria-hidden="true">↓</span></a>
+          <a href="#activity">Activity <span aria-hidden="true">↓</span></a>
           <a href="#experience">Experience <span aria-hidden="true">↓</span></a>
           <a href="#skills">Skills <span aria-hidden="true">↓</span></a>
           <a href="/Vladyslav-Kramarenko-Resume.pdf" download>Download resume PDF <span aria-hidden="true">↓</span></a>
@@ -658,6 +670,23 @@
             <a href="https://www.linkedin.com/in/vladyslav-kramarenko" target="_blank" rel="noopener noreferrer" class="project-link">Request details ↗</a>
           </article>
         </div>
+      </section>
+
+      <section class="content-section" id="activity" aria-labelledby="activityTitle">
+        <div class="section-heading">
+          <div><h2 id="activityTitle">Activity</h2></div>
+          <a class="subtle-link" href="https://github.com/vladyslav-kramarenko" target="_blank" rel="noopener noreferrer">GitHub contributions ↗</a>
+        </div>
+        <figure class="activity-figure">
+          <div class="activity-chart-scroll" tabindex="0" role="region" aria-label="Scrollable chart showing Asana tasks completed during the last 30 days">
+            <a href="https://github.com/vladyslav-kramarenko/asana-tracker" target="_blank" rel="noopener noreferrer" aria-label="Open public source for the Asana activity chart">
+              <img src="https://raw.githubusercontent.com/vladyslav-kramarenko/asana-tracker/main/assets/asana-chart.svg"
+                width="744" height="262" loading="lazy" decoding="async"
+                alt="Asana tasks completed per day during the last 30 days. The public chart updates from GitHub." />
+            </a>
+          </div>
+          <figcaption>Asana activity · Last 30 days · <a href="https://github.com/vladyslav-kramarenko/asana-tracker" target="_blank" rel="noopener noreferrer">Public source ↗</a></figcaption>
+        </figure>
       </section>
 
       <section class="content-section" id="credentials" aria-labelledby="credentialsTitle">
