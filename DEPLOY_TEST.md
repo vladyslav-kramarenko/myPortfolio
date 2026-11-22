@@ -1,7 +1,12 @@
-# HTML Hero Preview
+# Static HTML Hero — Cloudflare Worker Test
 
-This branch is for isolated HTML hero testing on Cloudflare Pages.
+This branch is an isolated, static HTML preview. It does not build or publish the older portfolio pages.
 
-Build: none. Publish directory: `/`. Entry point: `index.html`.
+- Entry point: `preview/index.html`
+- Wrangler config: `wrangler.jsonc` (`name: myportfolio`, `assets.directory: ./preview`)
+- Cloudflare Workers production branch: `experiment/static-html-hero`
+- Build command: none
+- Deploy command: `npx wrangler deploy` (or `npx wrangler deploy --assets ./preview/`)
+- Root directory: `/`
 
-Do not use this branch for production.
+The prototype contains `noindex,nofollow` because it is a temporary preview. Do not change `angular`, `master`, or `portfolio-seo-2026` as part of this experiment.
