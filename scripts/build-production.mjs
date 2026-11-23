@@ -91,4 +91,24 @@ for (const file of allFiles.filter(p => p.endsWith('.html'))) {
 }
 const headers = await readFile(join(destination, '_headers'), 'utf8');
 if (/noindex|nofollow/.test(headers)) throw new Error('Staging headers leaked into production');
+
+const publishedPages = new Map();
+for (const page of pages) {
+  const filename = join(destination, ...page.split('/'));
+  publishedPages.set('/' + page, await readFile(filename, 'utf8'));
+}
+for (const [page, html] of publishedPages) {
+  const localLinks = [...html.matchAll(/<a\b[^>]*href="([^"]+)"/g)]
+    .map(match => match[1]).filter(link => link.startsWith('/') || link.startsWith('#'));
+  for (const href of localLinks) {
+    const [path, anchor] = href.split('#');
+    const target = !path ? page : (path === '/' ? '/index.html' : path);
+    const document = publishedPages.get(target);
+    if (!document) throw new Error('Broken internal link: ' + page + ' -> ' + href);
+    if (anchor && ![...document.matchAll(/\bid="([^"]+)"/g)].some(match => match[1] === anchor)) {
+      throw new Error('Broken anchor: ' + page + ' -> ' + href);
+    }
+  }
+}
+
 console.log(`Production package ready: ${allFiles.length} files, ${pages.length} pages, canonical origin ${origin}`);
