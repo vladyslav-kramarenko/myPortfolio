@@ -16,7 +16,7 @@ a{color:#126f80;text-underline-offset:3px}a:focus-visible,button:focus-visible{o
 .toolbar a{font-weight:650}
 .toolbar-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
 .print{font:inherit;font-weight:650;color:#fff;background:#15373d;border:0;border-radius:9px;padding:10px 16px;cursor:pointer}
-.download{display:inline-flex;align-items:center;padding:9px 12px;border:1px solid #bbd1d3;border-radius:9px;text-decoration:none;background:#fff}
+.download-hint{color:#526b6d;font-size:12px;max-width:145px;line-height:1.3}
 .print:hover,.print:focus-visible{background:#23606a}
 .resume{background:white;padding:clamp(22px,5.5vw,55px);box-shadow:0 10px 45px rgba(13,44,48,.08);border:1px solid #dce8e8;border-radius:12px}
 h1{font-size:clamp(31px,5vw,43px);line-height:1.06;letter-spacing:-.04em;margin:0 0 8px}
@@ -69,7 +69,7 @@ li{padding:1px 0}
 <a href="/">← Portfolio</a>
 <div class="toolbar-actions">
   <button class="print" id="printResume" type="button">Print / Save as PDF</button>
-  <a class="download" href="/Vladyslav-Kramarenko-Resume.pdf" download="Vladyslav-Kramarenko-Resume.pdf">Download PDF ↓</a>
+  <span class="download-hint">Print or choose “Save as PDF”</span>
 </div>
 </nav>
 <main class="resume">
@@ -122,12 +122,46 @@ li{padding:1px 0}
 </article>
 </section>
 
+<section aria-labelledby="earlier-business"><h2 id="earlier-business">Earlier business experience</h2>
+<article class="job">
+<div class="job-head"><h3>Co-Founder — Ecofuel Trade</h3><span class="period">Sep 2015 – Sep 2017</span></div>
+<p class="org">Kharkiv, Ukraine · Manufacturing and operations</p>
+<ul><li>Co-founded a biofuel manufacturing business; worked across procurement, production coordination, sales, logistics and daily operations.</li></ul>
+</article>
+<article class="job">
+<div class="job-head"><h3>Entrepreneur — Just Cat</h3><span class="period">Sep 2017 – Nov 2018</span></div>
+<p class="org">Kharkiv, Ukraine · Family business</p>
+<ul><li>Developed online sales and managed purchasing, customer service, advertising and fulfilment alongside family members.</li></ul>
+</article>
+</section>
+
 <section aria-labelledby="work"><h2 id="work">Selected technical work</h2>
 <div class="projects">
 <p><a href="https://github.com/vladyslav-kramarenko/support-bot-rag" target="_blank" rel="noopener noreferrer">Local RAG Support Bot ↗</a> — Python, LangChain, FAISS, local inference and Telegram interface. Public source.</p>
 <p><a href="https://github.com/vladyslav-kramarenko/teus" target="_blank" rel="noopener noreferrer">TEUS Group Website ↗</a> — React, TypeScript and CRM integration. Public source.</p>
-<p>Business reporting integration — ServiceMinder, BigQuery and Looker Studio; project narrative based on self-reported work.</p>
+<p><a href="/projects/production-workflow-integration.html">Transport &amp; production integration ↗</a> — coordination of 1C, GPS and weighbridge workflows with an implementation team.</p>
+<p>Business reporting integration — ServiceMinder, BigQuery and Looker Studio; professional experience, with company-internal implementation details not published.</p>
 </div>
+</section>
+
+<section aria-labelledby="education"><h2 id="education">Education</h2>
+<article class="job">
+<div class="job-head"><h3>Master's — Project Management</h3><span class="period">Sep 2013 – Jun 2015</span></div>
+<p class="org">National Technical University “Kharkiv Polytechnic Institute” · Kharkiv, Ukraine</p>
+</article>
+<article class="job">
+<div class="job-head"><h3>Bachelor's — Computer Science</h3><span class="period">Sep 2009 – Jun 2013</span></div>
+<p class="org">National Technical University “Kharkiv Polytechnic Institute” · Kharkiv, Ukraine</p>
+</article>
+<p class="small">Additional doctoral studies in Computer Science at O.M. Beketov National University of Urban Economy in Kharkiv (2020–2024); <strong>not completed — no PhD awarded.</strong></p>
+</section>
+
+<section aria-labelledby="research"><h2 id="research">Selected publications</h2>
+<ul>
+<li><a href="https://journals.uran.ua/itssi/article/view/242913" target="_blank" rel="noopener noreferrer">Modeling of Information Technology of Material Resources Management of a Construction Company</a> — 2021, journal article.</li>
+<li><a href="https://doi.org/10.33042/2522-1809-2021-4-164-2-9" target="_blank" rel="noopener noreferrer">Modeling the External Environment Dynamics of Real Estate Project</a> — 2021, journal article.</li>
+<li><a href="https://science.kname.edu.ua/images/dok/konferentsii/2021/proceedings2021P-2021.pdf" target="_blank" rel="noopener noreferrer">Research on exogenous factors affecting housing project efficiency</a> — 2021, conference proceedings (original publication in Ukrainian).</li>
+</ul>
 </section>
 
 <section aria-labelledby="credentials"><h2 id="credentials">Certifications</h2>
@@ -135,7 +169,7 @@ li{padding:1px 0}
 <p class="small">Current as reported in November 2026; expiration shown as December 15, 2026. <a href="https://www.credly.com/users/vladyslav_kramarenko/badges/credly" target="_blank" rel="noopener noreferrer">Check credentials on Credly ↗</a></p>
 </section>
 <section aria-labelledby="get-in-touch"><h2 id="get-in-touch">Contact</h2>
-<p><a href="https://www.linkedin.com/in/vladyslav-kramarenko" target="_blank" rel="noopener noreferrer">Contact me on LinkedIn ↗</a></p>
+<p><a href="mailto:kramarenko.vladyslav.92@gmail.com">kramarenko.vladyslav.92@gmail.com</a> · <a href="https://www.linkedin.com/in/vladyslav-kramarenko" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></p>
 </section>
 </main>
 </div>
