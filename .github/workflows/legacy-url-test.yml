@@ -45,3 +45,6 @@ jobs:
       - name: Read-only production Worker acceptance test
         if: github.ref == 'refs/heads/dev' && github.event_name == 'push'
         run: node scripts/audit-production-deployment.mjs
+      - name: Snapshot current domain DNS and HTTP before cutover
+        if: github.ref == 'refs/heads/dev' && github.event_name == 'push'
+        run: node scripts/precutover-dns-snapshot.mjs
