@@ -61,6 +61,9 @@ jobs:
         env:
           TEST_BASE_URL: https://dev.kramarenko.info
         run: node scripts/test-legacy-urls.mjs
+      - name: Verify old.kramarenko.info remains a separate Angular archive
+        if: github.ref == 'refs/heads/dev' && github.event_name == 'push'
+        run: node scripts/audit-old-domain.mjs
       - name: Snapshot current domain DNS and HTTP before cutover
         if: github.ref == 'refs/heads/dev' && github.event_name == 'push'
         run: node scripts/precutover-dns-snapshot.mjs
