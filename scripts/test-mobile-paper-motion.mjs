@@ -92,7 +92,7 @@ try {
         processTop:elements[1].offsetTop,
         toolsTop:elements[2].offsetTop,
         lineHeight:parseFloat(getComputedStyle(elements[0]).lineHeight),
-        cursorHidden:cursor.style.display==='none'
+        cursorHidden:cursor?.style.display==='none'
       };
     })()`;
     const response=await send('Runtime.evaluate',{expression,returnByValue:true});
