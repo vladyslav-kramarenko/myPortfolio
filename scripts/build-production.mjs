@@ -81,6 +81,7 @@ async function listFiles(folder) {
 
 
 const legacyCount = await verifyLegacyAssets(destination);
+const allFiles = await listFiles(destination);
 
 for (const file of allFiles.filter(p => p.endsWith('.html'))) {
   const data = await readFile(join(destination, ...file.split('/')), 'utf8');
