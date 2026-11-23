@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#10191c">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#f3f7f5">
 <meta name="robots" content="noindex,nofollow">
 <meta name="description" content="A local, document-grounded assistant designed to help support agents find answers across internal reference material.">
 <title>Local RAG Support Bot | Vladyslav Kramarenko</title>
@@ -26,7 +28,20 @@ p{max-width:70ch;color:var(--muted);margin:0 0 10px}
 .action{display:inline-block;background:var(--accent);color:#102024;text-decoration:none;font-weight:800;padding:12px 19px;border-radius:999px;margin:12px 0 0}
 .note{font-size:12px;color:#91adae}
 footer{font-size:13px;padding:22px 0 45px;border-top:1px solid #284448}
-@media(max-width:540px){main{padding:32px 0 55px}.diagram{grid-template-columns:1fr}.node{padding:10px}.nav{padding:18px 0}.links{gap:12px}}</style>
+@media(max-width:540px){main{padding:32px 0 55px}.diagram{grid-template-columns:1fr}.node{padding:10px}.nav{padding:18px 0}.links{gap:12px}}
+@media (prefers-color-scheme:light){
+  :root{color-scheme:light;--bg:#f3f7f5;--panel:#fff;--ink:#19373c;--muted:#4d656a;--accent:#106674}
+  body{background:radial-gradient(circle at 80% 0%,#deeeeb 0,transparent 48%),#f3f7f5}
+  .nav,footer{border-color:#c8dbd8}
+  .subtitle{color:#465f65}
+  .chip{color:#21515c;background:#fff;border-color:#b8d1d0}
+  section{border-color:#c8dbd8}
+  .node{background:#fff;border-color:#b6cecb;color:#243f46}
+  .action{background:#126875;color:#fff}
+  .note{color:#536d70}
+  a:focus-visible{outline-color:#126875}
+}
+</style>
 </head>
 <body>
 <div class="container">
