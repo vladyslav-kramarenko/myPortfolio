@@ -327,7 +327,8 @@
     }
     .physical-key.active{opacity:1;transform:none;filter:brightness(.78) contrast(1.05)}
     @media (min-width:981px){.machine{width:84%;left:8%;right:auto}.physical-keys{width:84%;left:8%}.paper-rail{top:2%;height:55%}}
-    .paper{--carriage-x:0px;transform:translateX(var(--carriage-x)) translateY(calc(var(--paper-offset) - var(--paper-lift)));transition:transform var(--feed-duration,.11s) ease}
+    /* Carriage ticks left at each keystroke, then slides decisively right on return. */
+    .paper{--carriage-x:0px;transform:translateX(var(--carriage-x)) translateY(calc(var(--paper-offset) - var(--paper-lift)));transition:transform var(--feed-duration,.075s) linear}
     .paper-rail{z-index:1}
     .machine-stage{z-index:3}
     @media (max-width:700px){.physical-keys{width:100%}.paper-rail{height:56%}.stamp{bottom:58px}}
@@ -1014,6 +1015,19 @@ into working systems.</span>
         return [char.toUpperCase()];
       }
       const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+      // 18–20% of paper width gives a clearly visible carriage stroke without
+      // pushing the sheet outside the platen on narrow phone screens.
+      const carriageTravel = () => Math.min(mobileScreen ? 48 : 64, Math.max(mobileScreen ? 28 : 38, paper.getBoundingClientRect().width * .19));
+      const carriageStart = () => carriageTravel() / 2;
+      function moveCarriage(progress) {
+        paper.style.setProperty('--feed-duration', '.075s');
+        paper.style.setProperty('--carriage-x', `${(carriageStart() - carriageTravel() * progress).toFixed(1)}px`);
+      }
+      async function returnCarriage() {
+        paper.style.setProperty('--feed-duration', '.29s');
+        paper.style.setProperty('--carriage-x', `${carriageStart().toFixed(1)}px`);
+        await sleep(310);
+      }
       let runId = 0;
       let keyReleaseTimers = new WeakMap();
 
@@ -1038,7 +1052,8 @@ into working systems.</span>
         cursor.style.display = 'inline-block';
         paper.style.setProperty('--paper-offset', '84px');
         paper.style.setProperty('--paper-lift', '0px');
-        paper.style.setProperty('--carriage-x', '0px');
+        paper.style.setProperty('--feed-duration', '.075s');
+        paper.style.setProperty('--carriage-x', `${carriageStart().toFixed(1)}px`);
         document.querySelectorAll('.physical-key.active').forEach(key => {
           const pending = keyReleaseTimers.get(key);
           if (pending) clearTimeout(pending);
@@ -1057,24 +1072,24 @@ into working systems.</span>
         moveCursorTo(target);
         const chunks = text.split('\n');
         target.textContent = '';
-        let typedCount = 0;
         for (let c = 0; c < chunks.length; c++) {
           const chunk = chunks[c];
+          const totalChars = [...chunk].length || 1;
+          let typedCount = 0;
           for (const char of chunk) {
             if (localRun !== runId) return false;
             target.textContent += char;
             moveCursorTo(target);
             pressKey(char);
             typedCount++;
-            paper.style.setProperty('--carriage-x', `${-Math.min(typedCount * .28, 13)}px`);
+            moveCarriage(typedCount / totalChars);
             await sleep(delayMin + Math.random() * (delayMax - delayMin));
           }
           if (c < chunks.length - 1) {
             target.textContent += '\n';
             pressKey('\n');
-            paper.style.setProperty('--carriage-x', '0px');
-            typedCount = 0;
-            await sleep(120);
+            await returnCarriage();
+            if (localRun !== runId) return false;
           }
         }
         return true;
@@ -1108,11 +1123,13 @@ into working systems.</span>
           if (!ok || localRun !== runId) return;
           if (i < textLines.length - 1) {
             const currentLift = parseFloat(getComputedStyle(paper).getPropertyValue('--paper-lift')) || 0;
-            paper.style.setProperty('--carriage-x', '0px');
             paper.style.setProperty('--paper-lift', (currentLift + paperLiftPerLine) + 'px');
-            await sleep(i === 1 ? 250 : 180);
+            await returnCarriage();
+            if (localRun !== runId) return;
           }
         }
+        // Settle the final page gently into its centered resting position.
+        paper.style.setProperty('--feed-duration', '.27s');
         paper.style.setProperty('--carriage-x', '0px');
         cursor.style.display = 'none';
       }
