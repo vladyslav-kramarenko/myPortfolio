@@ -120,7 +120,7 @@ try {
       resetObserved=state.statement==='' && state.process==='' && state.tools==='';
       continue;
     }
-    const second=state.statement.split('\\n')[1];
+    const second=state.statement.split('\n')[1];
     if (!found.second && second?.length>=2 && !state.process) found.second=state;
     if (!found.process && state.process.length>=2 && !state.tools) found.process=state;
     if (!found.tools && state.tools.length>=2) found.tools=state;
