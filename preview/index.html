@@ -1008,7 +1008,9 @@ into working systems.</span>
       const featuredRoot = document.getElementById('featuredProjects');
       const featuredSection = document.getElementById('projects');
       const allProjectCards = [...document.querySelectorAll('.role-project[data-project-id]')];
-      const defaultFeatured = allProjectCards.filter(card => card.dataset.featured === 'true').map(card => card.dataset.projectId);
+      const pinnedCards = allProjectCards.filter(card => card.dataset.featured === 'true');
+      const defaultFeatured = pinnedCards.map(card => card.dataset.projectId)
+        .sort((a,b) => (a === 'proj-006' ? -1 : b === 'proj-006' ? 1 : 0));
       function renderFeatured(ids) {
         featuredRoot.replaceChildren();
         for (const id of [...new Set(ids)]) {
