@@ -329,7 +329,7 @@
     .physical-key.active{opacity:1;transform:none;filter:brightness(.78) contrast(1.05)}
     @media (min-width:981px){.machine{width:84%;left:8%;right:auto}.physical-keys{width:84%;left:8%}.paper-rail{top:2%;height:55%}}
     /* Carriage ticks left at each keystroke, then slides decisively right on return. */
-    .paper{--carriage-x:0px;transform:translateX(var(--carriage-x)) translateY(calc(var(--paper-offset) - var(--paper-lift)));transition:transform var(--feed-duration,.075s) linear}
+    .paper{--carriage-x:0px;--paper-rest:0px;transform:translateX(var(--carriage-x)) translateY(calc(var(--paper-offset) + var(--paper-rest) - var(--paper-lift)));transition:transform var(--feed-duration,.075s) linear}
     .paper-rail{z-index:1}
     .machine-stage{z-index:3}
     @media (max-width:700px){.physical-keys{width:100%}.paper-rail{height:56%}.stamp{bottom:58px}}
@@ -1166,12 +1166,14 @@ into working systems.</span>
       });
 
       const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      const mobileCompact = window.matchMedia('(max-width:700px) and (max-height:700px)').matches;
       const mobileScreen = window.matchMedia('(max-width:700px)').matches;
-      // Feed gently between the statement, working method and tool signature.
-      const paperLiftPerLine = mobileCompact ? 3 : (mobileScreen ? 5 : 9);
       const scene = document.getElementById('scene');
       const paper = document.getElementById('paper');
+      // On a phone, start printing near the platen instead of at the top of
+      // the exposed sheet. Advancing the paper between sections then moves
+      // the finished lines upward, just as a physical typewriter would.
+      const paperRest = mobileScreen ? Math.min(94, paper.getBoundingClientRect().width * .33) : 0;
+      const paperLiftPerLine = mobileScreen ? paperRest / 2 : 9;
       const replayBtn = document.getElementById('replay');
       const cursor = document.getElementById('cursor');
       const lines = [
@@ -1234,6 +1236,7 @@ into working systems.</span>
         lines.forEach(line => line.textContent = '');
         cursor.style.display = 'inline-block';
         paper.style.setProperty('--paper-offset', '84px');
+        paper.style.setProperty('--paper-rest', paperRest + 'px');
         paper.style.setProperty('--paper-lift', '0px');
         paper.style.setProperty('--feed-duration', '.075s');
         paper.style.setProperty('--carriage-x', `${carriageStart().toFixed(1)}px`);
