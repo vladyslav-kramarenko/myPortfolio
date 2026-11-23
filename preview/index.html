@@ -638,6 +638,18 @@
       .hero .typed-line.statement{margin-bottom:6px}
       .hero .typed-line.process{padding-top:5px;margin-bottom:6px}
     }
+
+    /* Secondary career evidence stays compact and below the recruiter-critical content. */
+    .background-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+    .background-grid article{padding:20px 22px;background:rgba(20,39,43,.5);border:1px solid rgba(139,194,195,.15);border-radius:12px}
+    .background-year{font:650 12px/1.5 ui-monospace,Menlo,monospace;color:#77cbd0;margin-bottom:8px}
+    .background-grid h3{font-size:17px;line-height:1.3;margin:0 0 8px}
+    .background-grid p{color:#b4c7c5;line-height:1.55;font-size:14px;margin:0}
+    .research-heading{font-size:18px;margin:24px 0 10px}
+    .research-list{padding-left:21px;margin:0;display:grid;gap:9px;color:#b3c9c7}
+    .research-list a{color:#85dce0;text-underline-offset:4px}
+    .research-list span{color:#97aca9;font-size:13px}
+    @media(max-width:700px){.background-grid{grid-template-columns:1fr}.background-grid article{padding:17px 19px}}
   </style>
 </head>
 <body>
@@ -766,8 +778,21 @@ into working systems.</span>
           <div><h2 id="projectsTitle"><a href="#projects" class="section-title-link" aria-label="Show featured projects">Featured projects <span aria-hidden="true">↓</span></a></h2></div>
           <a class="subtle-link" href="#experience">Projects by employer ↓</a>
         </div>
-        <div class="project-grid featured-grid" id="featuredProjects"></div>
-        <noscript><p class="noscript-projects">See projects under each employer in <a href="#experience">Experience</a>.</p></noscript>
+        <div class="project-grid featured-grid" id="featuredProjects">
+          <!-- Searchable static fallback; JavaScript replaces with chosen featured projects. -->
+          <article class="project-card">
+            <div class="project-type">Independent · Public repository</div>
+            <h3>Local RAG Support Bot</h3>
+            <p>A local document-retrieval assistant using Python, LangChain, FAISS and a Telegram interface.</p>
+            <a class="project-link" href="/projects/local-rag-support-bot.html">Explore RAG project ↗</a>
+          </article>
+          <article class="project-card">
+            <div class="project-type">Business systems · Ideal Siding</div>
+            <h3>Operational reporting integration</h3>
+            <p>ServiceMinder data into BigQuery and reporting views, drawn from professional experience.</p>
+            <a class="project-link" href="#experience">See experience ↗</a>
+          </article>
+        </div>
       </section>
 
       <section class="content-section" id="skills" aria-labelledby="skillsTitle">
@@ -863,6 +888,7 @@ into working systems.</span>
                   <article class="role-project" data-project-id="fleet-integration" data-featured="false" data-organization="ZHYTLOBUD-2">
                     <h5>Transport and production workflows</h5>
                     <p>Coordinated work connecting 1C transport requests with GPS and weighbridge records; code delivered by the technical team.</p>
+                    <a href="/projects/production-workflow-integration.html">Implementation case ↗</a>
                   </article>
                 </div>
               </section>
@@ -886,6 +912,27 @@ into working systems.</span>
             </article>
           </div>
         </section>
+      </section>
+
+      <section class="content-section background-section" id="background" aria-labelledby="backgroundTitle">
+        <div class="section-heading">
+          <div><h2 id="backgroundTitle">Earlier business experience</h2>
+            <p>Practical business operations experience behind the technical work.</p>
+          </div>
+          <a class="subtle-link" href="/resume.html#earlier-business">Full history ↗</a>
+        </div>
+        <div class="background-grid">
+          <article>
+            <div class="background-year">2015–2017</div>
+            <h3>Co-Founder · Ecofuel Trade</h3>
+            <p>Manufacturing operations, procurement, logistics, sales and business processes.</p>
+          </article>
+          <article>
+            <div class="background-year">2017–2018</div>
+            <h3>Entrepreneur · Just Cat</h3>
+            <p>Family business spanning production, online sales, customer service and fulfilment.</p>
+          </article>
+        </div>
       </section>
 
       <section class="content-section" id="activity" aria-labelledby="activityTitle">
@@ -914,6 +961,30 @@ into working systems.</span>
         <p class="credential-note">Credential status changes over time. Verify validity on Credly.</p>
       </section>
 
+      <section class="content-section education-section" id="education" aria-labelledby="educationTitle">
+        <div class="section-heading">
+          <div><h2 id="educationTitle">Education &amp; research</h2></div>
+          <a class="subtle-link" href="/resume.html#education">Full background ↗</a>
+        </div>
+        <div class="background-grid">
+          <article>
+            <div class="background-year">2013–2015</div>
+            <h3>Master's · Project Management</h3>
+            <p>National Technical University “Kharkiv Polytechnic Institute”.</p>
+          </article>
+          <article>
+            <div class="background-year">2009–2013</div>
+            <h3>Bachelor's · Computer Science</h3>
+            <p>National Technical University “Kharkiv Polytechnic Institute”.</p>
+          </article>
+        </div>
+        <h3 class="research-heading">Selected publications</h3>
+        <ul class="research-list">
+          <li><a href="https://journals.uran.ua/itssi/article/view/242913" target="_blank" rel="noopener noreferrer">Modeling of Information Technology of Material Resources Management of a Construction Company</a> <span>(2021 · Journal article)</span></li>
+          <li><a href="https://doi.org/10.33042/2522-1809-2021-4-164-2-9" target="_blank" rel="noopener noreferrer">Modeling the External Environment Dynamics of Real Estate Project</a> <span>(2021 · Journal article)</span></li>
+        </ul>
+      </section>
+
       <section class="content-section" id="contact" aria-labelledby="contactTitle">
         <div class="section-heading">
           <div><h2 id="contactTitle">Questions? Let's talk.</h2>
@@ -923,7 +994,7 @@ into working systems.</span>
         <div class="contact-links">
           <a class="contact-primary" href="mailto:kramarenko.vladyslav.92@gmail.com?subject=Question%20about%20your%20portfolio">Email me ↗</a>
           <a href="https://www.linkedin.com/in/vladyslav-kramarenko" target="_blank" rel="noopener noreferrer">Message on LinkedIn ↗</a>
-          <a href="/Vladyslav-Kramarenko-Resume.pdf" download>Download resume PDF ↓</a>
+          <a href="/resume.html">View &amp; print resume ↗</a>
         </div>
       </section>
     </main>
