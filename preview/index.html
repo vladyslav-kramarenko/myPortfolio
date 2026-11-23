@@ -640,6 +640,24 @@
       .hero .typed-line.process{padding-top:5px;margin-bottom:6px}
     }
 
+    /* Desktop-site mode on a portrait phone (~980px CSS viewport).
+       The taller full-width scene puts the platen over the second line of copy
+       unless the paper is lifted and the text starts closer to its top edge.
+       This changes only the 701–980px intermediate layout; normal mobile and
+       true desktop typewriter geometry stay untouched. */
+    @media (min-width:701px) and (max-width:980px){
+      .hero .paper-rail{top:-6%;height:64%}
+      .hero .paper-inner{padding:16px 18px 18px}
+      .hero .paper-rule{margin:9px 0 12px}
+      .hero .typed-line.statement{
+        font-size:clamp(11px,5.6cqw,18px);
+        line-height:1.13;
+        margin-bottom:9px;
+      }
+      .hero .typed-line.process{padding-top:6px;margin-bottom:7px}
+      .hero .typed-line.tools{font-size:clamp(9px,3.4cqw,11px)}
+    }
+
     /* Secondary career evidence stays compact and below the recruiter-critical content. */
     .background-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
     .background-grid article{padding:20px 22px;background:rgba(20,39,43,.5);border:1px solid rgba(139,194,195,.15);border-radius:12px}
