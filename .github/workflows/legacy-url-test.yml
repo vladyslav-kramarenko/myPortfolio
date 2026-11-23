@@ -45,6 +45,14 @@ jobs:
       - name: Read-only production Worker acceptance test
         if: github.ref == 'refs/heads/dev' && github.event_name == 'push'
         run: node scripts/audit-production-deployment.mjs
+      - name: Verify live kramarenko.info production routes and historic URLs
+        if: github.ref == 'refs/heads/dev' && github.event_name == 'push'
+        env:
+          AUDIT_BASE_URL: https://kramarenko.info
+        run: node scripts/audit-production-deployment.mjs
+      - name: Verify domain cutover, independent subdomains, DNS and mail
+        if: github.ref == 'refs/heads/dev' && github.event_name == 'push'
+        run: node scripts/audit-post-cutover.mjs
       - name: Check dev.kramarenko.info DNS, noindex, pages and Worker parity
         if: github.ref == 'refs/heads/dev' && github.event_name == 'push'
         run: node scripts/audit-dev-custom-domain.mjs

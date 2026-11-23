@@ -5,7 +5,7 @@ import {readFile} from 'node:fs/promises';
 import {extname} from 'node:path';
 import {legacyRedirects} from './legacy-static.mjs';
 
-const worker="https://myportfolio-production.kramarenko-vladyslav-92.workers.dev";
+const worker=process.env.AUDIT_BASE_URL || "https://myportfolio-production.kramarenko-vladyslav-92.workers.dev";
 const canonicalOrigin='https://kramarenko.info';
 const pages=["/","/resume","/projects/local-rag-support-bot","/projects/teus-website","/projects/production-workflow-integration","/projects/lagrange-interpolation","/archive"];
 const manifest=JSON.parse(await readFile(new URL('./legacy-url-manifest.json',import.meta.url),'utf8')).files;
