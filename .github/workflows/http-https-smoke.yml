@@ -1,0 +1,17 @@
+name: HTTP to HTTPS smoke
+on:
+  push:
+    branches: [dev]
+  workflow_dispatch:
+jobs:
+  verify-https-redirect:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify HTTPS redirect and independent hostnames
+        run: node scripts/check-http-to-https.mjs
