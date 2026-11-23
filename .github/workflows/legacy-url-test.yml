@@ -45,6 +45,14 @@ jobs:
       - name: Read-only production Worker acceptance test
         if: github.ref == 'refs/heads/dev' && github.event_name == 'push'
         run: node scripts/audit-production-deployment.mjs
+      - name: Check dev.kramarenko.info DNS, noindex, pages and Worker parity
+        if: github.ref == 'refs/heads/dev' && github.event_name == 'push'
+        run: node scripts/audit-dev-custom-domain.mjs
+      - name: Verify historical URLs through dev.kramarenko.info
+        if: github.ref == 'refs/heads/dev' && github.event_name == 'push'
+        env:
+          TEST_BASE_URL: https://dev.kramarenko.info
+        run: node scripts/test-legacy-urls.mjs
       - name: Snapshot current domain DNS and HTTP before cutover
         if: github.ref == 'refs/heads/dev' && github.event_name == 'push'
         run: node scripts/precutover-dns-snapshot.mjs
