@@ -54,6 +54,14 @@ await writeFile(join(destination, '_headers'),
 `/*\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: strict-origin-when-cross-origin\n`);
 await writeFile(join(destination, 'robots.txt'),
 `User-agent: *\nAllow: /\nSitemap: ${origin}/sitemap.xml\n`);
+// Preserve URLs that existed on the older HTML portfolio.
+await writeFile(join(destination, '_redirects'),
+  [
+    '/justCatPackage.html /#background 301',
+    '/justCatLogo.html /#background 301',
+    '/tax_service.html /#experience 301',
+    '/inner-page.html /#projects 301'
+  ].join('\n') + '\n');
 const escapeXml = (s) => s.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;');
 await writeFile(join(destination, 'sitemap.xml'),
   '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
