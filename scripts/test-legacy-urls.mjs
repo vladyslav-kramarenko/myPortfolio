@@ -48,10 +48,17 @@ async function serveStatic(directory) {
 
 async function testSite(baseURL,mode) {
   let checks=0;
+  const assetRedirects=[];
   for(const path of legacyPaths) {
     const url=new URL('/'+path,baseURL);
-    const r=await fetch(url,{redirect:'manual'});
-    assert.equal(r.status,200,'Expected 200: '+url+' got '+r.status);
+    let r=await fetch(url,{redirect:'manual'});
+    if(r.status>=300 && r.status<400) {
+      const redirect=new URL(r.headers.get('location'),url);
+      assert.equal(redirect.origin,url.origin,'Legacy file redirected away from the site: '+url+' -> '+redirect);
+      assetRedirects.push({status:r.status,from:url.pathname,to:redirect.pathname});
+      r=await fetch(redirect,{redirect:'follow'});
+    }
+    assert.equal(r.status,200,'Expected available legacy file: '+url+' got '+r.status);
     if(typeMap[extname(path).toLowerCase()] && !path.endsWith('.ico')){
       const mime=r.headers.get('content-type')||'';
       assert.ok(mime.startsWith(typeMap[extname(path).toLowerCase()]),'Wrong MIME '+url+': '+mime);
@@ -75,7 +82,7 @@ async function testSite(baseURL,mode) {
   const unknown=await fetch(new URL('/__legacy-url-migration-404-check__',baseURL));
   assert.equal(unknown.status,404,'Unknown URL should return a real 404');
   checks++;
-  console.log(mode+': PASS '+checks+' HTTP checks ('+legacyPaths.length+' exact files, '+redirects.length+' redirects, home + real 404)');
+  console.log(mode+': PASS '+checks+' HTTP checks ('+legacyPaths.length+' exact files, '+redirects.length+' redirects, home + real 404)'+(assetRedirects.length?' | asset URL normalizations: '+JSON.stringify(assetRedirects):''));
 }
 if(process.env.TEST_BASE_URL){
   await testSite(process.env.TEST_BASE_URL,'staging');
