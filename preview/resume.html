@@ -13,7 +13,11 @@ html{scroll-behavior:smooth}body{margin:0;background:#eef5f5;color:var(--ink);fo
 a{color:#126f80;text-underline-offset:3px}a:focus-visible,button:focus-visible{outline:2px solid #147e8d;outline-offset:3px}
 .wrap{max-width:880px;margin:24px auto 48px;padding:0 18px}
 .toolbar{display:flex;gap:16px;align-items:center;justify-content:space-between;margin:0 0 18px}
-.toolbar a{font-weight:650}.print{font:inherit;color:#fff;background:#15373d;border:0;border-radius:9px;padding:10px 16px;cursor:pointer}
+.toolbar a{font-weight:650}
+.toolbar-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+.print{font:inherit;font-weight:650;color:#fff;background:#15373d;border:0;border-radius:9px;padding:10px 16px;cursor:pointer}
+.download{display:inline-flex;align-items:center;padding:9px 12px;border:1px solid #bbd1d3;border-radius:9px;text-decoration:none;background:#fff}
+.print:hover,.print:focus-visible{background:#23606a}
 .resume{background:white;padding:clamp(22px,5.5vw,55px);box-shadow:0 10px 45px rgba(13,44,48,.08);border:1px solid #dce8e8;border-radius:12px}
 h1{font-size:clamp(31px,5vw,43px);line-height:1.06;letter-spacing:-.04em;margin:0 0 8px}
 h2{font-size:15px;text-transform:uppercase;letter-spacing:.13em;border-bottom:1px solid var(--line);padding-bottom:8px;margin:27px 0 11px}
@@ -34,14 +38,39 @@ li{padding:1px 0}
 .tag{border:1px solid #d5e5e6;background:#f4f9f9;border-radius:6px;padding:4px 9px;font-size:12px}
 .projects a{font-weight:700}
 .small{font-size:12px;color:#617579}
-@media(max-width:600px){.wrap{margin:12px auto;padding:0 8px}.resume{border-radius:9px}.contact{display:block}.contact>*{display:block}.toolbar{padding:0 10px}.period{white-space:normal}.job-head{display:block}}
-@media print{@page{size:letter;margin:13mm}body{background:white;font-size:11pt}.wrap{max-width:none;margin:0;padding:0}.toolbar{display:none}.resume{box-shadow:none;border:0;border-radius:0;padding:0}h1{font-size:25pt}h2{break-after:avoid}h3,.job-head{break-after:avoid}.job{break-inside:avoid}a{color:inherit;text-decoration:none}ul{margin-top:3px}.tag{border:1px solid #ddd}}
+@media(max-width:600px){.wrap{margin:12px auto;padding:0 8px}.resume{border-radius:9px}.contact{display:block}.contact>*{display:block}.toolbar{padding:0 10px;gap:10px;flex-wrap:wrap}.toolbar-actions{justify-content:flex-start}.period{white-space:normal}.job-head{display:block}}
+@media print{
+  @page{size:letter;margin:13mm}
+  html{scroll-behavior:auto}
+  body{background:#fff;color:#111;font-size:10pt;line-height:1.35;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .wrap{max-width:none;margin:0;padding:0}
+  .toolbar{display:none!important}
+  .resume{box-shadow:none;border:0;border-radius:0;padding:0}
+  h1{font-size:25pt}
+  h2{font-size:11pt;margin:17px 0 8px;padding-bottom:5px;break-after:avoid}
+  h3,.job-head{break-after:avoid}
+  header,section{break-inside:auto}
+  .job{break-inside:avoid;padding:6px 0 9px}
+  .summary{max-width:none}
+  .contact{font-size:9pt;gap:4px 12px;margin:9px 0 12px}
+  .tag{font-size:9pt;padding:2px 6px;border:1px solid #d7d7d7;background:#fff}
+  .tags{gap:4px}
+  p{margin-bottom:5px}
+  ul{margin-top:3px;padding-left:18px}
+  a{color:inherit;text-decoration:none}
+  a[href]{overflow-wrap:anywhere}
+  section:last-child{break-inside:avoid}
+}
 </style>
 </head>
 <body>
 <div class="wrap">
 <nav class="toolbar" aria-label="Resume actions">
-<a href="/">← Portfolio</a><a class="print" href="/Vladyslav-Kramarenko-Resume.pdf" download="Vladyslav-Kramarenko-Resume.pdf" style="text-decoration:none">Download PDF ↓</a>
+<a href="/">← Portfolio</a>
+<div class="toolbar-actions">
+  <button class="print" id="printResume" type="button">Print / Save as PDF</button>
+  <a class="download" href="/Vladyslav-Kramarenko-Resume.pdf" download="Vladyslav-Kramarenko-Resume.pdf">Download PDF ↓</a>
+</div>
 </nav>
 <main class="resume">
 <header>
@@ -49,8 +78,9 @@ li{padding:1px 0}
 <p class="subtitle">Business Systems · Automation · Integrations</p>
 <p>Metro Vancouver, British Columbia, Canada</p>
 <div class="contact">
-<a href="https://www.linkedin.com/in/vladyslav-kramarenko" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-<a href="https://github.com/vladyslav-kramarenko" target="_blank" rel="noopener noreferrer">GitHub</a>
+<a href="mailto:kramarenko.vladyslav.92@gmail.com">kramarenko.vladyslav.92@gmail.com</a>
+<a href="https://www.linkedin.com/in/vladyslav-kramarenko" target="_blank" rel="noopener noreferrer">linkedin.com/in/vladyslav-kramarenko</a>
+<a href="https://github.com/vladyslav-kramarenko" target="_blank" rel="noopener noreferrer">github.com/vladyslav-kramarenko</a>
 <a href="https://www.credly.com/users/vladyslav_kramarenko/badges/credly" target="_blank" rel="noopener noreferrer">AWS credentials</a>
 </div>
 <p class="summary">IT systems and automation professional working across business applications, identity and access, cloud operations, data pipelines, and API integrations. Experience includes hands-on implementation, technical operations and IT leadership.</p>
@@ -109,5 +139,8 @@ li{padding:1px 0}
 </section>
 </main>
 </div>
+<script>
+  document.getElementById('printResume').addEventListener('click', () => window.print());
+</script>
 </body>
 </html>
