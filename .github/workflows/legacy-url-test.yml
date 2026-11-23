@@ -19,6 +19,8 @@ jobs:
         run: node scripts/build-staging.mjs
       - name: Verify production package
         run: node scripts/build-production.mjs
+      - name: Check LinkedIn experience dates
+        run: node scripts/test-linkedin-dates.mjs
       - name: Smoke-test 173 legacy URLs, redirects, SEO and 404
         run: node scripts/test-legacy-urls.mjs
       - name: Probe deployed Cloudflare staging Worker — 173 files and 10 redirects
