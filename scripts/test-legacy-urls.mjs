@@ -10,7 +10,7 @@ import { once } from 'node:events';
 
 const manifest = JSON.parse(await readFile(new URL('./legacy-url-manifest.json', import.meta.url), 'utf8')).files;
 const legacyPaths = Object.keys(manifest);
-const gitSha = data => createHash('sha1').update('blob ' + data.length + '\\0').update(data).digest('hex');
+const gitSha = data => createHash('sha1').update('blob ' + data.length + '\0').update(data).digest('hex');
 const typeMap = {'.pdf':'application/pdf','.jpg':'image/jpeg','.jpeg':'image/jpeg','.png':'image/png','.webp':'image/webp','.json':'application/json','.ico':'image/'};
 const redirects = (await readFile(new URL('../preview/_redirects', import.meta.url), 'utf8'))
   .trim().split(/\r?\n/).filter(Boolean).map(line => {
