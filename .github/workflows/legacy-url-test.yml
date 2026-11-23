@@ -1,0 +1,23 @@
+name: Legacy URL preservation
+on:
+  push:
+    branches:
+      - experiment/static-html-hero
+  workflow_dispatch:
+
+jobs:
+  verify-legacy-urls:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify staging package
+        run: node scripts/build-staging.mjs
+      - name: Verify production package
+        run: node scripts/build-production.mjs
+      - name: Smoke-test 173 legacy URLs, redirects, SEO and 404
+        run: node scripts/test-legacy-urls.mjs

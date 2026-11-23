@@ -8,6 +8,9 @@ const source = resolve('preview');
 const destination = resolve('dist-staging');
 await rm(destination, { recursive: true, force: true });
 await cp(source, destination, { recursive: true });
+// The live test Worker deploys preview/ directly, without relying on a build step.
+// Fail if the committed preview copies drift from the original legacy files.
+await verifyLegacyAssets(source);
 await copyLegacyAssets(destination);
 await writeLegacyRedirects(destination);
 const count = await verifyLegacyAssets(destination);

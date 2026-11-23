@@ -6,8 +6,8 @@ The test website is intentionally **not indexable**. Production must never use t
 
 ### Test (currently configured)
 - Git branch: `experiment/static-html-hero`
-- Build: `node scripts/build-staging.mjs` (Wrangler runs this automatically)
-- Published assets: `dist-staging/` (preview pages + preserved historical static paths)
+- CI build/test: `node scripts/build-staging.mjs` and `node scripts/test-legacy-urls.mjs`
+- Published assets: `preview/` directly (preview pages + 173 preserved historical static paths); does not depend on a Cloudflare build command
 - Worker config: `wrangler.jsonc` (`myportfolio`, assets `./preview`)
 - Current staging setup remains unchanged: `npx wrangler deploy`
 - Every test HTML file contains `noindex,nofollow`; `preview/_headers` also sets `X-Robots-Tag: noindex`
@@ -17,7 +17,8 @@ The test website is intentionally **not indexable**. Production must never use t
 - Use a **separate production branch** (e.g. `release/portfolio-static`) and a separate Cloudflare Worker/deployment (`myportfolio-production`).
 - The production build is **required**. It copies the checked `preview/` files to `dist-production/`, removes staging noindex tags, adds canonical and social URL metadata, creates a sitemap and robots.txt, replaces staging headers, and excludes the obsolete PDF draft.
 - The same build also copies the previous site's `img/`, `custom/` and Angular-era `assets/` directories plus `main.js`, `style.scss` and `favicon.ico` into `dist-production/`, preserving existing file URLs for downloads, images, and 3D models. **A file existing in GitHub does not by itself make its former website URL available.** The builder fails if any of those copied source asset paths are missing from the output.
-- Build: `SITE_ORIGIN=https://www.kramarenko.info node scripts/build-production.mjs` (also configured to run automatically on production Wrangler deploy)
+- Build: `SITE_ORIGIN=https://www.kramarenko.info node scripts/build-production.mjs`
+- Cloudflare Workers Builds requirement: set the Dashboard **Build command** to `node scripts/build-production.mjs` and **Deploy command** to `npx wrangler deploy --config wrangler.production.jsonc`. As of November 2026, Workers Builds does **not** honor `wrangler.jsonc` custom build settings. For manual CLI use, Wrangler does run the `build.command` from the production config.
 - Deploy: `npx wrangler deploy --config wrangler.production.jsonc`
 - Cloudflare production asset directory: `./dist-production`
 - Attach `www.kramarenko.info` only after the new Worker is tested and the current domain/DNS setup is inspected. Redirect the non-canonical hostname to the canonical one after confirming which hostname should be preferred.

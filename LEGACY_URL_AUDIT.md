@@ -4,7 +4,7 @@ The old site has both an Angular-era `/assets/` URL namespace and an older stati
 
 ## Preserved at their original URL (HTTP 200 expected)
 
-The shared `scripts/legacy-static.mjs` module copies these root directories and files into both `dist-staging/` and `dist-production/`:
+All 173 baseline paths are committed directly inside `preview/` for the live test Worker, and the shared `scripts/legacy-static.mjs` module also copies the original source assets into `dist-staging/` and `dist-production/`:
 
 - `img/**` — older static-site diploma PDFs and images, SketchUp models, screenshots, logos, profile photos, favicons
 - `custom/**` — old static CSS/JS/font/image support files still committed
@@ -75,3 +75,7 @@ No production DNS or live Worker route was changed when this audit was written.
 ## Important remaining coverage limits
 
 The 104 restored Angular assets and 66 static assets are exact Git repository inventories, **not a verified inventory of every file currently present on the original hosting account**. Runtime-generated Angular JS/CSS bundle filenames and any files uploaded directly to the host are not known. The legacy Angular route `/portfolio/:id` needs a separate per-project SEO mapping and is not yet preserved by this static-asset audit. Before DNS cutover, compare the actual live-site URL inventory from the hosting account and Google Search Console, and probe the deployed staging Worker by HTTP status/content type (not only Git file presence).
+
+## Staging deploy reliability
+
+Workers Builds ignores Wrangler custom build configuration. The live staging Worker is therefore configured to publish `preview/` **directly**, with all 173 legacy files committed at their final public paths, and `_redirects` committed in `preview/`. The local/CI staging build cross-checks each of those files against the original content. This avoids depending on a Cloudflare Dashboard build step for staging.
