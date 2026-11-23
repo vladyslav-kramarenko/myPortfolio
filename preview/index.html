@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#101719">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#101719">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f3f7f6">
   <meta name="robots" content="noindex,nofollow">
   <title>Vladyslav Kramarenko | Business Systems, Automation & Integrations</title>
   <meta property="og:type" content="profile">
@@ -658,6 +659,82 @@
     .personal-footer-links a{color:#a9c6c5;font-size:13px;text-decoration:underline;text-decoration-color:rgba(144,198,199,.35);text-underline-offset:4px;padding:6px 0}
     .personal-footer-links a:hover,.personal-footer-links a:focus-visible{color:#9aeded;text-decoration-color:currentColor}
     @media(max-width:700px){.personal-footer{padding:20px 0 36px;align-items:flex-start}.personal-footer-links{width:100%;gap:5px 18px}}
+
+    /* Automatic OS theme. Preserve the typewriter's olive artwork and warm paper
+       while switching all surrounding navigation, copy, cards and dividers. */
+    :root{color-scheme:dark}
+    @media (prefers-color-scheme:light){
+      :root{
+        color-scheme:light;
+        --bg:#f3f7f6;
+        --bg-2:#eaf1ef;
+        --line:rgba(28,90,99,.10);
+        --ink:#19343a;
+        --muted:#52666a;
+        --teal:#126875;
+        --teal-2:#b8dbd7;
+        --shadow:rgba(29,54,58,.12);
+      }
+      body{
+        background:
+          radial-gradient(circle at 20% 12%,rgba(99,165,157,.16),transparent 28%),
+          radial-gradient(circle at 82% 28%,rgba(146,196,191,.15),transparent 24%),
+          linear-gradient(180deg,#f7faf8 0%,#f0f5f3 54%,#f6f8f7 100%);
+      }
+      body::before{opacity:.42}
+      .topbar{border-bottom-color:rgba(27,92,99,.15)}
+      .mark{background:linear-gradient(180deg,#fff,rgba(221,237,234,.83));border-color:rgba(18,104,117,.33);box-shadow:0 4px 16px rgba(23,71,76,.06)}
+      .header-icon,.menu-trigger{
+        color:#23464d;background:rgba(255,255,255,.75);border-color:rgba(24,93,102,.26);
+      }
+      .menu-trigger:hover,.menu-trigger[aria-expanded="true"],
+      .header-icon:hover,.header-icon:focus-visible{
+        color:#105e69;background:#e2f2ef;border-color:rgba(19,105,116,.58);
+      }
+      .menu-panel{background:#fff;border-color:#ccdcda;box-shadow:0 18px 45px rgba(24,57,62,.16)}
+      .menu-panel a{color:#213d42}
+      .menu-panel a:hover,.menu-panel a:focus-visible{background:#e9f3f1;color:#105d68}
+      .menu-kicker{color:#536c70}
+      .subline{color:#2c5157}
+      .location{color:#4b696d}
+      .scene::before{opacity:.38}
+      .machine{filter:drop-shadow(0 26px 32px rgba(52,68,58,.23))}
+      .content-section,.personal-footer{border-top-color:rgba(25,86,93,.17)}
+      .section-heading p{color:#556e72}
+      .subtle-link,.section-title-link span,.project-link,.featured-grid .project-card a{color:#126875}
+      .section-title-link:hover{color:#126875}
+      .skill-card,.project-card,.background-grid article{
+        background:rgba(255,255,255,.82);border-color:rgba(34,105,111,.18);
+        box-shadow:0 8px 22px rgba(27,65,67,.04);
+      }
+      .skill-card p,.project-card p,.featured-grid .project-card p{color:#465f64}
+      .skill-card h3,.project-card h3,.featured-grid .project-card h5{color:#213c42}
+      .project-type,.background-year{color:#17616d}
+      .timeline{border-left-color:rgba(22,107,115,.3)}
+      .timeline-item:before{background:#176c76;box-shadow:0 0 0 4px #edf4f1}
+      .time-range{color:#49686c}
+      .time-range span,.jobname span{color:#536d70}
+      .time-info p{color:#4c6468}
+      .time-info .jobname{color:#27474c}
+      .role-project{background:#fff;border-color:rgba(28,103,111,.19)}
+      .role-project h5{color:#243e44}
+      .role-project p{color:#50676c}
+      .role-project a{color:#126875}
+      .role-projects,.independent-projects{border-top-color:rgba(26,96,103,.19)}
+      .role-projects h4{color:#146875}
+      .background-grid p,.research-list{color:#4c6468}
+      .research-list a{color:#126875}
+      .research-list span{color:#53696c}
+      .credential-line{color:#244149}
+      .credential-note,.activity-figure figcaption{color:#4e696d}
+      .contact-links a{border-color:rgba(22,102,114,.28);color:#21525d;background:rgba(255,255,255,.72)}
+      .contact-links a:hover{background:#e1f0ed}
+      .contact-links a.contact-primary{background:#126875;border-color:#126875;color:#fff}
+      .contact-links a.contact-primary:hover{background:#0b525e;color:#fff}
+      .personal-footer-title,.personal-footer-links a{color:#4b686c}
+      .personal-footer-links a:hover,.personal-footer-links a:focus-visible{color:#125d69}
+      .scroll-next{color:#266d75;border-bottom-color:rgba(18,104,117,.28)}
+    }
   </style>
 </head>
 <body>
