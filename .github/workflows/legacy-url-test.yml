@@ -21,3 +21,7 @@ jobs:
         run: node scripts/build-production.mjs
       - name: Smoke-test 173 legacy URLs, redirects, SEO and 404
         run: node scripts/test-legacy-urls.mjs
+      - name: Probe deployed Cloudflare staging Worker — 173 files and 10 redirects
+        env:
+          TEST_BASE_URL: https://myportfolio.kramarenko-vladyslav-92.workers.dev
+        run: node scripts/test-legacy-urls.mjs
