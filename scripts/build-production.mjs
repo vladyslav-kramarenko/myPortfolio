@@ -74,7 +74,14 @@ await writeFile(join(destination, '_redirects'),
     '/justCatPackage.html /#background 301',
     '/justCatLogo.html /#background 301',
     '/tax_service.html https://github.com/vladyslav-kramarenko/taxService 301',
-    '/inner-page.html /#projects 301'
+    '/inner-page.html /#projects 301',
+    // Former image paths referenced in legacy HTML but absent from all Git branches.
+    // Redirect to their existing WebP or full-resolution counterparts.
+    '/img/profile-photo.jpg /img/profile-photo.webp 301',
+    '/img/logo/JustCatLogo.png /img/logo/JustCatLogo.webp 301',
+    '/img/portfolio/Just_cat_3.png /img/portfolio/Just_cat_3_full.png 301',
+    '/img/portfolio/Just_cat_5.png /img/portfolio/Just_cat_5_full.png 301',
+    '/img/portfolio/tax_service/tax_service_reports.png /img/portfolio/tax_service/tax_service_reports.webp 301'
   ].join('\n') + '\n');
 const escapeXml = (s) => s.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;');
 await writeFile(join(destination, 'sitemap.xml'),
