@@ -54,7 +54,7 @@ jobs:
         if: github.ref == 'refs/heads/dev' && github.event_name == 'push'
         run: node scripts/audit-old-domain.mjs
       - name: Verify domain cutover, independent subdomains, DNS and mail
-        if: github.ref == 'refs/heads/dev' && github.event_name == 'push'
+        if: always() && github.ref == 'refs/heads/dev' && github.event_name == 'push'
         run: node scripts/audit-post-cutover.mjs
       - name: Check dev.kramarenko.info DNS, noindex, pages and Worker parity
         if: github.ref == 'refs/heads/dev' && github.event_name == 'push'

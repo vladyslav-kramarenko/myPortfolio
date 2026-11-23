@@ -34,7 +34,6 @@ for(const id of ids){
   else failures.push(path+': '+r.status);
 }
 console.log('OLD ANGULAR ROUTES '+JSON.stringify({count:ids.length,redirects,failures}));
-assert.deepEqual(failures,[],'Old archive does not support all original project URLs');
 
 const header=response.headers.get('x-robots-tag')||'';
 const metaRobots=oldBody.match(/<meta[^>]*name=["']robots["'][^>]*>/i)?.[0]||'';
@@ -44,4 +43,5 @@ if(/noindex/i.test(header+' '+metaRobots)){
   console.log('OLD ARCHIVE INDEXING WARNING: archive has no noindex. Add host-specific Cloudflare response header X-Robots-Tag: noindex, nofollow to old.kramarenko.info only.');
 }
 if(/https:\/\/www\.kramarenko\.info\//i.test(oldBody))console.log('OLD ARCHIVE METADATA WARNING: old source still references www.kramarenko.info; prefer host-specific noindex.');
+assert.deepEqual(failures,[],'Old archive does not support all original project URLs');
 console.log('OLD ARCHIVE PASS: homepage serves the original Angular app, '+ids.length+' historical project routes respond, current production remains separate');
