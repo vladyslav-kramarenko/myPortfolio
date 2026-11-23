@@ -12,7 +12,7 @@ The shared `scripts/legacy-static.mjs` module copies these root directories and 
 - `favicon.ico` — Angular-era root favicon
 - `main.js`, `style.scss`
 
-The original `img/` and `custom/` set contains **66 files** (~16.36 MB). The Angular-era `assets/` subtree contains **104 files** (~25.68 MB). Both staging and production builds fail if a legacy file is missing or its SHA-256 checksum differs.
+The original `img/` and `custom/` set contains **66 files** (~16.36 MB). The Angular-era `assets/` subtree contains **104 files** (~25.68 MB). Both staging and production builds compare every bundled file to its source and enforce the immutable baseline in `scripts/legacy-url-manifest.json` (173 original public paths and Git blob checksums). Removing or silently changing a baseline file fails the build.
 
 Examples to probe directly on staging and then on production:
 - `/img/certificates/bachelor_diploma.pdf`

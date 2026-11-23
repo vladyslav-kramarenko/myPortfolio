@@ -44,11 +44,19 @@ async function listRelativeFiles(folder, prefix = '') {
 }
 
 const sha256 = data => createHash('sha256').update(data).digest('hex');
+const gitBlobHash = data => createHash('sha1').update('blob ' + data.length + '\0').update(data).digest('hex');
+const manifest = JSON.parse(await readFile(new URL('./legacy-url-manifest.json', import.meta.url), 'utf8')).files;
 export async function verifyLegacyAssets(destination) {
   const paths = [...files];
   for (const directory of directories) {
     for (const rel of await listRelativeFiles(resolve(directory))) {
       paths.push(directory + '/' + rel);
+    }
+  }
+  const published = new Set(paths);
+  for (const path of Object.keys(manifest)) {
+    if (!published.has(path)) {
+      throw new Error('Baseline legacy public URL removed from source: /' + path);
     }
   }
   for (const path of paths) {
@@ -61,8 +69,13 @@ export async function verifyLegacyAssets(destination) {
     if (!actual.isFile() || actual.size !== expected.size) {
       throw new Error('Legacy public file size mismatch: /' + path);
     }
-    if (sha256(await readFile(src)) !== sha256(await readFile(dest))) {
+    const original = await readFile(src);
+    const deployed = await readFile(dest);
+    if (sha256(original) !== sha256(deployed)) {
       throw new Error('Legacy public file checksum mismatch: /' + path);
+    }
+    if (manifest[path] && gitBlobHash(original) !== manifest[path]) {
+      throw new Error('Baseline legacy public file changed: /' + path);
     }
   }
   return paths.length;
