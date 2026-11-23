@@ -1178,6 +1178,12 @@ into working systems.</span>
         const lift = Math.max(0, nextLineTop - firstPrintLineTop);
         paper.style.setProperty('--paper-lift', lift.toFixed(1) + 'px');
       }
+      function finalMobilePaperFeed() {
+        // After the last character, roll the page one additional line
+        // above the platen so the metal paper guides cannot cover the text.
+        const lineHeight = parseFloat(getComputedStyle(lines[2]).lineHeight);
+        return Math.max(16, Math.min(24, lineHeight * 1.6));
+      }
       const replayBtn = document.getElementById('replay');
       const cursor = document.getElementById('cursor');
       const lines = [
@@ -1338,7 +1344,14 @@ into working systems.</span>
             if (localRun !== runId) return;
           }
         }
-        // Settle the final page gently into its centered resting position.
+        if (mobileScreen) {
+          // The final line needs its own paper feed; otherwise it remains
+          // beside the platen and the metal guides obscure the last words.
+          pressKey('\n');
+          await advanceAndReturn(lines[2].offsetTop + finalMobilePaperFeed());
+          if (localRun !== runId) return;
+        }
+        // Settle the page gently into its centered resting position.
         paper.style.setProperty('--feed-duration', '.27s');
         paper.style.setProperty('--carriage-x', '0px');
         cursor.style.display = 'none';

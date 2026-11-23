@@ -92,6 +92,8 @@ try {
         processTop:elements[1].offsetTop,
         toolsTop:elements[2].offsetTop,
         lineHeight:parseFloat(getComputedStyle(elements[0]).lineHeight),
+        lastLineHeight:parseFloat(getComputedStyle(elements[2]).lineHeight),
+        paperTop:paper.getBoundingClientRect().top,
         cursorHidden:cursor?.style.display==='none'
       };
     })()`;
@@ -139,11 +141,18 @@ try {
     'Paper did not feed when moving to process line');
   assert.ok(found.tools.lift > found.process.lift,
     'Paper did not feed when moving to tools line');
-  assert.ok(Math.abs(final.lift-(final.toolsTop-final.firstTop)) < 2,
-    'Paper feed does not match final rendered text position');
+  const finalFeed = Math.max(16, Math.min(24, final.lastLineHeight*1.6));
+  assert.ok(Math.abs(final.lift-(final.toolsTop-final.firstTop+finalFeed)) < 2,
+    'Final printed line has not received its own paper feed');
+  assert.ok(final.lift - found.tools.lift >= finalFeed-1,
+    'The last line did not move upward after printing');
+  assert.ok(found.tools.paperTop - final.paperTop >= finalFeed-2,
+    'The paper did not physically move above the platen after the last line');
   console.log('MOBILE PAPER FEED PASS — newline: '+found.second.lift.toFixed(1)+
     'px, process: '+found.process.lift.toFixed(1)+
-    'px, tools: '+final.lift.toFixed(1)+'px, rendered in Chromium at 390px');
+    'px, tools typing: '+found.tools.lift.toFixed(1)+
+    'px, final: '+final.lift.toFixed(1)+
+    'px (extra '+finalFeed.toFixed(1)+'px), Chromium 390px');
 } finally {
   ws?.close();
   browser.kill('SIGKILL');
