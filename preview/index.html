@@ -650,6 +650,14 @@
     .research-list a{color:#85dce0;text-underline-offset:4px}
     .research-list span{color:#97aca9;font-size:13px}
     @media(max-width:700px){.background-grid{grid-template-columns:1fr}.background-grid article{padding:17px 19px}}
+
+    /* Personal presence: secondary to hiring/contact information, no embeds or third-party scripts. */
+    .personal-footer{border-top:1px solid rgba(144,198,199,.16);padding:24px 0 38px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+    .personal-footer-title{margin:0;color:#adc4c2;font-size:13px;letter-spacing:.02em}
+    .personal-footer-links{display:flex;gap:8px 20px;flex-wrap:wrap;align-items:center}
+    .personal-footer-links a{color:#a9c6c5;font-size:13px;text-decoration:underline;text-decoration-color:rgba(144,198,199,.35);text-underline-offset:4px;padding:6px 0}
+    .personal-footer-links a:hover,.personal-footer-links a:focus-visible{color:#9aeded;text-decoration-color:currentColor}
+    @media(max-width:700px){.personal-footer{padding:20px 0 36px;align-items:flex-start}.personal-footer-links{width:100%;gap:5px 18px}}
   </style>
 </head>
 <body>
@@ -998,6 +1006,14 @@ into working systems.</span>
         </div>
       </section>
     </main>
+    <footer class="personal-footer" aria-label="Personal profiles">
+      <p class="personal-footer-title">Elsewhere on the web</p>
+      <nav class="personal-footer-links" aria-label="Personal social links">
+        <a href="https://www.youtube.com/@PurrfectTrips/featured" target="_blank" rel="noopener noreferrer">YouTube ↗</a>
+        <a href="https://maps.app.goo.gl/nBDBqHnayu1Jwpbe7?g_st=ac" target="_blank" rel="noopener noreferrer">Google Maps · Local Guide Level 8 ↗</a>
+        <a href="https://www.instagram.com/kramarenko.vladyslav/" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
+      </nav>
+    </footer>
   </div>
 
   <script>
