@@ -20,20 +20,28 @@ for(const path of paths){
 }
 console.log('APEX WORKER PARITY PASS: '+paths.length+' paths, byte-for-byte');
 
+const redirectIssues=[];
 const http=await fetchDirect('http://kramarenko.info/');
-assert.equal(http.status,301,'HTTP must redirect permanently to HTTPS');
-assert.equal(new URL(http.headers.get('location'),'http://kramarenko.info/').href,'https://kramarenko.info/');
-console.log('HTTP TO HTTPS: PASS 301 -> https://kramarenko.info/');
+const httpDestination=http.headers.get('location');
+if(http.status===301 && httpDestination && new URL(httpDestination,'http://kramarenko.info/').href==='https://kramarenko.info/'){
+ console.log('HTTP TO HTTPS: PASS 301 -> https://kramarenko.info/');
+}else{
+ redirectIssues.push('HTTP apex must return 301 to HTTPS, got '+http.status+' with Location '+httpDestination);
+ console.log('HTTP TO HTTPS: FAIL '+http.status+' '+httpDestination);
+}
 
 const www=await fetchDirect('https://www.kramarenko.info/');
 const wwwStatus=www.status;
 const wwwLocation=www.headers.get('location');
 if([301,308].includes(wwwStatus)&&new URL(wwwLocation,'https://www.kramarenko.info/').href==='https://kramarenko.info/')
  console.log('WWW CANONICAL REDIRECT PASS: '+wwwStatus+' -> '+wwwLocation);
-else if(wwwStatus===200)
- console.log('WWW CANONICAL WARNING: www returns HTTP 200, not a redirect. Create a 301 rule to apex.');
-else
- console.log('WWW CANONICAL WARNING: status='+wwwStatus+' location='+wwwLocation);
+else {
+ const issue=wwwStatus===200
+   ? 'www returns HTTP 200 instead of a permanent redirect to the apex'
+   : 'www returns '+wwwStatus+' with Location '+wwwLocation+' instead of 301 to apex';
+ redirectIssues.push(issue);
+ console.log('WWW CANONICAL: FAIL '+issue);
+}
 
 for(const [url,expected] of [
  ['https://dev.kramarenko.info/',true],
@@ -63,4 +71,8 @@ const expectedMX=['aspmx.l.google.com','alt1.aspmx.l.google.com','alt2.aspmx.l.g
 for(const host of expectedMX)assert.ok(exchanges.includes(host),'Google Workspace MX missing: '+host);
 assert.ok(txt.some(row=>row.join('').toLowerCase().startsWith('v=spf1')),'SPF TXT record missing');
 console.log('DNS AND MAIL PASS: '+a4.length+' IPv4 addresses; five Google Workspace MX, SPF present');
-console.log('POST CUTOVER PASS: apex, HTTP, production parity, DEV, Lagrange and Google Workspace DNS');
+if(redirectIssues.length){
+ console.error('POST CUTOVER REDIRECT ISSUES: '+JSON.stringify(redirectIssues));
+ throw new Error('Correct HTTP/www canonical Redirect Rules before considering the migration complete');
+}
+console.log('POST CUTOVER PASS: apex, HTTP, www, production parity, DEV, Lagrange and Google Workspace DNS');
