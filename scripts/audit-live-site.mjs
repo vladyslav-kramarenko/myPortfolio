@@ -27,8 +27,9 @@ for(const [p,html] of pages){
   for(const match of html.matchAll(/<a\b[^>]*href="([\/#][^"]*)"/g)){
     const href=match[1];
     const dest=new URL(href,origin+p);
-    if(dest.pathname!=='/'&&!dest.pathname.endsWith('.html'))continue;
-    const target=pages.get(dest.pathname);
+    const isPublished = dest.pathname==='/' || paths.some(p=>p.replace(/\.html$/,'')===dest.pathname||p===dest.pathname);
+    if(!isPublished)continue;
+    const target=pages.get(dest.pathname) || pages.get(dest.pathname+'.html');
     if(!target)issues.push('Missing internal page '+p+' -> '+href);
     else if(dest.hash&&!target.includes('id="'+dest.hash.slice(1)+'"'))
       issues.push('Missing internal anchor '+p+' -> '+href);

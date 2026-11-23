@@ -31,7 +31,7 @@ await copyLegacyAssets(destination);
 await rm(join(destination, 'Vladyslav-Kramarenko-Resume.pdf'), { force: true });
 
 for (const page of pages) {
-  const pathname = page === 'index.html' ? '/' : '/' + page;
+  const pathname = page === 'index.html' ? '/' : '/' + page.replace(/\.html$/, '');
   const canonical = origin + pathname;
   const filename = join(destination, ...page.split('/'));
   let html = await readFile(filename, 'utf8');
@@ -63,7 +63,7 @@ const escapeXml = (s) => s.replaceAll('&', '&amp;').replaceAll('<', '&lt;').repl
 await writeFile(join(destination, 'sitemap.xml'),
   '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
   pages.map(page => {
-    const url = origin + (page === 'index.html' ? '/' : '/' + page);
+    const url = origin + (page === 'index.html' ? '/' : '/' + page.replace(/\.html$/, ''));
     return '  <url><loc>' + escapeXml(url) + '</loc></url>\n';
   }).join('') + '</urlset>\n'
 );
@@ -95,7 +95,9 @@ if (/noindex|nofollow/.test(headers)) throw new Error('Staging headers leaked in
 const publishedPages = new Map();
 for (const page of pages) {
   const filename = join(destination, ...page.split('/'));
-  publishedPages.set('/' + page, await readFile(filename, 'utf8'));
+  const html = await readFile(filename, 'utf8');
+  publishedPages.set('/' + page, html);
+  publishedPages.set('/' + page.replace(/\.html$/, ''), html);
 }
 for (const [page, html] of publishedPages) {
   const localLinks = [...html.matchAll(/<a\b[^>]*href="([^"]+)"/g)]

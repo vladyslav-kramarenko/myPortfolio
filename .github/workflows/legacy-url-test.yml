@@ -21,6 +21,8 @@ jobs:
         run: node scripts/build-production.mjs
       - name: Check LinkedIn experience dates
         run: node scripts/test-linkedin-dates.mjs
+      - name: Verify production canonical URLs and sitemap
+        run: node scripts/test-production-seo.mjs
       - name: Test mobile typewriter paper feed in headless Chrome
         run: node scripts/test-mobile-paper-motion.mjs
       - name: Smoke-test 173 legacy URLs, redirects, SEO and 404
