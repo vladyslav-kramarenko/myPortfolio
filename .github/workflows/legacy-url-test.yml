@@ -3,6 +3,11 @@ on:
   push:
     branches:
       - experiment/static-html-hero
+      - dev
+      - main
+  pull_request:
+    branches:
+      - main
   workflow_dispatch:
 
 jobs:
@@ -23,13 +28,17 @@ jobs:
         run: node scripts/test-linkedin-dates.mjs
       - name: Verify production canonical URLs and sitemap
         run: node scripts/test-production-seo.mjs
+      - name: Verify all historical Angular project URL mappings
+        run: node scripts/test-old-portfolio-routes.mjs
       - name: Test mobile typewriter paper feed in headless Chrome
         run: node scripts/test-mobile-paper-motion.mjs
       - name: Smoke-test 173 legacy URLs, redirects, SEO and 404
         run: node scripts/test-legacy-urls.mjs
       - name: Audit actual Worker pages in responsive Chromium
+        if: github.event_name != 'pull_request' && github.ref != 'refs/heads/main'
         run: node scripts/audit-live-site.mjs
-      - name: Probe deployed Cloudflare staging Worker — 173 files and 10 redirects
+      - name: Probe deployed Cloudflare staging Worker — historical URLs and redirects
+        if: github.event_name != 'pull_request' && github.ref != 'refs/heads/main'
         env:
           TEST_BASE_URL: https://myportfolio.kramarenko-vladyslav-92.workers.dev
         run: node scripts/test-legacy-urls.mjs

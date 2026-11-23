@@ -1,54 +1,47 @@
-# Static portfolio — test → production release guide
+# Portfolio release workflow — dev to main
 
-## Goal
-One set of reviewed HTML source files in `preview/`, two independent deployment targets.
-The test website is intentionally **not indexable**. Production must never use the raw `preview/` assets.
+## Git branches
+- `angular` stays untouched as the original Angular site and historical record. Do not delete it or force-push over it.
+- `experiment/static-html-hero` is the evaluated 2026 migration/test branch, retained for provenance.
+- `dev` is the long-lived development branch and deploys to the existing `myportfolio` Cloudflare staging Worker.
+- `main` is the production release branch, promoted from reviewed `dev` commits, and deploys to a **separate** `myportfolio-production` Worker.
+- Change GitHub default from `angular` to `main` **only after** validating this new branch in GitHub Settings.
 
-### Test (currently configured)
-- Git branch: `experiment/static-html-hero`
-- CI build/test: `node scripts/build-staging.mjs` and `node scripts/test-legacy-urls.mjs`
-- Published assets: `preview/` directly (preview pages + 173 preserved historical static paths); does not depend on a Cloudflare build command
-- Worker config: `wrangler.jsonc` (`myportfolio`, assets `./preview`)
-- Current staging setup remains unchanged: `npx wrangler deploy`
-- Every test HTML file contains `noindex,nofollow`; `preview/_headers` also sets `X-Robots-Tag: noindex`
-- Keep both restrictions on staging.
+## Cloudflare DEV Worker
+- Existing Worker name: `myportfolio`
+- Connected repository: `vladyslav-kramarenko/myPortfolio`
+- Git branch in Worker > Settings > Builds: `dev` (change from `experiment/static-html-hero`)
+- Build command: `node scripts/build-staging.mjs` (verification only).
+- Deploy command: `npx wrangler deploy --config wrangler.jsonc`
+- Published directory: `./preview` (from `wrangler.jsonc`).
+- Public staging domain: `myportfolio.kramarenko-vladyslav-92.workers.dev`
+- The staging Worker must keep `noindex,nofollow` in HTML and `X-Robots-Tag: noindex` headers.
 
-### Production (prepared, not deployed by this change)
-- Use a **separate production branch** (e.g. `release/portfolio-static`) and a separate Cloudflare Worker/deployment (`myportfolio-production`).
-- The production build is **required**. It copies the checked `preview/` files to `dist-production/`, removes staging noindex tags, adds canonical and social URL metadata, creates a sitemap and robots.txt, replaces staging headers, and excludes the obsolete PDF draft.
-- The same build also copies the previous site's `img/`, `custom/` and Angular-era `assets/` directories plus `main.js`, `style.scss` and `favicon.ico` into `dist-production/`, preserving existing file URLs for downloads, images, and 3D models. **A file existing in GitHub does not by itself make its former website URL available.** The builder fails if any of those copied source asset paths are missing from the output.
-- Build: `SITE_ORIGIN=https://www.kramarenko.info node scripts/build-production.mjs`
-- Cloudflare Workers Builds requirement: set the Dashboard **Build command** to `node scripts/build-production.mjs` and **Deploy command** to `npx wrangler deploy --config wrangler.production.jsonc`. As of November 2026, Workers Builds does **not** honor `wrangler.jsonc` custom build settings. For manual CLI use, Wrangler does run the `build.command` from the production config.
-- Deploy: `npx wrangler deploy --config wrangler.production.jsonc`
-- Cloudflare production asset directory: `./dist-production`
-- Attach `www.kramarenko.info` only after the new Worker is tested and the current domain/DNS setup is inspected. Redirect the non-canonical hostname to the canonical one after confirming which hostname should be preferred.
-- **No production deployment or DNS changes were made while authoring this guide.**
+## Cloudflare PROD Worker (create separately)
+- Worker name: `myportfolio-production` (must match `wrangler.production.jsonc`).
+- Connect the same GitHub repository, production branch `main`.
+- Build command: `node scripts/build-production.mjs`
+- Deploy command: `npx wrangler deploy --config wrangler.production.jsonc`
+- Published directory: `./dist-production`, **never** `./preview`.
+- Git-based builds use the dashboard build/deploy commands, not Wrangler's custom `build.command`.
+- Deploy first at a temporary Worker `workers.dev` URL; validate there before attaching any real domain.
+- Prefer existing public apex `https://kramarenko.info` as canonical; production builder and sitemap use this origin.
+- After testing the deployment, bind `kramarenko.info` as a custom domain to the production Worker; handle `www` as a separate redirect to apex **only after checking existing DNS and rules**.
+- Preserve existing unrelated hostnames, including `lagrange.kramarenko.info`, and all mail-related DNS records.
 
-## Minimum acceptance checks before first release
-1. Confirm official job titles, employment history, qualifications and every publication link. Corporate case descriptions are sanitized and framed as personally reported professional experience.
-2. From the test Worker, open `/`, `/resume.html`, each page in `/projects/`, and all in-page navigation anchors. Verify no mobile paper clipping and animation.
-3. On `/resume.html`, press **Print / Save as PDF**: confirm US Letter layout, all pages, visible contacts, and no toolbar. HTML is the single authoritative resume; the old PDF draft is not included in production.
-4. On a **local production package**, inspect `dist-production/index.html` and every other HTML file: all should have `index,follow` and the appropriate self-referencing canonical. Check `dist-production/_headers` has **no noindex**; confirm sitemap/robots use the production origin.
-5. After deployment to a *temporary production Worker address*, inspect actual HTTP response codes, `X-Robots-Tag`, canonical, mobile rendering, internal links, and printing.
-6. Verify representative **legacy file URLs** including `/assets/documents/2024_DEV_Kramarenko_Vladyslav.pdf`, `/assets/img/icon/favicon.png`, `/favicon.ico` on the candidate deployment, including `/img/certificates/bachelor_diploma.pdf`, `/img/certificates/masters_diploma.jpg`, `/img/portfolio/scratching_post.skp` and `/img/icon/favicon.png`. They must return the original file, not a generic HTML fallback or redirect to the home page. Verify old HTML page 301 mappings separately.
-7. Before switching public DNS, inventory old URLs and create 301 redirects when old links have changed. Check Search Console's indexed pages and external links for URLs that Git alone cannot reveal. Do not discard old Google-indexed routes without a relevant destination. Submit the production `sitemap.xml` to Google Search Console after launch.
-8. Existing `/img/certificates/*` files include personal education documents. Preservation keeps them public; review privacy requirements before switching the domain.
+## Verified compatibility / remaining risk
+- Historical source assets: 173 paths from `/img`, `/custom`, `/assets`, and root assets, protected by Git blob checksums.
+- Original Angular `/portfolio/:id`: 13 project IDs in `assets/data/portfolioItems.json`; mapped to a dedicated earlier-project archive or the relevant current page using HTTP 301. Unknown legacy URLs uploaded outside Git remain a separate risk.
+- Obsolete `/Vladyslav-Kramarenko-Resume.pdf` redirects to the current printable HTML resume.
+- Staging and production must preserve the same redirect list, enforced by shared `scripts/legacy-static.mjs`.
 
-## Ongoing release process
-1. Create/iterate on the test branch.
-2. Review the Worker preview, run link/content/print checks.
-3. Merge a **reviewed** release commit into `release/portfolio-static`.
-4. Production Cloudflare Builds must use the release branch, `node scripts/build-production.mjs` as the build command and `npx wrangler deploy --config wrangler.production.jsonc` as the deploy command.
-5. Verify the exact production deployment. Roll back by redeploying a previously reviewed release commit if needed.
-6. Avoid editing production directly: corrections go test → release.
+## Release gates
+1. GitHub Actions green on dev; browser tests, 173 historical assets, all redirect targets, all project dates and production SEO.
+2. Review diff: GitHub PR from `dev` to `main`; use merge or fast-forward (no force push).
+3. Verify resulting production Worker at its temporary `workers.dev` address (200 for six core pages plus archive; no staging noindex; canonical and sitemap; all historical paths).
+4. Audit Google Search Console's indexed pages/backlinks for old URLs not recorded in Git. Review privacy of historical certificates and resume documents before attaching domain.
+5. Only then attach apex domain and test apex/www, important historical pages, files and subdomain routing. Keep existing hosting active until cutover checks pass.
+6. If a release fails, roll the production Worker back to the previous verified deployment; keep dev untouched.
 
-## Content release scope
-- Home: business-first positioning; Featured Projects, Skills, Experience; compact earlier entrepreneurship, education, research; Credentials and Contact.
-- Printable `resume.html`: HTML source of truth with Print / Save as PDF.
-- Project pages: local RAG bot, TEUS website, transport/production integration.
-- No blog, invented project KPIs, copied employer repositories, or arbitrary keyword landing pages.
-
-## Known follow-up (not a blocker for testing)
-- Replace unsupported outcomes with verified numbers as evidence becomes available.
-- Add stronger diagrams/screenshots and architecture discussion to the three project cases.
-- Create an approved PDF export from HTML only if recruiters specifically request a file.
+## Safety
+Do not use the default `npx wrangler deploy` on the production Worker: `wrangler.jsonc` points to staging and is not indexable. Use `--config wrangler.production.jsonc` explicitly. Do not change DNS or create broad wildcard routes that could interfere with other subdomains.

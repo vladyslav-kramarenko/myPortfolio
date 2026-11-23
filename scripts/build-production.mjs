@@ -12,9 +12,10 @@ const pages = [
   'projects/local-rag-support-bot.html',
   'projects/teus-website.html',
   'projects/production-workflow-integration.html',
-  'projects/lagrange-interpolation.html'
+  'projects/lagrange-interpolation.html',
+  'archive.html'
 ];
-const originInput = process.env.SITE_ORIGIN || 'https://www.kramarenko.info';
+const originInput = process.env.SITE_ORIGIN || 'https://kramarenko.info';
 const originURL = new URL(originInput);
 if (originURL.protocol !== 'https:' || originURL.pathname !== '/' || originURL.search || originURL.hash) {
   throw new Error('SITE_ORIGIN must be an HTTPS origin, e.g. https://www.kramarenko.info');

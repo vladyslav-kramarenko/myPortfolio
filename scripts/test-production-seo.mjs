@@ -1,14 +1,15 @@
 // Production canonical/sitemap must match Cloudflare Workers clean HTML URLs.
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
-const origin='https://www.kramarenko.info';
+const origin='https://kramarenko.info';
 const urls=[
   ['index.html','/'],
   ['resume.html','/resume'],
   ['projects/local-rag-support-bot.html','/projects/local-rag-support-bot'],
   ['projects/teus-website.html','/projects/teus-website'],
   ['projects/production-workflow-integration.html','/projects/production-workflow-integration'],
-  ['projects/lagrange-interpolation.html','/projects/lagrange-interpolation']
+  ['projects/lagrange-interpolation.html','/projects/lagrange-interpolation'],
+  ['archive.html','/archive']
 ];
 const sitemap=await readFile('dist-production/sitemap.xml','utf8');
 const robots=await readFile('dist-production/robots.txt','utf8');
@@ -25,4 +26,4 @@ for(const [file,route] of urls){
       'Internal link uses old .html URL in '+file+': '+href);
   }
 }
-console.log('PRODUCTION SEO PASS: six canonical URLs, clean navigation and sitemap agree with Workers routing');
+console.log('PRODUCTION SEO PASS: seven canonical URLs, clean navigation and sitemap agree with Workers routing');

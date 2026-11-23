@@ -6,7 +6,7 @@ import {mkdtemp,rm} from 'node:fs/promises';
 import {tmpdir} from 'node:os';
 import {join} from 'node:path';
 const origin='https://myportfolio.kramarenko-vladyslav-92.workers.dev';
-const paths=['/','/resume.html','/projects/local-rag-support-bot.html','/projects/teus-website.html','/projects/production-workflow-integration.html','/projects/lagrange-interpolation.html'];
+const paths=['/','/resume.html','/projects/local-rag-support-bot.html','/projects/teus-website.html','/projects/production-workflow-integration.html','/projects/lagrange-interpolation.html','/archive.html'];
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 const pages=new Map(),issues=[];
 // Cloudflare Builds may deploy after GitHub CI begins: wait for a real live revision.
@@ -60,6 +60,8 @@ assert.ok(home.includes('href="tel:+12369929229"'),'Phone contact missing');
 assert.ok(home.includes('>2369929229 ↗</a>'),'Phone display format changed');
 assert.ok(home.includes('data-project-id="lagrange-web"'),'Lagrange project card not deployed');
 assert.ok(home.includes('href="/projects/lagrange-interpolation"'),'Lagrange internal link missing');
+assert.ok(home.includes('href="/archive"'),'Historical archive link missing');
+assert.ok(pages.get('/archive.html').includes('Historical projects / Legacy URL archive'),'Archive not deployed');
 assert.ok(pages.get('/projects/lagrange-interpolation.html').includes('github.com/vladyslav-kramarenko/LagrangeWeb'),'Lagrange case page not deployed');
 try{
   const demo=await fetch('https://lagrange.kramarenko.info/',{signal:AbortSignal.timeout(12000)});
@@ -174,7 +176,7 @@ try{
     if(p==='/resume.html'&&!m.print)issues.push('Print control missing');
   }
   assert.deepEqual(issues,[],'Live audit issues');
-  console.log('LIVE SITE AUDIT PASS: six pages, five viewport/theme states, links and menu.');
+  console.log('LIVE SITE AUDIT PASS: seven pages, five viewport/theme states, links and menu.');
 }finally{
   ws?.close();
   child.kill('SIGKILL');
