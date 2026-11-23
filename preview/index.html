@@ -640,12 +640,11 @@
       .hero .typed-line.process{padding-top:5px;margin-bottom:6px}
     }
 
-    /* Desktop-site mode on a portrait phone (~980px CSS viewport).
-       The taller full-width scene puts the platen over the second line of copy
-       unless the paper is lifted and the text starts closer to its top edge.
-       This changes only the 701–980px intermediate layout; normal mobile and
-       true desktop typewriter geometry stay untouched. */
+    /* The phone's "desktop site" mode uses a 701–980px CSS viewport.
+       Reserve space above the raised paper so it does not overlap the
+       location and subtitle. Keep the paper aligned with the platen. */
     @media (min-width:701px) and (max-width:980px){
+      .hero .scene-wrap{margin-top:clamp(84px,9vw,100px)}
       .hero .paper-rail{top:-6%;height:64%}
       .hero .paper-inner{padding:16px 18px 18px}
       .hero .paper-rule{margin:9px 0 12px}
