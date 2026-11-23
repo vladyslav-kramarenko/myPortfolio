@@ -1,6 +1,9 @@
 {
   "name": "myportfolio-production",
   "compatibility_date": "2026-11-22",
+  "build": {
+    "command": "node scripts/build-production.mjs"
+  },
   "assets": {
     "directory": "./dist-production"
   }

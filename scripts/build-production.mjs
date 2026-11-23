@@ -2,6 +2,7 @@
 // This never modifies preview/ or the currently configured staging Worker.
 import { cp, readFile, readdir, rm, writeFile } from 'node:fs/promises';
 import { join, relative, resolve, sep } from 'node:path';
+import { copyLegacyAssets, verifyLegacyAssets, writeLegacyRedirects } from './legacy-static.mjs';
 
 const source = resolve('preview');
 const destination = resolve('dist-production');
@@ -22,19 +23,8 @@ const origin = originURL.origin;
 await rm(destination, { recursive: true, force: true });
 await cp(source, destination, { recursive: true });
 
-// The old public website served downloadable certificates, CAD models, images,
-// icons, and vendor assets from /img/* and /custom/*. Keep the exact public paths:
-// a GitHub file is NOT available at its former URL unless included in the
-// published Worker asset directory. Never copy the legacy root index.html.
-const legacyDirectories = ['img', 'custom'];
-const legacyFiles = ['main.js', 'style.scss'];
-for (const directory of legacyDirectories) {
-  await cp(resolve(directory), join(destination, directory), { recursive: true });
-}
-for (const file of legacyFiles) {
-  await cp(resolve(file), join(destination, file));
-}
-
+// Serve legacy /img, /custom, /assets and /favicon.ico at their exact paths.
+await copyLegacyAssets(destination);
 
 // The old PDF is an unreviewed draft and can become stale. The print-ready
 // HTML is now the authoritative resume: browser Print -> Save as PDF.
@@ -68,21 +58,7 @@ await writeFile(join(destination, '_headers'),
 `/*\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: strict-origin-when-cross-origin\n`);
 await writeFile(join(destination, 'robots.txt'),
 `User-agent: *\nAllow: /\nSitemap: ${origin}/sitemap.xml\n`);
-// Preserve URLs that existed on the older HTML portfolio.
-await writeFile(join(destination, '_redirects'),
-  [
-    '/justCatPackage.html /#background 301',
-    '/justCatLogo.html /#background 301',
-    '/tax_service.html https://github.com/vladyslav-kramarenko/taxService 301',
-    '/inner-page.html /#projects 301',
-    // Former image paths referenced in legacy HTML but absent from all Git branches.
-    // Redirect to their existing WebP or full-resolution counterparts.
-    '/img/profile-photo.jpg /img/profile-photo.webp 301',
-    '/img/logo/JustCatLogo.png /img/logo/JustCatLogo.webp 301',
-    '/img/portfolio/Just_cat_3.png /img/portfolio/Just_cat_3_full.png 301',
-    '/img/portfolio/Just_cat_5.png /img/portfolio/Just_cat_5_full.png 301',
-    '/img/portfolio/tax_service/tax_service_reports.png /img/portfolio/tax_service/tax_service_reports.webp 301'
-  ].join('\n') + '\n');
+await writeLegacyRedirects(destination);
 const escapeXml = (s) => s.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;');
 await writeFile(join(destination, 'sitemap.xml'),
   '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
@@ -104,32 +80,7 @@ async function listFiles(folder) {
 }
 
 
-async function listOriginalFiles(folder, prefix = '') {
-  const entries = await readdir(folder, { withFileTypes: true });
-  const found = [];
-  for (const entry of entries) {
-    const rel = prefix ? prefix + '/' + entry.name : entry.name;
-    if (entry.isDirectory()) found.push(...await listOriginalFiles(join(folder, entry.name), rel));
-    else found.push(rel);
-  }
-  return found;
-}
-
-const allFiles = await listFiles(destination);
-// Fail the release if a previously public static URL has disappeared.
-// These checks compare EVERY preserved path, not just a hand-picked sample.
-for (const directory of legacyDirectories) {
-  const sourceFiles = await listOriginalFiles(resolve(directory));
-  for (const file of sourceFiles) {
-    const legacyPath = directory + '/' + file;
-    if (!allFiles.includes(legacyPath)) {
-      throw new Error('Missing legacy public asset: /' + legacyPath);
-    }
-  }
-}
-for (const file of legacyFiles) {
-  if (!allFiles.includes(file)) throw new Error('Missing legacy public asset: /' + file);
-}
+const legacyCount = await verifyLegacyAssets(destination);
 
 for (const file of allFiles.filter(p => p.endsWith('.html'))) {
   const data = await readFile(join(destination, ...file.split('/')), 'utf8');
@@ -159,4 +110,4 @@ for (const [page, html] of publishedPages) {
   }
 }
 
-console.log(`Production package ready: ${allFiles.length} files, ${pages.length} pages, canonical origin ${origin}; legacy /img and /custom paths preserved`);
+console.log(`Production package ready: ${allFiles.length} files, ${pages.length} pages, canonical origin ${origin}; ${legacyCount} legacy paths from /img, /custom and /assets preserved`);

@@ -1,18 +1,20 @@
 # Legacy URL continuity — production cutover
 
-The old portfolio is a separate root website and the new site is sourced from `preview/`. A file in GitHub does not appear at its former public URL unless it is included in the deployed Workers Static Assets directory.
+The old site has both an Angular-era `/assets/` URL namespace and an older static-site `/img/` and `/custom/` namespace. The new pages come from `preview/`. Files must be bundled into the deployed Workers Static Assets directory to exist at the same public paths.
 
 ## Preserved at their original URL (HTTP 200 expected)
 
-`scripts/build-production.mjs` now copies these root directories and files into `dist-production/`:
+The shared `scripts/legacy-static.mjs` module copies these root directories and files into both `dist-staging/` and `dist-production/`:
 
-- `img/**` — diploma PDFs and images, 3D SketchUp models, portfolio screenshots, logos, profile photos, favicons
-- `custom/**` — legacy CSS/JS/font/image support files that are still committed
+- `img/**` — older static-site diploma PDFs and images, SketchUp models, screenshots, logos, profile photos, favicons
+- `custom/**` — old static CSS/JS/font/image support files still committed
+- `assets/**` — **104 Angular-era files (~25.68 MB)** restored from the `angular` branch at the exact old `/assets/...` paths, including 3 old resume PDFs, badge images, portfolio images, JSON data and education scans
+- `favicon.ico` — Angular-era root favicon
 - `main.js`, `style.scss`
 
-The audited test branch currently contains **66 public asset files** inside `img/` and `custom/` (about 16.36 MB). The production builder checks every original source file path after copying and fails the build if a file is missing.
+The original `img/` and `custom/` set contains **66 files** (~16.36 MB). The Angular-era `assets/` subtree contains **104 files** (~25.68 MB). Both staging and production builds fail if a legacy file is missing or its SHA-256 checksum differs.
 
-Examples to probe directly after first deployment:
+Examples to probe directly on staging and then on production:
 - `/img/certificates/bachelor_diploma.pdf`
 - `/img/certificates/masters_diploma.jpg`
 - `/img/certificates/AWS_Cloud_Practitioner_Essentials.pdf`
@@ -20,6 +22,10 @@ Examples to probe directly after first deployment:
 - `/img/portfolio/roller_for_granulator_400.skp`
 - `/img/portfolio/Just_cat_3_full.png`
 - `/img/icon/favicon.png`
+- `/assets/documents/2024_DEV_Kramarenko_Vladyslav.pdf`
+- `/assets/img/icon/favicon.png`
+- `/assets/data/portfolioItems.json`
+- `/favicon.ico`
 
 This is **URL continuity**, not a suggestion to add these assets to navigation or sitemap. Existing education files may contain personal information and will remain publicly accessible if deployed.
 
@@ -27,6 +33,7 @@ This is **URL continuity**, not a suggestion to add these assets to navigation o
 
 | Old path | New destination |
 | --- | --- |
+| `/home` | `/` |
 | `/justCatPackage.html` | `/#background` |
 | `/justCatLogo.html` | `/#background` |
 | `/tax_service.html` | `https://github.com/vladyslav-kramarenko/taxService` |
@@ -64,3 +71,7 @@ This inventory covers links present in the inspected repository, **not** every U
 5. Monitor Google Search Console for unexpected `404` and soft-404 results after cutover.
 
 No production DNS or live Worker route was changed when this audit was written.
+
+## Important remaining coverage limits
+
+The 104 restored Angular assets and 66 static assets are exact Git repository inventories, **not a verified inventory of every file currently present on the original hosting account**. Runtime-generated Angular JS/CSS bundle filenames and any files uploaded directly to the host are not known. The legacy Angular route `/portfolio/:id` needs a separate per-project SEO mapping and is not yet preserved by this static-asset audit. Before DNS cutover, compare the actual live-site URL inventory from the hosting account and Google Search Console, and probe the deployed staging Worker by HTTP status/content type (not only Git file presence).

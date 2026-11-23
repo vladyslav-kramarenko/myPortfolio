@@ -1,7 +1,10 @@
 {
   "name": "myportfolio",
   "compatibility_date": "2026-11-22",
+  "build": {
+    "command": "node scripts/build-staging.mjs"
+  },
   "assets": {
-    "directory": "./preview"
+    "directory": "./dist-staging"
   }
 }

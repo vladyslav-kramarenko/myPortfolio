@@ -6,6 +6,8 @@ The test website is intentionally **not indexable**. Production must never use t
 
 ### Test (currently configured)
 - Git branch: `experiment/static-html-hero`
+- Build: `node scripts/build-staging.mjs` (Wrangler runs this automatically)
+- Published assets: `dist-staging/` (preview pages + preserved historical static paths)
 - Worker config: `wrangler.jsonc` (`myportfolio`, assets `./preview`)
 - Current staging setup remains unchanged: `npx wrangler deploy`
 - Every test HTML file contains `noindex,nofollow`; `preview/_headers` also sets `X-Robots-Tag: noindex`
@@ -14,8 +16,8 @@ The test website is intentionally **not indexable**. Production must never use t
 ### Production (prepared, not deployed by this change)
 - Use a **separate production branch** (e.g. `release/portfolio-static`) and a separate Cloudflare Worker/deployment (`myportfolio-production`).
 - The production build is **required**. It copies the checked `preview/` files to `dist-production/`, removes staging noindex tags, adds canonical and social URL metadata, creates a sitemap and robots.txt, replaces staging headers, and excludes the obsolete PDF draft.
-- The same build also copies the previous site's `img/` and `custom/` directories plus `main.js` and `style.scss` into `dist-production/`, preserving existing file URLs for downloads, images, and 3D models. **A file existing in GitHub does not by itself make its former website URL available.** The builder fails if any of those copied source asset paths are missing from the output.
-- Build: `SITE_ORIGIN=https://www.kramarenko.info node scripts/build-production.mjs`
+- The same build also copies the previous site's `img/`, `custom/` and Angular-era `assets/` directories plus `main.js`, `style.scss` and `favicon.ico` into `dist-production/`, preserving existing file URLs for downloads, images, and 3D models. **A file existing in GitHub does not by itself make its former website URL available.** The builder fails if any of those copied source asset paths are missing from the output.
+- Build: `SITE_ORIGIN=https://www.kramarenko.info node scripts/build-production.mjs` (also configured to run automatically on production Wrangler deploy)
 - Deploy: `npx wrangler deploy --config wrangler.production.jsonc`
 - Cloudflare production asset directory: `./dist-production`
 - Attach `www.kramarenko.info` only after the new Worker is tested and the current domain/DNS setup is inspected. Redirect the non-canonical hostname to the canonical one after confirming which hostname should be preferred.
@@ -27,7 +29,7 @@ The test website is intentionally **not indexable**. Production must never use t
 3. On `/resume.html`, press **Print / Save as PDF**: confirm US Letter layout, all pages, visible contacts, and no toolbar. HTML is the single authoritative resume; the old PDF draft is not included in production.
 4. On a **local production package**, inspect `dist-production/index.html` and every other HTML file: all should have `index,follow` and the appropriate self-referencing canonical. Check `dist-production/_headers` has **no noindex**; confirm sitemap/robots use the production origin.
 5. After deployment to a *temporary production Worker address*, inspect actual HTTP response codes, `X-Robots-Tag`, canonical, mobile rendering, internal links, and printing.
-6. Verify representative **legacy file URLs** on the candidate deployment, including `/img/certificates/bachelor_diploma.pdf`, `/img/certificates/masters_diploma.jpg`, `/img/portfolio/scratching_post.skp` and `/img/icon/favicon.png`. They must return the original file, not a generic HTML fallback or redirect to the home page. Verify old HTML page 301 mappings separately.
+6. Verify representative **legacy file URLs** including `/assets/documents/2024_DEV_Kramarenko_Vladyslav.pdf`, `/assets/img/icon/favicon.png`, `/favicon.ico` on the candidate deployment, including `/img/certificates/bachelor_diploma.pdf`, `/img/certificates/masters_diploma.jpg`, `/img/portfolio/scratching_post.skp` and `/img/icon/favicon.png`. They must return the original file, not a generic HTML fallback or redirect to the home page. Verify old HTML page 301 mappings separately.
 7. Before switching public DNS, inventory old URLs and create 301 redirects when old links have changed. Check Search Console's indexed pages and external links for URLs that Git alone cannot reveal. Do not discard old Google-indexed routes without a relevant destination. Submit the production `sitemap.xml` to Google Search Console after launch.
 8. Existing `/img/certificates/*` files include personal education documents. Preservation keeps them public; review privacy requirements before switching the domain.
 
