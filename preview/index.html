@@ -1169,11 +1169,15 @@ into working systems.</span>
       const mobileScreen = window.matchMedia('(max-width:700px)').matches;
       const scene = document.getElementById('scene');
       const paper = document.getElementById('paper');
-      // On a phone, start printing near the platen instead of at the top of
-      // the exposed sheet. Advancing the paper between sections then moves
-      // the finished lines upward, just as a physical typewriter would.
+      // Start the first character near the platen on mobile. Paper advance
+      // is measured from each actual rendered line, not from entire text blocks.
       const paperRest = mobileScreen ? Math.min(94, paper.getBoundingClientRect().width * .33) : 0;
-      const paperLiftPerLine = mobileScreen ? paperRest / 2 : 9;
+      const paperLiftPerLine = 9; // Preserve the desktop typing cadence.
+      let firstPrintLineTop = 0;
+      function advancePaperTo(nextLineTop) {
+        const lift = Math.max(0, nextLineTop - firstPrintLineTop);
+        paper.style.setProperty('--paper-lift', lift.toFixed(1) + 'px');
+      }
       const replayBtn = document.getElementById('replay');
       const cursor = document.getElementById('cursor');
       const lines = [
@@ -1212,6 +1216,11 @@ into working systems.</span>
         paper.style.setProperty('--feed-duration', '.29s');
         paper.style.setProperty('--carriage-x', `${carriageStart().toFixed(1)}px`);
         await sleep(310);
+      }
+      async function advanceAndReturn(nextLineTop) {
+        paper.style.setProperty('--feed-duration', '.29s');
+        advancePaperTo(nextLineTop);
+        await returnCarriage();
       }
       let runId = 0;
       let keyReleaseTimers = new WeakMap();
@@ -1274,7 +1283,15 @@ into working systems.</span>
           if (c < chunks.length - 1) {
             target.textContent += '\n';
             pressKey('\n');
-            await returnCarriage();
+            if (mobileScreen) {
+              // A hard line break inside the statement is a real paper feed.
+              // Previously only block boundaries advanced the sheet.
+              const lineHeight = parseFloat(getComputedStyle(target).lineHeight);
+              if (!Number.isFinite(lineHeight)) throw new Error('Missing typewriter line height');
+              await advanceAndReturn(target.offsetTop + (c + 1) * lineHeight);
+            } else {
+              await returnCarriage();
+            }
             if (localRun !== runId) return false;
           }
         }
@@ -1303,14 +1320,21 @@ into working systems.</span>
         }
         const fed = await feedPaper();
         if (!fed || localRun !== runId) return;
+        firstPrintLineTop = lines[0].offsetTop;
 
         for (let i = 0; i < textLines.length; i++) {
           const ok = await typeLine(lines[i], textLines[i], i === 1 ? {delayMin: 44, delayMax: 78} : {});
           if (!ok || localRun !== runId) return;
           if (i < textLines.length - 1) {
-            const currentLift = parseFloat(getComputedStyle(paper).getPropertyValue('--paper-lift')) || 0;
-            paper.style.setProperty('--paper-lift', (currentLift + paperLiftPerLine) + 'px');
-            await returnCarriage();
+            if (mobileScreen) {
+              // Each new section begins at the same apparent printing line.
+              // This also prevents over-feeding when the font scales.
+              await advanceAndReturn(lines[i + 1].offsetTop);
+            } else {
+              const currentLift = parseFloat(getComputedStyle(paper).getPropertyValue('--paper-lift')) || 0;
+              paper.style.setProperty('--paper-lift', (currentLift + paperLiftPerLine) + 'px');
+              await returnCarriage();
+            }
             if (localRun !== runId) return;
           }
         }
