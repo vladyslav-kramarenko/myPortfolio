@@ -42,3 +42,6 @@ jobs:
         env:
           TEST_BASE_URL: https://myportfolio.kramarenko-vladyslav-92.workers.dev
         run: node scripts/test-legacy-urls.mjs
+      - name: Read-only production Worker acceptance test
+        if: github.ref == 'refs/heads/dev' && github.event_name == 'push'
+        run: node scripts/audit-production-deployment.mjs
