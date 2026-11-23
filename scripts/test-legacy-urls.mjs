@@ -23,8 +23,11 @@ assert.equal(new Set(redirects.map(x=>x[0])).size,redirects.length,'Duplicate re
 
 async function serveStatic(directory) {
   const server = createServer(async (req,res) => {
-    const pathname = decodeURIComponent(new URL(req.url,'http://127.0.0.1').pathname);
-    const redir = redirects.find(([old])=>old===pathname);
+    const rawPath = new URL(req.url,'http://127.0.0.1').pathname;
+    const pathname = decodeURIComponent(rawPath);
+    // Cloudflare's _redirects rules may contain URL-encoded paths such as
+    // the old Angular id "lagrange Interpolation". Match either spelling.
+    const redir = redirects.find(([old])=>old===rawPath || decodeURIComponent(old)===pathname);
     if(redir){
       res.writeHead(301,{'Location':redir[1]});
       return res.end();
