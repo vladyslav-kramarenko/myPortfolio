@@ -19,7 +19,22 @@ for(const p of paths){
   assert.ok(body.includes('<meta name="robots" content="noindex,nofollow">'),'Missing staging robots meta '+p);
   pages.set(p,body);
 }
-const home=pages.get('/');
+let home=pages.get('/');
+// GitHub Actions and Cloudflare deploy independently after the same push.
+// Wait for the expected live revision rather than mistaking an old deploy for a site bug.
+for(let attempt=0;attempt<45&&!home.includes('href="tel:+12369929229"');attempt++){
+  await sleep(2000);
+  const response=await fetch(origin+'/?revision-check='+attempt,{headers:{'Cache-Control':'no-cache'}});
+  if(response.ok){
+    const candidate=await response.text();
+    if(candidate.includes('href="tel:+12369929229"')){
+      home=candidate;
+      pages.set('/',home);
+      console.log('LIVE DEPLOY PROPAGATED after '+(attempt+1)+' checks');
+      break;
+    }
+  }
+}
 assert.ok(home.includes('Google Maps · Local Guide'),'Latest footer absent');
 assert.ok(!home.includes('Local Guide Level 8'),'Old footer remains');
 assert.ok(home.includes('finalMobilePaperFeed'),'Final paper-feed correction absent');
