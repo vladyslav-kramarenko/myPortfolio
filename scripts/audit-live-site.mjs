@@ -9,6 +9,24 @@ const origin='https://myportfolio.kramarenko-vladyslav-92.workers.dev';
 const paths=['/','/resume.html','/projects/local-rag-support-bot.html','/projects/teus-website.html','/projects/production-workflow-integration.html','/projects/lagrange-interpolation.html'];
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 const pages=new Map(),issues=[];
+// Cloudflare Builds may deploy after GitHub CI begins: wait for a real live revision.
+let liveRevisionReady=false;
+for(let attempt=0;attempt<60;attempt++){
+  const [project,homeResponse]=await Promise.all([
+    fetch(origin+'/projects/lagrange-interpolation?revision='+attempt,{headers:{'Cache-Control':'no-cache'}}),
+    fetch(origin+'/?revision='+attempt,{headers:{'Cache-Control':'no-cache'}})
+  ]);
+  if(project.ok&&homeResponse.ok){
+    const [projectHtml,homepage]=await Promise.all([project.text(),homeResponse.text()]);
+    if(projectHtml.includes('Lagrange Polynomial Interpolation')&&homepage.includes('data-project-id="lagrange-web"')){
+      liveRevisionReady=true;
+      console.log('LIVE LAGRANGE DEPLOY READY after '+(attempt+1)+' checks');
+      break;
+    }
+  }
+  await sleep(2000);
+}
+assert.ok(liveRevisionReady,'Cloudflare did not publish the Lagrange project page and card');
 for(const p of paths){
   const response=await fetch(origin+p,{headers:{'Cache-Control':'no-cache'}});
   assert.equal(response.status,200,'Live page missing '+p);
@@ -43,6 +61,13 @@ assert.ok(home.includes('>2369929229 ↗</a>'),'Phone display format changed');
 assert.ok(home.includes('data-project-id="lagrange-web"'),'Lagrange project card not deployed');
 assert.ok(home.includes('href="/projects/lagrange-interpolation"'),'Lagrange internal link missing');
 assert.ok(pages.get('/projects/lagrange-interpolation.html').includes('github.com/vladyslav-kramarenko/LagrangeWeb'),'Lagrange case page not deployed');
+try{
+  const demo=await fetch('https://lagrange.kramarenko.info/',{signal:AbortSignal.timeout(12000)});
+  console.log('LAGRANGE LIVE TOOL: '+demo.status+' '+demo.url);
+  if(!demo.ok)issues.push('Lagrange demo URL returned '+demo.status);
+}catch(error){
+  issues.push('Lagrange demo could not be opened: '+String(error));
+}
 for(const [p,html] of pages){
   for(const match of html.matchAll(/<a\b[^>]*href="([\/#][^"]*)"/g)){
     const href=match[1];
