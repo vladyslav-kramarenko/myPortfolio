@@ -22,6 +22,20 @@ const origin = originURL.origin;
 await rm(destination, { recursive: true, force: true });
 await cp(source, destination, { recursive: true });
 
+// The old public website served downloadable certificates, CAD models, images,
+// icons, and vendor assets from /img/* and /custom/*. Keep the exact public paths:
+// a GitHub file is NOT available at its former URL unless included in the
+// published Worker asset directory. Never copy the legacy root index.html.
+const legacyDirectories = ['img', 'custom'];
+const legacyFiles = ['main.js', 'style.scss'];
+for (const directory of legacyDirectories) {
+  await cp(resolve(directory), join(destination, directory), { recursive: true });
+}
+for (const file of legacyFiles) {
+  await cp(resolve(file), join(destination, file));
+}
+
+
 // The old PDF is an unreviewed draft and can become stale. The print-ready
 // HTML is now the authoritative resume: browser Print -> Save as PDF.
 await rm(join(destination, 'Vladyslav-Kramarenko-Resume.pdf'), { force: true });
@@ -59,7 +73,7 @@ await writeFile(join(destination, '_redirects'),
   [
     '/justCatPackage.html /#background 301',
     '/justCatLogo.html /#background 301',
-    '/tax_service.html /#experience 301',
+    '/tax_service.html https://github.com/vladyslav-kramarenko/taxService 301',
     '/inner-page.html /#projects 301'
   ].join('\n') + '\n');
 const escapeXml = (s) => s.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;');
@@ -82,7 +96,34 @@ async function listFiles(folder) {
   return result;
 }
 
+
+async function listOriginalFiles(folder, prefix = '') {
+  const entries = await readdir(folder, { withFileTypes: true });
+  const found = [];
+  for (const entry of entries) {
+    const rel = prefix ? prefix + '/' + entry.name : entry.name;
+    if (entry.isDirectory()) found.push(...await listOriginalFiles(join(folder, entry.name), rel));
+    else found.push(rel);
+  }
+  return found;
+}
+
 const allFiles = await listFiles(destination);
+// Fail the release if a previously public static URL has disappeared.
+// These checks compare EVERY preserved path, not just a hand-picked sample.
+for (const directory of legacyDirectories) {
+  const sourceFiles = await listOriginalFiles(resolve(directory));
+  for (const file of sourceFiles) {
+    const legacyPath = directory + '/' + file;
+    if (!allFiles.includes(legacyPath)) {
+      throw new Error('Missing legacy public asset: /' + legacyPath);
+    }
+  }
+}
+for (const file of legacyFiles) {
+  if (!allFiles.includes(file)) throw new Error('Missing legacy public asset: /' + file);
+}
+
 for (const file of allFiles.filter(p => p.endsWith('.html'))) {
   const data = await readFile(join(destination, ...file.split('/')), 'utf8');
   if (/noindex|nofollow|Vladyslav-Kramarenko-Resume\.pdf/.test(data)) {
@@ -111,4 +152,4 @@ for (const [page, html] of publishedPages) {
   }
 }
 
-console.log(`Production package ready: ${allFiles.length} files, ${pages.length} pages, canonical origin ${origin}`);
+console.log(`Production package ready: ${allFiles.length} files, ${pages.length} pages, canonical origin ${origin}; legacy /img and /custom paths preserved`);
