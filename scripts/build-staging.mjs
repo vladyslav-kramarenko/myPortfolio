@@ -21,7 +21,8 @@ if (!/X-Robots-Tag:\s*noindex/i.test(headers)) {
 }
 for (const page of [
   'index.html', 'resume.html', 'projects/local-rag-support-bot.html',
-  'projects/teus-website.html', 'projects/production-workflow-integration.html'
+  'projects/teus-website.html', 'projects/production-workflow-integration.html',
+  'projects/lagrange-interpolation.html'
 ]) {
   const html = await readFile(join(destination, ...page.split('/')), 'utf8');
   if (!html.includes('<meta name="robots" content="noindex,nofollow">')) {

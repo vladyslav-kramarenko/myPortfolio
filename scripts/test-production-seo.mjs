@@ -7,7 +7,8 @@ const urls=[
   ['resume.html','/resume'],
   ['projects/local-rag-support-bot.html','/projects/local-rag-support-bot'],
   ['projects/teus-website.html','/projects/teus-website'],
-  ['projects/production-workflow-integration.html','/projects/production-workflow-integration']
+  ['projects/production-workflow-integration.html','/projects/production-workflow-integration'],
+  ['projects/lagrange-interpolation.html','/projects/lagrange-interpolation']
 ];
 const sitemap=await readFile('dist-production/sitemap.xml','utf8');
 const robots=await readFile('dist-production/robots.txt','utf8');
@@ -24,4 +25,4 @@ for(const [file,route] of urls){
       'Internal link uses old .html URL in '+file+': '+href);
   }
 }
-console.log('PRODUCTION SEO PASS: five canonical URLs, clean navigation and sitemap agree with Workers routing');
+console.log('PRODUCTION SEO PASS: six canonical URLs, clean navigation and sitemap agree with Workers routing');

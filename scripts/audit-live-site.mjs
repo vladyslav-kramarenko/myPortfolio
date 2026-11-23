@@ -6,7 +6,7 @@ import {mkdtemp,rm} from 'node:fs/promises';
 import {tmpdir} from 'node:os';
 import {join} from 'node:path';
 const origin='https://myportfolio.kramarenko-vladyslav-92.workers.dev';
-const paths=['/','/resume.html','/projects/local-rag-support-bot.html','/projects/teus-website.html','/projects/production-workflow-integration.html'];
+const paths=['/','/resume.html','/projects/local-rag-support-bot.html','/projects/teus-website.html','/projects/production-workflow-integration.html','/projects/lagrange-interpolation.html'];
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 const pages=new Map(),issues=[];
 for(const p of paths){
@@ -22,12 +22,12 @@ for(const p of paths){
 let home=pages.get('/');
 // GitHub Actions and Cloudflare deploy independently after the same push.
 // Wait for the expected live revision rather than mistaking an old deploy for a site bug.
-for(let attempt=0;attempt<45&&!home.includes('href="tel:+12369929229"');attempt++){
+for(let attempt=0;attempt<45&&!home.includes('data-project-id="lagrange-web"');attempt++){
   await sleep(2000);
   const response=await fetch(origin+'/?revision-check='+attempt,{headers:{'Cache-Control':'no-cache'}});
   if(response.ok){
     const candidate=await response.text();
-    if(candidate.includes('href="tel:+12369929229"')){
+    if(candidate.includes('data-project-id="lagrange-web"')){
       home=candidate;
       pages.set('/',home);
       console.log('LIVE DEPLOY PROPAGATED after '+(attempt+1)+' checks');
@@ -40,6 +40,9 @@ assert.ok(!home.includes('Local Guide Level 8'),'Old footer remains');
 assert.ok(home.includes('finalMobilePaperFeed'),'Final paper-feed correction absent');
 assert.ok(home.includes('href="tel:+12369929229"'),'Phone contact missing');
 assert.ok(home.includes('>2369929229 ↗</a>'),'Phone display format changed');
+assert.ok(home.includes('data-project-id="lagrange-web"'),'Lagrange project card not deployed');
+assert.ok(home.includes('href="/projects/lagrange-interpolation"'),'Lagrange internal link missing');
+assert.ok(pages.get('/projects/lagrange-interpolation.html').includes('github.com/vladyslav-kramarenko/LagrangeWeb'),'Lagrange case page not deployed');
 for(const [p,html] of pages){
   for(const match of html.matchAll(/<a\b[^>]*href="([\/#][^"]*)"/g)){
     const href=match[1];
@@ -146,7 +149,7 @@ try{
     if(p==='/resume.html'&&!m.print)issues.push('Print control missing');
   }
   assert.deepEqual(issues,[],'Live audit issues');
-  console.log('LIVE SITE AUDIT PASS: five pages, five viewport/theme states, links and menu.');
+  console.log('LIVE SITE AUDIT PASS: six pages, five viewport/theme states, links and menu.');
 }finally{
   ws?.close();
   child.kill('SIGKILL');

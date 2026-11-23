@@ -11,7 +11,8 @@ const pages = [
   'resume.html',
   'projects/local-rag-support-bot.html',
   'projects/teus-website.html',
-  'projects/production-workflow-integration.html'
+  'projects/production-workflow-integration.html',
+  'projects/lagrange-interpolation.html'
 ];
 const originInput = process.env.SITE_ORIGIN || 'https://www.kramarenko.info';
 const originURL = new URL(originInput);
