@@ -15,6 +15,7 @@ for(const p of paths){
   assert.match(response.headers.get('content-type')||'',/text\/html/i,'Bad MIME '+p);
   assert.match(response.headers.get('x-robots-tag')||'',/noindex/i,'Missing staging X-Robots-Tag '+p);
   const body=await response.text();
+  console.log('HTTP PAGE '+p+' -> '+response.url+' '+response.status);
   assert.ok(body.includes('<meta name="robots" content="noindex,nofollow">'),'Missing staging robots meta '+p);
   pages.set(p,body);
 }
@@ -74,12 +75,15 @@ try{
     return result.result.value;
   };
   const ready=async path=>{
+    let last;
     for(let i=0;i<120;i++){
-      const v=await evalJS('({path:location.pathname,ready:document.readyState})');
-      if(v.path===path&&v.ready==='complete')return;
+      const v=await evalJS('({path:location.pathname,ready:document.readyState,url:location.href})');
+      last=v;
+      const clean=s=>s.replace(/\.html$/,'').replace(/\/$/,'')||'/';
+      if(clean(v.path)===clean(path)&&v.ready==='complete')return;
       await sleep(100);
     }
-    throw Error('Page load timed out: '+path);
+    throw Error('Page load timed out: '+path+', last observed '+JSON.stringify(last));
   };
   await cmd('Page.enable');
   await cmd('Runtime.enable');
@@ -96,7 +100,7 @@ try{
     await cmd('Page.navigate',{url:origin+'/'});
     await ready('/');
     await sleep(400);
-    const result=await evalJS('(() => {const box=s=>{const e=document.querySelector(s);if(!e)return null;const r=e.getBoundingClientRect();return {x:Math.round(r.x),y:Math.round(r.y),w:Math.round(r.width),bottom:Math.round(r.bottom)};};return {width:innerWidth,scrollWidth:document.documentElement.scrollWidth,bg:getComputedStyle(document.body).backgroundColor,theme:matchMedia("(prefers-color-scheme: light)").matches?"light":"dark",paper:box(".paper"),machine:box(".machine"),location:box(".location"),h1:box("h1"),cards:document.querySelectorAll("#featuredProjects .project-card").length,menuHidden:document.getElementById("siteMenu").hidden};})()');
+    const result=await evalJS('(() => {const box=s=>{const e=document.querySelector(s);if(!e)return null;const r=e.getBoundingClientRect();return {x:Math.round(r.x),y:Math.round(r.y),w:Math.round(r.width),bottom:Math.round(r.bottom)};};return {width:innerWidth,scrollWidth:document.documentElement.scrollWidth,bg:getComputedStyle(document.documentElement).getPropertyValue("--bg").trim(),theme:matchMedia("(prefers-color-scheme: light)").matches?"light":"dark",paper:box(".paper"),machine:box(".machine"),location:box(".location"),h1:box("h1"),cards:document.querySelectorAll("#featuredProjects .project-card").length,menuHidden:document.getElementById("siteMenu").hidden};})()');
     if(result.scrollWidth>width+3)issues.push('Horizontal overflow '+width+' '+theme+': '+result.scrollWidth);
     if(result.cards!==2)issues.push('Featured cards '+width+' '+theme+': '+result.cards);
     if(!result.paper||!result.machine||!result.h1)issues.push('Missing hero element '+width);

@@ -1321,6 +1321,11 @@ into working systems.</span>
         if (reduced) {
           paper.style.setProperty('--paper-offset', '0px');
           textLines.forEach((text, i) => lines[i].textContent = text);
+          if (mobileScreen) {
+            // Show the same final readable page position without any motion.
+            firstPrintLineTop = lines[0].offsetTop;
+            advancePaperTo(lines[2].offsetTop + finalMobilePaperFeed());
+          }
           cursor.style.display = 'none';
           return;
         }

@@ -94,7 +94,8 @@ try {
         lineHeight:parseFloat(getComputedStyle(elements[0]).lineHeight),
         lastLineHeight:parseFloat(getComputedStyle(elements[2]).lineHeight),
         paperTop:paper.getBoundingClientRect().top,
-        cursorHidden:cursor?.style.display==='none'
+        cursorHidden:cursor?.style.display==='none',
+        reduced:matchMedia('(prefers-reduced-motion: reduce)').matches
       };
     })()`;
     const response=await send('Runtime.evaluate',{expression,returnByValue:true});
