@@ -23,6 +23,8 @@ const home=pages.get('/');
 assert.ok(home.includes('Google Maps · Local Guide'),'Latest footer absent');
 assert.ok(!home.includes('Local Guide Level 8'),'Old footer remains');
 assert.ok(home.includes('finalMobilePaperFeed'),'Final paper-feed correction absent');
+assert.ok(home.includes('href="tel:+12369929229"'),'Phone contact missing');
+assert.ok(home.includes('>2369929229 ↗</a>'),'Phone display format changed');
 for(const [p,html] of pages){
   for(const match of html.matchAll(/<a\b[^>]*href="([\/#][^"]*)"/g)){
     const href=match[1];
