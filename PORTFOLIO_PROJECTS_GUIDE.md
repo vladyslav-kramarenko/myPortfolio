@@ -26,6 +26,7 @@ A static default is kept in `preview/index.html` using `data-featured="true"` wh
 | `proj-005` | ZHYTLOBUD-2 | 1C business systems implementation | Self-reported, supporting project entry in career sheet | No |
 | `fleet-integration` | ZHYTLOBUD-2 | Transport and production workflows | Self-reported role in coordinating team, not claiming personal code authorship | No |
 | `proj-006` | Independent | Local RAG Support Bot | Public repository `vladyslav-kramarenko/support-bot-rag` | Yes |
+| `numerical-methods` | Independent | Numerical Methods laboratory | Public repository `vladyslav-kramarenko/CMVI` | No |
 | `asana-tracker` | Independent | Asana activity tracker | Public repository `vladyslav-kramarenko/asana-tracker` | No |
 
 **Do not associate projects with employers merely because a repository belongs to an organization.** The user's permission is limited to personal portfolio work and publicly accessible materials; do not fetch private organizational code or expose secrets, internal endpoints, keys, company data, employee data or security findings.
