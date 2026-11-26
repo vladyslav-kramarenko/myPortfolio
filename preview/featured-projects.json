@@ -2,6 +2,7 @@
   "description": "Project IDs pinned in the Featured Projects section. Change this list, commit, and Cloudflare redeploys automatically. Only IDs from the public portfolio page are accepted.",
   "featured": [
     "proj-006",
-    "proj-001"
+    "proj-001",
+    "leo-racer"
   ]
 }
