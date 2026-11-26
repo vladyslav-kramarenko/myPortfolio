@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#10191c">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#f3f7f5">
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="Interactive numerical methods laboratory: 12 algorithms, numerical diagnostics, step-by-step reports, visualizations and worked examples.">
+<title>Numerical Methods | Vladyslav Kramarenko</title>
+<style>:root{color-scheme:dark;--bg:#10191c;--panel:#17282b;--ink:#edf4f3;--muted:#a8bfc0;--accent:#75d8dc}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 80% 0%,#173539 0,transparent 50%),var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif}
+a{color:var(--accent);text-underline-offset:4px}a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.container{width:min(820px,calc(100% - 32px));margin:auto}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:24px 0;border-bottom:1px solid #284448;gap:12px;flex-wrap:wrap}
+.nav a{font-size:14px;font-weight:700;text-decoration:none}
+.links{display:flex;gap:22px}
+main{padding:58px 0 75px}.eyebrow{color:var(--accent);font:700 11px/1.4 ui-monospace,Menlo,monospace;letter-spacing:.16em;text-transform:uppercase}
+h1{font-size:clamp(37px,6vw,59px);line-height:1.06;letter-spacing:-.06em;margin:20px 0}
+.subtitle{max-width:65ch;color:#bfd0d0;font-size:19px;line-height:1.6;margin:0 0 26px}
+.stack{display:flex;gap:9px;flex-wrap:wrap;margin:28px 0}
+.chip{font-size:12px;border:1px solid #416168;border-radius:7px;padding:5px 9px;color:#d8eeee}
+section{border-top:1px solid #2a464b;padding:27px 0}
+h2{font-size:22px;letter-spacing:-.04em;margin:0 0 12px}
+p{max-width:70ch;color:var(--muted);margin:0 0 10px}
+.diagram{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0}
+.node{padding:18px 12px;text-align:center;background:var(--panel);border:1px solid #31575b;border-radius:11px;color:#e5f1ef;font-weight:700;font-size:14px}
+.action{display:inline-block;background:var(--accent);color:#102024;text-decoration:none;font-weight:800;padding:12px 19px;border-radius:999px;margin:12px 0 0}
+.note{font-size:12px;color:#91adae}
+footer{font-size:13px;padding:22px 0 45px;border-top:1px solid #284448}
+@media(max-width:540px){main{padding:32px 0 55px}.diagram{grid-template-columns:1fr}.node{padding:10px}.nav{padding:18px 0}.links{gap:12px}}
+@media (prefers-color-scheme:light){
+  :root{color-scheme:light;--bg:#f3f7f5;--panel:#fff;--ink:#19373c;--muted:#4d656a;--accent:#106674}
+  body{background:radial-gradient(circle at 80% 0%,#deeeeb 0,transparent 48%),#f3f7f5}
+  .nav,footer{border-color:#c8dbd8}
+  .subtitle{color:#465f65}
+  .chip{color:#21515c;background:#fff;border-color:#b8d1d0}
+  section{border-color:#c8dbd8}
+  .node{background:#fff;border-color:#b6cecb;color:#243f46}
+  .action{background:#126875;color:#fff}
+  .note{color:#536d70}
+  a:focus-visible{outline-color:#126875}
+}
+</style>
+</head>
+<body>
+<div class="container">
+<header class="nav"><a href="/#projects">← Selected work</a><nav class="links" aria-label="Quick links"><a href="/resume">Resume</a><a href="https://github.com/vladyslav-kramarenko" target="_blank" rel="noopener noreferrer">GitHub ↗</a></nav></header>
+<main>
+<div class="eyebrow">Independent project / Public source</div>
+<h1>Numerical Methods</h1>
+<p class="subtitle">An interactive browser-based laboratory for studying numerical algorithms, inspecting intermediate calculations and comparing numerical accuracy.</p>
+<div class="stack"><span class="chip">JavaScript</span><span class="chip">HTML / CSS</span><span class="chip">MathML</span><span class="chip">SVG / Canvas</span><span class="chip">Node.js tests</span><span class="chip">Cloudflare Workers</span></div>
+<section><h2>How it works</h2><div class="diagram"><div class="node">Choose a method and load data</div><div class="node">Check applicability and solve</div><div class="node">Inspect steps, errors and plots</div></div></section>
+<section><h2>From desktop to web</h2><p>The project builds on the original 2017 Java numerical methods application. The web implementation runs entirely in the browser and uses independent JavaScript implementations of the algorithms, rather than a direct line-by-line translation.</p></section>
+<section><h2>Numerical methods and diagnostics</h2><p>The laboratory covers 12 methods for linear systems, matrix operations, nonlinear equations, eigenvalues, interpolation, quadrature and boundary-value problems. It includes relative residuals, condition estimates, convergence histories and applicability checks. Numerical error indicators are not presented as universal guarantees.</p></section>
+<section><h2>Educational interface</h2><p>Thirty-nine loadable examples, including academic exercises and intentional convergence failures, share data with regression tests. The site provides five languages, 65 localized static pages, native MathML formulas, interactive plots and JSON, HTML and print-ready reports.</p></section>
+<section><h2>Architecture</h2><p>A shared numerical engine and static site generator keep the implementation independent of external runtime libraries. The public repository separates development and production branches, retains the original Java source, and includes numerical and site regression tests. Deployment uses Cloudflare Workers static assets.</p></section>
+<section><h2>Try it and view the code</h2><a class="action" href="https://numerical.kramarenko.info/" target="_blank" rel="noopener noreferrer">Open Numerical Methods ↗</a> <a class="action" href="https://github.com/vladyslav-kramarenko/CMVI" target="_blank" rel="noopener noreferrer">View source code ↗</a><p style="margin-top:16px">The earlier standalone <a href="/projects/lagrange-interpolation">Lagrange interpolation project</a> remains available.</p></section>
+</main>
+<footer><a href="/#projects">Back to projects</a> · <a href="/resume">View &amp; print resume</a></footer>
+</div>
+</body></html>
