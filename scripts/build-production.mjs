@@ -13,6 +13,7 @@ const pages = [
   'projects/teus-website.html',
   'projects/production-workflow-integration.html',
   'projects/lagrange-interpolation.html',
+  'projects/numerical-methods.html',
   'archive.html'
 ];
 const originInput = process.env.SITE_ORIGIN || 'https://kramarenko.info';
