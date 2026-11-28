@@ -23,6 +23,6 @@ for(const item of items){
     assert.ok(archive.includes('id="'+item.id+'"'),'Missing archived project section '+item.id);
   }
 }
-assert.ok(site.includes('href="/archive"'),'Archive is not linked from home');
+assert.ok(site.includes('href="/portfolio"'),'Project library is not linked from home');
 assert.equal(redirectMap.get('/Vladyslav-Kramarenko-Resume.pdf'),'/resume');
 console.log('ANGULAR ROUTES PASS: 13 historical project URLs and retired resume path mapped');
