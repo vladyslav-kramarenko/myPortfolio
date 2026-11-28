@@ -18,7 +18,7 @@ for(let attempt=0;attempt<60;attempt++){
   ]);
   if(project.ok&&homeResponse.ok){
     const [projectHtml,homepage]=await Promise.all([project.text(),homeResponse.text()]);
-    if(projectHtml.includes('Lagrange Polynomial Interpolation')&&homepage.includes('data-project-id="lagrange-web"')){
+    if(projectHtml.includes('Lagrange Polynomial Interpolation')&&homepage.includes('href="/desk-theme.css"')&&homepage.includes('Less talk. <em>More building.</em>')){
       liveRevisionReady=true;
       console.log('LIVE LAGRANGE DEPLOY READY after '+(attempt+1)+' checks');
       break;
@@ -40,12 +40,12 @@ for(const p of paths){
 let home=pages.get('/');
 // GitHub Actions and Cloudflare deploy independently after the same push.
 // Wait for the expected live revision rather than mistaking an old deploy for a site bug.
-for(let attempt=0;attempt<45&&!home.includes('data-project-id="lagrange-web"');attempt++){
+for(let attempt=0;attempt<45&&!home.includes('href="/desk-theme.css"');attempt++){
   await sleep(2000);
   const response=await fetch(origin+'/?revision-check='+attempt,{headers:{'Cache-Control':'no-cache'}});
   if(response.ok){
     const candidate=await response.text();
-    if(candidate.includes('data-project-id="lagrange-web"')){
+    if(candidate.includes('href="/desk-theme.css"')){
       home=candidate;
       pages.set('/',home);
       console.log('LIVE DEPLOY PROPAGATED after '+(attempt+1)+' checks');
@@ -58,7 +58,7 @@ assert.ok(!home.includes('Local Guide Level 8'),'Old footer remains');
 assert.ok(home.includes('finalMobilePaperFeed'),'Final paper-feed correction absent');
 assert.ok(home.includes('href="tel:+12369929229"'),'Phone contact missing');
 assert.ok(home.includes('>2369929229 ↗</a>'),'Phone display format changed');
-assert.ok(home.includes('data-project-id="lagrange-web"'),'Lagrange project card not deployed');
+assert.ok(home.includes('href="/desk-theme.css"'),'Wooden desk theme not deployed');
 assert.ok(home.includes('href="/projects/lagrange-interpolation"'),'Lagrange internal link missing');
 assert.ok(home.includes('href="/portfolio"'),'Portfolio library link missing');
 assert.ok(home.includes('Less talk. <em>More building.</em>'),'Visual featured work headline missing');

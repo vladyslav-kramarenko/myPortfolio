@@ -1,0 +1,211 @@
+/* WOODEN DESK / DOCUMENT DESIGN — staging experiment. CSS only; production untouched. */
+:root{
+ --desk-paper:#f2e9d6;--desk-ink:#283b3a;--desk-ink-muted:#53635f;
+ --desk-rule:#cfc4a9;--desk-accent:#9f473b;--desk-link:#1f6669;--desk-shadow:rgba(13,10,8,.42);
+}
+html{scroll-behavior:smooth}
+body{
+ background-color:#30241e!important;
+ background-image:linear-gradient(180deg,rgba(15,15,13,.2),rgba(17,12,8,.05) 24%,rgba(15,13,10,.32)),url('/desk-wood.svg')!important;
+ background-size:auto,1600px 1200px!important;
+ background-repeat:repeat,repeat!important;
+ background-attachment:fixed,fixed!important;
+}
+body::before{
+ background:radial-gradient(ellipse at 49% 34%,transparent 25%,rgba(7,6,5,.3) 100%)!important;
+ mask-image:none!important;opacity:.65!important;z-index:0;
+}
+body .wrap{position:relative;z-index:1}
+body .topbar{
+ padding:0 15px;border:1px solid rgba(230,201,153,.14);
+ border-radius:0 0 14px 14px;background:rgba(21,19,16,.54);
+ box-shadow:0 12px 27px rgba(15,10,7,.22);backdrop-filter:blur(7px);
+}
+body .hero .eyebrow,body .hero .subline,body .hero h1{color:#f4eee1}
+body .hero .eyebrow{color:#e8c9a5}
+body .hero .eyebrow::before{background:#c9a57c}
+body .hero .meta,body .hero .location{color:#e0d2bd}
+body .hero .btn-primary{background:#e6c493;color:#2d241d;box-shadow:0 8px 23px rgba(11,7,5,.25)}
+body .hero .btn-secondary{color:#fff1dd;border-color:rgba(253,231,195,.4);background:rgba(12,11,8,.27)}
+body .topbar .header-icon,body .topbar .menu-trigger{background:rgba(35,27,21,.62);color:#f0e4d0;border-color:rgba(237,207,157,.3)}
+body .topbar .mark{color:#f0d8aa;border-color:rgba(237,207,157,.55);background:rgba(32,25,20,.75)}
+body .topbar .menu-trigger .hamburger i{background:#e5c799}
+body .topbar .menu-panel{background:#f3e9d5;border-color:#d5c19d;box-shadow:0 20px 45px rgba(10,8,7,.38)}
+body .topbar .menu-panel a{color:#324542}
+body .topbar .menu-panel a span,body .topbar .menu-kicker{color:#7f4935}
+body .scroll-next{color:#f3d9b9!important;border-bottom-color:rgba(243,217,185,.42)!important}
+
+/* Every chapter sits on its own sheet. Imperfect offset and tiny hardware details,
+   but no excessive rotation or decorative clutter. */
+body .portfolio-sections{padding:8px 0 48px;display:block}
+body .portfolio-sections>section{position:relative}
+body .portfolio-sections>.content-section,
+body .portfolio-sections>.project-glimpse,
+body .portfolio-sections>.work-method{
+ background:var(--desk-paper);
+ color:var(--desk-ink);
+ border:1px solid #d2c6ac;
+ border-radius:4px 12px 9px 4px;
+ box-shadow:0 2px 0 rgba(255,255,255,.6) inset,0 3px 1px rgba(0,0,0,.1),0 15px 40px var(--desk-shadow);
+ margin:22px 11px 32px;
+ padding:clamp(28px,4.3vw,61px);
+ isolation:isolate;
+}
+body .portfolio-sections>.content-section::before,
+body .portfolio-sections>.project-glimpse::before{
+ content:"";position:absolute;top:19px;left:13px;width:9px;height:9px;border-radius:50%;
+ background:#9c866c;box-shadow:0 0 0 2px rgba(85,68,48,.14),inset 2px 2px 3px rgba(38,29,22,.45);
+}
+body .portfolio-sections>.content-section::after{
+ content:"";position:absolute;top:-9px;right:12%;width:85px;height:18px;transform:rotate(-3deg);
+ border:1px solid rgba(168,143,100,.25);background:rgba(215,192,144,.52);
+ box-shadow:0 2px 3px rgba(51,41,25,.06);
+}
+body .portfolio-sections>.content-section:nth-of-type(even){border-radius:6px 8px 10px 4px}
+body .portfolio-sections>.content-section:first-of-type{margin-top:4px}
+body .portfolio-sections>.content-section .section-heading h2,
+body .portfolio-sections>.content-section h2,
+body .portfolio-sections>.content-section h3,
+body .portfolio-sections>.content-section h4,
+body .portfolio-sections>.content-section h5,
+body .portfolio-sections>.work-method h2,
+body .portfolio-sections>.project-glimpse strong{color:#283d3a}
+body .portfolio-sections>.content-section p,
+body .portfolio-sections>.project-glimpse p,
+body .portfolio-sections>.work-method small{color:var(--desk-ink-muted)}
+body .portfolio-sections .section-heading p{color:var(--desk-ink-muted)}
+body .portfolio-sections .subtle-link,body .portfolio-sections .project-link,
+body .portfolio-sections .work-view-all,body .portfolio-sections .glimpse-heading a,
+body .portfolio-sections .archive-link a,
+body .portfolio-sections .role-project a,body .portfolio-sections .research-list a,
+body .portfolio-sections .source-link{color:var(--desk-link)}
+body .portfolio-sections .section-title-link{color:#283d3a}
+body .portfolio-sections .section-title-link span{color:var(--desk-accent)}
+body .portfolio-sections>.content-section .section-heading{padding-bottom:14px;border-bottom:1px solid var(--desk-rule)}
+body .work-intro h2{color:#283b3a}
+body .work-intro h2 em{color:var(--desk-accent)}
+body .work-intro p{color:#576760}
+body .work-kicker,body .method-label,body .glimpse-heading>span{color:var(--desk-accent)}
+body .work-pulse{background:#b45b48;box-shadow:0 0 0 4px rgba(180,91,72,.12)}
+body .work-view-all{border-color:#ac8d6b;background:#e7ddc7}
+body .work-view-all:hover{background:#ddd0b7}
+body .featured-grid .project-card{
+ background:#fff9ea;border:1px solid #d9cbb0;border-radius:7px;
+ box-shadow:0 6px 12px rgba(72,57,41,.14);
+}
+body .featured-grid .project-card:hover{border-color:#9b8a6a;box-shadow:0 11px 25px rgba(72,57,41,.2)}
+body .featured-grid .project-card .project-details{background:#fff9e9}
+body .featured-grid .project-card .project-details h3,
+body .featured-grid .project-card .project-details h5{color:#263d3b}
+body .featured-grid .project-card p{color:#4e605c}
+body .featured-grid .project-card .project-type{color:#8c4c3f}
+body .featured-grid .project-stack span{color:#4f655e;border-color:#d2c3a9;background:#f1e8d3}
+body .featured-grid .project-card a{color:#1e6667}
+body .project-art{box-shadow:0 1px 0 rgba(0,0,0,.15) inset}
+body .work-method{
+ background:#e5d4b3!important;
+ border-color:#c4a77e!important;
+ padding:clamp(26px,3.5vw,49px)!important;
+}
+body .work-method::before{
+ content:"FIELD NOTES";position:absolute;top:-13px;left:35px;background:#b88c63;color:#251f19;
+ padding:5px 14px;font:700 10px ui-monospace,Menlo,monospace;letter-spacing:.15em;
+ transform:rotate(-3deg);box-shadow:0 2px 5px rgba(0,0,0,.1);
+}
+body .work-method h2 span{color:#915141}
+body .method-step{border-color:#ad806a}
+body .method-step>span{color:#8f5142}
+body .method-label span{color:#7d715f}
+body .glimpse-heading a{color:var(--desk-link)}
+body .glimpse-item{background:#fff8e7;border:1px solid #d6c5a6;border-radius:3px;box-shadow:0 3px 9px rgba(69,53,36,.1)}
+body .glimpse-item strong{color:#2a403d}
+body .glimpse-item small{color:#247073}
+body #skills .skill-card,body .background-grid article,
+body .role-project{background:rgba(255,255,255,.42);border:1px solid #d2c5ae;box-shadow:none}
+body #skills .skill-card{border-left:3px solid #9e7667}
+body #skills .skill-card h3,body .background-grid h3,body .role-project h5{color:#2c403d}
+body #skills .skill-card p,body .background-grid p,body .role-project p,
+body .time-info p,body .research-list{color:#52635e}
+body .timeline{border-left-color:#b29a78}
+body .timeline-item:before{background:#a75643;box-shadow:0 0 0 4px #ede2ca}
+body .time-range,body .background-year{color:#985143}
+body .time-range span,body .jobname span,body .credential-note,
+body .activity-figure figcaption{color:#66746d}
+body .time-info .jobname,body .credential-line{color:#2c4440}
+body .role-projects,body .independent-projects{border-top-color:#cebea2}
+body .role-projects h4{color:#92533e}
+body .contact-links a{background:#fbf6e9;border-color:#b9a88b;color:#275653}
+body .contact-links a.contact-primary{background:#385d55;border-color:#385d55;color:#fff7ea}
+body .contact-links a.contact-primary:hover{background:#254b44}
+body .portfolio-sections>.content-section#credentials{border-left:7px solid #9e5544}
+body .portfolio-sections>.content-section#contact{background:#f5ebd4}
+body .portfolio-sections>.content-section#contact::after{background:#d7b693}
+body .activity-figure{max-width:100%;overflow:hidden}
+body .activity-chart-scroll{background:#faf8ef;border:1px solid #e0d4ba;border-radius:7px;padding:8px}
+body .personal-footer{margin:9px 11px 45px;background:#31251f;border:1px solid #806446;border-radius:8px;padding:17px 25px;box-shadow:0 10px 20px rgba(0,0,0,.2)}
+body .personal-footer-title,body .personal-footer-links a{color:#efdebd}
+body .personal-footer-links a:hover{color:#fff}
+body .section-heading h2{color:#263b39}
+/* Keep dark header/hero legible even when OS requests a light color scheme. */
+@media(prefers-color-scheme:light){
+ body{background-color:#7a5b43!important;background-image:linear-gradient(rgba(226,190,139,.23),rgba(45,30,23,.14)),url('/desk-wood.svg')!important}
+ body .topbar .header-icon,body .topbar .menu-trigger{color:#f9ebd3;background:rgba(46,35,26,.66)}
+ body .topbar .mark{color:#f7d6a2;background:#32261f}
+ body .hero h1,body .hero .subline{color:#fff3df}
+ body .hero .meta,body .hero .location{color:#f0ddc1}
+ body .portfolio-sections .featured-grid .project-card p{color:#4e605c}
+ body .portfolio-sections .featured-grid .project-card .project-type{color:#8c4c3f}
+ body .portfolio-sections .featured-grid .project-stack span{color:#4f655e}
+}
+@media(max-width:980px){
+ body{background-attachment:scroll,scroll!important}
+ body .portfolio-sections>.content-section,body .portfolio-sections>.project-glimpse,body .portfolio-sections>.work-method{margin:16px 3px 26px;padding:27px 28px}
+ body .portfolio-sections>.content-section::before,body .portfolio-sections>.project-glimpse::before{left:8px;top:15px;width:7px;height:7px}
+}
+@media(max-width:700px){
+ body .topbar{margin:0 0 8px;border-radius:0 0 10px 10px;padding:12px 10px}
+ body .hero{padding-bottom:0}
+ body .portfolio-sections{padding-top:0}
+ body .portfolio-sections>.content-section,body .portfolio-sections>.project-glimpse,body .portfolio-sections>.work-method{margin:12px 0 23px;padding:26px 20px 29px}
+ body .portfolio-sections>.content-section::before,body .portfolio-sections>.project-glimpse::before{top:12px;left:8px}
+ body .portfolio-sections>.content-section::after{right:11%;height:12px;top:-6px;width:63px}
+ body .work-method::before{left:25px}
+ body .method-steps{gap:10px}
+ body .personal-footer{margin:10px 0 27px;padding:17px 18px}
+ body .glimpse-item{grid-template-columns:105px minmax(0,1fr)}
+ body .featured-grid .project-card{border-radius:5px}
+}
+/* Portfolio library is a physical folder sheet, with photos mounted onto cards. */
+body.library-page .container{position:relative;z-index:1}
+body.library-page .nav{background:rgba(31,23,19,.55);padding:18px 22px;border:1px solid rgba(232,204,162,.2);border-radius:0 0 10px 10px}
+body.library-page .nav a{color:#f0dab6}
+body.library-page main{
+ position:relative;background:var(--desk-paper);color:var(--desk-ink);
+ border:1px solid #d2c6ac;border-radius:5px 12px 10px 5px;
+ margin:28px 0 42px;padding:clamp(29px,4.5vw,68px);
+ box-shadow:0 2px 0 rgba(255,255,255,.64) inset,0 16px 43px rgba(13,9,6,.36);
+}
+body.library-page main::before{content:"";position:absolute;width:86px;height:23px;top:-16px;left:28px;border-radius:7px 7px 0 0;background:#b98d63;transform:rotate(-2deg);box-shadow:0 -2px 9px rgba(0,0,0,.15)}
+body.library-page .eyebrow,body.library-page .counter,
+body.library-page .library-meta,body.library-page .library-footer-note span{color:#965241}
+body.library-page .intro h1,body.library-page .library-info h2{color:#273d3b}
+body.library-page .dot{color:#b05b43}
+body.library-page .intro .subtitle,body.library-page .library-info p,body.library-page .result-status,body.library-page .library-footer-note p{color:#536762}
+body.library-page .filter{background:#e9dec8;border-color:#c4ae8b;color:#364b44}
+body.library-page .filter.active{color:#fff8e8;background:#385e55;border-color:#385e55}
+body.library-page .library-controls{border-top:1px solid #cab99b;padding-top:27px}
+body.library-page #projectSearch{background:#fffaf0;color:#344d47;border-color:#cdbda1}
+body.library-page .library-card{background:#fff9eb;border:1px solid #d1bea0;border-radius:6px;box-shadow:0 3px 9px rgba(57,39,23,.1)}
+body.library-page .library-card:hover{border-color:#a88e6f;box-shadow:0 8px 17px rgba(57,39,23,.16)}
+body.library-page .library-card .library-info h2{color:#243b37}
+body.library-page .library-tags span{color:#516b60;border-color:#d1bfa2;background:#f0e7d5}
+body.library-page .library-go{color:#1c686a}
+body.library-page .library-footer-note{border-top-color:#d1c2a7}
+body.library-page footer{border-top:0;color:#ecd4b6;padding:0 20px 32px}
+body.library-page footer a{color:#f1d7a8}
+@media(max-width:620px){
+ body.library-page .container{width:calc(100% - 24px)}
+ body.library-page main{margin:22px 0;padding:31px 18px}
+ body.library-page .nav{padding:16px 12px;flex-wrap:wrap}
+ body.library-page .filter{font-size:12px}
+}

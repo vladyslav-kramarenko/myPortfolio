@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1200" viewBox="0 0 1600 1200">
+<defs>
+  <linearGradient id="oak" x1="0" y1="0" x2="1" y2=".1">
+    <stop stop-color="#2a211c"/><stop offset=".22" stop-color="#403026"/><stop offset=".42" stop-color="#342820"/><stop offset=".68" stop-color="#48352a"/><stop offset=".9" stop-color="#31251e"/><stop offset="1" stop-color="#382c24"/>
+  </linearGradient>
+  <filter id="grain" x="-5%" y="-5%" width="110%" height="110%">
+    <feTurbulence type="fractalNoise" baseFrequency=".009 .27" numOctaves="3" seed="12" stitchTiles="stitch" result="noise"/>
+    <feColorMatrix in="noise" type="saturate" values="0" result="mono"/>
+    <feComponentTransfer in="mono" result="subdued"><feFuncA type="linear" slope=".20"/></feComponentTransfer>
+    <feBlend in="SourceGraphic" in2="subdued" mode="soft-light"/>
+  </filter>
+  <linearGradient id="vignette" x1="0" y1="0" x2="1" y2="1">
+    <stop stop-color="#060909" stop-opacity=".28"/><stop offset=".5" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#080909" stop-opacity=".42"/>
+  </linearGradient>
+  <pattern id="fibre" patternUnits="userSpaceOnUse" width="630" height="196">
+    <path d="M-40 3 Q170 5 370 3 T700 4 M-40 20 Q190 19 380 22 T700 21 M-40 37 Q200 34 380 35 T700 38 M-40 63 Q190 62 380 64 T700 62 M-40 81 Q170 84 380 82 T700 81 M-40 118 Q160 120 380 118 T700 119 M-40 150 Q140 147 380 151 T700 149 M-40 174 Q170 172 390 173 T700 176" fill="none" stroke="#a27b50" stroke-width="1.1" opacity=".12"/>
+    <path d="M-40 13 Q190 15 380 14 T700 14 M-40 76 Q160 74 380 76 T700 76 M-40 131 Q130 134 370 130 T700 132 M-40 191 Q160 188 390 190 T700 189" fill="none" stroke="#0e1211" stroke-width="2" opacity=".27"/>
+  </pattern>
+</defs>
+<rect width="1600" height="1200" fill="url(#oak)"/>
+<g opacity=".58"><rect x="0" y="0" width="1600" height="395" fill="#513b2c"/><rect x="0" y="400" width="1600" height="390" fill="#38291f"/><rect x="0" y="795" width="1600" height="405" fill="#463124"/></g>
+<g stroke="#130f0e" stroke-width="4" opacity=".58"><path d="M0 398H1600"/><path d="M0 792H1600"/></g>
+<g stroke="#aa7652" opacity=".1" fill="none"><path d="M0 402H1600M0 796H1600"/></g>
+<rect width="1600" height="1200" fill="url(#fibre)"/>
+<rect width="1600" height="1200" filter="url(#grain)" opacity=".35"/>
+<g fill="none" stroke="#17130f" stroke-width="1.7" opacity=".22">
+ <path d="M0 244C410 247 795 240 1600 248M0 267C430 263 825 268 1600 260M0 468C400 466 1000 470 1600 469M0 650C400 652 1000 643 1600 648M0 986C450 990 980 983 1600 988"/>
+</g>
+<rect width="1600" height="1200" fill="url(#vignette)"/>
+</svg>
