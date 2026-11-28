@@ -1,0 +1,11 @@
+import assert from 'node:assert/strict';
+import {readFile} from 'node:fs/promises';
+const html=await readFile('preview/portfolio.html','utf8');
+const old=await readFile('preview/archive.html','utf8');
+const ids=[...old.matchAll(/<article class="archive-card" id="([^"]+)"/g)].map(x=>x[1]);
+assert.equal(ids.length,13);
+for(const id of ids)assert.ok(html.includes('id="'+id+'"'),'Historical portfolio id missing: '+id);
+assert.equal((html.match(/class="library-card"/g)||[]).length,20);
+for(const tag of ['data-filter="all"','data-filter="systems"','data-filter="web"','data-filter="ai"','data-filter="legacy"'])assert.ok(html.includes(tag));
+assert.ok(html.includes('id="projectSearch"'));
+console.log('PORTFOLIO PASS: 20 visual cards, filters, search and 13 historical anchors preserved');

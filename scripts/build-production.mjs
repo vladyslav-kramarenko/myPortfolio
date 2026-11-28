@@ -14,7 +14,8 @@ const pages = [
   'projects/production-workflow-integration.html',
   'projects/lagrange-interpolation.html',
   'projects/numerical-methods.html',
-  'archive.html'
+  'archive.html',
+  'portfolio.html'
 ];
 const originInput = process.env.SITE_ORIGIN || 'https://kramarenko.info';
 const originURL = new URL(originInput);
