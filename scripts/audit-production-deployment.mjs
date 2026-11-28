@@ -28,7 +28,7 @@ for(const path of pages){
   checks++;
 }
 const home=html.get('/');
-assert.ok(home.includes('data-project-id="lagrange-web"'),'Lagrange case card missing on live production');
+assert.ok(html.get('/projects/lagrange-interpolation').includes('github.com/vladyslav-kramarenko/LagrangeWeb'),'Lagrange project page missing on live production');
 assert.ok(home.includes('href="tel:+12369929229"'),'Public phone contact missing');
 assert.ok(home.includes('href="/archive"'),'Historical archive link missing');
 for(const [path,body] of html){
