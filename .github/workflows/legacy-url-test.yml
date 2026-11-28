@@ -24,6 +24,8 @@ jobs:
         run: node scripts/build-staging.mjs
       - name: Verify production package
         run: node scripts/build-production.mjs
+      - name: Verify visual project library and legacy anchors
+        run: node scripts/test-portfolio.mjs
       - name: Check LinkedIn experience dates
         run: node scripts/test-linkedin-dates.mjs
       - name: Verify production canonical URLs and sitemap

@@ -6,7 +6,7 @@ import {mkdtemp,rm} from 'node:fs/promises';
 import {tmpdir} from 'node:os';
 import {join} from 'node:path';
 const origin='https://myportfolio.kramarenko-vladyslav-92.workers.dev';
-const paths=['/','/resume.html','/projects/local-rag-support-bot.html','/projects/teus-website.html','/projects/production-workflow-integration.html','/projects/lagrange-interpolation.html','/archive.html'];
+const paths=['/','/resume.html','/projects/local-rag-support-bot.html','/projects/teus-website.html','/projects/production-workflow-integration.html','/projects/lagrange-interpolation.html','/archive.html','/portfolio.html'];
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 const pages=new Map(),issues=[];
 // Cloudflare Builds may deploy after GitHub CI begins: wait for a real live revision.
@@ -60,8 +60,9 @@ assert.ok(home.includes('href="tel:+12369929229"'),'Phone contact missing');
 assert.ok(home.includes('>2369929229 ↗</a>'),'Phone display format changed');
 assert.ok(home.includes('data-project-id="lagrange-web"'),'Lagrange project card not deployed');
 assert.ok(home.includes('href="/projects/lagrange-interpolation"'),'Lagrange internal link missing');
-assert.ok(home.includes('href="/archive"'),'Historical archive link missing');
-assert.ok(pages.get('/archive.html').includes('Historical projects / Legacy URL archive'),'Archive not deployed');
+assert.ok(home.includes('href="/portfolio"'),'Portfolio library link missing');
+assert.ok(home.includes('Less talk. <em>More building.</em>'),'Visual featured work headline missing');
+assert.ok(pages.get('/portfolio.html').includes('id="libraryGrid"'),'Visual portfolio gallery not deployed');
 assert.ok(pages.get('/projects/lagrange-interpolation.html').includes('github.com/vladyslav-kramarenko/LagrangeWeb'),'Lagrange case page not deployed');
 try{
   const demo=await fetch('https://lagrange.kramarenko.info/',{signal:AbortSignal.timeout(12000)});
@@ -150,7 +151,7 @@ try{
     await sleep(400);
     const result=await evalJS('(() => {const box=s=>{const e=document.querySelector(s);if(!e)return null;const r=e.getBoundingClientRect();return {x:Math.round(r.x),y:Math.round(r.y),w:Math.round(r.width),bottom:Math.round(r.bottom)};};return {width:innerWidth,scrollWidth:document.documentElement.scrollWidth,bg:getComputedStyle(document.documentElement).getPropertyValue("--bg").trim(),theme:matchMedia("(prefers-color-scheme: light)").matches?"light":"dark",paper:box(".paper"),machine:box(".machine"),location:box(".location"),h1:box("h1"),cards:document.querySelectorAll("#featuredProjects .project-card").length,menuHidden:document.getElementById("siteMenu").hidden};})()');
     if(result.scrollWidth>width+3)issues.push('Horizontal overflow '+width+' '+theme+': '+result.scrollWidth);
-    if(result.cards!==2)issues.push('Featured cards '+width+' '+theme+': '+result.cards);
+    if(result.cards!==3)issues.push('Featured cards '+width+' '+theme+': '+result.cards);
     if(!result.paper||!result.machine||!result.h1)issues.push('Missing hero element '+width);
     if(result.location&&result.paper&&result.paper.y<result.location.bottom-2&&width<=900)
       issues.push('Paper overlaps location at '+width+' '+theme);
