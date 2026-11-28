@@ -752,6 +752,124 @@
       .personal-footer-links a:hover,.personal-footer-links a:focus-visible{color:#125d69}
       .scroll-next{color:#266d75;border-bottom-color:rgba(18,104,117,.28)}
     }
+
+    /* 2026 visual redesign / DEV: editorial rhythm and real systems, not decorative cards. */
+    .featured-section{border-top:0;padding-top:clamp(42px,7vw,95px)}
+    .work-intro{margin-bottom:30px}
+    .work-kicker,.method-label,.glimpse-heading>span{font:700 11px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.18em;color:var(--teal)}
+    .work-kicker{display:flex;align-items:center;gap:10px;margin-bottom:22px}
+    .work-pulse{width:8px;height:8px;border-radius:50%;background:#8ce4ab;box-shadow:0 0 0 5px rgba(140,228,171,.09)}
+    .work-intro-row{display:flex;justify-content:space-between;align-items:end;gap:30px}
+    .work-intro h2{font-size:clamp(43px,6.6vw,84px);line-height:.99;letter-spacing:-.07em;margin:0 0 18px;font-weight:800}
+    .work-intro h2 em{color:var(--teal);font-style:normal}
+    .work-intro p{max-width:650px;font-size:clamp(16px,1.65vw,20px);line-height:1.52;color:var(--muted);margin:0}
+    .work-view-all{flex-shrink:0;display:inline-flex;align-items:center;gap:18px;border:1px solid rgba(116,221,225,.45);border-radius:999px;padding:15px 18px;color:var(--teal);font-size:14px;font-weight:700}
+    .work-view-all:hover{background:rgba(116,221,225,.1)}
+    .featured-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:18px}
+    .featured-grid .project-card{grid-column:span 6;display:flex;flex-direction:column;min-height:0;overflow:hidden;background:rgba(18,36,39,.9);border:1px solid rgba(116,221,225,.22);border-radius:22px;padding:0;position:relative;transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
+    .featured-grid .project-card:first-child{grid-column:span 7}
+    .featured-grid .project-card:nth-child(2){grid-column:span 5}
+    .featured-grid .project-card:nth-child(3){grid-column:span 12;display:grid;grid-template-columns:1fr 1fr}
+    .featured-grid .project-card:hover{transform:translateY(-4px);border-color:rgba(116,221,225,.55);box-shadow:0 18px 42px rgba(0,0,0,.12)}
+    .featured-grid .project-details{padding:24px 28px 28px;display:flex;flex-direction:column;flex:1;min-width:0}
+    .featured-grid .project-card h3,.featured-grid .project-card h5{font-size:clamp(23px,2.5vw,32px);line-height:1.12;letter-spacing:-.045em;margin:11px 0}
+    .featured-grid .project-card p{font-size:15px;line-height:1.5;max-width:52ch}
+    .featured-grid .project-card .project-type{font-size:10px;letter-spacing:.15em}
+    .featured-grid .project-card a{color:var(--teal);font-weight:750;font-size:14px;text-decoration:none}
+    .featured-grid .project-card a:hover{text-decoration:underline}
+    .featured-grid .project-card .project-link{padding-top:0}
+    .featured-grid .project-card .project-actions{padding-top:0;margin-top:auto}
+    .featured-grid .project-stack{display:flex;flex-wrap:wrap;gap:7px;margin:20px 0 18px}
+    .featured-grid .project-stack span{font:600 11px/1.3 ui-monospace,Menlo,monospace;padding:7px 10px;border-radius:6px;color:#a3dcdd;background:rgba(116,221,225,.075);border:1px solid rgba(116,221,225,.17)}
+    .featured-grid .project-art{position:relative;overflow:hidden;height:clamp(215px,24vw,300px);isolation:isolate;background:#0b2328;padding:24px}
+    .featured-grid .project-card:nth-child(3) .project-art{height:100%;min-height:265px}
+    .featured-grid .project-art::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent 95%,rgba(116,221,225,.04) 95%),linear-gradient(transparent 95%,rgba(116,221,225,.04) 95%);background-size:32px 32px;pointer-events:none;opacity:.38}
+    .featured-grid .visual-label{position:relative;z-index:2;font:700 10px/1.4 ui-monospace,Menlo,monospace;color:#99eeeb;letter-spacing:.19em}
+    .art-rag{background:radial-gradient(circle at 50% 105%,rgba(25,132,124,.35),transparent 60%),linear-gradient(135deg,#112c34,#102026)!important}
+    .rag-flow,.pipeline-flow{display:flex;align-items:center;gap:9px;justify-content:center;position:relative;z-index:2;margin-top:72px}
+    .rag-flow span,.pipeline-flow span{padding:12px 13px;border-radius:9px;background:rgba(13,48,52,.9);border:1px solid rgba(116,221,225,.43);box-shadow:0 9px 20px rgba(0,0,0,.12);font:650 12px/1.3 ui-monospace,Menlo,monospace;color:#d4f2ee}
+    .rag-flow b,.pipeline-flow b{color:#79dedd;font-size:18px;font-weight:400}
+    .rag-document-lines{position:absolute;bottom:33px;left:16%;right:16%;display:flex;gap:9px;justify-content:center}
+    .rag-document-lines i{height:7px;width:24%;border-radius:3px;background:rgba(118,216,217,.19)}
+    .rag-document-lines i:nth-child(2){width:37%;background:rgba(118,216,217,.35)}
+    .art-data{background:radial-gradient(circle at 75% 85%,rgba(36,120,153,.33),transparent 62%),linear-gradient(150deg,#142932,#0d1b22)!important}
+    .art-data .pipeline-flow{margin-top:44px;gap:5px}
+    .art-data .pipeline-flow span{font-size:clamp(9px,.9vw,12px);padding:11px 8px}
+    .pipeline-chart{height:73px;position:absolute;left:14%;right:14%;bottom:0;display:flex;gap:7px;align-items:end;justify-content:center;border-bottom:1px solid rgba(143,228,229,.28)}
+    .pipeline-chart i{display:block;width:12%;background:linear-gradient(0deg,rgba(33,94,117,.16),rgba(104,216,219,.6));border-radius:3px 3px 0 0}
+    .pipeline-chart i:nth-child(1){height:28%}.pipeline-chart i:nth-child(2){height:44%}.pipeline-chart i:nth-child(3){height:38%}.pipeline-chart i:nth-child(4){height:66%}.pipeline-chart i:nth-child(5){height:48%}.pipeline-chart i:nth-child(6){height:82%}.pipeline-chart i:nth-child(7){height:73%}
+    .art-leo{background:radial-gradient(circle at 50% 65%,rgba(74,145,135,.33),transparent 65%),linear-gradient(145deg,#123036,#112226)!important}
+    .leo-track{position:absolute;inset:auto 0 -15px;width:100%;height:90%;z-index:1}
+    .work-method{margin:54px 0 12px;padding:38px clamp(20px,4vw,52px);border:1px solid rgba(116,221,225,.21);border-radius:20px;background:linear-gradient(115deg,rgba(116,221,225,.085),rgba(17,37,40,.45) 52%,rgba(15,32,38,.7))}
+    .method-label{display:flex;justify-content:space-between;gap:12px;margin-bottom:27px}
+    .method-label span{color:#779e9f}
+    .method-main{display:grid;grid-template-columns:1fr 1.25fr;gap:36px;align-items:end}
+    .work-method h2{font-size:clamp(30px,3.5vw,48px);letter-spacing:-.055em;line-height:1.09;margin:0}
+    .work-method h2 span{color:var(--teal)}
+    .method-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+    .method-step{display:flex;flex-direction:column;gap:9px;border-top:2px solid rgba(116,221,225,.42);padding:14px 4px 0}
+    .method-step>span{font:700 11px ui-monospace,Menlo,monospace;color:var(--teal)}
+    .method-step strong{font-size:15px;letter-spacing:-.025em}
+    .method-step small{font-size:12px;line-height:1.5;color:var(--muted)}
+    .project-glimpse{padding:42px 0 30px}
+    .glimpse-heading{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-bottom:15px}
+    .glimpse-heading a{font-weight:700;font-size:14px;color:var(--teal)}
+    .glimpse-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+    .glimpse-item{display:flex;flex-direction:column;overflow:hidden;border-radius:12px;border:1px solid rgba(116,221,225,.18);background:rgba(16,38,41,.68);transition:transform .2s,border-color .2s}
+    .glimpse-item:hover{transform:translateY(-3px);border-color:rgba(116,221,225,.48)}
+    .glimpse-item img{width:100%;aspect-ratio:16/9;object-fit:cover;object-position:center;display:block;background:#10272a}
+    .glimpse-item>span{display:flex;justify-content:space-between;gap:10px;align-items:baseline;padding:13px 15px}
+    .glimpse-item strong{font-size:14px;letter-spacing:-.025em}
+    .glimpse-item small{font-size:12px;color:var(--teal)}
+    #skills{padding-top:33px}
+    #skills .skill-card{padding:16px 19px;border-radius:10px;background:transparent}
+    #skills .skill-card h3{font-size:15px;margin:0 0 7px}
+    #skills .skill-card p{font-size:13px;line-height:1.55}
+    #skills .section-heading h2{font-size:clamp(27px,3vw,34px)}
+    @media(max-width:900px){
+      .featured-grid .project-card:first-child,.featured-grid .project-card:nth-child(2){grid-column:span 6}
+      .method-main{grid-template-columns:1fr;gap:25px}
+    }
+    @media(max-width:700px){
+      .featured-section{padding-top:34px!important}
+      .work-intro-row{display:block}
+      .work-intro h2{font-size:clamp(39px,11vw,54px)}
+      .work-intro h2 em{display:block}
+      .work-intro p{font-size:15px}
+      .work-kicker{font-size:9px}
+      .work-view-all{margin-top:20px;padding:11px 16px;font-size:13px}
+      .featured-grid{display:flex;flex-direction:column;gap:14px}
+      .featured-grid .project-card,.featured-grid .project-card:nth-child(3){display:flex;flex-direction:column}
+      .featured-grid .project-card:nth-child(3) .project-art{min-height:0}
+      .featured-grid .project-art{height:205px!important;flex:0 0 auto}
+      .featured-grid .project-details{padding:18px 20px 21px}
+      .featured-grid .project-card h3,.featured-grid .project-card h5{font-size:24px}
+      .featured-grid .project-card p{font-size:14px}
+      .featured-grid .project-stack{margin:12px 0}
+      .rag-flow,.pipeline-flow{margin-top:53px;gap:6px}
+      .rag-flow span,.pipeline-flow span,.art-data .pipeline-flow span{font-size:10px;padding:10px 7px}
+      .work-method{margin-top:27px;padding:24px 19px}
+      .method-steps{gap:9px}
+      .method-step strong{font-size:13px}
+      .method-step small{font-size:11px}
+      .glimpse-grid{grid-template-columns:1fr;gap:12px}
+      .glimpse-item{display:grid;grid-template-columns:115px minmax(0,1fr);min-height:97px}
+      .glimpse-item img{height:100%;aspect-ratio:auto;object-fit:cover}
+      .glimpse-item>span{flex-direction:column;justify-content:center;gap:5px}
+      .glimpse-item strong{font-size:14px}
+      .glimpse-item small{font-size:12px}
+    }
+    @media(prefers-reduced-motion:reduce){.featured-grid .project-card,.glimpse-item{transition:none}}
+    @media(prefers-color-scheme:light){
+      .work-intro p{color:#49636a}
+      .featured-grid .project-card,.glimpse-item{background:rgba(255,255,255,.88);border-color:rgba(26,111,118,.24)}
+      .featured-grid .project-card p{color:#466369}
+      .featured-grid .project-stack span{color:#1a6771;background:rgba(22,108,113,.055);border-color:rgba(22,108,113,.19)}
+      .work-method{background:linear-gradient(115deg,#deeeeb,#f7faf8);border-color:#c6ddda}
+      .method-label span,.method-step small{color:#637b80}
+      .glimpse-item strong{color:#263e43}
+      #skills .skill-card{background:rgba(255,255,255,.56)}
+    }
   </style>
 <script defer src="/analytics.js"></script>
 </head>
@@ -877,24 +995,80 @@ into working systems.</span>
     <main class="portfolio-sections" id="content">
 
       <section class="content-section featured-section" id="projects" aria-labelledby="projectsTitle">
-        <div class="section-heading">
-          <div><h2 id="projectsTitle"><a href="#projects" class="section-title-link" aria-label="Show featured projects">Featured projects <span aria-hidden="true">↓</span></a></h2></div>
-          <a class="subtle-link" href="#experience">Projects by employer ↓</a>
+        <div class="work-intro">
+          <div class="work-kicker"><span class="work-pulse" aria-hidden="true"></span> SELECTED WORK / REAL SYSTEMS</div>
+          <div class="work-intro-row">
+            <div>
+              <h2 id="projectsTitle">Less talk. <em>More building.</em></h2>
+              <p>From the systems behind a business to small things worth experimenting with. A few examples of what I make and maintain.</p>
+            </div>
+            <a class="work-view-all" href="/portfolio">Explore all projects <span aria-hidden="true">↗</span></a>
+          </div>
         </div>
         <div class="project-grid featured-grid" id="featuredProjects">
-          <!-- Searchable static fallback; JavaScript replaces with chosen featured projects. -->
-          <article class="project-card">
-            <div class="project-type">Independent · Public repository</div>
-            <h3>Local RAG Support Bot</h3>
-            <p>Document-grounded assistant with local inference, semantic retrieval and a Telegram interface.</p>
-            <a class="project-link" href="/projects/local-rag-support-bot">Explore RAG project ↗</a>
+          <!-- Static content remains useful with JavaScript disabled. -->
+          <article class="project-card" data-project-id="proj-006">
+            <div class="project-art art-rag" role="img" aria-label="Concept diagram: question, retrieval from documents, and a grounded answer">
+              <span class="visual-label">RETRIEVE / RESPOND</span>
+              <div class="rag-flow"><span>Question</span><b>→</b><span>Documents</span><b>→</b><span>Answer</span></div>
+              <div class="rag-document-lines" aria-hidden="true"><i></i><i></i><i></i></div>
+            </div>
+            <div class="project-details"><div class="project-type">Independent · Public source</div>
+              <h3>Local RAG Support Bot</h3><p>Document-grounded assistant with local inference, semantic retrieval and a Telegram interface.</p>
+              <div class="project-stack"><span>Python</span><span>LangChain</span><span>FAISS</span></div>
+              <a class="project-link" href="/projects/local-rag-support-bot">Explore the project ↗</a>
+            </div>
           </article>
-          <article class="project-card">
-            <div class="project-type">Business systems · Ideal Siding</div>
-            <h3>Operational reporting integration</h3>
-            <p>ServiceMinder data integration, SQL reporting views and Looker Studio reporting.</p>
-            <a class="project-link" href="#experience">See experience ↗</a>
+          <article class="project-card" data-project-id="proj-001">
+            <div class="project-art art-data" role="img" aria-label="Architecture diagram showing ServiceMinder data flowing through BigQuery to Looker Studio">
+              <span class="visual-label">INTEGRATE / REPORT</span>
+              <div class="pipeline-flow"><span>ServiceMinder</span><b>→</b><span>BigQuery</span><b>→</b><span>Looker</span></div>
+              <div class="pipeline-chart" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+            </div>
+            <div class="project-details"><div class="project-type">Business systems · Ideal Siding</div>
+              <h3>Operational reporting integration</h3><p>Data integration, SQL reporting views and cloud-based reporting workflows.</p>
+              <div class="project-stack"><span>BigQuery</span><span>SQL</span><span>Looker Studio</span></div>
+              <a class="project-link" href="#experience">See the experience ↗</a>
+            </div>
           </article>
+          <article class="project-card" data-project-id="leo-racer">
+            <div class="project-art art-leo" role="img" aria-label="Stylized illustration of a winding driving track, representing the Leo Racer browser game">
+              <span class="visual-label">PLAY / EXPLORE</span>
+              <svg class="leo-track" viewBox="0 0 500 230" aria-hidden="true" preserveAspectRatio="xMidYMid meet">
+                <path d="M-30 185 C90 185 58 58 198 83 S330 200 530 54" fill="none" stroke="rgba(120,234,217,.13)" stroke-width="80" stroke-linecap="round"/>
+                <path d="M-30 185 C90 185 58 58 198 83 S330 200 530 54" fill="none" stroke="#5dc5b8" stroke-width="48" stroke-linecap="round"/>
+                <path d="M-30 185 C90 185 58 58 198 83 S330 200 530 54" fill="none" stroke="#1a3c40" stroke-width="35" stroke-linecap="round"/>
+                <path d="M-30 185 C90 185 58 58 198 83 S330 200 530 54" fill="none" stroke="#e6d7a6" stroke-width="2.5" stroke-dasharray="13 14"/>
+                <g transform="translate(210,100) rotate(15)"><rect x="-29" y="-16" width="58" height="32" rx="9" fill="#d88b65" stroke="#ffe3a8" stroke-width="2"/><rect x="-9" y="-11" width="22" height="22" rx="5" fill="#315c63"/><circle cx="-14" cy="-17" r="7" fill="#172a2e"/><circle cx="16" cy="-17" r="7" fill="#172a2e"/><circle cx="-14" cy="17" r="7" fill="#172a2e"/><circle cx="16" cy="17" r="7" fill="#172a2e"/></g>
+              </svg>
+            </div>
+            <div class="project-details"><div class="project-type">Independent · Browser game</div>
+              <h3>Leo Racer</h3><p>Privacy-first 3D driving game for young children, with steering wheel, touch and keyboard controls.</p>
+              <div class="project-stack"><span>TypeScript</span><span>Three.js</span><span>Cloudflare</span></div>
+              <a class="project-link" href="https://leo-racer.kramarenko.info/" target="_blank" rel="noopener noreferrer">Try the game ↗</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="work-method" aria-labelledby="methodTitle">
+        <div class="method-label">HOW I APPROACH THE WORK <span aria-hidden="true">/ 01—03</span></div>
+        <div class="method-main">
+          <h2 id="methodTitle">A useful system beats<br><span>a complicated one.</span></h2>
+          <div class="method-steps" aria-label="Understand the problem, build the solution, operate it">
+            <div class="method-step"><span>01</span><strong>Understand</strong><small>Start with the actual problem.</small></div>
+            <div class="method-step"><span>02</span><strong>Build</strong><small>Connect the pieces that matter.</small></div>
+            <div class="method-step"><span>03</span><strong>Operate</strong><small>Keep it practical and maintainable.</small></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="project-glimpse" aria-label="More projects to explore">
+        <div class="glimpse-heading"><span>ALSO ON MY WORKBENCH</span><a href="/portfolio">Project library ↗</a></div>
+        <div class="glimpse-grid">
+          <a class="glimpse-item" href="/projects/numerical-methods"><img src="/assets/img/portfolio/cmvi.webp" alt="Screenshot of an earlier numerical methods project" loading="lazy" width="320" height="190"><span><strong>Numerical Methods</strong><small>Math made interactive ↗</small></span></a>
+          <a class="glimpse-item" href="/projects/lagrange-interpolation"><img src="/assets/img/portfolio/lagrange.webp" alt="Screenshot of the original Lagrange interpolation project" loading="lazy" width="320" height="190"><span><strong>Lagrange Interpolation</strong><small>Explore the formula ↗</small></span></a>
+          <a class="glimpse-item" href="/portfolio"><img src="/assets/img/portfolio/ecofuel_plus/ecofuel_pc_black-min.png" alt="Ecofuel Plus website screenshot" loading="lazy" width="320" height="190"><span><strong>Web &amp; experiments</strong><small>See more projects ↗</small></span></a>
         </div>
       </section>
 
@@ -1137,6 +1311,12 @@ into working systems.</span>
       const pinnedCards = allProjectCards.filter(card => card.dataset.featured === 'true');
       const defaultFeatured = pinnedCards.map(card => card.dataset.projectId)
         .sort((a,b) => (a === 'proj-006' ? -1 : b === 'proj-006' ? 1 : 0));
+      function projectVisual(id) {
+        if (id === 'proj-006') return `<div class="project-art art-rag" role="img" aria-label="Concept diagram of a question, document retrieval and a grounded answer"><span class="visual-label">RETRIEVE / RESPOND</span><div class="rag-flow"><span>Question</span><b>→</b><span>Documents</span><b>→</b><span>Answer</span></div><div class="rag-document-lines" aria-hidden="true"><i></i><i></i><i></i></div></div>`;
+        if (id === 'proj-001') return `<div class="project-art art-data" role="img" aria-label="Architecture diagram showing ServiceMinder to BigQuery to Looker Studio"><span class="visual-label">INTEGRATE / REPORT</span><div class="pipeline-flow"><span>ServiceMinder</span><b>→</b><span>BigQuery</span><b>→</b><span>Looker</span></div><div class="pipeline-chart" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>`;
+        if (id === 'leo-racer') return `<div class="project-art art-leo" role="img" aria-label="Stylized driving-track illustration"><span class="visual-label">PLAY / EXPLORE</span><svg class="leo-track" viewBox="0 0 500 230" aria-hidden="true"><path d="M-30 185 C90 185 58 58 198 83 S330 200 530 54" fill="none" stroke="#5dc5b8" stroke-width="48" stroke-linecap="round"/><path d="M-30 185 C90 185 58 58 198 83 S330 200 530 54" fill="none" stroke="#1a3c40" stroke-width="35" stroke-linecap="round"/><path d="M-30 185 C90 185 58 58 198 83 S330 200 530 54" fill="none" stroke="#e6d7a6" stroke-width="2.5" stroke-dasharray="13 14"/><g transform="translate(210,100) rotate(15)"><rect x="-29" y="-16" width="58" height="32" rx="9" fill="#d88b65" stroke="#ffe3a8" stroke-width="2"/><rect x="-9" y="-11" width="22" height="22" rx="5" fill="#315c63"/><circle cx="-14" cy="-17" r="7" fill="#172a2e"/><circle cx="16" cy="-17" r="7" fill="#172a2e"/><circle cx="-14" cy="17" r="7" fill="#172a2e"/><circle cx="16" cy="17" r="7" fill="#172a2e"/></g></svg></div>`;
+        return `<div class="project-art art-generic" role="img" aria-label="Abstract technical system diagram"><span class="visual-label">BUILD / CONNECT</span><div class="pipeline-flow"><span>Input</span><b>→</b><span>System</span><b>→</b><span>Output</span></div></div>`;
+      }
       function renderFeatured(ids) {
         featuredRoot.replaceChildren();
         for (const id of [...new Set(ids)]) {
@@ -1148,7 +1328,33 @@ into working systems.</span>
           const organization = document.createElement('div');
           organization.className = 'project-type';
           organization.textContent = sourceCard.dataset.organization || 'Independent';
-          card.prepend(organization);
+          const visual = document.createElement('div');
+          visual.innerHTML = projectVisual(id);
+          const details = document.createElement('div');
+          details.className = 'project-details';
+          details.append(organization, ...Array.from(card.children));
+          const tagsById = {
+            'proj-006':['Python','LangChain','FAISS'],
+            'proj-001':['BigQuery','SQL','Looker Studio'],
+            'leo-racer':['TypeScript','Three.js','Cloudflare']
+          };
+          const tags = document.createElement('div');
+          tags.className = 'project-stack';
+          for (const tag of tagsById[id] || []) {
+            const span = document.createElement('span');
+            span.textContent = tag;
+            tags.append(span);
+          }
+          const firstLink = details.querySelector('a');
+          if (firstLink) details.insertBefore(tags, firstLink);
+          else details.append(tags);
+          const heading = details.querySelector('h5');
+          if (heading) {
+            const h3 = document.createElement('h3');
+            h3.textContent = heading.textContent;
+            heading.replaceWith(h3);
+          }
+          card.replaceChildren(visual.firstElementChild, details);
           featuredRoot.append(card);
         }
         featuredSection.hidden = !featuredRoot.childElementCount;
